@@ -1,0 +1,41 @@
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"   # API S3
+      - "9001:9001"   # Console Web
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - datalake
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  ingest:
+    build: .
+    container_name: ingest
+    depends_on:
+      - minio
+    volumes:
+      - ./:/app
+    working_dir: /app
+    networks:
+      - datalake
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: tail -f /dev/null  # Mantém o container rodando
+
+volumes:
+  minio_data:
+
+networks:
+  datalake:
+    driver: bridge
