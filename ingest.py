@@ -4,7 +4,7 @@ import json
 import requests
 from minio import Minio
 from io import BytesIO
-from config import MinIOConfig, DataSourceConfig, FUNDAMENTUS_CONFIG
+from config import MinIOConfig, DataSourceConfig, FUNDAMENTUS_CONFIG, CVM_CONFIG
 import logging
 from typing import Optional, Dict, Any
 
@@ -158,13 +158,64 @@ class FundamentusIngestion(MultiSourceIngestion):
         except Exception as e:
             logger.error(f"❌ Erro inesperado ao processar {papel}: {e}")
             return None
+class CVMIngestion(MultiSourceIngestion):
+    """Ingestão específica da CVM"""
+    
+    def __init__(self, minio_config: MinIOConfig = None):
+        super().__init__(
+            minio_config=minio_config,
+            source_config=CVM_CONFIG
+        )
+    def ingest(self, ano: str) -> Optional[Dict[str, Any]]:
+        """
+        Faz a ingestão de dados da CVM - Formulário de Demonstrações Financeiras Padronizadas (DFP)
+        
+        Args:
+            ano: Ano de referência (ex: 2023)
+            
+        Returns:
+            Dicionário com informações da ingestão ou None em caso de erro
+        """
+        try:
+            logger.info(f"Iniciando ingestão CVM: {ano}")
+            
+            # 1. Buscar dados
+            url = f"https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_{ano}.zip"
+            headers = {"User-Agent": "Mozilla/5.0"}
+            response = requests.get(url, headers=headers, timeout=30)
+            response.raise_for_status()
 
+            
+            # 2. Preparar timestamps
+            timestamp_utc = datetime.utcnow()
+            extraction_date = timestamp_utc.strftime("%Y-%m-%d")
+            extraction_time = timestamp_utc.strftime("%H-%M-%S")
+            
+            # 3. Gerar caminho usando DataSourceConfig
+            base_path = self.source_config.get_base_path(
+                identifier_value=ano,
+                extraction_date=extraction_date,
+                extraction_time=extraction_time
+            )
+            # 4. Salvar ZIP
+            self._save_to_minio(
+                data=response.content,
+                path=f"{base_path}dfp{ano}.zip",
+                content_type="application/zip"
+            )
+        except requests.exceptions.RequestException as e:
+            logger.error(f"❌ Erro ao buscar dados de {ano}: {e}")
+            return None
+        except Exception as e:
+            logger.error(f"❌ Erro inesperado ao processar {ano}: {e}")
+            return None
 # Exemplo de uso
 if __name__ == "__main__":
     # Ingestão de múltiplas fontes para a mesma ação
-    papel = "PETR4"
+    anos = ["2020", "2021", "2022", "2023", "2024", "2025"]
     
-    # Fonte 1: Fundamentus
-    fundamentus = FundamentusIngestion()
-    result1 = fundamentus.ingest(papel)
-    print(f"Fundamentus: {result1}")
+    # Fonte 1: CVM
+    cvm = CVMIngestion()
+    for ano in anos:
+        result1 = cvm.ingest(ano)
+

@@ -61,9 +61,9 @@ FUNDAMENTUS_CONFIG = DataSourceConfig(
 )
 
 
-""" CVM_CONFIG = DataSourceConfig(
+CVM_CONFIG = DataSourceConfig(
     source_name="gov_br_cvm",
-    asset_type="demonstracoes_financeiras",
-    identifier_type="cnpj",
-    data_format="csv"
-) """
+    asset_type="demonstracoes_financeiras_padronizadas",
+    identifier_type="ano",
+    data_format="zip"
+)
