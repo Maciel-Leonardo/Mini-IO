@@ -158,6 +158,7 @@ class FundamentusIngestion(MultiSourceIngestion):
         except Exception as e:
             logger.error(f"❌ Erro inesperado ao processar {papel}: {e}")
             return None
+        
 class CVMIngestion(MultiSourceIngestion):
     """Ingestão específica da CVM"""
     
@@ -203,12 +204,53 @@ class CVMIngestion(MultiSourceIngestion):
                 path=f"{base_path}dfp{ano}.zip",
                 content_type="application/zip"
             )
+            # 5. Salvar metadados
+
+            metadata = {
+            "fonte": "CVM",
+            "tipo_ativo": "demonstracao_financeira_padronizada",
+            "identificador": {
+                "tipo": "ano",
+                "valor": ano  # ex: "2010"
+            },
+            "extracao": {
+                "data": extraction_date,
+                "hora": extraction_time,
+                "timestamp_utc": timestamp_utc.isoformat()
+            },
+            "requisicao": {
+                "url": f"https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_{ano}.zip",
+                "status_code": response.status_code,
+                "headers": headers,
+                "tempo_resposta_ms": response.elapsed.total_seconds() * 1000
+            },
+            "dados": {
+                "formato": "CSV",
+                "separador": ";",
+                "compactacao": "ZIP",
+                "tamanho_bytes": len(response.content),
+                "ano_referencia": int(ano),
+                "moeda": "BRL",
+            },
+            "versao_ingestor": "2.0.0"
+        }
+            self._save_metadata(base_path, metadata)
+            result = {
+                "fonte": self.source_config.source_name,
+                "bucket": self.minio_config.bucket_bronze,
+                "path": base_path,
+                "timestamp": timestamp_utc.isoformat(),
+                "identificador": ano
+            }
+            logger.info(f"✅ Ingestão concluída: {ano}")
+            return result
         except requests.exceptions.RequestException as e:
             logger.error(f"❌ Erro ao buscar dados de {ano}: {e}")
             return None
         except Exception as e:
             logger.error(f"❌ Erro inesperado ao processar {ano}: {e}")
             return None
+        
 # Exemplo de uso
 if __name__ == "__main__":
     # Ingestão de múltiplas fontes para a mesma ação
