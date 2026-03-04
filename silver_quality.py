@@ -1,46 +1,80 @@
 # silver_quality.py
 """
-Validação de qualidade de dados + Métricas Prometheus
+Validação de qualidade de dados + definição das Métricas Prometheus
+
+RESPONSABILIDADE DESTE ARQUIVO:
+  - Definir as métricas (Gauges, Counters, Histograms)
+  - Validar os dados e popular essas métricas
+
+IMPORTANTE — O QUE ESTE ARQUIVO NÃO FAZ MAIS:
+  - Ele NÃO importa silver.py
+  - Ele NÃO inicia o servidor HTTP do Prometheus
+  - Ele NÃO lê dados do MinIO diretamente
+
+Quem faz isso agora é o run_metrics.py, que age como "maestro":
+importa silver.py e silver_quality.py separadamente, sem criar
+o ciclo A→B→A que causava o ImportError.
 """
 
+# Funções do PySpark para calcular métricas nos dados
 from pyspark.sql.functions import col, count, when, isnan, isnull, max, min, avg, sum as spark_sum
-from prometheus_client import Gauge, Counter, Histogram, generate_latest
+
+# Tipos de métricas do Prometheus:
+#   Gauge   → valor que sobe e desce (ex: total de linhas)
+#   Counter → valor que só cresce (ex: total de erros)
+#   Histogram → distribuição de valores (ex: tempo de processamento)
+from prometheus_client import Gauge, Counter, Histogram
+
+# Biblioteca padrão de logs
 import logging
+
+# Tipo auxiliar para anotar o retorno de funções
 from typing import Dict, Any
 
+# Canal de log específico para este arquivo
 logger = logging.getLogger(__name__)
 
-# ============================================================================
-# MÉTRICAS PROMETHEUS
-# ============================================================================
 
-# Gauges (valores instantâneos)
+# ============================================================================
+# DEFINIÇÃO DAS MÉTRICAS PROMETHEUS
+# ============================================================================
+#
+# As métricas são definidas aqui UMA VEZ, quando o arquivo é importado.
+# Elas ficam "registradas" na memória, mas sem valor até alguém chamar
+# .set() ou .inc() nelas — o que acontece durante validate_and_report_metrics().
+#
+# Labels são como "filtros": permitem ver a métrica separada por csv_type e ano.
+# Exemplo: silver_rows_total{csv_type="DRE_con", ano="2023"} = 45000
+
+# Total de linhas processadas por tabela e ano
 silver_rows_total = Gauge(
-    'silver_rows_total', 
+    'silver_rows_total',
     'Total de linhas na camada Silver',
-    ['csv_type', 'ano']
+    ['csv_type', 'ano']  # labels: permite filtrar por tabela e ano no Prometheus
 )
 
+# Número de empresas distintas por tabela e ano
 silver_companies_unique = Gauge(
     'silver_companies_unique',
     'Número de empresas únicas',
     ['csv_type', 'ano']
 )
 
+# Percentual de valores nulos por coluna (útil para detectar dados ruins)
 silver_null_percentage = Gauge(
     'silver_null_percentage',
     'Percentual de valores nulos por coluna',
-    ['csv_type', 'ano', 'column']
+    ['csv_type', 'ano', 'column']  # label extra: qual coluna está nula
 )
 
-# Counters (valores acumulativos)
+# Contador de erros de validação (só cresce, nunca diminui)
 silver_validation_errors = Counter(
     'silver_validation_errors_total',
     'Total de erros de validação',
-    ['csv_type', 'ano', 'error_type']
+    ['csv_type', 'ano', 'error_type']  # label extra: tipo do erro
 )
 
-# Histograms (distribuições)
+# Histograma do tempo de processamento (em segundos)
 silver_processing_time = Histogram(
     'silver_processing_seconds',
     'Tempo de processamento em segundos',
@@ -48,94 +82,117 @@ silver_processing_time = Histogram(
 )
 
 
+# ============================================================================
+# CLASSE VALIDADORA
+# ============================================================================
+
 class SilverQualityValidator:
-    """Validador de qualidade de dados para camada Silver"""
-    
+    """
+    Valida a qualidade dos dados da camada Silver e popula as métricas Prometheus.
+
+    Uso:
+        validator = SilverQualityValidator(spark)
+        validator.validate_and_report_metrics(df, "DRE_con", "2023")
+    """
+
     def __init__(self, spark):
+        # Recebe a sessão Spark já criada por quem instancia esta classe
+        # (evita abrir múltiplas sessões Spark desnecessariamente)
         self.spark = spark
-    
+
     def validate_and_report_metrics(self, df, csv_key: str, ano: str) -> Dict[str, Any]:
         """
-        Executa validações E atualiza métricas Prometheus
-        
+        Executa todas as validações no DataFrame e atualiza as métricas Prometheus.
+
+        Args:
+            df:      DataFrame Spark com os dados da camada Silver
+            csv_key: Nome da tabela (ex: "DRE_con", "BPA_con")
+            ano:     Ano de referência (ex: "2023")
+
         Returns:
-            Dict com métricas de qualidade
+            Dicionário com os resultados de todas as validações
         """
-        
+
         logger.info(f"\n{'='*60}")
         logger.info(f"🔍 Validação de Qualidade: {csv_key} - {ano}")
         logger.info(f"{'='*60}")
-        
+
+        # Estrutura que vai acumular todos os resultados desta validação
         metrics = {
             "csv_key": csv_key,
             "ano": ano,
-            "total_rows": df.count(),
-            "total_columns": len(df.columns),
+            "total_rows": df.count(),        # conta quantas linhas tem o DataFrame
+            "total_columns": len(df.columns), # conta quantas colunas
             "validations": {}
         }
-        
+
         # ====================================================================
         # 1. COLUNAS OBRIGATÓRIAS
+        # Verifica se todas as colunas essenciais estão presentes no DataFrame
         # ====================================================================
         required_cols = {
-            "DRE_con": ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "DT_REFER", "DS_CONTA"],
-            "BPA_con": ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "CD_CONTA", "DS_CONTA"],
-            "BPP_con": ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "CD_CONTA", "DS_CONTA"],
+            "DRE_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "DT_REFER", "DS_CONTA"],
+            "BPA_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "CD_CONTA", "DS_CONTA"],
+            "BPP_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "CD_CONTA", "DS_CONTA"],
             "DFC_DMPL_con": ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "COLUNA_DF"]
         }
-        
+
         if csv_key in required_cols:
+            # Lista as colunas que deveriam existir mas não existem
             missing = [col for col in required_cols[csv_key] if col not in df.columns]
             metrics["validations"]["missing_columns"] = missing
-            
+
             if missing:
                 logger.error(f"❌ Colunas obrigatórias faltando: {missing}")
+                # Incrementa o contador de erros no Prometheus
                 silver_validation_errors.labels(
-                    csv_type=csv_key, 
-                    ano=ano, 
+                    csv_type=csv_key,
+                    ano=ano,
                     error_type='missing_columns'
                 ).inc(len(missing))
+                # Retorna sem continuar as outras validações (dado inválido)
                 return metrics
             else:
                 logger.info("✅ Todas as colunas obrigatórias presentes")
-        
+
         # ====================================================================
-        # 2. TOTAL DE REGISTROS (atualizar Prometheus)
+        # 2. TOTAL DE REGISTROS
+        # Envia o total de linhas para o Prometheus
         # ====================================================================
         silver_rows_total.labels(csv_type=csv_key, ano=ano).set(metrics["total_rows"])
         logger.info(f"📊 Total de registros: {metrics['total_rows']:,}")
-        
+
         # ====================================================================
         # 3. EMPRESAS ÚNICAS
+        # Conta quantas empresas diferentes aparecem nos dados
         # ====================================================================
         if "CNPJ_CIA" in df.columns:
             unique_companies = df.select("CNPJ_CIA").distinct().count()
             metrics["validations"]["unique_companies"] = unique_companies
-            
-            # Atualizar Prometheus
             silver_companies_unique.labels(csv_type=csv_key, ano=ano).set(unique_companies)
-            
             logger.info(f"🏢 Empresas únicas: {unique_companies:,}")
-        
+
         # ====================================================================
         # 4. PERCENTUAL DE NULOS POR COLUNA
+        # Para cada coluna, calcula quantos % dos valores são nulos
         # ====================================================================
         null_percentages = {}
         high_null_columns = []
-        
+
         for col_name in df.columns:
+            # Conta quantas linhas têm valor nulo nesta coluna
             null_count = df.filter(col(col_name).isNull()).count()
             null_pct = (null_count / metrics["total_rows"]) * 100
             null_percentages[col_name] = round(null_pct, 2)
-            
-            # Atualizar Prometheus
+
+            # Envia o percentual de nulos desta coluna ao Prometheus
             silver_null_percentage.labels(
-                csv_type=csv_key, 
-                ano=ano, 
+                csv_type=csv_key,
+                ano=ano,
                 column=col_name
             ).set(null_pct)
-            
-            # Alertar se > 50% nulos
+
+            # Se mais de 50% dos valores são nulos, é um problema grave
             if null_pct > 50:
                 logger.warning(f"⚠️  {col_name}: {null_pct:.1f}% nulos")
                 high_null_columns.append(col_name)
@@ -144,22 +201,23 @@ class SilverQualityValidator:
                     ano=ano,
                     error_type='high_null_percentage'
                 ).inc()
-        
+
         metrics["validations"]["null_percentages"] = null_percentages
         metrics["validations"]["high_null_columns"] = high_null_columns
-        
+
         # ====================================================================
         # 5. VALORES MONETÁRIOS INVÁLIDOS
+        # Verifica se a coluna de valores financeiros tem nulos ou NaN
         # ====================================================================
         if "VL_CONTA" in df.columns:
             invalid_values = df.filter(
                 col("VL_CONTA").isNull() | isnan(col("VL_CONTA"))
             ).count()
-            
+
             invalid_pct = (invalid_values / metrics["total_rows"]) * 100
             metrics["validations"]["invalid_monetary_values"] = invalid_values
             metrics["validations"]["invalid_monetary_pct"] = round(invalid_pct, 2)
-            
+
             if invalid_values > 0:
                 logger.warning(f"⚠️  Valores monetários inválidos: {invalid_values:,} ({invalid_pct:.1f}%)")
                 silver_validation_errors.labels(
@@ -169,17 +227,18 @@ class SilverQualityValidator:
                 ).inc(invalid_values)
             else:
                 logger.info("✅ Todos os valores monetários são válidos")
-        
+
         # ====================================================================
         # 6. DATAS NO FUTURO
+        # Datas posteriores a hoje indicam erro de digitação ou dado corrompido
         # ====================================================================
         if "DT_REFER" in df.columns:
             from datetime import date
             from pyspark.sql.functions import lit
-            
+
             future_dates = df.filter(col("DT_REFER") > lit(date.today())).count()
             metrics["validations"]["future_dates"] = future_dates
-            
+
             if future_dates > 0:
                 logger.warning(f"⚠️  Datas no futuro: {future_dates:,}")
                 silver_validation_errors.labels(
@@ -189,19 +248,19 @@ class SilverQualityValidator:
                 ).inc(future_dates)
             else:
                 logger.info("✅ Todas as datas são válidas")
-        
+
         # ====================================================================
         # 7. DUPLICATAS
+        # Registros com a mesma chave (empresa + conta + data) duplicados
         # ====================================================================
         if csv_key in required_cols:
-            # Definir chave única baseada nas colunas obrigatórias
             key_cols = ["CNPJ_CIA", "CD_CONTA", "DT_REFER"] if "CD_CONTA" in df.columns else ["CNPJ_CIA", "DT_REFER"]
             key_cols = [c for c in key_cols if c in df.columns]
-            
+
             if key_cols:
                 duplicates = df.groupBy(key_cols).count().filter(col("count") > 1).count()
                 metrics["validations"]["duplicates"] = duplicates
-                
+
                 if duplicates > 0:
                     logger.warning(f"⚠️  Registros duplicados: {duplicates:,}")
                     silver_validation_errors.labels(
@@ -211,9 +270,10 @@ class SilverQualityValidator:
                     ).inc(duplicates)
                 else:
                     logger.info("✅ Nenhuma duplicata encontrada")
-        
+
         # ====================================================================
-        # 8. DISTRIBUIÇÃO DE VALORES
+        # 8. DISTRIBUIÇÃO DE VALORES MONETÁRIOS
+        # Estatísticas descritivas da coluna VL_CONTA
         # ====================================================================
         if "VL_CONTA" in df.columns:
             stats = df.select(
@@ -223,31 +283,31 @@ class SilverQualityValidator:
                 min("VL_CONTA").alias("min"),
                 max("VL_CONTA").alias("max")
             ).collect()[0]
-            
+
             metrics["validations"]["value_distribution"] = {
                 "total": float(stats["total"]) if stats["total"] else 0,
                 "count": stats["count"],
-                "avg": float(stats["avg"]) if stats["avg"] else 0,
-                "min": float(stats["min"]) if stats["min"] else 0,
-                "max": float(stats["max"]) if stats["max"] else 0
+                "avg":   float(stats["avg"])   if stats["avg"]   else 0,
+                "min":   float(stats["min"])   if stats["min"]   else 0,
+                "max":   float(stats["max"])   if stats["max"]   else 0
             }
-            
-            logger.info(f"💰 Distribuição de valores:")
+
+            logger.info("💰 Distribuição de valores:")
             logger.info(f"   Total: R$ {stats['total']:,.2f}" if stats["total"] else "   Total: N/A")
-            logger.info(f"   Média: R$ {stats['avg']:,.2f}" if stats["avg"] else "   Média: N/A")
-            logger.info(f"   Min: R$ {stats['min']:,.2f}" if stats["min"] else "   Min: N/A")
-            logger.info(f"   Max: R$ {stats['max']:,.2f}" if stats["max"] else "   Max: N/A")
-        
+            logger.info(f"   Média: R$ {stats['avg']:,.2f}"   if stats["avg"]   else "   Média: N/A")
+            logger.info(f"   Min: R$ {stats['min']:,.2f}"     if stats["min"]   else "   Min: N/A")
+            logger.info(f"   Max: R$ {stats['max']:,.2f}"     if stats["max"]   else "   Max: N/A")
+
         # ====================================================================
         # 9. RESUMO FINAL
         # ====================================================================
         self._print_summary(metrics)
-        
+
         return metrics
-    
+
     def _print_summary(self, metrics: Dict[str, Any]):
-        """Imprime resumo da validação"""
-        
+        """Imprime um resumo consolidado no terminal após todas as validações"""
+
         logger.info(f"\n{'='*60}")
         logger.info(f"📋 RESUMO DA VALIDAÇÃO")
         logger.info(f"{'='*60}")
@@ -255,78 +315,18 @@ class SilverQualityValidator:
         logger.info(f"Ano: {metrics['ano']}")
         logger.info(f"Total de registros: {metrics['total_rows']:,}")
         logger.info(f"Total de colunas: {metrics['total_columns']}")
-        
+
         validations = metrics["validations"]
-        
+
         if "unique_companies" in validations:
             logger.info(f"Empresas únicas: {validations['unique_companies']:,}")
-        
         if "invalid_monetary_values" in validations:
             logger.info(f"Valores inválidos: {validations['invalid_monetary_values']:,}")
-        
         if "duplicates" in validations:
             logger.info(f"Duplicatas: {validations['duplicates']:,}")
-        
         if "future_dates" in validations:
             logger.info(f"Datas futuras: {validations['future_dates']:,}")
-        
         if "high_null_columns" in validations and validations["high_null_columns"]:
             logger.info(f"Colunas com >50% nulos: {len(validations['high_null_columns'])}")
-        
+
         logger.info(f"{'='*60}\n")
-
-
-# ============================================================================
-# FUNÇÃO PARA EXPOR MÉTRICAS PROMETHEUS
-# ============================================================================
-
-def export_prometheus_metrics(port: int = 8000):
-    """
-    Inicia servidor HTTP para expor métricas Prometheus
-    
-    Args:
-        port: Porta para expor métricas (padrão: 8000)
-    """
-    from prometheus_client import start_http_server
-    import time
-    
-    logger.info(f"📊 Iniciando servidor de métricas Prometheus na porta {port}")
-    start_http_server(port)
-    
-    logger.info(f"✅ Métricas disponíveis em: http://localhost:{port}/metrics")
-    
-    # Manter servidor rodando
-    try:
-        while True:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        logger.info("🛑 Servidor de métricas encerrado")
-
-
-if __name__ == "__main__":
-    # Exemplo de uso
-    from silver import CVMSilverProcessor
-    
-    processor = CVMSilverProcessor()
-    validator = SilverQualityValidator(processor.spark)
-    
-    # Ler dados
-    df = processor.read_silver_table("DRE_con", ano=2023)
-    
-    # Validar e gerar métricas
-    metrics = validator.validate_and_report_metrics(df, "DRE_con", "2023")
-    
-    # Exportar métricas Prometheus (em background)
-    import threading
-    metrics_thread = threading.Thread(target=export_prometheus_metrics, daemon=True)
-    metrics_thread.start()
-    
-    print("\n✅ Métricas disponíveis em http://localhost:8000/metrics")
-    print("Pressione Ctrl+C para encerrar...")
-    
-    import time
-    try:
-        while True:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        pass

@@ -15,14 +15,9 @@ scrape_configs:
   # Job para coletar métricas do MinIO
   - job_name: 'minio'
     metrics_path: /minio/v2/metrics/cluster
+    bearer_token: "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwcm9tZXRoZXVzIiwic3ViIjoibWluaW9hZG1pbiIsImV4cCI6NDkyNjIyNDM5MH0.G8Nnprt7rStS7xvNKff8huu92ocvIPX7OGHl4Tlw1blXkQfk9-dz5hZGxP1rvmZ0uKVQh4vnJTTljtYizFdxSA"
     static_configs:
       - targets: ['minio:9000']
         labels:
           service: 'storage'
   
-  # Job para coletar métricas do Spark
-  - job_name: 'spark'
-    static_configs:
-      - targets: ['spark-master:8080']
-        labels:
-          service: 'processing'

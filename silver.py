@@ -34,7 +34,9 @@ class SilverProcessor:
         )
         self.spark = self._create_spark_session()
         self._ensure_bucket_exists()
-    
+        # Inicializar o validador de qualidade - prometheus
+        self.validator = SilverQualityValidator(self.spark)
+        logger.info("✅ SilverQualityValidator inicializado")
     def _create_spark_session(self) -> SparkSession:
         """Cria sessão Spark com Delta Lake e S3 configurados"""
         
@@ -220,80 +222,63 @@ class CVMSilverProcessor(SilverProcessor):
         response.release_conn()
         return data
     
-    def _process_csv(self, zf: zipfile.ZipFile, csv_filename: str, 
-                     csv_key: str, ano: str) -> bool:
+    def _process_csv(self, zf: zipfile.ZipFile, csv_filename: str, csv_key: str, ano: str) -> bool:
         """
-        Processa um CSV específico do ZIP e salva como Delta Lake
-        
-        Args:
-            zf: ZipFile aberto
-            csv_filename: Nome do CSV dentro do ZIP
-            csv_key: Chave identificadora (BP_con, DRE_con, etc)
-            ano: Ano de referência
-            
-        Returns:
-            True se processamento foi bem-sucedido
+        Processa um CSV específico do ZIP e salva como Delta Lake.
+        Executa uma única validação de qualidade após salvar.
         """
         try:
-            # 1. Ler CSV com Pandas (mais rápido para CSVs da CVM)
+            # 1. Ler CSV com Pandas
             with zf.open(csv_filename) as csv_file:
                 df_pandas = pd.read_csv(
                     csv_file,
                     sep=';',
                     encoding='latin-1',
-                    dtype=str  # Ler tudo como string primeiro
+                    dtype=str
                 )
-            
             logger.info(f"  📊 Linhas lidas: {len(df_pandas):,}")
-            
+
             # 2. Converter para Spark DataFrame
             df_spark = self.spark.createDataFrame(df_pandas)
-            
+
             # 3. Aplicar transformações de limpeza
             df_clean = self._clean_dataframe(df_spark, csv_key)
-             # ======= ADICIONAR AQUI ======= PROMETHEUS
-            # Validar qualidade e atualizar métricas Prometheus
-            validator = SilverQualityValidator(self.spark)
-            quality_metrics = validator.validate_and_report_metrics(df_clean, csv_key, ano)
-            
-            # Salvar métricas de qualidade em arquivo JSON
-            import json
-            metrics_path = f"/tmp/quality_metrics_{csv_key}_{ano}.json"
-            with open(metrics_path, 'w') as f:
-                json.dump(quality_metrics, f, indent=2)
-            logger.info(f"📄 Métricas salvas em: {metrics_path}")
-            # ======= FIM DA ADIÇÃO =======
+
             # 4. Adicionar colunas de metadata
-            df_final = df_clean \
-                .withColumn("ano_referencia", lit(int(ano))) \
-                .withColumn("data_processamento", current_timestamp()) \
-                .withColumn("fonte", lit("CVM")) \
+            df_final = (
+                df_clean
+                .withColumn("ano_referencia", lit(int(ano)))
+                .withColumn("data_processamento", current_timestamp())
+                .withColumn("fonte", lit("CVM"))
                 .withColumn("tipo_demonstracao", lit(csv_key))
-            
+            )
+
             # 5. Salvar como Delta Lake
             delta_path = f"s3a://{self.minio_config.bucket_silver}/cvm/{csv_key}/"
-            
-            df_final.write \
-                .format("delta") \
-                .mode("overwrite") \
-                .option("overwriteSchema", "true") \
-                .partitionBy("ano_referencia") \
+            (
+                df_final.write
+                .format("delta")
+                .mode("overwrite")
+                .option("overwriteSchema", "true")
+                .partitionBy("ano_referencia")
                 .save(delta_path)
-            
+            )
             logger.info(f"  ✅ Salvo em Delta: {delta_path}")
-            
-            # 6. Mostrar estatísticas
-            total_rows = df_final.count()
-            logger.info(f"  📈 Total de registros: {total_rows:,}")
-            # ======= ADICIONAR AQUI ======= PROMETHEUS
-            # Registrar tempo de processamento no Prometheus
+            logger.info(f"  📈 Total de registros: {df_final.count():,}")
+
+            # 6. Validar qualidade e enviar métricas ao Prometheus (UMA VEZ)
+            #    Usar self.validator — inicializado no __init__, não criar instância nova
+            start_time = time.time()
+            self.validator.validate_and_report_metrics(df_final, csv_key, ano)
             elapsed = time.time() - start_time
-            silver_processing_time.labels(csv_type=csv_key, ano=ano).observe(elapsed)
-            
-            logger.info(f"  ⏱️  Tempo de processamento: {elapsed:.2f}s")
-            # ======= FIM DA ADIÇÃO =======
+            silver_processing_time.labels(
+                csv_type=csv_key,
+                ano=ano
+            ).observe(elapsed)
+            logger.info(f"⏱️ Tempo de validação: {elapsed:.2f}s")
+
             return True
-            
+
         except Exception as e:
             logger.error(f"  ❌ Erro ao processar {csv_filename}: {e}")
             return False
@@ -310,11 +295,77 @@ class CVMSilverProcessor(SilverProcessor):
         df_clean = df
 
         # Filter por DS_CONTA — apenas para tipos relevantes
+        # Localização: silver.py, dentro de _clean_dataframe()
+        # SUBSTITUIR o bloco ds_conta_filters pelo código abaixo:
+
         ds_conta_filters = {
-            "DRE_con": r"lucro por ação|dividendos",
+            # ================================================================
+            # DRE — Demonstração do Resultado do Exercício
+            # ================================================================
+            # Critérios Graham que dependem da DRE:
+            #   ✅ Não ter prejuízo → precisa de "lucro líquido"
+            #   ✅ P/L → precisa de "lucro por ação" ou "lucro líquido" + nº ações
+            #   ✅ Dividendos → precisa de "dividendos"
+            #
+            "DRE_con": r"lucro líquido|lucro por ação|dividendos",
+            #            ↑                ↑               ↑
+            #            |                |               |
+            #     Para saber se     Para calcular     Para critério
+            #   houve prejuízo       o P/L                de DY
+
+            # ================================================================
+            # BPA — Balanço Patrimonial Ativo (o que a empresa TEM)
+            # ================================================================
+            # Critério Graham que depende do BPA:
+            #   ✅ Liquidez Corrente → precisa de "ativo circulante"
+            #
             "BPA_con": r"ativo circulante",
-            "BPP_con": r"passivo circulante",
+            #            ↑
+            #     LC = Ativo Circulante / Passivo Circulante
+
+            # ================================================================
+            # BPP — Balanço Patrimonial Passivo (o que a empresa DEVE)
+            # ================================================================
+            # Critérios Graham que dependem do BPP:
+            #   ✅ Liquidez Corrente → precisa de "passivo circulante"
+            #   ✅ P/VPA → precisa de "patrimônio líquido"
+            #
+            "BPP_con": r"passivo circulante|patrimônio líquido",
+            #            ↑                   ↑
+            #   LC = Ativo Circ /     P/VPA = Preço / (PL / nº ações)
+            #        Passivo Circ
+
+            # ================================================================
+            # DFC_DMPL — Mutações do Patrimônio Líquido
+            # ================================================================
+            # Mantido igual ao original (filtro por COLUNA_DF, não DS_CONTA)
+            # Sem alteração necessária aqui.
         }
+
+        # Resultado esperado: ~30.000–50.000 registros (vs ~12.000 antes)
+        # Motivo: adicionamos "lucro líquido" e "patrimônio líquido"
+
+        # ================================================================
+        # 💡 FILTROS PARA DESENVOLVIMENTO FUTURO (não implementados agora)
+        # ================================================================
+        # Os filtros abaixo seriam úteis para análises mais avançadas,
+        # mas não são necessários para os critérios de Graham utilizados
+        # neste TCC (Silva Júnior, 2020). Deixados como referência:
+        #
+        # "DRE_con": r"receita|lucro|ebitda|resultado|custos|despesas|margem"
+        #   → Para calcular margens operacionais, EBITDA, ROE etc.
+        #
+        # "BPA_con": r"ativo|caixa|aplicações financeiras|contas a receber|
+        #              estoques|imobilizado|intangível|investimentos"
+        #   → Para análise completa do balanço patrimonial
+        #
+        # "BPP_con": r"passivo|fornecedores|empréstimos|financiamentos|
+        #              debêntures|capital social|reservas"
+        #   → Para análise de endividamento e estrutura de capital
+        #
+        # "DFC_DMPL_con": r"patrimônio líquido|capital|reservas|lucros acumulados"
+        #   → Para análise de fluxo de caixa completo
+        # ================================================================
 
         if csv_key in ds_conta_filters and "DS_CONTA" in df_clean.columns:
             df_clean = df_clean.filter(
@@ -386,7 +437,7 @@ processor = CVMSilverProcessor()
 
 # Processar múltiplos anos
 
-anos = ["2020", "2021", "2022", "2023", "2024"]
+anos = ["2020", "2021", "2022", "2023", "2024","2025"]
 for ano in anos:
     results = processor.process_year(ano)
     print(f"\n📊 Resultados para {ano}:")

@@ -1,4 +1,3 @@
-
 services:
   # ------------------------------------------------------------------------
   # MINIO - DATA LAKE
@@ -27,13 +26,16 @@ services:
     depends_on:
       - minio
     ports:
-      - "8000:8000"  # Porta para expor métricas Prometheus
+      - "8000:8000"  # Porta onde o Prometheus coleta as métricas Silver
     volumes:
       - ./:/app
     working_dir: /app
     environment:
       - PYTHONUNBUFFERED=1
-    command: tail -f /dev/null
+    # run_metrics.py substitui o start_metrics_server.py anterior.
+    # Ele sobe o servidor HTTP E executa o pipeline de validação em loop,
+    # garantindo que as métricas sempre tenham valores reais para o Prometheus.
+    command: python run_metrics.py
     networks:
       - datalake
 
@@ -91,7 +93,7 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # ← ADICIONAR
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
       - datalake
     command:
@@ -110,6 +112,7 @@ services:
       - "3000:3000"
     networks:
       - datalake
+
   # ------------------------------------------------------------------------
   # JUPYTER NOTEBOOK
   # ------------------------------------------------------------------------
@@ -128,6 +131,7 @@ services:
       - "8888:8888"
     networks:
       - datalake
+
 # ------------------------------------------------------------------------
 # VOLUMES E REDE
 # ------------------------------------------------------------------------
