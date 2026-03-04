@@ -11,6 +11,8 @@ from pyspark.sql.types import DoubleType, IntegerType,StringType
 from config import MinIOConfig
 import logging
 from typing import List, Dict, Optional
+from silver_quality import SilverQualityValidator, silver_processing_time
+import time
 
 
 logging.basicConfig(level=logging.INFO)
@@ -249,7 +251,18 @@ class CVMSilverProcessor(SilverProcessor):
             
             # 3. Aplicar transformações de limpeza
             df_clean = self._clean_dataframe(df_spark, csv_key)
+             # ======= ADICIONAR AQUI ======= PROMETHEUS
+            # Validar qualidade e atualizar métricas Prometheus
+            validator = SilverQualityValidator(self.spark)
+            quality_metrics = validator.validate_and_report_metrics(df_clean, csv_key, ano)
             
+            # Salvar métricas de qualidade em arquivo JSON
+            import json
+            metrics_path = f"/tmp/quality_metrics_{csv_key}_{ano}.json"
+            with open(metrics_path, 'w') as f:
+                json.dump(quality_metrics, f, indent=2)
+            logger.info(f"📄 Métricas salvas em: {metrics_path}")
+            # ======= FIM DA ADIÇÃO =======
             # 4. Adicionar colunas de metadata
             df_final = df_clean \
                 .withColumn("ano_referencia", lit(int(ano))) \
@@ -272,7 +285,13 @@ class CVMSilverProcessor(SilverProcessor):
             # 6. Mostrar estatísticas
             total_rows = df_final.count()
             logger.info(f"  📈 Total de registros: {total_rows:,}")
+            # ======= ADICIONAR AQUI ======= PROMETHEUS
+            # Registrar tempo de processamento no Prometheus
+            elapsed = time.time() - start_time
+            silver_processing_time.labels(csv_type=csv_key, ano=ano).observe(elapsed)
             
+            logger.info(f"  ⏱️  Tempo de processamento: {elapsed:.2f}s")
+            # ======= FIM DA ADIÇÃO =======
             return True
             
         except Exception as e:
@@ -366,8 +385,8 @@ class CVMSilverProcessor(SilverProcessor):
 processor = CVMSilverProcessor()
 
 # Processar múltiplos anos
-#anos = ["2020", "2021", "2022", "2023"]
-anos = ["2023"]  # Para teste rápido, processar apenas 2025
+
+anos = ["2020", "2021", "2022", "2023", "2024"]
 for ano in anos:
     results = processor.process_year(ano)
     print(f"\n📊 Resultados para {ano}:")
@@ -375,8 +394,3 @@ for ano in anos:
         status = "✅" if success else "❌"
         print(f"  {status} {csv_key}")
 
-"""# Exemplo de leitura
-print("\n📖 Lendo tabela BP_con de 2023:")
-df = processor.read_silver_table("BP_con", ano=2023)
-df.show(5)
-print(f"Total de registros: {df.count():,}")"""

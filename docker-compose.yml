@@ -26,6 +26,8 @@ services:
     container_name: ingest
     depends_on:
       - minio
+    ports:
+      - "8000:8000"  # Porta para expor métricas Prometheus
     volumes:
       - ./:/app
     working_dir: /app
@@ -88,8 +90,15 @@ services:
     container_name: prometheus
     ports:
       - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # ← ADICIONAR
     networks:
       - datalake
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
 
   # ------------------------------------------------------------------------
   # GRAFANA
