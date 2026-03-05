@@ -13,7 +13,9 @@ import logging
 from typing import List, Dict, Optional
 from silver_quality import SilverQualityValidator, silver_processing_time
 import time
-
+import tempfile
+import os
+import chardet
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -226,20 +228,34 @@ class CVMSilverProcessor(SilverProcessor):
         """
         Processa um CSV específico do ZIP e salva como Delta Lake.
         Executa uma única validação de qualidade após salvar.
+        Args:
+            zf: Objeto ZipFile já aberto
+            csv_filename: Nome do arquivo CSV dentro do ZIP
+            csv_key: Chave identificadora para aplicar filtros específicos
+            ano: Ano de referência (para metadata e métricas)
+        Returns: True se processado com sucesso, False caso contrário
         """
+        tmp_path = None
         try:
-            # 1. Ler CSV com Pandas
-            with zf.open(csv_filename) as csv_file:
-                df_pandas = pd.read_csv(
-                    csv_file,
-                    sep=';',
-                    encoding='latin-1',
-                    dtype=str
-                )
-            logger.info(f"  📊 Linhas lidas: {len(df_pandas):,}")
+             # 1. Extrair CSV do ZIP para arquivo temporário
+            with tempfile.NamedTemporaryFile(mode='wb', delete=False, suffix='.csv') as tmp_file:
+                tmp_file.write(zf.read(csv_filename))
+                tmp_path = tmp_file.name
 
-            # 2. Converter para Spark DataFrame
-            df_spark = self.spark.createDataFrame(df_pandas)
+            # Detectar encoding do arquivo (muitas vezes é ISO-8859-1)
+            with open(tmp_path, 'rb') as f:
+                encoding = chardet.detect(f.read(100000))['encoding']
+            
+            # 2. Ler diretamente com Spark
+            df_spark = (
+                self.spark.read
+                .option("header", "true")
+                .option("sep", ";")
+                .option("encoding", encoding)
+                .option("inferSchema", "false")  # Manter tudo como string inicialmente
+                .csv(tmp_path)
+            )
+            logger.info(f"  📊 Linhas lidas: {df_spark.count():,}")
 
             # 3. Aplicar transformações de limpeza
             df_clean = self._clean_dataframe(df_spark, csv_key)
@@ -282,7 +298,12 @@ class CVMSilverProcessor(SilverProcessor):
         except Exception as e:
             logger.error(f"  ❌ Erro ao processar {csv_filename}: {e}")
             return False
-    
+        
+        finally:
+        # Limpar arquivo temporário
+            if tmp_path and os.path.exists(tmp_path):
+                os.remove(tmp_path)
+                
     def _clean_dataframe(self, df, csv_key: str):
         """
         Aplica transformações de limpeza e padronização no DataFrame
@@ -436,12 +457,11 @@ class CVMSilverProcessor(SilverProcessor):
 processor = CVMSilverProcessor()
 
 # Processar múltiplos anos
-
-anos = ["2020", "2021", "2022", "2023", "2024","2025"]
-for ano in anos:
-    results = processor.process_year(ano)
-    print(f"\n📊 Resultados para {ano}:")
-    for csv_key, success in results.items():
-        status = "✅" if success else "❌"
-        print(f"  {status} {csv_key}")
-
+if __name__ == "__main__":
+    anos = ["2020", "2021", "2022", "2023", "2024","2025"]
+    for ano in anos:
+        results = processor.process_year(ano)
+        print(f"\n📊 Resultados para {ano}:")
+        for csv_key, success in results.items():
+            status = "✅" if success else "❌"
+            print(f"  {status} {csv_key}")
