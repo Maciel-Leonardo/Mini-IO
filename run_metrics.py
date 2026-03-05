@@ -98,9 +98,21 @@ while True:
             ("DRE_con",      "2022"),
             ("DRE_con",      "2023"),
             ("DRE_con",      "2024"),
+            ("BPA_con",      "2020"),
+            ("BPA_con",      "2021"),
+            ("BPA_con",      "2022"),
             ("BPA_con",      "2023"),
+            ("BPA_con",      "2024"),
+            ("BPP_con",      "2020"),
+            ("BPP_con",      "2021"),
+            ("BPP_con",      "2022"),
             ("BPP_con",      "2023"),
+            ("BPP_con",      "2024"),
+            ("DFC_DMPL_con", "2020"),
+            ("DFC_DMPL_con", "2021"),
+            ("DFC_DMPL_con", "2022"),
             ("DFC_DMPL_con", "2023"),
+            ("DFC_DMPL_con", "2024"),
         ]
 
         for tabela, ano in tabelas:

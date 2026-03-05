@@ -25,8 +25,7 @@ class DataSourceConfig:
     identifier_type: str      # Ex: "papel", "ticker", "cnpj"
     data_format: str          # Ex: "html", "json", "csv", "parquet"
     
-    def get_base_path(self, identifier_value: str, extraction_date: str, 
-                      extraction_time: Optional[str] = None) -> str:
+    def get_base_path(self, identifier_value: str, extraction_date: str, extraction_time: Optional[str] = None) -> str:
         """
         Gera o caminho base no formato padronizado
         
