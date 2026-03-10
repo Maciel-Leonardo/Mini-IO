@@ -6,7 +6,7 @@ import pandas as pd
 from minio import Minio
 from delta import configure_spark_with_delta_pip
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, to_date, trim, when, lit, current_timestamp, rlike, col, lower
+from pyspark.sql.functions import col, to_date, trim, when, lit, current_timestamp, rlike, lower
 from pyspark.sql.types import DoubleType, IntegerType,StringType
 from config import MinIOConfig
 import logging
@@ -276,6 +276,7 @@ class CVMSilverProcessor(SilverProcessor):
                 .format("delta")
                 .mode("overwrite")
                 .option("overwriteSchema", "true")
+                .option("replaceWhere", f"ano_referencia = {ano}")
                 .partitionBy("ano_referencia")
                 .save(delta_path)
             )
@@ -444,12 +445,15 @@ class CVMSilverProcessor(SilverProcessor):
         Returns:
             Spark DataFrame
         """
-        delta_path = f"s3a://{self.minio_config.bucket_silver}/cvm/{table_name}/"
+        delta_path = f"s3a://{self.minio_config.bucket_silver}/cvm/{table_name}"
         
         df = self.spark.read.format("delta").load(delta_path)
         
         if ano:
-            df = df.filter(col("ano_referencia") == ano)
+            df = df.filter(
+                (col("ano_referencia") == ano) | 
+                (col("ano_referencia") == str(ano))
+            )
         
         return df
 
