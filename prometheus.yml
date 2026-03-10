@@ -1,23 +1,26 @@
 # prometheus.yml
 global:
-  scrape_interval: 15s  # Coletar métricas a cada 15 segundos
+  scrape_interval: 15s # Intervalo padrão para coletar métricas de todos os targets
   evaluation_interval: 15s
 
 scrape_configs:
   # Job para coletar métricas do Silver
   - job_name: 'silver_pipeline'
     static_configs:
-      - targets: ['ingest:8000']  # Porta onde silver.py expõe métricas
+      - targets: ['ingest:8000']
         labels:
           service: 'silver'
           layer: 'processing'
   
   # Job para coletar métricas do MinIO
+  # ATENÇÃO: Substitua o bearer_token abaixo pelo token gerado no MinIO
+  # Para gerar um novo token, execute:
+  #docker exec -it minio mc alias set local http://localhost:9000 minioadmin minioadmin
+#docker exec -it minio mc admin prometheus generate local
   - job_name: 'minio'
     metrics_path: /minio/v2/metrics/cluster
-    bearer_token: "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwcm9tZXRoZXVzIiwic3ViIjoibWluaW9hZG1pbiIsImV4cCI6NDkyNjIyNDM5MH0.G8Nnprt7rStS7xvNKff8huu92ocvIPX7OGHl4Tlw1blXkQfk9-dz5hZGxP1rvmZ0uKVQh4vnJTTljtYizFdxSA"
+    bearer_token: "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwcm9tZXRoZXVzIiwic3ViIjoibWluaW9hZG1pbiIsImV4cCI6NDkyNjY4MDQyNX0.AxG96X9NnB_3eA-s9gDPlVZPSJ-dZSdGu3wEuqTvvpeMTPgr3K0JyMFSg4HUp_LITTgU3QihI9meDCIP3jiYVQ"
     static_configs:
       - targets: ['minio:9000']
         labels:
           service: 'storage'
-  

@@ -70,28 +70,68 @@ logger.info(f"📊 Subindo servidor de métricas na porta {PORT}...")
 start_http_server(PORT)
 
 logger.info(f"✅ Servidor rodando em http://localhost:{PORT}/metrics")
-logger.info("🔄 Conectando ao Spark e MinIO...")
 
-# Cria o processador: abre conexão com Spark e MinIO
-# Esta linha pode demorar alguns segundos pois inicializa o Spark
-processor = CVMSilverProcessor()
+# Variáveis globais para o processador e validador
+processor = None
+validator = None
 
-# Cria o validador passando a sessão Spark já aberta pelo processor
-# Assim evitamos abrir duas sessões Spark desnecessariamente
-validator = SilverQualityValidator(processor.spark)
+# ----------------------------------------------------------------------
+# FUNÇÃO AUXILIAR: Inicializar conexões com retry
+# ----------------------------------------------------------------------
 
-logger.info("✅ Conexões estabelecidas. Iniciando loop de métricas...")
+def initialize_connections(max_retries=5, retry_delay=10):
+    """Tenta conectar ao Spark e MinIO com retry em caso de falha"""
+    global processor, validator
+    
+    for attempt in range(1, max_retries + 1):
+        try:
+            logger.info(f"🔄 Tentativa {attempt}/{max_retries} - Conectando ao Spark e MinIO...")
+            
+            # Cria o processador: abre conexão com Spark e MinIO
+            processor = CVMSilverProcessor()
+            
+            # Cria o validador passando a sessão Spark já aberta
+            validator = SilverQualityValidator(processor.spark)
+            
+            logger.info("✅ Conexões estabelecidas com sucesso!")
+            return True
+            
+        except Exception as e:
+            logger.error(f"❌ Tentativa {attempt} falhou: {e}")
+            if attempt < max_retries:
+                logger.info(f"⏳ Aguardando {retry_delay}s antes de tentar novamente...")
+                time.sleep(retry_delay)
+            else:
+                logger.error("❌ Todas as tentativas falharam. Continuando sem atualização de métricas.")
+                return False
+    
+    return False
+
+# Tenta inicializar as conexões
+initialize_connections()
 
 # ----------------------------------------------------------------------
 # LOOP PRINCIPAL — roda para sempre, atualizando métricas periodicamente
 # ----------------------------------------------------------------------
 
+logger.info("🔄 Iniciando loop de métricas...")
+
 while True:
     try:
+        # Se não conseguimos conectar, tenta novamente
+        if processor is None or validator is None:
+            logger.warning("⚠️  Sem conexões ativas. Tentando reconectar...")
+            initialize_connections(max_retries=3, retry_delay=30)
+            
+            # Se ainda assim falhou, espera o intervalo e tenta de novo
+            if processor is None or validator is None:
+                logger.info(f"⏳ Aguardando {INTERVALO_SEGUNDOS}s até próxima tentativa...")
+                time.sleep(INTERVALO_SEGUNDOS)
+                continue
+        
         logger.info("📥 Lendo tabelas Silver para atualizar métricas...")
 
         # Lista de tabelas e anos que queremos monitorar
-        # Adicione ou remova entradas conforme necessário
         tabelas = [
             ("DRE_con",      "2020"),
             ("DRE_con",      "2021"),
@@ -117,27 +157,26 @@ while True:
 
         for tabela, ano in tabelas:
             try:
-                # Lê os dados da camada Silver no MinIO (formato Delta Lake)
+                # Lê os dados da camada Silver no MinIO
                 df = processor.read_silver_table(tabela, ano=int(ano))
 
-                # Valida os dados e atualiza todas as métricas Prometheus:
-                # silver_rows_total, silver_companies_unique,
-                # silver_null_percentage, silver_validation_errors, etc.
+                # Valida os dados e atualiza as métricas Prometheus
                 validator.validate_and_report_metrics(df, tabela, ano)
 
                 logger.info(f"  ✅ Métricas atualizadas: {tabela} / {ano}")
 
             except Exception as e:
-                # Se uma tabela falhar, apenas loga o erro e continua
-                # as outras tabelas — não derruba o servidor inteiro
+                # Se uma tabela falhar, loga o erro e continua
                 logger.error(f"  ❌ Erro em {tabela}/{ano}: {e}")
 
         logger.info(f"⏳ Aguardando {INTERVALO_SEGUNDOS}s até próxima atualização...")
 
     except Exception as e:
         # Captura erros inesperados no loop principal
-        # O servidor HTTP continua no ar mesmo com erro aqui
         logger.error(f"❌ Erro inesperado no loop: {e}")
+        # Em caso de erro grave, marca para reconexão
+        processor = None
+        validator = None
 
     # Aguarda o intervalo definido antes de repetir o ciclo
     time.sleep(INTERVALO_SEGUNDOS)

@@ -17,7 +17,7 @@ o ciclo A→B→A que causava o ImportError.
 """
 
 # Funções do PySpark para calcular métricas nos dados
-from pyspark.sql.functions import col, count, when, isnan, isnull, max, min, avg, sum as spark_sum
+from pyspark.sql.functions import col, count, when, isnan, isnull, max, min, avg, lit, sum as spark_sum
 
 # Tipos de métricas do Prometheus:
 #   Gauge   → valor que sobe e desce (ex: total de linhas)
@@ -30,6 +30,9 @@ import logging
 
 # Tipo auxiliar para anotar o retorno de funções
 from typing import Dict, Any
+
+# Biblioteca padrão para lidar com datas (usada na validação de datas futuras)
+from datetime import date
 
 # Canal de log específico para este arquivo
 logger = logging.getLogger(__name__)
@@ -136,7 +139,7 @@ class SilverQualityValidator:
             "BPP_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "CD_CONTA", "DS_CONTA"],
             "DFC_DMPL_con": ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "COLUNA_DF"]
         }
-
+        #Verifica se a tabela passada em argumento está em required_cols, para só então validar as colunas obrigatórias. Isso evita erros de chave caso o csv_key seja diferente do esperado.
         if csv_key in required_cols:
             # Lista as colunas que deveriam existir mas não existem
             missing = [col for col in required_cols[csv_key] if col not in df.columns]
@@ -233,8 +236,7 @@ class SilverQualityValidator:
         # Datas posteriores a hoje indicam erro de digitação ou dado corrompido
         # ====================================================================
         if "DT_REFER" in df.columns:
-            from datetime import date
-            from pyspark.sql.functions import lit
+            
 
             future_dates = df.filter(col("DT_REFER") > lit(date.today())).count()
             metrics["validations"]["future_dates"] = future_dates
@@ -258,6 +260,7 @@ class SilverQualityValidator:
             key_cols = [c for c in key_cols if c in df.columns]
 
             if key_cols:
+                # Conta quantos grupos de registros têm mais de 1 ocorrência
                 duplicates = df.groupBy(key_cols).count().filter(col("count") > 1).count()
                 metrics["validations"]["duplicates"] = duplicates
 
