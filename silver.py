@@ -6,7 +6,7 @@ import pandas as pd
 from minio import Minio
 from delta import configure_spark_with_delta_pip
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, to_date, trim, when, lit, current_timestamp, rlike, lower
+from pyspark.sql.functions import col, to_date, trim, when, lit, current_timestamp, rlike, lower, translate, ilike
 from pyspark.sql.types import DoubleType, IntegerType,StringType
 from config import MinIOConfig
 import logging
@@ -20,6 +20,22 @@ import chardet
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+#AJUSTAR DEPOIS QUE FINALIZAR TUDO --------------------------------
+def normalize_text(column):
+    """
+    Normaliza texto para facilitar filtros e comparações.
+
+    Etapas:
+    - converte para minúsculo
+    - remove acentos
+    """
+
+    return translate(
+        lower(column),
+        "áàãâäéèêëíìîïóòõôöúùûüç",
+        "aaaaaeeeeiiiiooooouuuuc"
+    )
+#------------------------------------------------------------
 
 class SilverProcessor:
     """Classe base para processar dados da camada Bronze → Silver"""
@@ -329,11 +345,11 @@ class CVMSilverProcessor(SilverProcessor):
             #   ✅ P/L → precisa de "lucro por ação" ou "lucro líquido" + nº ações
             #   ✅ Dividendos → precisa de "dividendos"
             #
-            "DRE_con": r"lucro líquido|lucro por ação|dividendos",
-            #            ↑                ↑               ↑
-            #            |                |               |
-            #     Para saber se     Para calcular     Para critério
-            #   houve prejuízo       o P/L                de DY
+            "DRE_con": r"lucro/prejuízo consolidado do período|lucro ou prejuízo líquido consolidado do período|por ação",
+            #            ↑                  ↑              
+            #            |                  |             
+            #     Para saber se         Para calcular     
+            #   houve prejuízo              o P/L               
 
             # ================================================================
             # BPA — Balanço Patrimonial Ativo (o que a empresa TEM)
@@ -352,7 +368,7 @@ class CVMSilverProcessor(SilverProcessor):
             #   ✅ Liquidez Corrente → precisa de "passivo circulante"
             #   ✅ P/VPA → precisa de "patrimônio líquido"
             #
-            "BPP_con": r"passivo circulante|patrimônio líquido",
+            "BPP_con": r"passivo circulante|patrimônio líquido consolidado",
             #            ↑                   ↑
             #   LC = Ativo Circ /     P/VPA = Preço / (PL / nº ações)
             #        Passivo Circ
@@ -388,16 +404,18 @@ class CVMSilverProcessor(SilverProcessor):
         # "DFC_DMPL_con": r"patrimônio líquido|capital|reservas|lucros acumulados"
         #   → Para análise de fluxo de caixa completo
         # ================================================================
-
-        if csv_key in ds_conta_filters and "DS_CONTA" in df_clean.columns:
+        required_cols = ["DS_CONTA", "ORDEM_EXERC"]
+        if csv_key in ds_conta_filters and all(col in df_clean.columns for col in required_cols):
             df_clean = df_clean.filter(
-                lower(col("DS_CONTA")).rlike(ds_conta_filters[csv_key])
+                lower(col("DS_CONTA")).rlike(ds_conta_filters[csv_key]) &
+                lower(col("ORDEM_EXERC")).ilike("ÚLTIMO")
             )
 
         # Filter COLUNA_DF — apenas para DMPL
         if csv_key == "DFC_DMPL_con" and "COLUNA_DF" in df_clean.columns:
             df_clean = df_clean.filter(
-                lower(col("COLUNA_DF")).rlike(r"patrimônio líquido")
+                lower(col("COLUNA_DF")).rlike(r"patrimônio líquido") &
+                lower(col("ORDEM_EXERC")).ilike("ÚLTIMO")
             )
 
         # Trimmar strings
@@ -409,9 +427,17 @@ class CVMSilverProcessor(SilverProcessor):
         # Converter VL_CONTA com escala
         df_clean = df_clean.withColumn(
             "VL_CONTA",
-            when(col("ESCALA_MOEDA") == "MIL", col("VL_CONTA").cast(DoubleType()) * 1000)
-            .otherwise(col("VL_CONTA").cast(DoubleType()))
-        )
+                when(
+                    lower(col("DS_CONTA")).like("%por ação%"),   
+                    col("VL_CONTA").cast(DoubleType())        
+                )
+                .when(
+                    col("ESCALA_MOEDA") == "MIL",
+                    col("VL_CONTA").cast(DoubleType()) * 1000
+                )
+                .otherwise(col("VL_CONTA").cast(DoubleType()))
+            )
+            
 
         # Converter datas
         date_cols = ['DT_REFER', 'DT_INI_EXERC', 'DT_FIM_EXERC']
@@ -469,3 +495,11 @@ if __name__ == "__main__":
         for csv_key, success in results.items():
             status = "✅" if success else "❌"
             print(f"  {status} {csv_key}")
+""" if __name__ == "__main__":
+    #ler delta table
+    for table in ["DRE_con", "BPA_con", "BPP_con", "DFC_DMPL_con"]:
+        df = processor.read_silver_table(table, ano=2020)
+        #converter para pandas
+        psdf = df.to_pandas_on_spark()
+        #salvar como excel
+        psdf.to_excel(f"{table}_teste.xlsx", index=False) """
