@@ -156,6 +156,7 @@ class CVMSilverProcessor(SilverProcessor):
     
     # Definir quais CSVs queremos extrair do ZIP
     CSV_TARGETS = {
+        "composicao_capital": "dfp_cia_aberta_composicao_capital",  # Composição do Capital Social
         "DRE_con": "dfp_cia_aberta_DRE_con",    # DRE Consolidado
         "DFC_DMPL_con": "dfp_cia_aberta_DMPL_con",  # Fluxo de Caixa Método Direto
         "BPA_con": "dfp_cia_aberta_BPA_con",     # Balanço Patrimonial Ativo Consolidado
@@ -425,18 +426,19 @@ class CVMSilverProcessor(SilverProcessor):
             df_clean = df_clean.withColumn(col_name, trim(col(col_name)))
 
         # Converter VL_CONTA com escala
-        df_clean = df_clean.withColumn(
-            "VL_CONTA",
-                when(
-                    lower(col("DS_CONTA")).like("%por ação%"),   
-                    col("VL_CONTA").cast(DoubleType())        
+        if "VL_CONTA" in df_clean.columns:
+            df_clean = df_clean.withColumn(
+                "VL_CONTA",
+                    when(
+                        lower(col("DS_CONTA")).like("%por ação%"),   
+                        col("VL_CONTA").cast(DoubleType())        
+                    )
+                    .when(
+                        col("ESCALA_MOEDA") == "MIL",
+                        col("VL_CONTA").cast(DoubleType()) * 1000
+                    )
+                    .otherwise(col("VL_CONTA").cast(DoubleType()))
                 )
-                .when(
-                    col("ESCALA_MOEDA") == "MIL",
-                    col("VL_CONTA").cast(DoubleType()) * 1000
-                )
-                .otherwise(col("VL_CONTA").cast(DoubleType()))
-            )
             
 
         # Converter datas

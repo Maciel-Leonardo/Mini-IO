@@ -134,6 +134,7 @@ class SilverQualityValidator:
         # Verifica se todas as colunas essenciais estão presentes no DataFrame
         # ====================================================================
         required_cols = {
+            "composicao_capital": ["CNPJ_CIA", "DENOM_CIA", "QT_ACAO_TOTAL_CAP_INTEGR", "DT_REFER", "QT_ACAO_TOTAL_TESOURO"],
             "DRE_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "DT_REFER", "DS_CONTA"],
             "BPA_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "CD_CONTA", "DS_CONTA"],
             "BPP_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "CD_CONTA", "DS_CONTA"],
