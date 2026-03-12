@@ -21,11 +21,11 @@ class MinIOConfig:
 class DataSourceConfig:
     """Configuração de fonte de dados"""
     source_name: str          # Ex: "fundamentus"
-    asset_type: str           # Ex: "acoes", "opcoes", "fiis"
+    asset_type: str | dict            # Ex: "acoes", "opcoes", "fiis"
     identifier_type: str      # Ex: "papel", "ticker", "cnpj"
     data_format: str          # Ex: "html", "json", "csv", "parquet"
     
-    def get_base_path(self, identifier_value: str, extraction_date: str, extraction_time: Optional[str] = None) -> str:
+    def get_base_path(self, identifier_value: str, extraction_date: str, extraction_time: Optional[str] = None, asset_type_override: Optional[str] = None) -> str:
         """
         Gera o caminho base no formato padronizado
         
@@ -33,14 +33,15 @@ class DataSourceConfig:
             identifier_value: Valor do identificador (ex: "PETR4")
             extraction_date: Data no formato YYYY-MM-DD
             extraction_time: Hora no formato HH-MM-SS (opcional)
-            
+            asset_type_override: Tipo de ativo para substituir o padrão (opcional)
+
         Returns:
             Caminho completo no formato:
             {fonte}/{tipo_ativo}/{identificador}={valor}/data_extracao={data}/[hora={hora}/]
         """
         path = (
             f"{self.source_name}/"
-            f"{self.asset_type}/"
+            f"{asset_type_override if asset_type_override else self.asset_type}/"
             f"{self.identifier_type}={identifier_value}/"
             f"data_extracao={extraction_date}/"
         )
@@ -62,7 +63,10 @@ FUNDAMENTUS_CONFIG = DataSourceConfig(
 
 CVM_CONFIG = DataSourceConfig(
     source_name="gov_br_cvm",
-    asset_type="demonstracoes_financeiras_padronizadas",
+    asset_type={
+        "DFP": "demonstracoes_financeiras_padronizadas",
+        "FRE": "formulario_de_referencia"
+    },
     identifier_type="ano",
     data_format="zip"
 )

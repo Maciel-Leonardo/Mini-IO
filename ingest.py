@@ -70,7 +70,6 @@ class FundamentusIngestion(MultiSourceIngestion):
             minio_config=minio_config,
             source_config=FUNDAMENTUS_CONFIG
         )
-    
     def ingest(self, papel: str) -> Optional[Dict[str, Any]]:
         """
         Faz a ingestão de dados do Fundamentus
@@ -167,6 +166,7 @@ class CVMIngestion(MultiSourceIngestion):
             minio_config=minio_config,
             source_config=CVM_CONFIG
         )
+        
     def ingest(self, ano: str) -> Optional[Dict[str, Any]]:
         """
         Faz a ingestão de dados da CVM - Formulário de Demonstrações Financeiras Padronizadas (DFP)
@@ -177,80 +177,85 @@ class CVMIngestion(MultiSourceIngestion):
         Returns:
             Dicionário com informações da ingestão ou None em caso de erro
         """
-        try:
-            logger.info(f"Iniciando ingestão CVM: {ano}")
-            
-            # 1. Buscar dados
-            url = f"https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_{ano}.zip"
-            headers = {"User-Agent": "Mozilla/5.0"}
-            response = requests.get(url, headers=headers, timeout=30)
-            response.raise_for_status()
+        resultados = []
+        for formulario, descricao in self.source_config.asset_type.items():
+       
+            try:
+                logger.info(f"Iniciando ingestão CVM: {ano}")
+                
+                # 1. Buscar dados
+                url = f"https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/{formulario}/DADOS/{formulario.lower()}_cia_aberta_{ano}.zip"
+                headers = {"User-Agent": "Mozilla/5.0"}
+                response = requests.get(url, headers=headers, timeout=30)
+                response.raise_for_status()
 
-            
-            # 2. Preparar timestamps
-            timestamp_utc = datetime.utcnow()
-            extraction_date = timestamp_utc.strftime("%Y-%m-%d")
-            extraction_time = timestamp_utc.strftime("%H-%M-%S")
-            
-            # 3. Gerar caminho usando DataSourceConfig
-            base_path = self.source_config.get_base_path(
-                identifier_value=ano,
-                extraction_date=extraction_date,
-                extraction_time=extraction_time
-            )
-            # 4. Salvar ZIP
-            self._save_to_minio(
-                data=response.content,
-                path=f"{base_path}dfp{ano}.zip",
-                content_type="application/zip"
-            )
-            # 5. Salvar metadados
+                
+                # 2. Preparar timestamps
+                timestamp_utc = datetime.utcnow()
+                extraction_date = timestamp_utc.strftime("%Y-%m-%d")
+                extraction_time = timestamp_utc.strftime("%H-%M-%S")
+                
+                # 3. Gerar caminho usando DataSourceConfig
+                base_path = self.source_config.get_base_path(
+                    identifier_value=ano,
+                    asset_type_override=descricao,
+                    extraction_date=extraction_date,
+                    extraction_time=extraction_time
+                )
+                # 4. Salvar ZIP
+                self._save_to_minio(
+                    data=response.content,
+                    path=f"{base_path}{formulario.lower()}_{ano}.zip",
+                    content_type="application/zip"
+                )
+                # 5. Salvar metadados
 
-            metadata = {
-            "fonte": "CVM",
-            "tipo_ativo": "demonstracao_financeira_padronizada",
-            "identificador": {
-                "tipo": "ano",
-                "valor": ano  # ex: "2010"
-            },
-            "extracao": {
-                "data": extraction_date,
-                "hora": extraction_time,
-                "timestamp_utc": timestamp_utc.isoformat()
-            },
-            "requisicao": {
-                "url": f"https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_{ano}.zip",
-                "status_code": response.status_code,
-                "headers": headers,
-                "tempo_resposta_ms": response.elapsed.total_seconds() * 1000
-            },
-            "dados": {
-                "formato": "CSV",
-                "separador": ";",
-                "compactacao": "ZIP",
-                "tamanho_bytes": len(response.content),
-                "ano_referencia": int(ano),
-                "moeda": "BRL",
-            },
-            "versao_ingestor": "2.0.0"
-        }
-            self._save_metadata(base_path, metadata)
-            result = {
-                "fonte": self.source_config.source_name,
-                "bucket": self.minio_config.bucket_bronze,
-                "path": base_path,
-                "timestamp": timestamp_utc.isoformat(),
-                "identificador": ano
+                metadata = {
+                "fonte": "CVM",
+                "tipo_ativo": descricao,
+                "identificador": {
+                    "tipo": "ano",
+                    "valor": ano  # ex: "2010"
+                },
+                "extracao": {
+                    "data": extraction_date,
+                    "hora": extraction_time,
+                    "timestamp_utc": timestamp_utc.isoformat()
+                },
+                "requisicao": {
+                    "url": f"https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/{formulario}/DADOS/{formulario.lower()}_cia_aberta_{ano}.zip",
+                    "status_code": response.status_code,
+                    "headers": headers,
+                    "tempo_resposta_ms": response.elapsed.total_seconds() * 1000
+                },
+                "dados": {
+                    "formato": "CSV",
+                    "separador": ";",
+                    "compactacao": "ZIP",
+                    "tamanho_bytes": len(response.content),
+                    "ano_referencia": int(ano),
+                    "moeda": "BRL",
+                },
+                "versao_ingestor": "3.0.0"
             }
-            logger.info(f"✅ Ingestão concluída: {ano}")
-            return result
-        except requests.exceptions.RequestException as e:
-            logger.error(f"❌ Erro ao buscar dados de {ano}: {e}")
-            return None
-        except Exception as e:
-            logger.error(f"❌ Erro inesperado ao processar {ano}: {e}")
-            return None
-        
+                self._save_metadata(base_path, metadata)
+                result = {
+                    "fonte": self.source_config.source_name,
+                    "bucket": self.minio_config.bucket_bronze,
+                    "path": base_path,
+                    "timestamp": timestamp_utc.isoformat(),
+                    "identificador": ano
+                }
+                resultados.append(result)
+                logger.info(f"✅ Ingestão concluída: {formulario}: {ano}")
+            except requests.exceptions.RequestException as e:
+                logger.error(f"❌ Erro ao buscar dados de {ano}: {e}")
+                return None
+            except Exception as e:
+                logger.error(f"❌ Erro inesperado ao processar {ano}: {e}")
+                return None
+         # Retorna lista de resultados ou None se nenhum sucesso
+        return {"resultados": resultados} if resultados else None
 # Exemplo de uso
 if __name__ == "__main__":
     # Ingestão de múltiplas fontes para a mesma ação
@@ -260,4 +265,3 @@ if __name__ == "__main__":
     cvm = CVMIngestion()
     for ano in anos:
         result1 = cvm.ingest(ano)
-
