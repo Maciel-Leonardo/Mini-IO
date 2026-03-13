@@ -131,8 +131,10 @@ while True:
         
         logger.info("📥 Lendo tabelas Silver para atualizar métricas...")
 
-        # Lista de tabelas e anos que queremos monitorar
-        tabelas = [
+        # ====================================================================
+        # TABELAS DFP (Demonstrações Financeiras Padronizadas)
+        # ====================================================================
+        tabelas_dfp = [
             ("DRE_con",      "2020"),
             ("DRE_con",      "2021"),
             ("DRE_con",      "2022"),
@@ -153,9 +155,60 @@ while True:
             ("DFC_DMPL_con", "2022"),
             ("DFC_DMPL_con", "2023"),
             ("DFC_DMPL_con", "2024"),
+            ("composicao_capital", "2020"),
+            ("composicao_capital", "2021"),
+            ("composicao_capital", "2022"),
+            ("composicao_capital", "2023"),
+            ("composicao_capital", "2024"),
         ]
 
-        for tabela, ano in tabelas:
+        # ====================================================================
+        # ⚠️ ALTERAÇÃO 5: TABELAS FRE CORRIGIDAS
+        # ====================================================================
+        # ANTES (versão anterior - INCORRETA):
+        # tabelas_fre = [
+        #     ("volume_valor_mobiliario", "2020"),
+        #     ...
+        #     ("distribuicao_capital", "2020"),  # ❌ não existe
+        #     ...
+        #     ("dividendos", "2020"),             # ❌ nome errado
+        #     ...
+        #     ("proventos", "2020"),              # ❌ não existe
+        #     ...
+        # ]
+        #
+        # AGORA (baseado nos documentos Word):
+        tabelas_fre = [
+            # ────────────────────────────────────────────────────────────────
+            # 1. VOLUME_VALOR_MOBILIARIO (Preço da Ação)
+            # Documento: 04_Indicador_Preco_Acao_ATUALIZADO.docx
+            # ────────────────────────────────────────────────────────────────
+            ("volume_valor_mobiliario", "2020"),
+            ("volume_valor_mobiliario", "2021"),
+            ("volume_valor_mobiliario", "2022"),
+            ("volume_valor_mobiliario", "2023"),
+            ("volume_valor_mobiliario", "2024"),
+            
+            # ────────────────────────────────────────────────────────────────
+            # 2. DISTRIBUICAO_DIVIDENDOS (Dividendos e JCP)
+            # Documento: 06_Indicador_Dividendos_JCP_ATUALIZADO.docx
+            # ────────────────────────────────────────────────────────────────
+            # ⚠️ NOME CORRETO: "distribuicao_dividendos" (não "dividendos")
+            ("distribuicao_dividendos", "2020"),
+            ("distribuicao_dividendos", "2021"),
+            ("distribuicao_dividendos", "2022"),
+            ("distribuicao_dividendos", "2023"),
+            ("distribuicao_dividendos", "2024"),
+        ]
+
+        # Combinar todas as tabelas
+        todas_tabelas = tabelas_dfp + tabelas_fre
+
+        logger.info(f"📊 Total de tabelas a monitorar: {len(todas_tabelas)}")
+        logger.info(f"   - DFP: {len(tabelas_dfp)} tabelas")
+        logger.info(f"   - FRE: {len(tabelas_fre)} tabelas")
+
+        for tabela, ano in todas_tabelas:
             try:
                 # Lê os dados da camada Silver no MinIO
                 df = processor.read_silver_table(tabela, ano=int(ano))

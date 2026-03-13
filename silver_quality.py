@@ -109,7 +109,7 @@ class SilverQualityValidator:
 
         Args:
             df:      DataFrame Spark com os dados da camada Silver
-            csv_key: Nome da tabela (ex: "DRE_con", "BPA_con")
+            csv_key: Nome da tabela (ex: "DRE_con", "BPA_con", "volume_valor_mobiliario")
             ano:     Ano de referência (ex: "2023")
 
         Returns:
@@ -130,17 +130,71 @@ class SilverQualityValidator:
         }
 
         # ====================================================================
-        # 1. COLUNAS OBRIGATÓRIAS
-        # Verifica se todas as colunas essenciais estão presentes no DataFrame
+        # ⚠️ ALTERAÇÃO 6: COLUNAS OBRIGATÓRIAS CORRIGIDAS PARA FRE
         # ====================================================================
+        # ANTES (versão anterior - INCORRETA):
+        # required_cols = {
+        #     # ... DFP existentes ...
+        #     "volume_valor_mobiliario": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER", "VL_MERC_ACAO"],
+        #     "distribuicao_capital": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER"],
+        #     "dividendos": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER", "VL_PROVENTO"],
+        #     "proventos": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER"],
+        # }
+        #
+        # AGORA (baseado nos documentos Word e estrutura real dos CSVs):
         required_cols = {
+            # ================================================================
+            # TABELAS DFP (Demonstrações Financeiras Padronizadas)
+            # Não alteradas - mantidas do código original
+            # ================================================================
             "composicao_capital": ["CNPJ_CIA", "DENOM_CIA", "QT_ACAO_TOTAL_CAP_INTEGR", "DT_REFER", "QT_ACAO_TOTAL_TESOURO"],
             "DRE_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "DT_REFER", "DS_CONTA"],
             "BPA_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "CD_CONTA", "DS_CONTA"],
             "BPP_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "CD_CONTA", "DS_CONTA"],
-            "DFC_DMPL_con": ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "COLUNA_DF"]
+            "DFC_DMPL_con": ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "COLUNA_DF"],
+            
+            # ================================================================
+            # TABELAS FRE (Formulário de Referência) - CORRIGIDAS
+            # ================================================================
+            
+            # ────────────────────────────────────────────────────────────────
+            # 1. VOLUME_VALOR_MOBILIARIO (Preço da Ação)
+            # Baseado em: 04_Indicador_Preco_Acao_ATUALIZADO.docx
+            # ────────────────────────────────────────────────────────────────
+            # Campos obrigatórios segundo o documento:
+            # - Nome_Companhia (identificação da empresa)
+            # - Especie_Acao (Ordinária/Preferencial)
+            # - Data_Fim_Trimestre (período de referência)
+            # - Valor_Cotacao_Media (preço médio do trimestre)
+            #
+            # ⚠️ NOTA: CSVs FRE usam nomes diferentes de DFP:
+            #   - "Nome_Companhia" ao invés de "DENOM_CIA"
+            #   - "CNPJ_Companhia" ao invés de "CNPJ_CIA"
+            "volume_valor_mobiliario": [
+                "Nome_Companhia",
+                "Especie_Acao",
+                "Data_Fim_Trimestre",
+                "Valor_Cotacao_Media"
+            ],
+            
+            # ────────────────────────────────────────────────────────────────
+            # 2. DISTRIBUICAO_DIVIDENDOS (Dividendos e JCP)
+            # Baseado em: 06_Indicador_Dividendos_JCP_ATUALIZADO.docx
+            # ────────────────────────────────────────────────────────────────
+            # Campos obrigatórios segundo o documento:
+            # - Nome_Companhia (identificação da empresa)
+            # - Data_Fim_Exercicio_Social (ano fiscal)
+            # - Dividendo_Distribuido_Total (valor total distribuído)
+            # - Lucro_Liquido_Ajustado (para cálculo do payout ratio)
+            "distribuicao_dividendos": [
+                "Nome_Companhia",
+                "Data_Fim_Exercicio_Social",
+                "Dividendo_Distribuido_Total",
+                "Lucro_Liquido_Ajustado"
+            ],
         }
-        #Verifica se a tabela passada em argumento está em required_cols, para só então validar as colunas obrigatórias. Isso evita erros de chave caso o csv_key seja diferente do esperado.
+        
+        # Verifica se a tabela passada em argumento está em required_cols
         if csv_key in required_cols:
             # Lista as colunas que deveriam existir mas não existem
             missing = [col for col in required_cols[csv_key] if col not in df.columns]
@@ -170,8 +224,15 @@ class SilverQualityValidator:
         # 3. EMPRESAS ÚNICAS
         # Conta quantas empresas diferentes aparecem nos dados
         # ====================================================================
+        # ⚠️ ALTERAÇÃO 7: Suportar tanto CNPJ_CIA (DFP) quanto CNPJ_Companhia (FRE)
+        cnpj_col = None
         if "CNPJ_CIA" in df.columns:
-            unique_companies = df.select("CNPJ_CIA").distinct().count()
+            cnpj_col = "CNPJ_CIA"
+        elif "CNPJ_Companhia" in df.columns:
+            cnpj_col = "CNPJ_Companhia"
+        
+        if cnpj_col:
+            unique_companies = df.select(cnpj_col).distinct().count()
             metrics["validations"]["unique_companies"] = unique_companies
             silver_companies_unique.labels(csv_type=csv_key, ano=ano).set(unique_companies)
             logger.info(f"🏢 Empresas únicas: {unique_companies:,}")
@@ -186,7 +247,7 @@ class SilverQualityValidator:
         for col_name in df.columns:
             # Conta quantas linhas têm valor nulo nesta coluna
             null_count = df.filter(col(col_name).isNull()).count()
-            null_pct = (null_count / metrics["total_rows"]) * 100
+            null_pct = (null_count / metrics["total_rows"]) * 100 if metrics["total_rows"] > 0 else 0
             null_percentages[col_name] = round(null_pct, 2)
 
             # Envia o percentual de nulos desta coluna ao Prometheus
@@ -210,75 +271,161 @@ class SilverQualityValidator:
         metrics["validations"]["high_null_columns"] = high_null_columns
 
         # ====================================================================
-        # 5. VALORES MONETÁRIOS INVÁLIDOS
-        # Verifica se a coluna de valores financeiros tem nulos ou NaN
+        # ⚠️ ALTERAÇÃO 8: VALIDAÇÃO DE VALORES MONETÁRIOS EXPANDIDA
         # ====================================================================
+        # 5. VALORES MONETÁRIOS INVÁLIDOS
+        # Verifica se as colunas de valores financeiros têm nulos ou NaN
+        # ====================================================================
+        
+        # Para DFP: VL_CONTA
         if "VL_CONTA" in df.columns:
             invalid_values = df.filter(
                 col("VL_CONTA").isNull() | isnan(col("VL_CONTA"))
             ).count()
 
-            invalid_pct = (invalid_values / metrics["total_rows"]) * 100
+            invalid_pct = (invalid_values / metrics["total_rows"]) * 100 if metrics["total_rows"] > 0 else 0
             metrics["validations"]["invalid_monetary_values"] = invalid_values
             metrics["validations"]["invalid_monetary_pct"] = round(invalid_pct, 2)
 
             if invalid_values > 0:
-                logger.warning(f"⚠️  Valores monetários inválidos: {invalid_values:,} ({invalid_pct:.1f}%)")
+                logger.warning(f"⚠️  Valores monetários inválidos (VL_CONTA): {invalid_values:,} ({invalid_pct:.1f}%)")
                 silver_validation_errors.labels(
                     csv_type=csv_key,
                     ano=ano,
                     error_type='invalid_monetary_values'
                 ).inc(invalid_values)
             else:
-                logger.info("✅ Todos os valores monetários são válidos")
+                logger.info("✅ Todos os valores monetários (VL_CONTA) são válidos")
+        
+        # Para FRE - DIVIDENDOS: Dividendo_Distribuido_Total
+        # Baseado em: 06_Indicador_Dividendos_JCP_ATUALIZADO.docx
+        if "Dividendo_Distribuido_Total" in df.columns:
+            invalid_values = df.filter(
+                col("Dividendo_Distribuido_Total").isNull() | 
+                isnan(col("Dividendo_Distribuido_Total"))
+            ).count()
 
+            invalid_pct = (invalid_values / metrics["total_rows"]) * 100 if metrics["total_rows"] > 0 else 0
+            metrics["validations"]["invalid_dividend_values"] = invalid_values
+            metrics["validations"]["invalid_dividend_pct"] = round(invalid_pct, 2)
+
+            if invalid_values > 0:
+                logger.warning(f"⚠️  Valores de dividendos inválidos: {invalid_values:,} ({invalid_pct:.1f}%)")
+                silver_validation_errors.labels(
+                    csv_type=csv_key,
+                    ano=ano,
+                    error_type='invalid_dividend_values'
+                ).inc(invalid_values)
+            else:
+                logger.info("✅ Todos os valores de dividendos são válidos")
+        
+        # Para FRE - COTAÇÕES: Valor_Cotacao_Media
+        # Baseado em: 04_Indicador_Preco_Acao_ATUALIZADO.docx
+        if "Valor_Cotacao_Media" in df.columns:
+            invalid_values = df.filter(
+                col("Valor_Cotacao_Media").isNull() | 
+                isnan(col("Valor_Cotacao_Media"))
+            ).count()
+
+            invalid_pct = (invalid_values / metrics["total_rows"]) * 100 if metrics["total_rows"] > 0 else 0
+            metrics["validations"]["invalid_stock_price_values"] = invalid_values
+            metrics["validations"]["invalid_stock_price_pct"] = round(invalid_pct, 2)
+
+            if invalid_values > 0:
+                logger.warning(f"⚠️  Cotações inválidas: {invalid_values:,} ({invalid_pct:.1f}%)")
+                silver_validation_errors.labels(
+                    csv_type=csv_key,
+                    ano=ano,
+                    error_type='invalid_stock_price_values'
+                ).inc(invalid_values)
+            else:
+                logger.info("✅ Todas as cotações são válidas")
+
+        # ====================================================================
+        # ⚠️ ALTERAÇÃO 9: VALIDAÇÃO DE DATAS EXPANDIDA PARA FRE
         # ====================================================================
         # 6. DATAS NO FUTURO
         # Datas posteriores a hoje indicam erro de digitação ou dado corrompido
         # ====================================================================
-        if "DT_REFER" in df.columns:
-            
-
-            future_dates = df.filter(col("DT_REFER") > lit(date.today())).count()
-            metrics["validations"]["future_dates"] = future_dates
-
-            if future_dates > 0:
-                logger.warning(f"⚠️  Datas no futuro: {future_dates:,}")
-                silver_validation_errors.labels(
-                    csv_type=csv_key,
-                    ano=ano,
-                    error_type='future_dates'
-                ).inc(future_dates)
-            else:
-                logger.info("✅ Todas as datas são válidas")
-
-        # ====================================================================
-        # 7. DUPLICATAS
-        # Registros com a mesma chave (empresa + conta + data) duplicados
-        # ====================================================================
-        if csv_key in required_cols:
-            key_cols = ["CNPJ_CIA", "CD_CONTA", "DT_REFER"] if "CD_CONTA" in df.columns else ["CNPJ_CIA", "DT_REFER"]
-            key_cols = [c for c in key_cols if c in df.columns]
-
-            if key_cols:
-                # Conta quantos grupos de registros têm mais de 1 ocorrência
-                duplicates = df.groupBy(key_cols).count().filter(col("count") > 1).count()
-                metrics["validations"]["duplicates"] = duplicates
-
-                if duplicates > 0:
-                    logger.warning(f"⚠️  Registros duplicados: {duplicates:,}")
+        date_columns = [
+            'DT_REFER',                    # DFP
+            'Data_Fim_Trimestre',          # FRE - volume_valor_mobiliario
+            'Data_Fim_Exercicio_Social'    # FRE - distribuicao_dividendos
+        ]
+        
+        for date_col in date_columns:
+            if date_col in df.columns:
+                future_dates = df.filter(col(date_col) > lit(date.today())).count()
+                
+                if future_dates > 0:
+                    metrics["validations"][f"future_dates_{date_col}"] = future_dates
+                    logger.warning(f"⚠️  Datas no futuro em {date_col}: {future_dates:,}")
                     silver_validation_errors.labels(
                         csv_type=csv_key,
                         ano=ano,
-                        error_type='duplicates'
-                    ).inc(duplicates)
+                        error_type=f'future_dates_{date_col}'
+                    ).inc(future_dates)
                 else:
-                    logger.info("✅ Nenhuma duplicata encontrada")
+                    logger.info(f"✅ Todas as datas em {date_col} são válidas")
 
         # ====================================================================
-        # 8. DISTRIBUIÇÃO DE VALORES MONETÁRIOS
-        # Estatísticas descritivas da coluna VL_CONTA
+        # ⚠️ ALTERAÇÃO 10: DETECÇÃO DE DUPLICATAS AJUSTADA PARA FRE
         # ====================================================================
+        # 7. DUPLICATAS
+        # Registros com a mesma chave duplicados
+        # ====================================================================
+        if csv_key in required_cols:
+            # Definir chaves primárias por tipo de tabela
+            key_definitions = {
+                # ────────────────────────────────────────────────────────────
+                # DFP (não alterado)
+                # ────────────────────────────────────────────────────────────
+                "DRE_con": ["CNPJ_CIA", "CD_CONTA", "DT_REFER"],
+                "BPA_con": ["CNPJ_CIA", "CD_CONTA", "DT_REFER"],
+                "BPP_con": ["CNPJ_CIA", "CD_CONTA", "DT_REFER"],
+                "DFC_DMPL_con": ["CNPJ_CIA", "COLUNA_DF", "DT_REFER"],
+                "composicao_capital": ["CNPJ_CIA", "DT_REFER"],
+                
+                # ────────────────────────────────────────────────────────────
+                # FRE (corrigido)
+                # ────────────────────────────────────────────────────────────
+                # volume_valor_mobiliario:
+                # Chave = Empresa + Espécie da Ação + Trimestre
+                # (uma empresa pode ter ON e PN, ambas com dados trimestrais)
+                "volume_valor_mobiliario": ["Nome_Companhia", "Especie_Acao", "Data_Fim_Trimestre"],
+                
+                # distribuicao_dividendos:
+                # Chave = Empresa + Exercício Social
+                # (uma empresa tem apenas um registro de dividendos por ano fiscal)
+                "distribuicao_dividendos": ["Nome_Companhia", "Data_Fim_Exercicio_Social"],
+            }
+            
+            if csv_key in key_definitions:
+                key_cols = [c for c in key_definitions[csv_key] if c in df.columns]
+                
+                if key_cols:
+                    # Conta quantos grupos de registros têm mais de 1 ocorrência
+                    duplicates = df.groupBy(key_cols).count().filter(col("count") > 1).count()
+                    metrics["validations"]["duplicates"] = duplicates
+
+                    if duplicates > 0:
+                        logger.warning(f"⚠️  Registros duplicados: {duplicates:,}")
+                        silver_validation_errors.labels(
+                            csv_type=csv_key,
+                            ano=ano,
+                            error_type='duplicates'
+                        ).inc(duplicates)
+                    else:
+                        logger.info("✅ Nenhuma duplicata encontrada")
+
+        # ====================================================================
+        # ⚠️ ALTERAÇÃO 11: DISTRIBUIÇÃO DE VALORES EXPANDIDA PARA FRE
+        # ====================================================================
+        # 8. DISTRIBUIÇÃO DE VALORES MONETÁRIOS
+        # Estatísticas descritivas das colunas de valor
+        # ====================================================================
+        
+        # Para VL_CONTA (DFP)
         if "VL_CONTA" in df.columns:
             stats = df.select(
                 spark_sum("VL_CONTA").alias("total"),
@@ -296,11 +443,58 @@ class SilverQualityValidator:
                 "max":   float(stats["max"])   if stats["max"]   else 0
             }
 
-            logger.info("💰 Distribuição de valores:")
+            logger.info("💰 Distribuição de valores (VL_CONTA):")
             logger.info(f"   Total: R$ {stats['total']:,.2f}" if stats["total"] else "   Total: N/A")
             logger.info(f"   Média: R$ {stats['avg']:,.2f}"   if stats["avg"]   else "   Média: N/A")
             logger.info(f"   Min: R$ {stats['min']:,.2f}"     if stats["min"]   else "   Min: N/A")
             logger.info(f"   Max: R$ {stats['max']:,.2f}"     if stats["max"]   else "   Max: N/A")
+        
+        # Para Dividendo_Distribuido_Total (FRE - dividendos)
+        # Baseado em: 06_Indicador_Dividendos_JCP_ATUALIZADO.docx
+        if "Dividendo_Distribuido_Total" in df.columns:
+            stats = df.select(
+                spark_sum("Dividendo_Distribuido_Total").alias("total"),
+                count("Dividendo_Distribuido_Total").alias("count"),
+                avg("Dividendo_Distribuido_Total").alias("avg"),
+                min("Dividendo_Distribuido_Total").alias("min"),
+                max("Dividendo_Distribuido_Total").alias("max")
+            ).collect()[0]
+
+            metrics["validations"]["dividend_distribution"] = {
+                "total": float(stats["total"]) if stats["total"] else 0,
+                "count": stats["count"],
+                "avg":   float(stats["avg"])   if stats["avg"]   else 0,
+                "min":   float(stats["min"])   if stats["min"]   else 0,
+                "max":   float(stats["max"])   if stats["max"]   else 0
+            }
+
+            logger.info("💰 Distribuição de dividendos:")
+            logger.info(f"   Total distribuído: R$ {stats['total']:,.2f}" if stats["total"] else "   Total: N/A")
+            logger.info(f"   Média por empresa: R$ {stats['avg']:,.2f}"   if stats["avg"]   else "   Média: N/A")
+            logger.info(f"   Mínimo: R$ {stats['min']:,.2f}"              if stats["min"]   else "   Min: N/A")
+            logger.info(f"   Máximo: R$ {stats['max']:,.2f}"              if stats["max"]   else "   Max: N/A")
+        
+        # Para Valor_Cotacao_Media (FRE - cotações)
+        # Baseado em: 04_Indicador_Preco_Acao_ATUALIZADO.docx
+        if "Valor_Cotacao_Media" in df.columns:
+            stats = df.select(
+                count("Valor_Cotacao_Media").alias("count"),
+                avg("Valor_Cotacao_Media").alias("avg"),
+                min("Valor_Cotacao_Media").alias("min"),
+                max("Valor_Cotacao_Media").alias("max")
+            ).collect()[0]
+
+            metrics["validations"]["stock_price_distribution"] = {
+                "count": stats["count"],
+                "avg":   float(stats["avg"])   if stats["avg"]   else 0,
+                "min":   float(stats["min"])   if stats["min"]   else 0,
+                "max":   float(stats["max"])   if stats["max"]   else 0
+            }
+
+            logger.info("📈 Distribuição de cotações:")
+            logger.info(f"   Cotação média: R$ {stats['avg']:,.2f}"   if stats["avg"]   else "   Média: N/A")
+            logger.info(f"   Mínima: R$ {stats['min']:,.2f}"          if stats["min"]   else "   Min: N/A")
+            logger.info(f"   Máxima: R$ {stats['max']:,.2f}"          if stats["max"]   else "   Max: N/A")
 
         # ====================================================================
         # 9. RESUMO FINAL
@@ -325,11 +519,19 @@ class SilverQualityValidator:
         if "unique_companies" in validations:
             logger.info(f"Empresas únicas: {validations['unique_companies']:,}")
         if "invalid_monetary_values" in validations:
-            logger.info(f"Valores inválidos: {validations['invalid_monetary_values']:,}")
+            logger.info(f"Valores inválidos (VL_CONTA): {validations['invalid_monetary_values']:,}")
+        if "invalid_dividend_values" in validations:
+            logger.info(f"Valores inválidos (Dividendos): {validations['invalid_dividend_values']:,}")
+        if "invalid_stock_price_values" in validations:
+            logger.info(f"Valores inválidos (Cotações): {validations['invalid_stock_price_values']:,}")
         if "duplicates" in validations:
             logger.info(f"Duplicatas: {validations['duplicates']:,}")
-        if "future_dates" in validations:
-            logger.info(f"Datas futuras: {validations['future_dates']:,}")
+        
+        # Contar total de datas futuras em todas as colunas
+        future_dates_total = sum(v for k, v in validations.items() if k.startswith("future_dates_"))
+        if future_dates_total > 0:
+            logger.info(f"Datas futuras (total): {future_dates_total:,}")
+            
         if "high_null_columns" in validations and validations["high_null_columns"]:
             logger.info(f"Colunas com >50% nulos: {len(validations['high_null_columns'])}")
 

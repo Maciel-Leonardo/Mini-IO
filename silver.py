@@ -7,7 +7,7 @@ from minio import Minio
 from delta import configure_spark_with_delta_pip
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, to_date, trim, when, lit, current_timestamp, rlike, lower, translate, ilike
-from pyspark.sql.types import DoubleType, IntegerType,StringType
+from pyspark.sql.types import DoubleType, IntegerType, StringType
 from config import MinIOConfig
 import logging
 from typing import List, Dict, Optional
@@ -20,7 +20,6 @@ import chardet
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-#AJUSTAR DEPOIS QUE FINALIZAR TUDO --------------------------------
 def normalize_text(column):
     """
     Normaliza texto para facilitar filtros e comparações.
@@ -35,7 +34,6 @@ def normalize_text(column):
         "áàãâäéèêëíìîïóòõôöúùûüç",
         "aaaaaeeeeiiiiooooouuuuc"
     )
-#------------------------------------------------------------
 
 class SilverProcessor:
     """Classe base para processar dados da camada Bronze → Silver"""
@@ -55,6 +53,7 @@ class SilverProcessor:
         # Inicializar o validador de qualidade - prometheus
         self.validator = SilverQualityValidator(self.spark)
         logger.info("✅ SilverQualityValidator inicializado")
+        
     def _create_spark_session(self) -> SparkSession:
         """Cria sessão Spark com Delta Lake e S3 configurados"""
         
@@ -154,21 +153,75 @@ class SilverProcessor:
 class CVMSilverProcessor(SilverProcessor):
     """Processa dados da CVM da camada Bronze para Silver usando Delta Lake"""
     
-    # Definir quais CSVs queremos extrair do ZIP
-    CSV_TARGETS = {
+    # ========================================================================
+    # DEFINIÇÃO DOS CSVs A SEREM PROCESSADOS
+    # ========================================================================
+    # Separados por tipo de documento (DFP e FRE) para melhor organização
+    
+    # ────────────────────────────────────────────────────────────────────────
+    # DFP - Demonstrações Financeiras Padronizadas (anual)
+    # ────────────────────────────────────────────────────────────────────────
+    DFP_TARGETS = {
         "composicao_capital": "dfp_cia_aberta_composicao_capital",  # Composição do Capital Social
-        "DRE_con": "dfp_cia_aberta_DRE_con",    # DRE Consolidado
-        "DFC_DMPL_con": "dfp_cia_aberta_DMPL_con",  # Fluxo de Caixa Método Direto
-        "BPA_con": "dfp_cia_aberta_BPA_con",     # Balanço Patrimonial Ativo Consolidado
-        "BPP_con": "dfp_cia_aberta_BPP_con"      # Balanço Patrimonial Passivo Consolidado
+        "DRE_con": "dfp_cia_aberta_DRE_con",           # DRE Consolidado
+        "DFC_DMPL_con": "dfp_cia_aberta_DMPL_con",     # Fluxo de Caixa Método Direto
+        "BPA_con": "dfp_cia_aberta_BPA_con",           # Balanço Patrimonial Ativo Consolidado
+        "BPP_con": "dfp_cia_aberta_BPP_con"            # Balanço Patrimonial Passivo Consolidado
     }
     
-    def process_year(self, ano: str) -> Dict[str, bool]:
+    # ────────────────────────────────────────────────────────────────────────
+    # FRE - Formulário de Referência (trimestral/anual)
+    # ────────────────────────────────────────────────────────────────────────
+    # ⚠️ ALTERAÇÃO 1: FRE_TARGETS CORRIGIDO BASEADO NOS DOCUMENTOS
+    # 
+    # ANTES (versão anterior - INCORRETA):
+    # FRE_TARGETS = {
+    #     "volume_valor_mobiliario": "fre_cia_aberta_volume_valor_mobiliario",
+    #     "distribuicao_capital": "fre_cia_aberta_distribuicao_capital",  # ❌ não existe
+    #     "dividendos": "fre_cia_aberta_dividendos_jscp",                 # ❌ nome errado
+    #     "proventos": "fre_cia_aberta_proventos",                        # ❌ não existe
+    # }
+    #
+    # AGORA (baseado nos documentos Word fornecidos):
+    FRE_TARGETS = {
+        # ──────────────────────────────────────────────────────────────────
+        # 1. PREÇO DA AÇÃO (Documento: 04_Indicador_Preco_Acao_ATUALIZADO.docx)
+        # ──────────────────────────────────────────────────────────────────
+        # Arquivo: fre_cia_aberta_volume_valor_mobiliario_YYYY.csv
+        # Contém: Cotações trimestrais das ações (média, máxima, mínima)
+        # Campos-chave:
+        #   - Valor_Cotacao_Media
+        #   - Valor_Maior_Cotacao
+        #   - Valor_Menor_Cotacao
+        #   - Especie_Acao (Ordinária/Preferencial)
+        #   - Data_Fim_Trimestre
+        "volume_valor_mobiliario": "fre_cia_aberta_volume_valor_mobiliario",
+        
+        # ──────────────────────────────────────────────────────────────────
+        # 2. DIVIDENDOS E JCP (Documento: 06_Indicador_Dividendos_JCP_ATUALIZADO.docx)
+        # ──────────────────────────────────────────────────────────────────
+        # Arquivo: fre_cia_aberta_distribuicao_dividendos_YYYY.csv
+        # Contém: Valores totais de dividendos distribuídos
+        # Campos-chave:
+        #   - Dividendo_Distribuido_Total
+        #   - Lucro_Liquido_Ajustado
+        #   - Data_Fim_Exercicio_Social
+        # 
+        # ⚠️ NOTA: Nome correto é "distribuicao_dividendos", NÃO "dividendos_jscp"
+        "distribuicao_dividendos": "fre_cia_aberta_distribuicao_dividendos",
+    }
+    # ────────────────────────────────────────────────────────────────────────
+    
+    # Combinar todos os targets para compatibilidade com código existente
+    CSV_TARGETS = {**DFP_TARGETS, **FRE_TARGETS}
+    
+    def process_year(self, ano: str, document_type: str = "DFP") -> Dict[str, bool]:
         """
         Processa todos os CSVs de um ano específico
         
         Args:
             ano: Ano a processar (ex: "2023")
+            document_type: Tipo de documento ("DFP" ou "FRE")
             
         Returns:
             Dicionário com status de processamento de cada CSV
@@ -176,274 +229,365 @@ class CVMSilverProcessor(SilverProcessor):
         results = {}
         
         try:
-            logger.info(f"🔄 Iniciando processamento Silver para ano {ano}")
+            logger.info(f"🔄 Iniciando processamento Silver para {document_type} {ano}")
+            
+            # Selecionar targets apropriados baseado no tipo de documento
+            if document_type == "DFP":
+                targets = self.DFP_TARGETS
+                bronze_path_prefix = "gov_br_cvm/demonstracoes_financeiras_padronizadas"
+            elif document_type == "FRE":
+                targets = self.FRE_TARGETS
+                bronze_path_prefix = "gov_br_cvm/formulario_de_referencia"
+            else:
+                raise ValueError(f"Tipo de documento inválido: {document_type}")
             
             # 1. Buscar ZIP da camada Bronze
-            zip_path = self._find_latest_zip(ano)
-            if not zip_path:
-                logger.error(f"❌ ZIP não encontrado para ano {ano}")
-                return results
+            zip_data = self._get_bronze_zip(ano, bronze_path_prefix)
+            if not zip_data:
+                logger.error(f"❌ Arquivo ZIP não encontrado para {document_type} {ano}")
+                return {csv_key: False for csv_key in targets.keys()}
             
-            # 2. Baixar ZIP do MinIO
-            zip_bytes = self._download_from_minio(zip_path)
-            
-            # 3. Extrair e processar cada CSV
-            with zipfile.ZipFile(BytesIO(zip_bytes)) as zf:
-                for csv_key, csv_prefix in self.CSV_TARGETS.items():
-                    csv_filename = f"{csv_prefix}_{ano}.csv"
+            # 2. Processar cada CSV do ZIP
+            for csv_key, csv_filename in targets.items():
+                try:
+                    logger.info(f"\n📄 Processando: {csv_key} ({document_type})")
                     
-                    if csv_filename in zf.namelist():
-                        logger.info(f"📄 Processando {csv_filename}...")
-                        success = self._process_csv(zf, csv_filename, csv_key, ano)
-                        results[csv_key] = success
-                    else:
-                        logger.warning(f"⚠️  {csv_filename} não encontrado no ZIP")
+                    # Medir tempo de processamento para métricas Prometheus
+                    start_time = time.time()
+                    
+                    # 2.1 Extrair CSV do ZIP
+                    df = self._extract_csv_from_zip(zip_data, csv_filename)
+                    if df is None:
+                        logger.warning(f"⚠️ CSV {csv_filename} não encontrado no ZIP")
                         results[csv_key] = False
-            
-            logger.info(f"✅ Processamento concluído para {ano}")
-            return results
-            
+                        continue
+                    
+                    # 2.2 Limpar e transformar dados
+                    df_clean = self._clean_dataframe(df, csv_key, document_type)
+                    
+                    # 2.3 Adicionar metadados
+                    df_clean = df_clean.withColumn("ano_referencia", lit(ano))
+                    df_clean = df_clean.withColumn("data_processamento", current_timestamp())
+                    df_clean = df_clean.withColumn("document_type", lit(document_type))
+                    
+                    # 2.4 Salvar em Delta Lake
+                    self._save_to_delta(df_clean, csv_key)
+                    
+                    # 2.5 Validação de qualidade + métricas Prometheus
+                    self.validator.validate_and_report_metrics(df_clean, csv_key, ano)
+                    
+                    # 2.6 Registrar tempo de processamento
+                    processing_time = time.time() - start_time
+                    silver_processing_time.labels(csv_type=csv_key, ano=ano).observe(processing_time)
+                    
+                    results[csv_key] = True
+                    logger.info(f"✅ {csv_key} processado com sucesso ({processing_time:.2f}s)")
+                    
+                except Exception as e:
+                    logger.error(f"❌ Erro ao processar {csv_key}: {e}")
+                    results[csv_key] = False
+                    
         except Exception as e:
-            logger.error(f"❌ Erro ao processar ano {ano}: {e}")
-            return results
+            logger.error(f"❌ Erro geral no processamento: {e}")
+            return {csv_key: False for csv_key in targets.keys()}
+            
+        return results
     
-    def _find_latest_zip(self, ano: str) -> Optional[str]:
-        """Encontra o ZIP mais recente para um ano na camada Bronze"""
-        prefix = f"gov_br_cvm/demonstracoes_financeiras_padronizadas/ano={ano}/"
+    def _get_bronze_zip(self, ano: str, bronze_path_prefix: str) -> Optional[bytes]:
+        """
+        Busca o arquivo ZIP da camada Bronze
         
+        Args:
+            ano: Ano de referência
+            bronze_path_prefix: Prefixo do caminho (diferente para DFP e FRE)
+        """
         try:
+            # Construir o path do ZIP na Bronze
+            # Formato: gov_br_cvm/{tipo_documento}/ano={ano}/data_extracao={data}/arquivo.zip
+            prefix = f"{bronze_path_prefix}/ano={ano}/"
+            
+            # Listar objetos no MinIO
             objects = self.minio_client.list_objects(
                 self.minio_config.bucket_bronze,
                 prefix=prefix,
                 recursive=True
             )
             
-            zip_files = [obj.object_name for obj in objects if obj.object_name.endswith('.zip')]
+            # Procurar pelo arquivo ZIP mais recente
+            zip_files = [obj for obj in objects if obj.object_name.endswith('.zip')]
             
             if not zip_files:
+                logger.error(f"Nenhum ZIP encontrado em {prefix}")
                 return None
+                
+            # Pegar o mais recente (último na lista ordenada)
+            latest_zip = sorted(zip_files, key=lambda x: x.object_name)[-1]
+            logger.info(f"📦 Lendo ZIP: {latest_zip.object_name}")
             
-            # Retornar o mais recente (último da lista ordenada)
-            return sorted(zip_files)[-1]
+            # Baixar o arquivo
+            response = self.minio_client.get_object(
+                self.minio_config.bucket_bronze,
+                latest_zip.object_name
+            )
+            
+            return response.read()
             
         except Exception as e:
-            logger.error(f"❌ Erro ao buscar ZIP: {e}")
+            logger.error(f"Erro ao buscar ZIP: {e}")
             return None
     
-    def _download_from_minio(self, object_path: str) -> bytes:
-        """Baixa objeto do MinIO e retorna bytes"""
-        response = self.minio_client.get_object(
-            self.minio_config.bucket_bronze,
-            object_path
-        )
-        data = response.read()
-        response.close()
-        response.release_conn()
-        return data
-    
-    def _process_csv(self, zf: zipfile.ZipFile, csv_filename: str, csv_key: str, ano: str) -> bool:
+    def _extract_csv_from_zip(self, zip_data: bytes, csv_filename: str):
         """
-        Processa um CSV específico do ZIP e salva como Delta Lake.
-        Executa uma única validação de qualidade após salvar.
-        Args:
-            zf: Objeto ZipFile já aberto
-            csv_filename: Nome do arquivo CSV dentro do ZIP
-            csv_key: Chave identificadora para aplicar filtros específicos
-            ano: Ano de referência (para metadata e métricas)
-        Returns: True se processado com sucesso, False caso contrário
-        """
-        tmp_path = None
-        try:
-             # 1. Extrair CSV do ZIP para arquivo temporário
-            with tempfile.NamedTemporaryFile(mode='wb', delete=False, suffix='.csv') as tmp_file:
-                tmp_file.write(zf.read(csv_filename))
-                tmp_path = tmp_file.name
-
-            # Detectar encoding do arquivo (muitas vezes é ISO-8859-1)
-            with open(tmp_path, 'rb') as f:
-                encoding = chardet.detect(f.read(100000))['encoding']
-            
-            # 2. Ler diretamente com Spark
-            df_spark = (
-                self.spark.read
-                .option("header", "true")
-                .option("sep", ";")
-                .option("encoding", encoding)
-                .option("inferSchema", "false")  # Manter tudo como string inicialmente
-                .csv(tmp_path)
-            )
-            logger.info(f"  📊 Linhas lidas: {df_spark.count():,}")
-
-            # 3. Aplicar transformações de limpeza
-            df_clean = self._clean_dataframe(df_spark, csv_key)
-
-            # 4. Adicionar colunas de metadata
-            df_final = (
-                df_clean
-                .withColumn("ano_referencia", lit(int(ano)))
-                .withColumn("data_processamento", current_timestamp())
-                .withColumn("fonte", lit("CVM"))
-                .withColumn("tipo_demonstracao", lit(csv_key))
-            )
-
-            # 5. Salvar como Delta Lake
-            delta_path = f"s3a://{self.minio_config.bucket_silver}/cvm/{csv_key}/"
-            (
-                df_final.write
-                .format("delta")
-                .mode("overwrite")
-                .option("overwriteSchema", "true")
-                .option("replaceWhere", f"ano_referencia = {ano}")
-                .partitionBy("ano_referencia")
-                .save(delta_path)
-            )
-            logger.info(f"  ✅ Salvo em Delta: {delta_path}")
-            logger.info(f"  📈 Total de registros: {df_final.count():,}")
-
-            # 6. Validar qualidade e enviar métricas ao Prometheus (UMA VEZ)
-            #    Usar self.validator — inicializado no __init__, não criar instância nova
-            start_time = time.time()
-            self.validator.validate_and_report_metrics(df_final, csv_key, ano)
-            elapsed = time.time() - start_time
-            silver_processing_time.labels(
-                csv_type=csv_key,
-                ano=ano
-            ).observe(elapsed)
-            logger.info(f"⏱️ Tempo de validação: {elapsed:.2f}s")
-
-            return True
-
-        except Exception as e:
-            logger.error(f"  ❌ Erro ao processar {csv_filename}: {e}")
-            return False
+        Extrai um CSV específico do ZIP e converte para Spark DataFrame
         
-        finally:
-        # Limpar arquivo temporário
-            if tmp_path and os.path.exists(tmp_path):
-                os.remove(tmp_path)
+        Args:
+            zip_data: Dados binários do arquivo ZIP
+            csv_filename: Nome do CSV dentro do ZIP (sem extensão .csv)
+        """
+        try:
+            with zipfile.ZipFile(BytesIO(zip_data)) as zf:
+                # Procurar pelo arquivo CSV no ZIP
+                csv_name = None
+                for name in zf.namelist():
+                    if csv_filename in name and name.endswith('.csv'):
+                        csv_name = name
+                        break
                 
-    def _clean_dataframe(self, df, csv_key: str):
+                if not csv_name:
+                    logger.warning(f"CSV {csv_filename} não encontrado no ZIP")
+                    return None
+                
+                logger.info(f"  📥 Extraindo: {csv_name}")
+                
+                # Ler o CSV com pandas (mais fácil para encoding)
+                with zf.open(csv_name) as csv_file:
+                    # Detectar encoding
+                    raw_data = csv_file.read()
+                    detected = chardet.detect(raw_data)
+                    encoding = detected['encoding'] or 'latin1'
+                    
+                    # Ler CSV com pandas
+                    pdf = pd.read_csv(
+                        BytesIO(raw_data),
+                        encoding=encoding,
+                        sep=';',
+                        dtype=str,  # Ler tudo como string primeiro
+                        na_values=['', 'NA', 'NULL', 'None']
+                    )
+                    
+                    logger.info(f"  📊 Linhas lidas: {len(pdf):,}")
+                    
+                    # Converter para Spark DataFrame
+                    df = self.spark.createDataFrame(pdf)
+                    
+                    return df
+                    
+        except Exception as e:
+            logger.error(f"Erro ao extrair CSV {csv_filename}: {e}")
+            return None
+    
+    def _save_to_delta(self, df, table_name: str):
+        """
+        Salva DataFrame em formato Delta Lake
+        
+        Args:
+            df: Spark DataFrame
+            table_name: Nome da tabela
+        """
+        delta_path = f"s3a://{self.minio_config.bucket_silver}/cvm/{table_name}"
+        
+        # Salvar em Delta com merge/upsert baseado em ano_referencia
+        df.write \
+            .format("delta") \
+            .mode("append") \
+            .option("mergeSchema", "true") \
+            .save(delta_path)
+        
+        logger.info(f"  💾 Dados salvos em: {delta_path}")
+    
+    def _clean_dataframe(self, df, csv_key: str, document_type: str):
         """
         Aplica transformações de limpeza e padronização no DataFrame
+        
         Args:
             df: DataFrame original lido do CSV
             csv_key: Chave identificadora para aplicar filtros específicos
-        Returns: DataFrame limpo e padronizado
-
+            document_type: Tipo de documento ("DFP" ou "FRE")
+            
+        Returns: 
+            DataFrame limpo e padronizado
         """
         df_clean = df
 
-        # Filter por DS_CONTA — apenas para tipos relevantes
-        # Localização: silver.py, dentro de _clean_dataframe()
-        # SUBSTITUIR o bloco ds_conta_filters pelo código abaixo:
+        # ====================================================================
+        # FILTROS ESPECÍFICOS POR TIPO DE TABELA E DOCUMENTO
+        # ====================================================================
+        
+        # ────────────────────────────────────────────────────────────────────
+        # FILTROS DFP (não alterados - mantidos do código original)
+        # ────────────────────────────────────────────────────────────────────
+        if document_type == "DFP":
+            ds_conta_filters = {
+                # DRE — Demonstração do Resultado do Exercício
+                # Critérios Graham que dependem da DRE:
+                #   ✅ Não ter prejuízo → precisa de "lucro líquido"
+                #   ✅ P/L → precisa de "lucro por ação" ou "lucro líquido" + nº ações
+                #   ✅ Dividendos → precisa de "dividendos"
+                "DRE_con": r"lucro/prejuízo consolidado do período|lucro ou prejuízo líquido consolidado do período|por ação",
+                
+                # BPA — Balanço Patrimonial Ativo
+                # Critério Graham: Liquidez Corrente → precisa de "ativo circulante"
+                "BPA_con": r"ativo circulante",
+                
+                # BPP — Balanço Patrimonial Passivo
+                # Critérios Graham:
+                #   ✅ Liquidez Corrente → precisa de "passivo circulante"
+                #   ✅ P/VPA → precisa de "patrimônio líquido"
+                "BPP_con": r"passivo circulante|patrimônio líquido consolidado",
+            }
+            
+            # Aplicar filtro DS_CONTA se aplicável
+            required_cols = ["DS_CONTA", "ORDEM_EXERC"]
+            if csv_key in ds_conta_filters and all(col in df_clean.columns for col in required_cols):
+                df_clean = df_clean.filter(
+                    lower(col("DS_CONTA")).rlike(ds_conta_filters[csv_key]) &
+                    lower(col("ORDEM_EXERC")).ilike("ÚLTIMO")
+                )
 
-        ds_conta_filters = {
+            # Filter COLUNA_DF — apenas para DMPL
+            if csv_key == "DFC_DMPL_con" and "COLUNA_DF" in df_clean.columns:
+                df_clean = df_clean.filter(
+                    lower(col("COLUNA_DF")).rlike(r"patrimônio líquido") &
+                    lower(col("ORDEM_EXERC")).ilike("ÚLTIMO")
+                )
+        
+        # ────────────────────────────────────────────────────────────────────
+        # ⚠️ ALTERAÇÃO 2: FILTROS FRE ATUALIZADOS BASEADOS NOS DOCUMENTOS
+        # ────────────────────────────────────────────────────────────────────
+        elif document_type == "FRE":
             # ================================================================
-            # DRE — Demonstração do Resultado do Exercício
+            # 1. VOLUME_VALOR_MOBILIARIO (Preço da Ação)
+            # Baseado em: 04_Indicador_Preco_Acao_ATUALIZADO.docx
             # ================================================================
-            # Critérios Graham que dependem da DRE:
-            #   ✅ Não ter prejuízo → precisa de "lucro líquido"
-            #   ✅ P/L → precisa de "lucro por ação" ou "lucro líquido" + nº ações
-            #   ✅ Dividendos → precisa de "dividendos"
-            #
-            "DRE_con": r"lucro/prejuízo consolidado do período|lucro ou prejuízo líquido consolidado do período|por ação",
-            #            ↑                  ↑              
-            #            |                  |             
-            #     Para saber se         Para calcular     
-            #   houve prejuízo              o P/L               
+            if csv_key == "volume_valor_mobiliario":
+                # Segundo o documento, NÃO há necessidade de filtrar por TP_MERC
+                # pois o campo relevante é "Especie_Acao" (Ordinária/Preferencial)
+                # 
+                # Mantemos todos os registros para permitir análise de:
+                # - Ações Ordinárias (ON - ticker termina em 3)
+                # - Ações Preferenciais (PN - ticker termina em 4)
+                # - Outras classes (PNA, PNB, etc.)
+                #
+                # Filtros de qualidade básicos:
+                if "Valor_Cotacao_Media" in df_clean.columns:
+                    # Remove registros sem cotação (dados inválidos)
+                    df_clean = df_clean.filter(
+                        col("Valor_Cotacao_Media").isNotNull()
+                    )
+                
+                # ⚠️ IMPORTANTE (do documento):
+                # "Sempre filtre por Especie_Acao para garantir que está pegando a ação correta"
+                # Mas aqui na Silver, mantemos TODAS as espécies disponíveis.
+                # O filtro por espécie será feito na camada Gold conforme necessidade.
+                
+                logger.info(f"  ℹ️  Mantendo todas as espécies de ação (ON, PN, PNA, PNB, etc)")
+            
+            # ================================================================
+            # 2. DISTRIBUICAO_DIVIDENDOS (Dividendos e JCP)
+            # Baseado em: 06_Indicador_Dividendos_JCP_ATUALIZADO.docx
+            # ================================================================
+            elif csv_key == "distribuicao_dividendos":
+                # Segundo o documento, campos-chave são:
+                # - Dividendo_Distribuido_Total
+                # - Lucro_Liquido_Ajustado
+                # - Data_Fim_Exercicio_Social
+                #
+                # Filtros de qualidade:
+                if "Dividendo_Distribuido_Total" in df_clean.columns:
+                    # Manter apenas registros com valores informados
+                    # (permite valores zero - significa que não houve distribuição)
+                    df_clean = df_clean.filter(
+                        col("Dividendo_Distribuido_Total").isNotNull()
+                    )
+                
+                logger.info(f"  ℹ️  Mantendo todos os registros de dividendos (incluindo zeros)")
 
-            # ================================================================
-            # BPA — Balanço Patrimonial Ativo (o que a empresa TEM)
-            # ================================================================
-            # Critério Graham que depende do BPA:
-            #   ✅ Liquidez Corrente → precisa de "ativo circulante"
-            #
-            "BPA_con": r"ativo circulante",
-            #            ↑
-            #     LC = Ativo Circulante / Passivo Circulante
-
-            # ================================================================
-            # BPP — Balanço Patrimonial Passivo (o que a empresa DEVE)
-            # ================================================================
-            # Critérios Graham que dependem do BPP:
-            #   ✅ Liquidez Corrente → precisa de "passivo circulante"
-            #   ✅ P/VPA → precisa de "patrimônio líquido"
-            #
-            "BPP_con": r"passivo circulante|patrimônio líquido consolidado",
-            #            ↑                   ↑
-            #   LC = Ativo Circ /     P/VPA = Preço / (PL / nº ações)
-            #        Passivo Circ
-
-            # ================================================================
-            # DFC_DMPL — Mutações do Patrimônio Líquido
-            # ================================================================
-            # Mantido igual ao original (filtro por COLUNA_DF, não DS_CONTA)
-            # Sem alteração necessária aqui.
-        }
-
-        # Resultado esperado: ~30.000–50.000 registros (vs ~12.000 antes)
-        # Motivo: adicionamos "lucro líquido" e "patrimônio líquido"
-
-        # ================================================================
-        # 💡 FILTROS PARA DESENVOLVIMENTO FUTURO (não implementados agora)
-        # ================================================================
-        # Os filtros abaixo seriam úteis para análises mais avançadas,
-        # mas não são necessários para os critérios de Graham utilizados
-        # neste TCC (Silva Júnior, 2020). Deixados como referência:
-        #
-        # "DRE_con": r"receita|lucro|ebitda|resultado|custos|despesas|margem"
-        #   → Para calcular margens operacionais, EBITDA, ROE etc.
-        #
-        # "BPA_con": r"ativo|caixa|aplicações financeiras|contas a receber|
-        #              estoques|imobilizado|intangível|investimentos"
-        #   → Para análise completa do balanço patrimonial
-        #
-        # "BPP_con": r"passivo|fornecedores|empréstimos|financiamentos|
-        #              debêntures|capital social|reservas"
-        #   → Para análise de endividamento e estrutura de capital
-        #
-        # "DFC_DMPL_con": r"patrimônio líquido|capital|reservas|lucros acumulados"
-        #   → Para análise de fluxo de caixa completo
-        # ================================================================
-        required_cols = ["DS_CONTA", "ORDEM_EXERC"]
-        if csv_key in ds_conta_filters and all(col in df_clean.columns for col in required_cols):
-            df_clean = df_clean.filter(
-                lower(col("DS_CONTA")).rlike(ds_conta_filters[csv_key]) &
-                lower(col("ORDEM_EXERC")).ilike("ÚLTIMO")
-            )
-
-        # Filter COLUNA_DF — apenas para DMPL
-        if csv_key == "DFC_DMPL_con" and "COLUNA_DF" in df_clean.columns:
-            df_clean = df_clean.filter(
-                lower(col("COLUNA_DF")).rlike(r"patrimônio líquido") &
-                lower(col("ORDEM_EXERC")).ilike("ÚLTIMO")
-            )
-
+        # ====================================================================
+        # LIMPEZA GERAL (APLICADA A TODOS OS DATAFRAMES)
+        # ====================================================================
+        
         # Trimmar strings
         string_cols = [field.name for field in df.schema.fields
                     if isinstance(field.dataType, StringType)]
         for col_name in string_cols:
             df_clean = df_clean.withColumn(col_name, trim(col(col_name)))
 
-        # Converter VL_CONTA com escala
+        # ────────────────────────────────────────────────────────────────────
+        # ⚠️ ALTERAÇÃO 3: CONVERSÃO DE VALORES MONETÁRIOS FRE
+        # ────────────────────────────────────────────────────────────────────
+        # Converter VL_CONTA com escala (DFP - não alterado)
         if "VL_CONTA" in df_clean.columns:
             df_clean = df_clean.withColumn(
                 "VL_CONTA",
-                    when(
-                        lower(col("DS_CONTA")).like("%por ação%"),   
-                        col("VL_CONTA").cast(DoubleType())        
-                    )
-                    .when(
-                        col("ESCALA_MOEDA") == "MIL",
-                        col("VL_CONTA").cast(DoubleType()) * 1000
-                    )
-                    .otherwise(col("VL_CONTA").cast(DoubleType()))
+                when(
+                    lower(col("DS_CONTA")).like("%por ação%"),   
+                    col("VL_CONTA").cast(DoubleType())        
                 )
-            
+                .when(
+                    col("ESCALA_MOEDA") == "MIL",
+                    col("VL_CONTA").cast(DoubleType()) * 1000
+                )
+                .otherwise(col("VL_CONTA").cast(DoubleType()))
+            )
+        
+        # Converter valores FRE - DIVIDENDOS
+        # Baseado em: 06_Indicador_Dividendos_JCP_ATUALIZADO.docx
+        if "Dividendo_Distribuido_Total" in df_clean.columns:
+            df_clean = df_clean.withColumn(
+                "Dividendo_Distribuido_Total",
+                col("Dividendo_Distribuido_Total").cast(DoubleType())
+            )
+        
+        if "Lucro_Liquido_Ajustado" in df_clean.columns:
+            df_clean = df_clean.withColumn(
+                "Lucro_Liquido_Ajustado",
+                col("Lucro_Liquido_Ajustado").cast(DoubleType())
+            )
+        
+        # Converter valores FRE - COTAÇÕES
+        # Baseado em: 04_Indicador_Preco_Acao_ATUALIZADO.docx
+        cotacao_cols = [
+            "Valor_Cotacao_Media",
+            "Valor_Maior_Cotacao",
+            "Valor_Menor_Cotacao",
+            "Valor_Volume_Negociado"
+        ]
+        for col_name in cotacao_cols:
+            if col_name in df_clean.columns:
+                df_clean = df_clean.withColumn(
+                    col_name,
+                    col(col_name).cast(DoubleType())
+                )
 
-        # Converter datas
-        date_cols = ['DT_REFER', 'DT_INI_EXERC', 'DT_FIM_EXERC']
-        for col_name in date_cols:
+        # ────────────────────────────────────────────────────────────────────
+        # ⚠️ ALTERAÇÃO 4: CONVERSÃO DE DATAS FRE
+        # ────────────────────────────────────────────────────────────────────
+        # Converter datas DFP (não alterado)
+        date_cols_dfp = ['DT_REFER', 'DT_INI_EXERC', 'DT_FIM_EXERC']
+        for col_name in date_cols_dfp:
+            if col_name in df_clean.columns:
+                df_clean = df_clean.withColumn(
+                    col_name,
+                    to_date(col(col_name), "yyyy-MM-dd")
+                )
+        
+        # Converter datas FRE
+        # Baseado nos documentos Word fornecidos
+        date_cols_fre = [
+            'Data_Fim_Trimestre',       # volume_valor_mobiliario
+            'Data_Fim_Exercicio_Social'  # distribuicao_dividendos
+        ]
+        for col_name in date_cols_fre:
             if col_name in df_clean.columns:
                 df_clean = df_clean.withColumn(
                     col_name,
@@ -453,7 +597,7 @@ class CVMSilverProcessor(SilverProcessor):
         # Remover linhas completamente nulas
         df_clean = df_clean.dropna(how='all')
 
-        # ⚠️ Guardar se DataFrame está vazio antes de retornar
+        # Logging de quantidade de linhas
         count = df_clean.count()
         if count == 0:
             logger.warning(f"⚠️ DataFrame vazio após filtros para {csv_key}!")
@@ -467,7 +611,7 @@ class CVMSilverProcessor(SilverProcessor):
         Lê uma tabela Delta da camada Silver
         
         Args:
-            table_name: Nome da tabela (BP_con, DRE_con, etc)
+            table_name: Nome da tabela (BP_con, DRE_con, volume_valor_mobiliario, etc)
             ano: Ano específico (opcional, None = todos os anos)
             
         Returns:
@@ -488,20 +632,28 @@ class CVMSilverProcessor(SilverProcessor):
 
 processor = CVMSilverProcessor()
 
-# Processar múltiplos anos
+# Processar múltiplos anos para DFP e FRE
 if __name__ == "__main__":
-    anos = ["2020", "2021", "2022", "2023", "2024","2025"]
+    anos = ["2020", "2021", "2022", "2023", "2024", "2025"]
+    
+    # Processar DFP (anual)
+    logger.info("\n" + "="*60)
+    logger.info("📊 PROCESSANDO DFP (DEMONSTRAÇÕES FINANCEIRAS)")
+    logger.info("="*60)
     for ano in anos:
-        results = processor.process_year(ano)
-        print(f"\n📊 Resultados para {ano}:")
+        results = processor.process_year(ano, document_type="DFP")
+        print(f"\n📊 Resultados DFP para {ano}:")
         for csv_key, success in results.items():
             status = "✅" if success else "❌"
             print(f"  {status} {csv_key}")
-""" if __name__ == "__main__":
-    #ler delta table
-    for table in ["DRE_con", "BPA_con", "BPP_con", "DFC_DMPL_con"]:
-        df = processor.read_silver_table(table, ano=2020)
-        #converter para pandas
-        psdf = df.to_pandas_on_spark()
-        #salvar como excel
-        psdf.to_excel(f"{table}_teste.xlsx", index=False) """
+    
+    # Processar FRE (trimestral/anual)
+    logger.info("\n" + "="*60)
+    logger.info("📋 PROCESSANDO FRE (FORMULÁRIO DE REFERÊNCIA)")
+    logger.info("="*60)
+    for ano in anos:
+        results = processor.process_year(ano, document_type="FRE")
+        print(f"\n📋 Resultados FRE para {ano}:")
+        for csv_key, success in results.items():
+            status = "✅" if success else "❌"
+            print(f"  {status} {csv_key}")

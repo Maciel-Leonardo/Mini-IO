@@ -16,10 +16,10 @@ scrape_configs:
   # ATENÇÃO: Substitua o bearer_token abaixo pelo token gerado no MinIO
   # Para gerar um novo token, execute:
   #docker exec -it minio mc alias set local http://localhost:9000 minioadmin minioadmin
-#docker exec -it minio mc admin prometheus generate local
+  #docker exec -it minio mc admin prometheus generate local
   - job_name: 'minio'
     metrics_path: /minio/v2/metrics/cluster
-    bearer_token: "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwcm9tZXRoZXVzIiwic3ViIjoibWluaW9hZG1pbiIsImV4cCI6NDkyNjY4MDQyNX0.AxG96X9NnB_3eA-s9gDPlVZPSJ-dZSdGu3wEuqTvvpeMTPgr3K0JyMFSg4HUp_LITTgU3QihI9meDCIP3jiYVQ"
+    bearer_token: "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwcm9tZXRoZXVzIiwic3ViIjoibWluaW9hZG1pbiIsImV4cCI6NDkyNjk1NzcwOH0.azqKe0r0Ft6N0EM3uYJNdt4-uV1yZxHryyF11A1OJL3Q1gq14rwgQlf3l5I6AnPr0OFVhrLw_T9FyYVJHafClw"
     static_configs:
       - targets: ['minio:9000']
         labels:
