@@ -1,13 +1,14 @@
-# silver.py
+# silver.py - VERSÃO REFATORADA COM HARMONIZAÇÃO AUTOMÁTICA DE SCHEMA
 from datetime import datetime
 import zipfile
 from io import BytesIO
 import pandas as pd
 from minio import Minio
 from delta import configure_spark_with_delta_pip
+from delta.tables import DeltaTable
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, to_date, trim, when, lit, current_timestamp, rlike, lower, translate, ilike
-from pyspark.sql.types import DoubleType, IntegerType, StringType
+from pyspark.sql.types import DoubleType, IntegerType, StringType, StructType, StructField, DataType
 from config import MinIOConfig
 import logging
 from typing import List, Dict, Optional
@@ -162,60 +163,22 @@ class CVMSilverProcessor(SilverProcessor):
     # DFP - Demonstrações Financeiras Padronizadas (anual)
     # ────────────────────────────────────────────────────────────────────────
     DFP_TARGETS = {
-        "composicao_capital": "dfp_cia_aberta_composicao_capital",  # Composição do Capital Social
-        "DRE_con": "dfp_cia_aberta_DRE_con",           # DRE Consolidado
-        "DFC_DMPL_con": "dfp_cia_aberta_DMPL_con",     # Fluxo de Caixa Método Direto
-        "BPA_con": "dfp_cia_aberta_BPA_con",           # Balanço Patrimonial Ativo Consolidado
-        "BPP_con": "dfp_cia_aberta_BPP_con"            # Balanço Patrimonial Passivo Consolidado
+        "composicao_capital": "dfp_cia_aberta_composicao_capital",
+        "DRE_con": "dfp_cia_aberta_DRE_con",
+        "DFC_DMPL_con": "dfp_cia_aberta_DMPL_con",
+        "BPA_con": "dfp_cia_aberta_BPA_con",
+        "BPP_con": "dfp_cia_aberta_BPP_con"
     }
     
-    # ────────────────────────────────────────────────────────────────────────
-    # FRE - Formulário de Referência (trimestral/anual)
-    # ────────────────────────────────────────────────────────────────────────
-    # ⚠️ ALTERAÇÃO 1: FRE_TARGETS CORRIGIDO BASEADO NOS DOCUMENTOS
-    # 
-    # ANTES (versão anterior - INCORRETA):
-    # FRE_TARGETS = {
-    #     "volume_valor_mobiliario": "fre_cia_aberta_volume_valor_mobiliario",
-    #     "distribuicao_capital": "fre_cia_aberta_distribuicao_capital",  # ❌ não existe
-    #     "dividendos": "fre_cia_aberta_dividendos_jscp",                 # ❌ nome errado
-    #     "proventos": "fre_cia_aberta_proventos",                        # ❌ não existe
-    # }
-    #
-    # AGORA (baseado nos documentos Word fornecidos):
     FRE_TARGETS = {
-        # ──────────────────────────────────────────────────────────────────
-        # 1. PREÇO DA AÇÃO (Documento: 04_Indicador_Preco_Acao_ATUALIZADO.docx)
-        # ──────────────────────────────────────────────────────────────────
-        # Arquivo: fre_cia_aberta_volume_valor_mobiliario_YYYY.csv
-        # Contém: Cotações trimestrais das ações (média, máxima, mínima)
-        # Campos-chave:
-        #   - Valor_Cotacao_Media
-        #   - Valor_Maior_Cotacao
-        #   - Valor_Menor_Cotacao
-        #   - Especie_Acao (Ordinária/Preferencial)
-        #   - Data_Fim_Trimestre
         "volume_valor_mobiliario": "fre_cia_aberta_volume_valor_mobiliario",
-        
-        # ──────────────────────────────────────────────────────────────────
-        # 2. DIVIDENDOS E JCP (Documento: 06_Indicador_Dividendos_JCP_ATUALIZADO.docx)
-        # ──────────────────────────────────────────────────────────────────
-        # Arquivo: fre_cia_aberta_distribuicao_dividendos_YYYY.csv
-        # Contém: Valores totais de dividendos distribuídos
-        # Campos-chave:
-        #   - Dividendo_Distribuido_Total
-        #   - Lucro_Liquido_Ajustado
-        #   - Data_Fim_Exercicio_Social
-        # 
-        # ⚠️ NOTA: Nome correto é "distribuicao_dividendos", NÃO "dividendos_jscp"
         "distribuicao_dividendos": "fre_cia_aberta_distribuicao_dividendos",
     }
-    # ────────────────────────────────────────────────────────────────────────
     
-    # Combinar todos os targets para compatibilidade com código existente
     CSV_TARGETS = {**DFP_TARGETS, **FRE_TARGETS}
     
-    def process_year(self, ano: str, document_type: str = "DFP") -> Dict[str, bool]:
+    def process_year(self, 
+                     ano: str, document_type: str = "DFP") -> Dict[str, bool]:
         """
         Processa todos os CSVs de um ano específico
         
@@ -364,7 +327,8 @@ class CVMSilverProcessor(SilverProcessor):
                     # Detectar encoding
                     raw_data = csv_file.read()
                     detected = chardet.detect(raw_data)
-                    encoding = detected['encoding'] or 'latin1'
+                    confianca = detected['confidence'] * 100
+                    encoding = detected['encoding'] if confianca > 80 else 'windows-1252'
                     
                     # Ler CSV com pandas
                     pdf = pd.read_csv(
@@ -386,37 +350,136 @@ class CVMSilverProcessor(SilverProcessor):
             logger.error(f"Erro ao extrair CSV {csv_filename}: {e}")
             return None
     
-    def _save_to_delta(self, df, table_name: str):
+    def _harmonize_schema_with_nulls(self, df, delta_path: str):
         """
-        Salva DataFrame em formato Delta Lake
+        ✨ HARMONIZAÇÃO AUTOMÁTICA DE SCHEMA
+        
+        Para cada coluna que existe na tabela Delta E está completamente vazia (NULL)
+        no novo DataFrame, força o tipo de dado para ser o mesmo da tabela existente.
+        
+        Isso resolve conflitos de schema quando colunas estão vazias em determinados anos.
         
         Args:
-            df: Spark DataFrame
-            table_name: Nome da tabela
+            df: DataFrame novo a ser salvo
+            delta_path: Caminho da tabela Delta existente
+            
+        Returns:
+            DataFrame com schema harmonizado
+        """
+        try:
+            # Tentar ler o schema da tabela existente
+            existing_df = self.spark.read.format("delta").load(delta_path)
+            existing_schema = existing_df.schema
+            
+            logger.info(f"  🔍 Verificando compatibilidade de schema...")
+            
+            # Criar dicionário com tipos da tabela existente
+            existing_types = {field.name: field.dataType for field in existing_schema.fields}
+            
+            # Verificar cada coluna do novo DataFrame
+            harmonized_df = df
+            columns_harmonized = []
+            
+            for field in df.schema.fields:
+                col_name = field.name
+                new_type = field.dataType
+                
+                # Se a coluna existe na tabela antiga
+                if col_name in existing_types:
+                    old_type = existing_types[col_name]
+                    
+                    # Se os tipos são diferentes
+                    if str(new_type) != str(old_type):
+                        # Verificar se a coluna está completamente vazia (NULL)
+                        null_count = df.filter(col(col_name).isNull()).count()
+                        total_count = df.count()
+                        
+                        if null_count == total_count:
+                            # Coluna está 100% vazia - forçar tipo da tabela antiga
+                            logger.info(f"  🔧 Harmonizando '{col_name}': {new_type} → {old_type} (coluna vazia)")
+                            harmonized_df = harmonized_df.withColumn(col_name, col(col_name).cast(old_type))
+                            columns_harmonized.append(col_name)
+                        else:
+                            logger.warning(f"  ⚠️ Conflito de tipo em '{col_name}': {old_type} → {new_type} (coluna TEM dados)")
+            
+            if columns_harmonized:
+                logger.info(f"  ✅ {len(columns_harmonized)} coluna(s) harmonizada(s): {', '.join(columns_harmonized)}")
+            else:
+                logger.info(f"  ✅ Schema compatível - nenhuma harmonização necessária")
+            
+            return harmonized_df
+            
+        except Exception as e:
+            # Se não conseguir ler a tabela existente (não existe), retorna o DataFrame original
+            logger.info(f"  ℹ️ Tabela não existe ainda - usando schema original")
+            return df
+    
+    def _save_to_delta(self, df, table_name: str):
+        """
+        Salva DataFrame em formato Delta Lake com particionamento por ano
+        
+        ✨ COM HARMONIZAÇÃO AUTOMÁTICA DE SCHEMA PARA COLUNAS VAZIAS
         """
         delta_path = f"s3a://{self.minio_config.bucket_silver}/cvm/{table_name}"
         
-        # Salvar em Delta com merge/upsert baseado em ano_referencia
-        df.write \
-            .format("delta") \
-            .mode("append") \
-            .option("mergeSchema", "true") \
-            .save(delta_path)
+        ano_processado = df.select("ano_referencia").distinct().collect()
+        
+        if len(ano_processado) != 1:
+            logger.error(f"⚠️ DataFrame contém múltiplos anos: {[row['ano_referencia'] for row in ano_processado]}")
+            for row in ano_processado:
+                ano = row['ano_referencia']
+                df_ano = df.filter(col("ano_referencia") == ano)
+                self._save_single_year_to_delta(df_ano, table_name, delta_path, ano)
+        else:
+            ano = ano_processado[0]['ano_referencia']
+            self._save_single_year_to_delta(df, table_name, delta_path, ano)
         
         logger.info(f"  💾 Dados salvos em: {delta_path}")
     
-    def _clean_dataframe(self, df, csv_key: str, document_type: str):
+    def _save_single_year_to_delta(self, df, table_name: str, delta_path: str, ano: str):
         """
-        Aplica transformações de limpeza e padronização no DataFrame
+        Salva dados de um único ano no Delta Lake
         
-        Args:
-            df: DataFrame original lido do CSV
-            csv_key: Chave identificadora para aplicar filtros específicos
-            document_type: Tipo de documento ("DFP" ou "FRE")
-            
-        Returns: 
-            DataFrame limpo e padronizado
+        ✨ SOLUÇÃO ELEGANTE: Harmoniza schema antes de salvar
         """
+        try:
+            # ================================================================
+            # ✨ HARMONIZAR SCHEMA PARA COLUNAS VAZIAS
+            # ================================================================
+            df_harmonized = self._harmonize_schema_with_nulls(df, delta_path)
+            
+            # Verificar se a tabela existe
+            try:
+                existing_df = self.spark.read.format("delta").load(delta_path)
+                table_exists = True
+            except:
+                table_exists = False
+            
+            if table_exists:
+                logger.info(f"  🔄 Substituindo dados do ano {ano} em {table_name}")
+                
+                df_harmonized.write \
+                    .format("delta") \
+                    .mode("overwrite") \
+                    .option("replaceWhere", f"ano_referencia = '{ano}'") \
+                    .partitionBy("ano_referencia") \
+                    .save(delta_path)
+                    
+            else:
+                logger.info(f"  ✨ Criando nova tabela {table_name} com particionamento por ano")
+                
+                df_harmonized.write \
+                    .format("delta") \
+                    .mode("overwrite") \
+                    .partitionBy("ano_referencia") \
+                    .save(delta_path)
+                    
+        except Exception as e:
+            logger.error(f"  ❌ Erro ao salvar ano {ano}: {e}")
+            raise
+    
+    def _clean_dataframe(self, df, csv_key: str, document_type: str):
+        """Aplica transformações de limpeza e padronização no DataFrame"""
         df_clean = df
 
         # ====================================================================
@@ -509,7 +572,6 @@ class CVMSilverProcessor(SilverProcessor):
                     df_clean = df_clean.filter(
                         col("Dividendo_Distribuido_Total").isNotNull()
                     )
-                
                 logger.info(f"  ℹ️  Mantendo todos os registros de dividendos (incluindo zeros)")
 
         # ====================================================================
@@ -541,7 +603,6 @@ class CVMSilverProcessor(SilverProcessor):
             )
         
         # Converter valores FRE - DIVIDENDOS
-        # Baseado em: 06_Indicador_Dividendos_JCP_ATUALIZADO.docx
         if "Dividendo_Distribuido_Total" in df_clean.columns:
             df_clean = df_clean.withColumn(
                 "Dividendo_Distribuido_Total",
@@ -555,7 +616,6 @@ class CVMSilverProcessor(SilverProcessor):
             )
         
         # Converter valores FRE - COTAÇÕES
-        # Baseado em: 04_Indicador_Preco_Acao_ATUALIZADO.docx
         cotacao_cols = [
             "Valor_Cotacao_Media",
             "Valor_Maior_Cotacao",
@@ -569,10 +629,7 @@ class CVMSilverProcessor(SilverProcessor):
                     col(col_name).cast(DoubleType())
                 )
 
-        # ────────────────────────────────────────────────────────────────────
-        # ⚠️ ALTERAÇÃO 4: CONVERSÃO DE DATAS FRE
-        # ────────────────────────────────────────────────────────────────────
-        # Converter datas DFP (não alterado)
+        # Converter datas DFP
         date_cols_dfp = ['DT_REFER', 'DT_INI_EXERC', 'DT_FIM_EXERC']
         for col_name in date_cols_dfp:
             if col_name in df_clean.columns:
@@ -582,10 +639,9 @@ class CVMSilverProcessor(SilverProcessor):
                 )
         
         # Converter datas FRE
-        # Baseado nos documentos Word fornecidos
         date_cols_fre = [
-            'Data_Fim_Trimestre',       # volume_valor_mobiliario
-            'Data_Fim_Exercicio_Social'  # distribuicao_dividendos
+            'Data_Fim_Trimestre',
+            'Data_Fim_Exercicio_Social'
         ]
         for col_name in date_cols_fre:
             if col_name in df_clean.columns:
@@ -634,8 +690,9 @@ processor = CVMSilverProcessor()
 
 # Processar múltiplos anos para DFP e FRE
 if __name__ == "__main__":
+
     anos = ["2020", "2021", "2022", "2023", "2024", "2025"]
-    
+
     # Processar DFP (anual)
     logger.info("\n" + "="*60)
     logger.info("📊 PROCESSANDO DFP (DEMONSTRAÇÕES FINANCEIRAS)")
