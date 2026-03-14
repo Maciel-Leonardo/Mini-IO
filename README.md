@@ -1,2 +1,2 @@
-# Mini-IO
-Pipeline de dados usando Min-IO
+# Investimentos
+Pipeline de dados para análise fundamentalista
