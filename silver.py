@@ -171,24 +171,6 @@ class CVMSilverProcessor(SilverProcessor):
     # DFP - Demonstrações Financeiras Padronizadas (anual)
     # ────────────────────────────────────────────────────────────────────────
     DFP_TARGETS = {
-<<<<<<< Updated upstream
-        "composicao_capital": "dfp_cia_aberta_composicao_capital",
-        "DRE_con": "dfp_cia_aberta_DRE_con",
-        "DFC_DMPL_con": "dfp_cia_aberta_DMPL_con",
-        "BPA_con": "dfp_cia_aberta_BPA_con",
-        "BPP_con": "dfp_cia_aberta_BPP_con"
-    }
-    
-    FRE_TARGETS = {
-        "volume_valor_mobiliario": "fre_cia_aberta_volume_valor_mobiliario",
-        "distribuicao_dividendos": "fre_cia_aberta_distribuicao_dividendos",
-    }
-    
-    CSV_TARGETS = {**DFP_TARGETS, **FRE_TARGETS}
-    
-    def process_year(self, 
-                     ano: str, document_type: str = "DFP") -> Dict[str, bool]:
-=======
         "composicao_capital": "dfp_cia_aberta_composicao_capital",  # Composição do Capital Social
         "DRE_con": "dfp_cia_aberta_DRE_con",           # DRE Consolidado
         "DFC_DMPL_con": "dfp_cia_aberta_DMPL_con",     # Fluxo de Caixa Método Direto
@@ -210,7 +192,6 @@ class CVMSilverProcessor(SilverProcessor):
 
     
     def process_year(self, ano: str, document_type: str = "DFP") -> Dict[str, bool]:
->>>>>>> Stashed changes
         """
         Processa todos os CSVs de um ano específico
         
@@ -225,27 +206,6 @@ class CVMSilverProcessor(SilverProcessor):
         
         try:
             logger.info(f"🔄 Iniciando processamento Silver para {document_type} {ano}")
-<<<<<<< Updated upstream
-            
-            # Selecionar targets apropriados baseado no tipo de documento
-            if document_type == "DFP":
-                targets = self.DFP_TARGETS
-                bronze_path_prefix = "gov_br_cvm/demonstracoes_financeiras_padronizadas"
-            elif document_type == "FRE":
-                targets = self.FRE_TARGETS
-                bronze_path_prefix = "gov_br_cvm/formulario_de_referencia"
-            else:
-                raise ValueError(f"Tipo de documento inválido: {document_type}")
-            
-            # 1. Buscar ZIP da camada Bronze
-            zip_data = self._get_bronze_zip(ano, bronze_path_prefix)
-            if not zip_data:
-                logger.error(f"❌ Arquivo ZIP não encontrado para {document_type} {ano}")
-                return {csv_key: False for csv_key in targets.keys()}
-            
-            # 2. Processar cada CSV do ZIP
-            for csv_key, csv_filename in targets.items():
-=======
             
             # Selecionar targets apropriados baseado no tipo de documento
             if document_type == "DFP":
@@ -265,7 +225,6 @@ class CVMSilverProcessor(SilverProcessor):
             
             # 2. Processar cada CSV do ZIP
             for csv_key, csv_filename in CSV_TARGETS.items():
->>>>>>> Stashed changes
                 try:
                     logger.info(f"\n📄 Processando: {csv_key} ({document_type})")
                     
@@ -288,21 +247,13 @@ class CVMSilverProcessor(SilverProcessor):
                     df_clean = df_clean.withColumn("document_type", lit(document_type))
                     
                     # 2.4 Salvar em Delta Lake
-<<<<<<< Updated upstream
-                    self._save_to_delta(df_clean, csv_key)
-=======
                     self._save_to_delta(df_clean, csv_key, ano)
->>>>>>> Stashed changes
                     
                     # 2.5 Validação de qualidade + métricas Prometheus
                     self.validator.validate_and_report_metrics(df_clean, csv_key, ano)
                     
                     # 2.6 Registrar tempo de processamento
                     processing_time = time.time() - start_time
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
                     silver_processing_time.labels(csv_type=csv_key, ano=ano).observe(processing_time)
                     
                     results[csv_key] = True
@@ -314,30 +265,19 @@ class CVMSilverProcessor(SilverProcessor):
                     
         except Exception as e:
             logger.error(f"❌ Erro geral no processamento: {e}")
-<<<<<<< Updated upstream
-            return {csv_key: False for csv_key in targets.keys()}
-=======
             return {csv_key: False for csv_key in CSV_TARGETS.keys()}
->>>>>>> Stashed changes
             
         return results
     
     def _get_bronze_zip(self, ano: str, bronze_path_prefix: str) -> Optional[bytes]:
         """
-<<<<<<< Updated upstream
-        Busca o arquivo ZIP da camada Bronze
-=======
         Busca o arquivo ZIP mais recente da camada Bronze
->>>>>>> Stashed changes
         
         Args:
             ano: Ano de referência
             bronze_path_prefix: Prefixo do caminho (diferente para DFP e FRE)
-<<<<<<< Updated upstream
-=======
         Returns:
             Dados binários do arquivo ZIP ou None se não encontrado
->>>>>>> Stashed changes
         """
         try:
             # Construir o path do ZIP na Bronze
@@ -352,17 +292,6 @@ class CVMSilverProcessor(SilverProcessor):
             )
             
             # Procurar pelo arquivo ZIP mais recente
-<<<<<<< Updated upstream
-            zip_files = [obj for obj in objects if obj.object_name.endswith('.zip')]
-            
-            if not zip_files:
-                logger.error(f"Nenhum ZIP encontrado em {prefix}")
-                return None
-                
-            # Pegar o mais recente (último na lista ordenada)
-            latest_zip = sorted(zip_files, key=lambda x: x.object_name)[-1]
-            logger.info(f"📦 Lendo ZIP: {latest_zip.object_name}")
-=======
             zip_files = [obj.object_name for obj in objects if obj.object_name.endswith('.zip')]
             
             if not zip_files:
@@ -372,20 +301,10 @@ class CVMSilverProcessor(SilverProcessor):
             # Pegar o mais recente (último na lista ordenada)
             object_path = sorted(zip_files)[-1]
             logger.info(f"📦 Lendo ZIP: {object_path}")
->>>>>>> Stashed changes
             
             # Baixar o arquivo
             response = self.minio_client.get_object(
                 self.minio_config.bucket_bronze,
-<<<<<<< Updated upstream
-                latest_zip.object_name
-            )
-            
-            return response.read()
-            
-        except Exception as e:
-            logger.error(f"Erro ao buscar ZIP: {e}")
-=======
                 object_path
             )
             
@@ -396,18 +315,12 @@ class CVMSilverProcessor(SilverProcessor):
             
         except Exception as e:
             logger.error(f"_get_bronze_zip - Erro ao buscar ZIP: {e}")
->>>>>>> Stashed changes
             return None
     
     def _extract_csv_from_zip(self, zip_data: bytes, csv_filename: str):
         """
         Extrai um CSV específico do ZIP e converte para Spark DataFrame
         
-<<<<<<< Updated upstream
-        Args:
-            zip_data: Dados binários do arquivo ZIP
-            csv_filename: Nome do CSV dentro do ZIP (sem extensão .csv)
-=======
         Args:
             zip_data: Dados binários do arquivo ZIP
             csv_filename: Nome do CSV dentro do ZIP (sem extensão .csv)
@@ -498,7 +411,6 @@ class CVMSilverProcessor(SilverProcessor):
             
         Returns: 
             DataFrame limpo e padronizado
->>>>>>> Stashed changes
         """
         try:
             with zipfile.ZipFile(BytesIO(zip_data)) as zf:
@@ -680,11 +592,7 @@ class CVMSilverProcessor(SilverProcessor):
         # ====================================================================
         
         # ────────────────────────────────────────────────────────────────────
-<<<<<<< Updated upstream
-        # FILTROS DFP (não alterados - mantidos do código original)
-=======
         # FILTROS DFP
->>>>>>> Stashed changes
         # ────────────────────────────────────────────────────────────────────
         if document_type == "DFP":
             ds_conta_filters = {
@@ -722,11 +630,7 @@ class CVMSilverProcessor(SilverProcessor):
                 )
         
         # ────────────────────────────────────────────────────────────────────
-<<<<<<< Updated upstream
-        # ⚠️ ALTERAÇÃO 2: FILTROS FRE ATUALIZADOS BASEADOS NOS DOCUMENTOS
-=======
         # FILTROS FRE
->>>>>>> Stashed changes
         # ────────────────────────────────────────────────────────────────────
         elif document_type == "FRE":
             # ================================================================
@@ -773,10 +677,7 @@ class CVMSilverProcessor(SilverProcessor):
                     df_clean = df_clean.filter(
                         col("Dividendo_Distribuido_Total").isNotNull()
                     )
-<<<<<<< Updated upstream
-=======
                 
->>>>>>> Stashed changes
                 logger.info(f"  ℹ️  Mantendo todos os registros de dividendos (incluindo zeros)")
 
         # ====================================================================
@@ -789,59 +690,14 @@ class CVMSilverProcessor(SilverProcessor):
         for col_name in string_cols:
             df_clean = df_clean.withColumn(col_name, trim(col(col_name)))
 
-<<<<<<< Updated upstream
-        # ────────────────────────────────────────────────────────────────────
-        # ⚠️ ALTERAÇÃO 3: CONVERSÃO DE VALORES MONETÁRIOS FRE
-        # ────────────────────────────────────────────────────────────────────
-        # Converter VL_CONTA com escala (DFP - não alterado)
-=======
 
         # DFP - Converter VL_CONTA com escala
->>>>>>> Stashed changes
         if "VL_CONTA" in df_clean.columns:
             df_clean = df_clean.withColumn(
                 "VL_CONTA",
                 when(
                     lower(col("DS_CONTA")).like("%por ação%"),   
                     col("VL_CONTA").cast(DoubleType())        
-<<<<<<< Updated upstream
-                )
-                .when(
-                    col("ESCALA_MOEDA") == "MIL",
-                    col("VL_CONTA").cast(DoubleType()) * 1000
-                )
-                .otherwise(col("VL_CONTA").cast(DoubleType()))
-            )
-        
-        # Converter valores FRE - DIVIDENDOS
-        if "Dividendo_Distribuido_Total" in df_clean.columns:
-            df_clean = df_clean.withColumn(
-                "Dividendo_Distribuido_Total",
-                col("Dividendo_Distribuido_Total").cast(DoubleType())
-            )
-        
-        if "Lucro_Liquido_Ajustado" in df_clean.columns:
-            df_clean = df_clean.withColumn(
-                "Lucro_Liquido_Ajustado",
-                col("Lucro_Liquido_Ajustado").cast(DoubleType())
-            )
-        
-        # Converter valores FRE - COTAÇÕES
-        cotacao_cols = [
-            "Valor_Cotacao_Media",
-            "Valor_Maior_Cotacao",
-            "Valor_Menor_Cotacao",
-            "Valor_Volume_Negociado"
-        ]
-        for col_name in cotacao_cols:
-            if col_name in df_clean.columns:
-                df_clean = df_clean.withColumn(
-                    col_name,
-                    col(col_name).cast(DoubleType())
-                )
-
-        # Converter datas DFP
-=======
                 )
                 .when(
                     col("ESCALA_MOEDA") == "MIL",
@@ -881,7 +737,6 @@ class CVMSilverProcessor(SilverProcessor):
                 )
         # DFP - Converter datas
 
->>>>>>> Stashed changes
         date_cols_dfp = ['DT_REFER', 'DT_INI_EXERC', 'DT_FIM_EXERC']
         for col_name in date_cols_dfp:
             if col_name in df_clean.columns:
@@ -890,18 +745,11 @@ class CVMSilverProcessor(SilverProcessor):
                     to_date(col(col_name), "yyyy-MM-dd")
                 )
         
-<<<<<<< Updated upstream
-        # Converter datas FRE
-        date_cols_fre = [
-            'Data_Fim_Trimestre',
-            'Data_Fim_Exercicio_Social'
-=======
         # FRE - Converter datas
 
         date_cols_fre = [
             'Data_Fim_Trimestre',       # volume_valor_mobiliario
             'Data_Fim_Exercicio_Social'  # distribuicao_dividendos
->>>>>>> Stashed changes
         ]
         for col_name in date_cols_fre:
             if col_name in df_clean.columns:
@@ -950,14 +798,8 @@ processor = CVMSilverProcessor()
 
 # Processar múltiplos anos para DFP e FRE
 if __name__ == "__main__":
-<<<<<<< Updated upstream
-
-    anos = ["2020", "2021", "2022", "2023", "2024", "2025"]
-
-=======
     anos = ["2020", "2021", "2022", "2023", "2024"]
     
->>>>>>> Stashed changes
     # Processar DFP (anual)
     logger.info("\n" + "="*60)
     logger.info("📊 PROCESSANDO DFP (DEMONSTRAÇÕES FINANCEIRAS)")
