@@ -163,6 +163,7 @@ while True:
         ]
 
         # ====================================================================
+<<<<<<< Updated upstream
         # ⚠️ ALTERAÇÃO 5: TABELAS FRE CORRIGIDAS
         # ====================================================================
         # ANTES (versão anterior - INCORRETA):
@@ -178,6 +179,11 @@ while True:
         # ]
         #
         # AGORA (baseado nos documentos Word):
+=======
+        # ⚠️ ALTERAÇÃO 5: TABELAS FRE 
+        # ====================================================================
+ 
+>>>>>>> Stashed changes
         tabelas_fre = [
             # ────────────────────────────────────────────────────────────────
             # 1. VOLUME_VALOR_MOBILIARIO (Preço da Ação)
@@ -202,6 +208,7 @@ while True:
         ]
 
         # Combinar todas as tabelas
+<<<<<<< Updated upstream
         todas_tabelas = tabelas_dfp + tabelas_fre
 
         logger.info(f"📊 Total de tabelas a monitorar: {len(todas_tabelas)}")
@@ -209,6 +216,15 @@ while True:
         logger.info(f"   - FRE: {len(tabelas_fre)} tabelas")
 
         for tabela, ano in todas_tabelas:
+=======
+        tabelas = tabelas_dfp + tabelas_fre
+
+        logger.info(f"📊 Total de tabelas a monitorar: {len(tabelas)}")
+        logger.info(f"   - DFP: {len(tabelas_dfp)} tabelas")
+        logger.info(f"   - FRE: {len(tabelas_fre)} tabelas")
+
+        for tabela, ano in tabelas:
+>>>>>>> Stashed changes
             try:
                 # Lê os dados da camada Silver no MinIO
                 df = processor.read_silver_table(tabela, ano=int(ano))
