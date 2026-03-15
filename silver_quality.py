@@ -130,18 +130,9 @@ class SilverQualityValidator:
         }
 
         # ====================================================================
-        # ⚠️ ALTERAÇÃO 6: COLUNAS OBRIGATÓRIAS CORRIGIDAS PARA FRE
+        # 1. COLUNAS OBRIGATÓRIAS
+        # Verifica se todas as colunas essenciais estão presentes no DataFrame
         # ====================================================================
-        # ANTES (versão anterior - INCORRETA):
-        # required_cols = {
-        #     # ... DFP existentes ...
-        #     "volume_valor_mobiliario": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER", "VL_MERC_ACAO"],
-        #     "distribuicao_capital": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER"],
-        #     "dividendos": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER", "VL_PROVENTO"],
-        #     "proventos": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER"],
-        # }
-        #
-        # AGORA (baseado nos documentos Word e estrutura real dos CSVs):
         required_cols = {
             # ================================================================
             # TABELAS DFP (Demonstrações Financeiras Padronizadas)
@@ -338,44 +329,6 @@ class SilverQualityValidator:
             else:
                 logger.info("✅ Todas as cotações são válidas")
 
-            invalid_pct = (invalid_values / metrics["total_rows"]) * 100 if metrics["total_rows"] > 0 else 0
-            metrics["validations"]["invalid_dividend_values"] = invalid_values
-            metrics["validations"]["invalid_dividend_pct"] = round(invalid_pct, 2)
-
-            if invalid_values > 0:
-                logger.warning(f"⚠️  Valores de dividendos inválidos: {invalid_values:,} ({invalid_pct:.1f}%)")
-                silver_validation_errors.labels(
-                    csv_type=csv_key,
-                    ano=ano,
-                    error_type='invalid_dividend_values'
-                ).inc(invalid_values)
-            else:
-                logger.info("✅ Todos os valores de dividendos são válidos")
-        
-        # Para FRE - COTAÇÕES: Valor_Cotacao_Media
-        # Baseado em: 04_Indicador_Preco_Acao_ATUALIZADO.docx
-        if "Valor_Cotacao_Media" in df.columns:
-            invalid_values = df.filter(
-                col("Valor_Cotacao_Media").isNull() | 
-                isnan(col("Valor_Cotacao_Media"))
-            ).count()
-
-            invalid_pct = (invalid_values / metrics["total_rows"]) * 100 if metrics["total_rows"] > 0 else 0
-            metrics["validations"]["invalid_stock_price_values"] = invalid_values
-            metrics["validations"]["invalid_stock_price_pct"] = round(invalid_pct, 2)
-
-            if invalid_values > 0:
-                logger.warning(f"⚠️  Cotações inválidas: {invalid_values:,} ({invalid_pct:.1f}%)")
-                silver_validation_errors.labels(
-                    csv_type=csv_key,
-                    ano=ano,
-                    error_type='invalid_stock_price_values'
-                ).inc(invalid_values)
-            else:
-                logger.info("✅ Todas as cotações são válidas")
-
-        # ====================================================================
-        # ⚠️ ALTERAÇÃO 9: VALIDAÇÃO DE DATAS EXPANDIDA PARA FRE
         # ====================================================================
         # 6. DATAS NO FUTURO
         # Datas posteriores a hoje indicam erro de digitação ou dado corrompido
