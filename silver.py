@@ -1,18 +1,13 @@
-# silver.py - VERSÃO REFATORADA COM HARMONIZAÇÃO AUTOMÁTICA DE SCHEMA
+# silver.py
 from datetime import datetime
 import zipfile
 from io import BytesIO
 import pandas as pd
 from minio import Minio
 from delta import configure_spark_with_delta_pip
-from delta.tables import DeltaTable
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, to_date, trim, when, lit, current_timestamp, rlike, lower, translate, ilike
-<<<<<<< Updated upstream
-from pyspark.sql.types import DoubleType, IntegerType, StringType, StructType, StructField, DataType
-=======
 from pyspark.sql.types import DoubleType, IntegerType, StringType
->>>>>>> Stashed changes
 from config import MinIOConfig
 import logging
 from typing import List, Dict, Optional
@@ -39,10 +34,7 @@ def normalize_text(column):
         "áàãâäéèêëíìîïóòõôöúùûüç",
         "aaaaaeeeeiiiiooooouuuuc"
     )
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 
 class SilverProcessor:
     """Classe base para processar dados da camada Bronze → Silver"""
@@ -254,6 +246,7 @@ class CVMSilverProcessor(SilverProcessor):
                     
                     # 2.6 Registrar tempo de processamento
                     processing_time = time.time() - start_time
+
                     silver_processing_time.labels(csv_type=csv_key, ano=ano).observe(processing_time)
                     
                     results[csv_key] = True
@@ -412,179 +405,6 @@ class CVMSilverProcessor(SilverProcessor):
         Returns: 
             DataFrame limpo e padronizado
         """
-        try:
-            with zipfile.ZipFile(BytesIO(zip_data)) as zf:
-                # Procurar pelo arquivo CSV no ZIP
-                csv_name = None
-                for name in zf.namelist():
-                    if csv_filename in name and name.endswith('.csv'):
-                        csv_name = name
-                        break
-                
-                if not csv_name:
-                    logger.warning(f"CSV {csv_filename} não encontrado no ZIP")
-                    return None
-                
-                logger.info(f"  📥 Extraindo: {csv_name}")
-                
-                # Ler o CSV com pandas (mais fácil para encoding)
-                with zf.open(csv_name) as csv_file:
-                    # Detectar encoding
-                    raw_data = csv_file.read()
-                    detected = chardet.detect(raw_data)
-                    confianca = detected['confidence'] * 100
-                    encoding = detected['encoding'] if confianca > 80 else 'windows-1252'
-                    
-                    # Ler CSV com pandas
-                    pdf = pd.read_csv(
-                        BytesIO(raw_data),
-                        encoding=encoding,
-                        sep=';',
-                        dtype=str,  # Ler tudo como string primeiro
-                        na_values=['', 'NA', 'NULL', 'None']
-                    )
-                    
-                    logger.info(f"  📊 Linhas lidas: {len(pdf):,}")
-                    
-                    # Converter para Spark DataFrame
-                    df = self.spark.createDataFrame(pdf)
-                    
-                    return df
-                    
-        except Exception as e:
-            logger.error(f"Erro ao extrair CSV {csv_filename}: {e}")
-            return None
-    
-    def _harmonize_schema_with_nulls(self, df, delta_path: str):
-        """
-        ✨ HARMONIZAÇÃO AUTOMÁTICA DE SCHEMA
-        
-        Para cada coluna que existe na tabela Delta E está completamente vazia (NULL)
-        no novo DataFrame, força o tipo de dado para ser o mesmo da tabela existente.
-        
-        Isso resolve conflitos de schema quando colunas estão vazias em determinados anos.
-        
-        Args:
-            df: DataFrame novo a ser salvo
-            delta_path: Caminho da tabela Delta existente
-            
-        Returns:
-            DataFrame com schema harmonizado
-        """
-        try:
-            # Tentar ler o schema da tabela existente
-            existing_df = self.spark.read.format("delta").load(delta_path)
-            existing_schema = existing_df.schema
-            
-            logger.info(f"  🔍 Verificando compatibilidade de schema...")
-            
-            # Criar dicionário com tipos da tabela existente
-            existing_types = {field.name: field.dataType for field in existing_schema.fields}
-            
-            # Verificar cada coluna do novo DataFrame
-            harmonized_df = df
-            columns_harmonized = []
-            
-            for field in df.schema.fields:
-                col_name = field.name
-                new_type = field.dataType
-                
-                # Se a coluna existe na tabela antiga
-                if col_name in existing_types:
-                    old_type = existing_types[col_name]
-                    
-                    # Se os tipos são diferentes
-                    if str(new_type) != str(old_type):
-                        # Verificar se a coluna está completamente vazia (NULL)
-                        null_count = df.filter(col(col_name).isNull()).count()
-                        total_count = df.count()
-                        
-                        if null_count == total_count:
-                            # Coluna está 100% vazia - forçar tipo da tabela antiga
-                            logger.info(f"  🔧 Harmonizando '{col_name}': {new_type} → {old_type} (coluna vazia)")
-                            harmonized_df = harmonized_df.withColumn(col_name, col(col_name).cast(old_type))
-                            columns_harmonized.append(col_name)
-                        else:
-                            logger.warning(f"  ⚠️ Conflito de tipo em '{col_name}': {old_type} → {new_type} (coluna TEM dados)")
-            
-            if columns_harmonized:
-                logger.info(f"  ✅ {len(columns_harmonized)} coluna(s) harmonizada(s): {', '.join(columns_harmonized)}")
-            else:
-                logger.info(f"  ✅ Schema compatível - nenhuma harmonização necessária")
-            
-            return harmonized_df
-            
-        except Exception as e:
-            # Se não conseguir ler a tabela existente (não existe), retorna o DataFrame original
-            logger.info(f"  ℹ️ Tabela não existe ainda - usando schema original")
-            return df
-    
-    def _save_to_delta(self, df, table_name: str):
-        """
-        Salva DataFrame em formato Delta Lake com particionamento por ano
-        
-        ✨ COM HARMONIZAÇÃO AUTOMÁTICA DE SCHEMA PARA COLUNAS VAZIAS
-        """
-        delta_path = f"s3a://{self.minio_config.bucket_silver}/cvm/{table_name}"
-        
-        ano_processado = df.select("ano_referencia").distinct().collect()
-        
-        if len(ano_processado) != 1:
-            logger.error(f"⚠️ DataFrame contém múltiplos anos: {[row['ano_referencia'] for row in ano_processado]}")
-            for row in ano_processado:
-                ano = row['ano_referencia']
-                df_ano = df.filter(col("ano_referencia") == ano)
-                self._save_single_year_to_delta(df_ano, table_name, delta_path, ano)
-        else:
-            ano = ano_processado[0]['ano_referencia']
-            self._save_single_year_to_delta(df, table_name, delta_path, ano)
-        
-        logger.info(f"  💾 Dados salvos em: {delta_path}")
-    
-    def _save_single_year_to_delta(self, df, table_name: str, delta_path: str, ano: str):
-        """
-        Salva dados de um único ano no Delta Lake
-        
-        ✨ SOLUÇÃO ELEGANTE: Harmoniza schema antes de salvar
-        """
-        try:
-            # ================================================================
-            # ✨ HARMONIZAR SCHEMA PARA COLUNAS VAZIAS
-            # ================================================================
-            df_harmonized = self._harmonize_schema_with_nulls(df, delta_path)
-            
-            # Verificar se a tabela existe
-            try:
-                existing_df = self.spark.read.format("delta").load(delta_path)
-                table_exists = True
-            except:
-                table_exists = False
-            
-            if table_exists:
-                logger.info(f"  🔄 Substituindo dados do ano {ano} em {table_name}")
-                
-                df_harmonized.write \
-                    .format("delta") \
-                    .mode("overwrite") \
-                    .option("replaceWhere", f"ano_referencia = '{ano}'") \
-                    .partitionBy("ano_referencia") \
-                    .save(delta_path)
-                    
-            else:
-                logger.info(f"  ✨ Criando nova tabela {table_name} com particionamento por ano")
-                
-                df_harmonized.write \
-                    .format("delta") \
-                    .mode("overwrite") \
-                    .partitionBy("ano_referencia") \
-                    .save(delta_path)
-                    
-        except Exception as e:
-            logger.error(f"  ❌ Erro ao salvar ano {ano}: {e}")
-            raise
-    
-    def _clean_dataframe(self, df, csv_key: str, document_type: str):
-        """Aplica transformações de limpeza e padronização no DataFrame"""
         df_clean = df
 
         # ====================================================================

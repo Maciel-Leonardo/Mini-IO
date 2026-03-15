@@ -130,25 +130,12 @@ class SilverQualityValidator:
         }
 
         # ====================================================================
-        # ⚠️ ALTERAÇÃO 6: COLUNAS OBRIGATÓRIAS CORRIGIDAS PARA FRE
+        # 1. COLUNAS OBRIGATÓRIAS
+        # Verifica se todas as colunas essenciais estão presentes no DataFrame
         # ====================================================================
-        # ANTES (versão anterior - INCORRETA):
-        # required_cols = {
-        #     # ... DFP existentes ...
-        #     "volume_valor_mobiliario": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER", "VL_MERC_ACAO"],
-        #     "distribuicao_capital": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER"],
-        #     "dividendos": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER", "VL_PROVENTO"],
-        #     "proventos": ["CNPJ_CIA", "DENOM_CIA", "DT_REFER"],
-        # }
-        #
-        # AGORA (baseado nos documentos Word e estrutura real dos CSVs):
         required_cols = {
             # ================================================================
             # TABELAS DFP (Demonstrações Financeiras Padronizadas)
-<<<<<<< Updated upstream
-            # Não alteradas - mantidas do código original
-=======
->>>>>>> Stashed changes
             # ================================================================
             "composicao_capital": ["CNPJ_CIA", "DENOM_CIA", "QT_ACAO_TOTAL_CAP_INTEGR", "DT_REFER", "QT_ACAO_TOTAL_TESOURO"],
             "DRE_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "DT_REFER", "DS_CONTA"],
@@ -157,11 +144,7 @@ class SilverQualityValidator:
             "DFC_DMPL_con": ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "COLUNA_DF"],
             
             # ================================================================
-<<<<<<< Updated upstream
-            # TABELAS FRE (Formulário de Referência) - CORRIGIDAS
-=======
             # TABELAS FRE (Formulário de Referência)
->>>>>>> Stashed changes
             # ================================================================
             
             # ────────────────────────────────────────────────────────────────
@@ -278,17 +261,9 @@ class SilverQualityValidator:
         metrics["validations"]["high_null_columns"] = high_null_columns
 
         # ====================================================================
-<<<<<<< Updated upstream
-        # ⚠️ ALTERAÇÃO 8: VALIDAÇÃO DE VALORES MONETÁRIOS EXPANDIDA
-        # ====================================================================
         # 5. VALORES MONETÁRIOS INVÁLIDOS
         # Verifica se as colunas de valores financeiros têm nulos ou NaN
         # ====================================================================
-=======
-        # 5. VALORES MONETÁRIOS INVÁLIDOS
-        # Verifica se as colunas de valores financeiros têm nulos ou NaN
-        # ====================================================================
->>>>>>> Stashed changes
         
         # Para DFP: VL_CONTA
         if "VL_CONTA" in df.columns:
@@ -317,45 +292,6 @@ class SilverQualityValidator:
                 col("Dividendo_Distribuido_Total").isNull() | 
                 isnan(col("Dividendo_Distribuido_Total"))
             ).count()
-<<<<<<< Updated upstream
-=======
-
-            invalid_pct = (invalid_values / metrics["total_rows"]) * 100 if metrics["total_rows"] > 0 else 0
-            metrics["validations"]["invalid_dividend_values"] = invalid_values
-            metrics["validations"]["invalid_dividend_pct"] = round(invalid_pct, 2)
-
-            if invalid_values > 0:
-                logger.warning(f"⚠️  Valores de dividendos inválidos: {invalid_values:,} ({invalid_pct:.1f}%)")
-                silver_validation_errors.labels(
-                    csv_type=csv_key,
-                    ano=ano,
-                    error_type='invalid_dividend_values'
-                ).inc(invalid_values)
-            else:
-                logger.info("✅ Todos os valores de dividendos são válidos")
-        
-        # Para FRE - COTAÇÕES: Valor_Cotacao_Media
-        # Baseado em: 04_Indicador_Preco_Acao_ATUALIZADO.docx
-        if "Valor_Cotacao_Media" in df.columns:
-            invalid_values = df.filter(
-                col("Valor_Cotacao_Media").isNull() | 
-                isnan(col("Valor_Cotacao_Media"))
-            ).count()
-
-            invalid_pct = (invalid_values / metrics["total_rows"]) * 100 if metrics["total_rows"] > 0 else 0
-            metrics["validations"]["invalid_stock_price_values"] = invalid_values
-            metrics["validations"]["invalid_stock_price_pct"] = round(invalid_pct, 2)
-
-            if invalid_values > 0:
-                logger.warning(f"⚠️  Cotações inválidas: {invalid_values:,} ({invalid_pct:.1f}%)")
-                silver_validation_errors.labels(
-                    csv_type=csv_key,
-                    ano=ano,
-                    error_type='invalid_stock_price_values'
-                ).inc(invalid_values)
-            else:
-                logger.info("✅ Todas as cotações são válidas")
->>>>>>> Stashed changes
 
             invalid_pct = (invalid_values / metrics["total_rows"]) * 100 if metrics["total_rows"] > 0 else 0
             metrics["validations"]["invalid_dividend_values"] = invalid_values
@@ -393,8 +329,6 @@ class SilverQualityValidator:
             else:
                 logger.info("✅ Todas as cotações são válidas")
 
-        # ====================================================================
-        # ⚠️ ALTERAÇÃO 9: VALIDAÇÃO DE DATAS EXPANDIDA PARA FRE
         # ====================================================================
         # 6. DATAS NO FUTURO
         # Datas posteriores a hoje indicam erro de digitação ou dado corrompido
@@ -419,65 +353,6 @@ class SilverQualityValidator:
                     ).inc(future_dates)
                 else:
                     logger.info(f"✅ Todas as datas em {date_col} são válidas")
-<<<<<<< Updated upstream
-
-        # ====================================================================
-        # ⚠️ ALTERAÇÃO 10: DETECÇÃO DE DUPLICATAS AJUSTADA PARA FRE
-        # ====================================================================
-        # 7. DUPLICATAS
-        # Registros com a mesma chave duplicados
-        # ====================================================================
-        if csv_key in required_cols:
-            # Definir chaves primárias por tipo de tabela
-            key_definitions = {
-                # ────────────────────────────────────────────────────────────
-                # DFP (não alterado)
-                # ────────────────────────────────────────────────────────────
-                "DRE_con": ["CNPJ_CIA", "CD_CONTA", "DT_REFER"],
-                "BPA_con": ["CNPJ_CIA", "CD_CONTA", "DT_REFER"],
-                "BPP_con": ["CNPJ_CIA", "CD_CONTA", "DT_REFER"],
-                "DFC_DMPL_con": ["CNPJ_CIA", "COLUNA_DF", "DT_REFER"],
-                "composicao_capital": ["CNPJ_CIA", "DT_REFER"],
-                
-                # ────────────────────────────────────────────────────────────
-                # FRE (corrigido)
-                # ────────────────────────────────────────────────────────────
-                # volume_valor_mobiliario:
-                # Chave = Empresa + Espécie da Ação + Trimestre
-                # (uma empresa pode ter ON e PN, ambas com dados trimestrais)
-                "volume_valor_mobiliario": ["Nome_Companhia", "Especie_Acao", "Data_Fim_Trimestre"],
-                
-                # distribuicao_dividendos:
-                # Chave = Empresa + Exercício Social
-                # (uma empresa tem apenas um registro de dividendos por ano fiscal)
-                "distribuicao_dividendos": ["Nome_Companhia", "Data_Fim_Exercicio_Social"],
-            }
-            
-            if csv_key in key_definitions:
-                key_cols = [c for c in key_definitions[csv_key] if c in df.columns]
-                
-                if key_cols:
-                    # Conta quantos grupos de registros têm mais de 1 ocorrência
-                    duplicates = df.groupBy(key_cols).count().filter(col("count") > 1).count()
-                    metrics["validations"]["duplicates"] = duplicates
-
-                    if duplicates > 0:
-                        logger.warning(f"⚠️  Registros duplicados: {duplicates:,}")
-                        silver_validation_errors.labels(
-                            csv_type=csv_key,
-                            ano=ano,
-                            error_type='duplicates'
-                        ).inc(duplicates)
-                    else:
-                        logger.info("✅ Nenhuma duplicata encontrada")
-
-        # ====================================================================
-        # ⚠️ ALTERAÇÃO 11: DISTRIBUIÇÃO DE VALORES EXPANDIDA PARA FRE
-        # ====================================================================
-        # 8. DISTRIBUIÇÃO DE VALORES MONETÁRIOS
-        # Estatísticas descritivas das colunas de valor
-        # ====================================================================
-=======
 
         # ====================================================================
         # 7. DUPLICATAS
@@ -531,7 +406,6 @@ class SilverQualityValidator:
         # 8. DISTRIBUIÇÃO DE VALORES MONETÁRIOS
         # Estatísticas descritivas das colunas de valor
         # ====================================================================
->>>>>>> Stashed changes
         
         # Para VL_CONTA (DFP)
         if "VL_CONTA" in df.columns:
