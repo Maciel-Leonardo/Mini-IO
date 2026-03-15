@@ -8,11 +8,7 @@ from delta import configure_spark_with_delta_pip
 from delta.tables import DeltaTable
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, to_date, trim, when, lit, current_timestamp, rlike, lower, translate, ilike
-<<<<<<< Updated upstream
-from pyspark.sql.types import DoubleType, IntegerType, StringType, StructType, StructField, DataType
-=======
 from pyspark.sql.types import DoubleType, IntegerType, StringType
->>>>>>> Stashed changes
 from config import MinIOConfig
 import logging
 from typing import List, Dict, Optional
@@ -39,10 +35,6 @@ def normalize_text(column):
         "áàãâäéèêëíìîïóòõôöúùûüç",
         "aaaaaeeeeiiiiooooouuuuc"
     )
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 class SilverProcessor:
     """Classe base para processar dados da camada Bronze → Silver"""
