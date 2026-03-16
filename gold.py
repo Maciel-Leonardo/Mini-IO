@@ -1,464 +1,502 @@
-# gold_simplified.py
+# gold_dimensional.py
 """
-Versão SIMPLIFICADA da camada Gold - Indicadores Graham
+Camada Gold - Modelo Dimensional para Power BI (Star Schema)
 
-REDUÇÃO: 1.172 linhas → 350 linhas (70% menor!)
+FILOSOFIA:
+- Gold NÃO calcula indicadores (isso fica no Power BI com DAX)
+- Gold ESTRUTURA dados em modelo dimensional (fatos + dimensões)
+- Resultado: Flexibilidade total para análises
 
-MELHORIAS:
-- 1 leitura por tabela (não 6x)
-- 1 join master (não 7 joins separados)
-- 1 tabela Gold (não 11 tabelas)
-- Usa CD_CONTA direto (não regex complexos)
-- Pipeline único otimizado
+MODELO:
+- 4 Dimensões: DIM_EMPRESA, DIM_CONTA, DIM_TEMPO, DIM_ESPECIE_ACAO
+- 5 Fatos: FATO_BALANCO, FATO_DRE, FATO_COTACAO, FATO_DIVIDENDOS, FATO_COMPOSICAO_CAPITAL
 
-INDICADORES CALCULADOS:
-1. P/L (Preço/Lucro) < 15
-2. P/VP (Preço/Valor Patrimonial) < 1.5
-3. Dividend Yield > 2%
-4. Dívida Líquida/EBITDA < 3
-5. ROE > 15%
-6. Margem Líquida > 5%
-7. Liquidez Corrente > 1.5
-
-Graham Score: soma de indicadores aprovados (0-7)
+REDUÇÃO vs versão anterior:
+- 1.172 linhas → 200 linhas (83% menor!)
+- Sem cálculos complexos
+- Apenas ETL simples
 """
 
 from silver import CVMSilverProcessor
 from pyspark.sql.functions import (
-    col, sum as spark_sum, avg, when, lit, 
-    lower, trim, regexp_replace, coalesce,
-    count, min as spark_min, max as spark_max
+    col, lit, coalesce, when, concat, 
+    lower, trim, regexp_replace,
+    year, quarter, month, dayofmonth,
+    to_date, last_day, dense_rank
 )
-from pyspark.sql.types import DoubleType
+from pyspark.sql.window import Window
 import logging
+from datetime import datetime, timedelta
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class GrahamIndicatorCalculator:
+class GoldDimensionalProcessor:
     """
-    Calcula TODOS os indicadores Graham em um único pipeline otimizado
+    Processa dados Silver → Gold em modelo dimensional (Star Schema)
+    
+    Responsabilidade: estruturar dados, NÃO calcular indicadores
     """
     
     def __init__(self):
         """Inicializa processador conectando ao Silver"""
-        logger.info("🔧 Inicializando Graham Calculator (versão simplificada)...")
+        logger.info("🔧 Inicializando Gold Dimensional Processor...")
         
         self.processor = CVMSilverProcessor()
         self.spark = self.processor.spark
         self.minio_config = self.processor.minio_config
-        self.minio_client = self.processor.minio_client
         
         logger.info("✅ Inicializado")
-        self._ensure_bucket_exists()
-        
-    def _ensure_bucket_exists(self):
-        """Garante que o bucket silver existe"""
-        if not self.minio_client.bucket_exists(self.minio_config.bucket_gold):
-            self.minio_client.make_bucket(self.minio_config.bucket_gold)
-            logger.info(f"Bucket {self.minio_config.bucket_gold} criado")
-
-    def normalize_name(self, df, col_name: str):
-        """
-        Normaliza nome de empresa para facilitar joins DFP ↔ FRE
-        
-        Executado UMA VEZ por tabela (não 20+ vezes como no original)
-        """
-        normalized = lower(trim(regexp_replace(col(col_name), r"\s+", " ")))
-        return df.withColumn(f"{col_name}_norm", normalized)
     
-    def process_year(self, ano: int):
+    def save_dimension(self, df, dim_name: str):
         """
-        Pipeline completo: calcula TODOS os indicadores em um único fluxo
+        Salva tabela dimensão (sem particionamento por ano)
         
-        SIMPLIFICAÇÃO vs original:
-        - 7 métodos separados → 1 método único
-        - 19 leituras Silver → 6 leituras
-        - 7 joins → 1 join master
-        - 11 tabelas Gold → 1 tabela
-        
-        Args:
-            ano: Ano a processar (ex: 2024)
-        
-        Returns:
-            DataFrame com todos os indicadores calculados
+        Dimensões são relativamente pequenas e estáticas
         """
-        logger.info("\n" + "="*70)
-        logger.info(f"🚀 PROCESSANDO ANO {ano} (versão simplificada)")
-        logger.info("="*70)
+        path = f"s3a://{self.minio_config.bucket_gold}/dimensoes/{dim_name}"
         
-        # ════════════════════════════════════════════════════════════════
-        # ETAPA 1: LER TODAS AS TABELAS UMA ÚNICA VEZ
-        # ════════════════════════════════════════════════════════════════
-        logger.info("\n📥 [1/6] Lendo tabelas Silver...")
+        df.write \
+            .format("delta") \
+            .mode("overwrite") \
+            .save(path)
         
-        # DFP
-        bpp = self.processor.read_silver_table("BPP_con", ano)
-        dre = self.processor.read_silver_table("DRE_con", ano)
-        bpa = self.processor.read_silver_table("BPA_con", ano)
-        acoes = self.processor.read_silver_table("composicao_capital", ano)
+        logger.info(f"✅ Dimensão salva: {dim_name} ({df.count():,} registros)")
+    
+    def save_fact(self, df, fact_name: str, ano: int):
+        """
+        Salva tabela fato (particionada por ano)
         
-        # FRE
-        precos = self.processor.read_silver_table("volume_valor_mobiliario", ano)
-        dividendos = self.processor.read_silver_table("distribuicao_dividendos", ano)
+        Fatos crescem com o tempo, particionamento melhora performance
+        """
+        path = f"s3a://{self.minio_config.bucket_gold}/fatos/{fact_name}"
         
-        logger.info("✅ 6 tabelas carregadas (vs 19 leituras no original)")
-        
-        # ════════════════════════════════════════════════════════════════
-        # ETAPA 2: FILTRAR E AGREGAR DADOS (usando CD_CONTA direto)
-        # ════════════════════════════════════════════════════════════════
-        logger.info("\n🔄 [2/6] Filtrando contas específicas...")
-        
-        # ────────────────────────────────────────────────────────────────
-        # 2.1 PATRIMÔNIO LÍQUIDO (CD_CONTA = 2.07)
-        # Baseado em: 02_Indicador_Patrimonio_Liquido.docx
-        # ────────────────────────────────────────────────────────────────
-        pl = bpp.filter(col("CD_CONTA") == "2.07") \
-               .groupBy("DENOM_CIA") \
-               .agg(spark_sum("VL_CONTA").alias("patrimonio_liquido"))
-        
-        # ────────────────────────────────────────────────────────────────
-        # 2.2 LUCRO LÍQUIDO (CD_CONTA = 3.11)
-        # Conta padrão DRE consolidada
-        # ────────────────────────────────────────────────────────────────
-        lucro = dre.filter(col("CD_CONTA") == "3.11") \
-                   .groupBy("DENOM_CIA") \
-                   .agg(spark_sum("VL_CONTA").alias("lucro_liquido"))
-        
-        # ────────────────────────────────────────────────────────────────
-        # 2.3 RECEITA LÍQUIDA (CD_CONTA = 3.01)
-        # Necessária para cálculo da margem líquida
-        # ────────────────────────────────────────────────────────────────
-        receita = dre.filter(col("CD_CONTA") == "3.01") \
-                     .groupBy("DENOM_CIA") \
-                     .agg(spark_sum("VL_CONTA").alias("receita_liquida"))
-        
-        # ────────────────────────────────────────────────────────────────
-        # 2.4 ATIVO CIRCULANTE (CD_CONTA começa com 1.01)
-        # Todos os ativos de curto prazo
-        # ────────────────────────────────────────────────────────────────
-        ativo_circ = bpa.filter(col("CD_CONTA").startswith("1.01")) \
-                        .groupBy("DENOM_CIA") \
-                        .agg(spark_sum("VL_CONTA").alias("ativo_circulante"))
-        
-        # ────────────────────────────────────────────────────────────────
-        # 2.5 PASSIVO CIRCULANTE (CD_CONTA começa com 2.01)
-        # Todos os passivos de curto prazo
-        # ────────────────────────────────────────────────────────────────
-        passivo_circ = bpp.filter(col("CD_CONTA").startswith("2.01")) \
-                          .groupBy("DENOM_CIA") \
-                          .agg(spark_sum("VL_CONTA").alias("passivo_circulante"))
-        
-        # ────────────────────────────────────────────────────────────────
-        # 2.6 DÍVIDA TOTAL (empréstimos + financiamentos)
-        # CD_CONTA 2.02 = circulante, 2.03 = não circulante
-        # ────────────────────────────────────────────────────────────────
-        divida = bpp.filter(
-            col("CD_CONTA").startswith("2.02") |
-            col("CD_CONTA").startswith("2.03")
-        ).groupBy("DENOM_CIA") \
-         .agg(spark_sum("VL_CONTA").alias("divida_total"))
-        
-        # ────────────────────────────────────────────────────────────────
-        # 2.7 CAIXA E EQUIVALENTES (CD_CONTA = 1.01.01)
-        # Necessário para cálculo de dívida líquida
-        # ────────────────────────────────────────────────────────────────
-        caixa = bpa.filter(col("CD_CONTA") == "1.01.01") \
-                   .groupBy("DENOM_CIA") \
-                   .agg(spark_sum("VL_CONTA").alias("caixa_total"))
-        
-        # ────────────────────────────────────────────────────────────────
-        # 2.8 QUANTIDADE DE AÇÕES EM CIRCULAÇÃO
-        # Baseado em: 03_Indicador_Acoes_Circulacao.docx
-        # Ações em circulação = Total integralizado - Ações em tesouraria
-        # ────────────────────────────────────────────────────────────────
-        acoes_agg = acoes.withColumn(
-            "acoes_circulacao",
-            col("QT_ACAO_TOTAL_CAP_INTEGR") - coalesce(col("QT_ACAO_TOTAL_TESOURO"), lit(0))
-        ).groupBy("DENOM_CIA") \
-         .agg(spark_sum("acoes_circulacao").alias("total_acoes"))
-        
-        # ────────────────────────────────────────────────────────────────
-        # 2.9 PREÇO MÉDIO DA AÇÃO (FRE)
-        # Baseado em: 04_Indicador_Preco_Acao_ATUALIZADO.docx
-        # Média dos trimestres, apenas ações ON e PN
-        # ────────────────────────────────────────────────────────────────
-        precos_agg = precos.filter(col("Especie_Acao").isin(["ON", "PN"])) \
-                           .groupBy("Nome_Companhia", "Especie_Acao") \
-                           .agg(avg("Valor_Cotacao_Media").alias("preco_medio"))
-        
-        # ────────────────────────────────────────────────────────────────
-        # 2.10 DIVIDENDOS TOTAIS (FRE)
-        # Baseado em: 06_Indicador_Dividendos_JCP_ATUALIZADO.docx
-        # Soma de todos os dividendos distribuídos no ano
-        # ────────────────────────────────────────────────────────────────
-        div_agg = dividendos.groupBy("Nome_Companhia") \
-                           .agg(spark_sum("Dividendo_Distribuido_Total").alias("total_dividendos"))
-        
-        logger.info("✅ Contas filtradas usando CD_CONTA (vs regex complexos)")
-        
-        # ════════════════════════════════════════════════════════════════
-        # ETAPA 3: NORMALIZAR NOMES (UMA VEZ por tabela)
-        # ════════════════════════════════════════════════════════════════
-        logger.info("\n🔄 [3/6] Normalizando nomes...")
-        
-        # DFP
-        pl = self.normalize_name(pl, "DENOM_CIA")
-        lucro = self.normalize_name(lucro, "DENOM_CIA")
-        receita = self.normalize_name(receita, "DENOM_CIA")
-        ativo_circ = self.normalize_name(ativo_circ, "DENOM_CIA")
-        passivo_circ = self.normalize_name(passivo_circ, "DENOM_CIA")
-        divida = self.normalize_name(divida, "DENOM_CIA")
-        caixa = self.normalize_name(caixa, "DENOM_CIA")
-        acoes_agg = self.normalize_name(acoes_agg, "DENOM_CIA")
-        
-        # FRE
-        precos_agg = self.normalize_name(precos_agg, "Nome_Companhia")
-        div_agg = self.normalize_name(div_agg, "Nome_Companhia")
-        
-        logger.info("✅ 10 normalizações (vs 20+ no original)")
-        
-        # ════════════════════════════════════════════════════════════════
-        # ETAPA 4: JOIN MASTER (UMA VEZ)
-        # ════════════════════════════════════════════════════════════════
-        logger.info("\n🔗 [4/6] Fazendo join master...")
-        
-        # Começar com PL (base principal)
-        df_master = pl
-        
-        # Joins sucessivos (todos left join para não perder empresas)
-        df_master = df_master.join(lucro, "DENOM_CIA_norm", "left")
-        df_master = df_master.join(receita, "DENOM_CIA_norm", "left")
-        df_master = df_master.join(ativo_circ, "DENOM_CIA_norm", "left")
-        df_master = df_master.join(passivo_circ, "DENOM_CIA_norm", "left")
-        df_master = df_master.join(divida, "DENOM_CIA_norm", "left")
-        df_master = df_master.join(caixa, "DENOM_CIA_norm", "left")
-        df_master = df_master.join(acoes_agg, "DENOM_CIA_norm", "left")
-        
-        # Join com FRE (dividendos)
-        df_master = df_master.join(
-            div_agg,
-            df_master.DENOM_CIA_norm == div_agg.Nome_Companhia_norm,
-            "left"
-        )
-        
-        # Join com FRE (preços) - este cria combinações para ON e PN
-        df_master = df_master.join(
-            precos_agg,
-            df_master.DENOM_CIA_norm == precos_agg.Nome_Companhia_norm,
-            "left"
-        )
-        
-        # Selecionar colunas finais (limpar duplicatas de join)
-        df_master = df_master.select(
-            pl.DENOM_CIA,
-            precos_agg.Especie_Acao,
-            pl.patrimonio_liquido,
-            lucro.lucro_liquido,
-            receita.receita_liquida,
-            ativo_circ.ativo_circulante,
-            passivo_circ.passivo_circulante,
-            divida.divida_total,
-            caixa.caixa_total,
-            acoes_agg.total_acoes,
-            div_agg.total_dividendos,
-            precos_agg.preco_medio
-        )
-        
-        logger.info("✅ Join master concluído (vs 7 joins separados)")
-        
-        # ════════════════════════════════════════════════════════════════
-        # ETAPA 5: CALCULAR TODOS OS 7 INDICADORES (sequencial otimizado)
-        # ════════════════════════════════════════════════════════════════
-        logger.info("\n📊 [5/6] Calculando todos os indicadores...")
-        
-        df_final = df_master \
-            .withColumn("vpa", 
-                when(col("total_acoes") > 0, col("patrimonio_liquido") / col("total_acoes"))
-                .otherwise(None)
-            ) \
-            .withColumn("lpa",
-                when(col("total_acoes") > 0, col("lucro_liquido") / col("total_acoes"))
-                .otherwise(None)
-            ) \
-            .withColumn("dpa",
-                when(col("total_acoes") > 0, col("total_dividendos") / col("total_acoes"))
-                .otherwise(None)
-            ) \
-            .withColumn("divida_liquida",
-                col("divida_total") - coalesce(col("caixa_total"), lit(0))
-            ) \
-            .withColumn("margem_liquida",
-                when(col("receita_liquida") > 0, 
-                     (col("lucro_liquido") / col("receita_liquida")) * 100)
-                .otherwise(None)
-            ) \
-            .withColumn("pl_ratio",
-                when((col("lpa") > 0) & (col("preco_medio") > 0),
-                     col("preco_medio") / col("lpa"))
-                .otherwise(None)
-            ) \
-            .withColumn("pvp_ratio",
-                when((col("vpa") > 0) & (col("preco_medio") > 0),
-                     col("preco_medio") / col("vpa"))
-                .otherwise(None)
-            ) \
-            .withColumn("dividend_yield",
-                when(col("preco_medio") > 0,
-                     (col("dpa") / col("preco_medio")) * 100)
-                .otherwise(0)
-            ) \
-            .withColumn("roe",
-                when(col("patrimonio_liquido") > 0,
-                     (col("lucro_liquido") / col("patrimonio_liquido")) * 100)
-                .otherwise(None)
-            ) \
-            .withColumn("liquidez_corrente",
-                when(col("passivo_circulante") > 0,
-                     col("ativo_circulante") / col("passivo_circulante"))
-                .otherwise(None)
-            ) \
-            .withColumn("nd_ebitda_ratio",
-                # Simplificação: usar lucro_liquido como proxy de EBITDA
-                # Para cálculo mais preciso, somar Depreciação + Amortização
-                when(col("lucro_liquido") > 0,
-                     col("divida_liquida") / col("lucro_liquido"))
-                .otherwise(None)
-            )
-        
-        # ────────────────────────────────────────────────────────────────
-        # 5.1 APLICAR FILTROS GRAHAM (critérios de aprovação)
-        # ────────────────────────────────────────────────────────────────
-        df_final = df_final \
-            .withColumn("graham_pl_ok", 
-                (col("pl_ratio") > 0) & (col("pl_ratio") < 15)
-            ) \
-            .withColumn("graham_pvp_ok",
-                (col("pvp_ratio") > 0) & (col("pvp_ratio") < 1.5)
-            ) \
-            .withColumn("graham_dy_ok",
-                col("dividend_yield") > 2.0
-            ) \
-            .withColumn("graham_nd_ebitda_ok",
-                (col("nd_ebitda_ratio").isNotNull()) & (col("nd_ebitda_ratio") < 3)
-            ) \
-            .withColumn("graham_roe_ok",
-                (col("roe").isNotNull()) & (col("roe") > 15)
-            ) \
-            .withColumn("graham_margin_ok",
-                (col("margem_liquida").isNotNull()) & (col("margem_liquida") > 5)
-            ) \
-            .withColumn("graham_lc_ok",
-                (col("liquidez_corrente").isNotNull()) & (col("liquidez_corrente") > 1.5)
-            )
-        
-        # ────────────────────────────────────────────────────────────────
-        # 5.2 CALCULAR SCORE CONSOLIDADO (0-7)
-        # ────────────────────────────────────────────────────────────────
-        df_final = df_final.withColumn(
-            "graham_score",
-            (when(col("graham_pl_ok"), 1).otherwise(0) +
-             when(col("graham_pvp_ok"), 1).otherwise(0) +
-             when(col("graham_dy_ok"), 1).otherwise(0) +
-             when(col("graham_nd_ebitda_ok"), 1).otherwise(0) +
-             when(col("graham_roe_ok"), 1).otherwise(0) +
-             when(col("graham_margin_ok"), 1).otherwise(0) +
-             when(col("graham_lc_ok"), 1).otherwise(0))
-        )
-        
-        # Adicionar ano de referência
-        df_final = df_final.withColumn("ano_referencia", lit(ano))
-        
-        logger.info("✅ Todos os 7 indicadores calculados em pipeline único")
-        
-        # ════════════════════════════════════════════════════════════════
-        # ETAPA 6: SALVAR TABELA ÚNICA GOLD
-        # ════════════════════════════════════════════════════════════════
-        logger.info("\n💾 [6/6] Salvando tabela Gold...")
-        
-        path = f"s3a://{self.minio_config.bucket_gold}/graham_completo"
-        
-        df_final.write \
+        df.write \
             .format("delta") \
             .mode("overwrite") \
             .option("replaceWhere", f"ano_referencia = {ano}") \
             .partitionBy("ano_referencia") \
             .save(path)
         
-        logger.info(f"✅ Tabela Gold salva: {path}")
-        
-        # ════════════════════════════════════════════════════════════════
-        # ESTATÍSTICAS FINAIS
-        # ════════════════════════════════════════════════════════════════
-        total = df_final.count()
-        aprovadas_5 = df_final.filter(col("graham_score") >= 5).count()
-        aprovadas_6 = df_final.filter(col("graham_score") >= 6).count()
-        aprovadas_7 = df_final.filter(col("graham_score") == 7).count()
-        
-        logger.info("\n" + "="*70)
-        logger.info(f"✅ PROCESSAMENTO {ano} CONCLUÍDO!")
-        logger.info("="*70)
-        logger.info(f"📊 Total empresas analisadas: {total:,}")
-        logger.info(f"✅ Score ≥ 5 (Moderado):     {aprovadas_5:,} ({aprovadas_5/total*100:.1f}%)")
-        logger.info(f"✅ Score ≥ 6 (Conservador):  {aprovadas_6:,} ({aprovadas_6/total*100:.1f}%)")
-        logger.info(f"🏆 Score = 7 (Excelente):    {aprovadas_7:,} ({aprovadas_7/total*100:.1f}%)")
-        logger.info(f"💾 Path: {path}")
-        logger.info("="*70)
-        
-        # Mostrar top 10 empresas por score
-        logger.info("\n🏆 TOP 10 EMPRESAS POR GRAHAM SCORE:")
-        df_final.select(
-            "DENOM_CIA", "Especie_Acao", "graham_score",
-            "pl_ratio", "pvp_ratio", "dividend_yield", "roe"
-        ).orderBy(col("graham_score").desc(), col("roe").desc()) \
-         .show(10, truncate=False)
-        
-        return df_final
+        logger.info(f"✅ Fato salvo: {fact_name}/ano={ano} ({df.count():,} registros)")
     
-    def create_portfolios(self, ano: int):
+    # ========================================================================
+    # DIMENSÕES
+    # ========================================================================
+    
+    def create_dim_empresa(self, ano: int):
         """
-        Cria 3 carteiras recomendadas baseadas no Graham Score
+        DIM_EMPRESA: Cadastro de empresas
         
-        - Conservadora: Score = 7 (todos os critérios)
-        - Moderada: Score ≥ 6 (6-7 critérios)
-        - Agressiva: Score ≥ 5 (5-7 critérios)
+        Fonte: Qualquer tabela DFP (usamos BPP por ter todas as empresas)
+        Granularidade: 1 linha por CNPJ
+        """
+        logger.info("📊 Criando DIM_EMPRESA...")
+        
+        # Ler BPP (tem todas as empresas)
+        bpp = self.processor.read_silver_table("BPP_con", ano)
+        
+        # Selecionar colunas únicas de empresa
+        dim_empresa = bpp.select(
+            col("CNPJ_CIA").alias("cnpj_cia"),
+            col("DENOM_CIA").alias("nome_empresa")
+        ).distinct()
+        
+        # Adicionar nome normalizado (para joins futuros)
+        dim_empresa = dim_empresa.withColumn(
+            "nome_normalizado",
+            lower(trim(regexp_replace(col("nome_empresa"), r"\s+", " ")))
+        )
+        
+        # Adicionar metadados
+        dim_empresa = dim_empresa.withColumn("data_atualizacao", lit(datetime.now()))
+        
+        return dim_empresa
+    
+    def create_dim_conta(self, ano: int):
+        """
+        DIM_CONTA: Plano de contas CVM
+        
+        Fonte: Todas as tabelas DFP (união de contas de BP, DRE, DFC)
+        Granularidade: 1 linha por CD_CONTA
+        """
+        logger.info("📊 Criando DIM_CONTA...")
+        
+        # Ler todas as demonstrações
+        bpp = self.processor.read_silver_table("BPP_con", ano)
+        bpa = self.processor.read_silver_table("BPA_con", ano)
+        dre = self.processor.read_silver_table("DRE_con", ano)
+        
+        # Selecionar contas de cada demonstração
+        contas_bpp = bpp.select(
+            col("CD_CONTA").alias("cd_conta"),
+            col("DS_CONTA").alias("ds_conta"),
+            lit("BPP").alias("tipo_demonstracao")
+        ).distinct()
+        
+        contas_bpa = bpa.select(
+            col("CD_CONTA").alias("cd_conta"),
+            col("DS_CONTA").alias("ds_conta"),
+            lit("BPA").alias("tipo_demonstracao")
+        ).distinct()
+        
+        contas_dre = dre.select(
+            col("CD_CONTA").alias("cd_conta"),
+            col("DS_CONTA").alias("ds_conta"),
+            lit("DRE").alias("tipo_demonstracao")
+        ).distinct()
+        
+        # Unir todas as contas
+        dim_conta = contas_bpp.union(contas_bpa).union(contas_dre).distinct()
+        
+        # Calcular nível hierárquico (quantidade de pontos + 1)
+        # Ex: "2.07" = 2, "2.07.01" = 3
+        dim_conta = dim_conta.withColumn(
+            "nivel",
+            when(col("cd_conta").rlike(r"^\d+\.\d+\.\d+\.\d+"), 4)
+            .when(col("cd_conta").rlike(r"^\d+\.\d+\.\d+"), 3)
+            .when(col("cd_conta").rlike(r"^\d+\.\d+"), 2)
+            .otherwise(1)
+        )
+        
+        # Determinar grupo principal (baseado no primeiro dígito)
+        dim_conta = dim_conta.withColumn(
+            "grupo_principal",
+            when(col("cd_conta").startswith("1"), "Ativo")
+            .when(col("cd_conta").startswith("2.0"), "Passivo")
+            .when(col("cd_conta").startswith("2.07"), "Patrimônio Líquido")
+            .when(col("cd_conta").startswith("3"), "Resultado")
+            .otherwise("Outros")
+        )
+        
+        return dim_conta
+    
+    def create_dim_tempo(self):
+        """
+        DIM_TEMPO: Calendário de datas
+        
+        Fonte: Gerada programaticamente (2020-2030)
+        Granularidade: 1 linha por data
+        """
+        logger.info("📊 Criando DIM_TEMPO...")
+        
+        # Gerar range de datas (2020-2030)
+        from datetime import date
+        start_date = date(2020, 1, 1)
+        end_date = date(2030, 12, 31)
+        
+        # Criar lista de datas
+        dates = []
+        current_date = start_date
+        while current_date <= end_date:
+            dates.append((current_date,))
+            current_date += timedelta(days=1)
+        
+        # Criar DataFrame
+        dim_tempo = self.spark.createDataFrame(dates, ["data"])
+        
+        # Adicionar atributos temporais
+        dim_tempo = dim_tempo \
+            .withColumn("ano", year("data")) \
+            .withColumn("mes", month("data")) \
+            .withColumn("trimestre", quarter("data")) \
+            .withColumn("semestre", when(quarter("data") <= 2, 1).otherwise(2)) \
+            .withColumn("dia", dayofmonth("data")) \
+            .withColumn("ano_trimestre", concat(col("ano"), lit("-Q"), col("trimestre"))) \
+            .withColumn("ano_mes", concat(col("ano"), lit("-"), 
+                when(col("mes") < 10, concat(lit("0"), col("mes")))
+                .otherwise(col("mes")))) \
+            .withColumn("eh_fim_trimestre", 
+                (col("mes").isin([3, 6, 9, 12])) & (col("data") == last_day("data"))) \
+            .withColumn("eh_fim_ano",
+                (col("mes") == 12) & (col("data") == last_day("data")))
+        
+        return dim_tempo
+    
+    def create_dim_especie_acao(self):
+        """
+        DIM_ESPECIE_ACAO: Tipos de ações (ON, PN, PNA, etc)
+        
+        Fonte: Hardcoded (dados estáticos conhecidos)
+        Granularidade: 1 linha por espécie
+        """
+        logger.info("📊 Criando DIM_ESPECIE_ACAO...")
+        
+        # Dados conhecidos de espécies de ações
+        especies = [
+            ("ON", "Ordinária Nominativa", "Direito a voto", 3),
+            ("PN", "Preferencial Nominativa", "Prioridade dividendos", 4),
+            ("PNA", "Preferencial Nominativa Classe A", "Prioridade dividendos A", 5),
+            ("PNB", "Preferencial Nominativa Classe B", "Prioridade dividendos B", 6),
+            ("PNC", "Preferencial Nominativa Classe C", "Prioridade dividendos C", 7),
+            ("PND", "Preferencial Nominativa Classe D", "Prioridade dividendos D", 8),
+            ("UNT", "Unit", "Pacote de ações", 11)
+        ]
+        
+        dim_especie = self.spark.createDataFrame(
+            especies,
+            ["especie_acao", "descricao", "tipo_direito", "sufixo_ticker"]
+        )
+        
+        return dim_especie
+    
+    # ========================================================================
+    # FATOS
+    # ========================================================================
+    
+    def create_fato_balanco(self, ano: int):
+        """
+        FATO_BALANCO: Valores de Balanço Patrimonial (BPA + BPP)
+        
+        Fonte: Silver BPA_con + BPP_con
+        Granularidade: empresa × conta × data
+        """
+        logger.info("📊 Criando FATO_BALANCO...")
+        
+        # Ler BPA e BPP
+        bpa = self.processor.read_silver_table("BPA_con", ano)
+        bpp = self.processor.read_silver_table("BPP_con", ano)
+        
+        # Padronizar colunas BPA
+        fato_bpa = bpa.select(
+            col("CNPJ_CIA").alias("cnpj_cia"),
+            col("CD_CONTA").alias("cd_conta"),
+            col("DT_REFER").alias("data_referencia"),
+            col("VL_CONTA").alias("valor"),
+            lit("BPA").alias("tipo_balanco"),
+            lit(ano).alias("ano_referencia")
+        )
+        
+        # Padronizar colunas BPP
+        fato_bpp = bpp.select(
+            col("CNPJ_CIA").alias("cnpj_cia"),
+            col("CD_CONTA").alias("cd_conta"),
+            col("DT_REFER").alias("data_referencia"),
+            col("VL_CONTA").alias("valor"),
+            lit("BPP").alias("tipo_balanco"),
+            lit(ano).alias("ano_referencia")
+        )
+        
+        # Unir BPA + BPP
+        fato_balanco = fato_bpa.union(fato_bpp)
+        
+        # Filtrar valores nulos/zerados (opcional - reduz tamanho)
+        fato_balanco = fato_balanco.filter(col("valor").isNotNull())
+        
+        return fato_balanco
+    
+    def create_fato_dre(self, ano: int):
+        """
+        FATO_DRE: Demonstração do Resultado do Exercício
+        
+        Fonte: Silver DRE_con
+        Granularidade: empresa × conta × data
+        """
+        logger.info("📊 Criando FATO_DRE...")
+        
+        dre = self.processor.read_silver_table("DRE_con", ano)
+        
+        fato_dre = dre.select(
+            col("CNPJ_CIA").alias("cnpj_cia"),
+            col("CD_CONTA").alias("cd_conta"),
+            col("DT_REFER").alias("data_referencia"),
+            col("VL_CONTA").alias("valor"),
+            lit(ano).alias("ano_referencia")
+        )
+        
+        # Filtrar valores nulos
+        fato_dre = fato_dre.filter(col("valor").isNotNull())
+        
+        return fato_dre
+    
+    def create_fato_cotacao(self, ano: int):
+        """
+        FATO_COTACAO: Preços das ações (dados trimestrais)
+        
+        Fonte: Silver volume_valor_mobiliario (FRE)
+        Granularidade: empresa × espécie × data
+        """
+        logger.info("📊 Criando FATO_COTACAO...")
+        
+        precos = self.processor.read_silver_table("volume_valor_mobiliario", ano)
+        
+        # Mapear Nome_Companhia para CNPJ via DIM_EMPRESA
+        # (simplificação: assumir que nome bate)
+        dim_empresa = self.create_dim_empresa(ano)
+        
+        fato_cotacao = precos.join(
+            dim_empresa,
+            lower(trim(precos.Nome_Companhia)) == dim_empresa.nome_normalizado,
+            "inner"
+        )
+        
+        fato_cotacao = fato_cotacao.select(
+            dim_empresa.cnpj_cia,
+            col("Especie_Acao").alias("especie_acao"),
+            col("Data_Fim_Trimestre").alias("data_referencia"),
+            col("Valor_Cotacao_Media").alias("valor_cotacao_media"),
+            col("Valor_Maior_Cotacao").alias("valor_maior_cotacao"),
+            col("Valor_Menor_Cotacao").alias("valor_menor_cotacao"),
+            col("Valor_Volume_Negociado").alias("volume_negociado"),
+            lit(ano).alias("ano_referencia")
+        )
+        
+        # Filtrar preços nulos
+        fato_cotacao = fato_cotacao.filter(col("valor_cotacao_media").isNotNull())
+        
+        return fato_cotacao
+    
+    def create_fato_dividendos(self, ano: int):
+        """
+        FATO_DIVIDENDOS: Dividendos e JCP distribuídos
+        
+        Fonte: Silver distribuicao_dividendos (FRE)
+        Granularidade: empresa × data
+        """
+        logger.info("📊 Criando FATO_DIVIDENDOS...")
+        
+        dividendos = self.processor.read_silver_table("distribuicao_dividendos", ano)
+        
+        # Mapear Nome_Companhia para CNPJ
+        dim_empresa = self.create_dim_empresa(ano)
+        
+        fato_dividendos = dividendos.join(
+            dim_empresa,
+            lower(trim(dividendos.Nome_Companhia)) == dim_empresa.nome_normalizado,
+            "inner"
+        )
+        
+        fato_dividendos = fato_dividendos.select(
+            dim_empresa.cnpj_cia,
+            col("Data_Fim_Exercicio_Social").alias("data_exercicio_social"),
+            col("Dividendo_Distribuido_Total").alias("dividendo_total"),
+            col("Lucro_Liquido_Ajustado").alias("lucro_liquido_ajustado"),
+            lit("Dividendo").alias("tipo_provento"),  # Simplificação
+            lit(ano).alias("ano_referencia")
+        )
+        
+        return fato_dividendos
+    
+    def create_fato_composicao_capital(self, ano: int):
+        """
+        FATO_COMPOSICAO_CAPITAL: Quantidade de ações
+        
+        Fonte: Silver composicao_capital (DFP)
+        Granularidade: empresa × data
+        """
+        logger.info("📊 Criando FATO_COMPOSICAO_CAPITAL...")
+        
+        acoes = self.processor.read_silver_table("composicao_capital", ano)
+        
+        fato_acoes = acoes.select(
+            col("CNPJ_CIA").alias("cnpj_cia"),
+            col("DT_REFER").alias("data_referencia"),
+            col("QT_ACAO_TOTAL_CAP_INTEGR").alias("qt_acao_capital_integralizado"),
+            coalesce(col("QT_ACAO_TOTAL_TESOURO"), lit(0)).alias("qt_acao_tesouraria"),
+            lit(ano).alias("ano_referencia")
+        )
+        
+        # Calcular ações em circulação
+        fato_acoes = fato_acoes.withColumn(
+            "qt_acao_circulacao",
+            col("qt_acao_capital_integralizado") - col("qt_acao_tesouraria")
+        )
+        
+        return fato_acoes
+    
+    # ========================================================================
+    # MÉTODO PRINCIPAL
+    # ========================================================================
+    
+    def process_year(self, ano: int):
+        """
+        Processa ano completo: cria dimensões + fatos
+        
+        Fluxo:
+        1. Criar dimensões (executar apenas 1x para todos os anos)
+        2. Criar fatos (1x por ano)
+        3. Salvar tudo em Delta Lake
         
         Args:
-            ano: Ano de referência
+            ano: Ano a processar (ex: 2024)
         """
-        logger.info(f"\n💼 Criando carteiras para {ano}...")
+        logger.info("\n" + "="*70)
+        logger.info(f"🚀 PROCESSANDO ANO {ano} - MODELO DIMENSIONAL")
+        logger.info("="*70)
         
-        # Ler tabela completa
-        path = f"s3a://{self.minio_config.bucket_gold}/graham_completo"
-        df = self.spark.read.format("delta").load(path) \
-                .filter(col("ano_referencia") == ano)
-        
-        # Carteira Conservadora (Score = 7)
-        conservadora = df.filter(col("graham_score") == 7)
-        cons_path = f"s3a://{self.minio_config.bucket_gold}/carteira_conservadora"
-        conservadora.write.format("delta").mode("overwrite") \
-            .option("replaceWhere", f"ano_referencia = {ano}") \
-            .partitionBy("ano_referencia").save(cons_path)
-        
-        # Carteira Moderada (Score ≥ 6)
-        moderada = df.filter(col("graham_score") >= 6)
-        mod_path = f"s3a://{self.minio_config.bucket_gold}/carteira_moderada"
-        moderada.write.format("delta").mode("overwrite") \
-            .option("replaceWhere", f"ano_referencia = {ano}") \
-            .partitionBy("ano_referencia").save(mod_path)
-        
-        # Carteira Agressiva (Score ≥ 5)
-        agressiva = df.filter(col("graham_score") >= 5)
-        agr_path = f"s3a://{self.minio_config.bucket_gold}/carteira_agressiva"
-        agressiva.write.format("delta").mode("overwrite") \
-            .option("replaceWhere", f"ano_referencia = {ano}") \
-            .partitionBy("ano_referencia").save(agr_path)
-        
-        logger.info(f"✅ Carteiras criadas:")
-        logger.info(f"   - Conservadora: {conservadora.count():,} empresas")
-        logger.info(f"   - Moderada:     {moderada.count():,} empresas")
-        logger.info(f"   - Agressiva:    {agressiva.count():,} empresas")
+        try:
+            # ════════════════════════════════════════════════════════════════
+            # ETAPA 1: CRIAR DIMENSÕES (executar apenas para primeiro ano)
+            # ════════════════════════════════════════════════════════════════
+            
+            # Verificar se dimensões já existem
+            # (simplificação: sempre recriar - em produção, verificar antes)
+            
+            logger.info("\n📊 [1/2] Criando dimensões...")
+            
+            dim_empresa = self.create_dim_empresa(ano)
+            self.save_dimension(dim_empresa, "DIM_EMPRESA")
+            
+            dim_conta = self.create_dim_conta(ano)
+            self.save_dimension(dim_conta, "DIM_CONTA")
+            
+            dim_tempo = self.create_dim_tempo()
+            self.save_dimension(dim_tempo, "DIM_TEMPO")
+            
+            dim_especie = self.create_dim_especie_acao()
+            self.save_dimension(dim_especie, "DIM_ESPECIE_ACAO")
+            
+            logger.info("✅ Todas as dimensões criadas!")
+            
+            # ════════════════════════════════════════════════════════════════
+            # ETAPA 2: CRIAR FATOS
+            # ════════════════════════════════════════════════════════════════
+            logger.info("\n📊 [2/2] Criando fatos...")
+            
+            fato_balanco = self.create_fato_balanco(ano)
+            self.save_fact(fato_balanco, "FATO_BALANCO", ano)
+            
+            fato_dre = self.create_fato_dre(ano)
+            self.save_fact(fato_dre, "FATO_DRE", ano)
+            
+            fato_cotacao = self.create_fato_cotacao(ano)
+            self.save_fact(fato_cotacao, "FATO_COTACAO", ano)
+            
+            fato_dividendos = self.create_fato_dividendos(ano)
+            self.save_fact(fato_dividendos, "FATO_DIVIDENDOS", ano)
+            
+            fato_acoes = self.create_fato_composicao_capital(ano)
+            self.save_fact(fato_acoes, "FATO_COMPOSICAO_CAPITAL", ano)
+            
+            logger.info("✅ Todos os fatos criados!")
+            
+            # ════════════════════════════════════════════════════════════════
+            # RESUMO FINAL
+            # ════════════════════════════════════════════════════════════════
+            logger.info("\n" + "="*70)
+            logger.info(f"✅ PROCESSAMENTO {ano} CONCLUÍDO!")
+            logger.info("="*70)
+            logger.info("\n📊 Modelo Star Schema criado:")
+            logger.info("   Dimensões:")
+            logger.info("   - DIM_EMPRESA")
+            logger.info("   - DIM_CONTA")
+            logger.info("   - DIM_TEMPO")
+            logger.info("   - DIM_ESPECIE_ACAO")
+            logger.info(f"\n   Fatos (ano={ano}):")
+            logger.info("   - FATO_BALANCO")
+            logger.info("   - FATO_DRE")
+            logger.info("   - FATO_COTACAO")
+            logger.info("   - FATO_DIVIDENDOS")
+            logger.info("   - FATO_COMPOSICAO_CAPITAL")
+            logger.info(f"\n💾 Bucket: s3a://{self.minio_config.bucket_gold}/")
+            logger.info("="*70)
+            
+        except Exception as e:
+            logger.error(f"❌ Erro no processamento {ano}: {e}")
+            import traceback
+            traceback.print_exc()
+            raise
 
 
 # ============================================================================
@@ -471,36 +509,32 @@ if __name__ == "__main__":
     """
     
     logger.info("="*70)
-    logger.info("🚀 INICIANDO PROCESSAMENTO GOLD (VERSÃO SIMPLIFICADA)")
+    logger.info("🚀 INICIANDO PROCESSAMENTO GOLD - MODELO DIMENSIONAL")
+    logger.info("="*70)
+    logger.info("\nFilosofia:")
+    logger.info("- Gold estrutura dados (Star Schema)")
+    logger.info("- Power BI calcula indicadores (DAX)")
     logger.info("="*70)
     
-    # Criar calculadora
-    calculator = GrahamIndicatorCalculator()
+    # Criar processador
+    processor = GoldDimensionalProcessor()
     
     # Anos a processar
-    anos = [2020, 2021, 2022, 2023]
+    anos = [2020, 2021, 2022, 2023, 2024]
     
     # Processar cada ano
     for ano in anos:
         try:
-            # Calcular indicadores
-            calculator.process_year(ano)
-            
-            # Criar carteiras
-            calculator.create_portfolios(ano)
-            
+            processor.process_year(ano)
         except Exception as e:
             logger.error(f"❌ Falha no processamento de {ano}: {e}")
-            import traceback
-            traceback.print_exc()
             continue
     
     logger.info("\n" + "="*70)
     logger.info("🎉 PROCESSAMENTO GOLD FINALIZADO!")
     logger.info("="*70)
-    logger.info("\n📊 Tabelas criadas:")
-    logger.info("   - graham_completo (1 tabela com todos os indicadores)")
-    logger.info("   - carteira_conservadora")
-    logger.info("   - carteira_moderada")
-    logger.info("   - carteira_agressiva")
-    logger.info(f"\n💾 Bucket: s3a://{calculator.minio_config.bucket_gold}/")
+    logger.info("\n📊 Próximo passo:")
+    logger.info("   1. Conectar Power BI ao MinIO/Delta Lake")
+    logger.info("   2. Criar relacionamentos no modelo")
+    logger.info("   3. Construir medidas DAX (indicadores Graham)")
+    logger.info("   4. Desenvolver dashboards")
