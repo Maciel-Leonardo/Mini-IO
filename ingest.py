@@ -259,7 +259,7 @@ class CVMIngestion(MultiSourceIngestion):
 # Exemplo de uso
 if __name__ == "__main__":
     # Ingestão de múltiplas fontes para a mesma ação
-    anos = ["2020", "2021", "2022", "2023", "2024", "2025"]
+    anos = ["2020", "2021", "2022", "2023", "2024"]
     
     # Fonte 1: CVM
     cvm = CVMIngestion()
