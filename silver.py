@@ -336,7 +336,7 @@ class CVMSilverProcessor(SilverProcessor):
                 # Ler o CSV com pandas (mais fácil para encoding)
                 with zf.open(csv_name) as csv_file:
                     # Detectar encoding
-                    raw_data = csv_file.read(100000)  # Ler os primeiros 100 KB para detecção
+                    raw_data = csv_file.read()  # Ler os primeiros 100 KB para detecção
                     detected = chardet.detect(raw_data)
                     confianca=detected['confidence']
                     encoding = detected['encoding'] if confianca > 0.7 else 'windows-1252'
