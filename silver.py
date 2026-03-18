@@ -34,6 +34,12 @@ def normalize_text(column):
         "áàãâäéèêëíìîïóòõôöúùûüç",
         "aaaaaeeeeiiiiooooouuuuc"
     )
+def clean_cnpj(cnpj_col):
+    """
+    Limpa o CNPJ removendo caracteres não numéricos.
+    Ex: "12.345.678/0001-90" → "12345678000190"
+    """
+    return translate(cnpj_col, ".-/", "")
 
 
 class SilverProcessor:
@@ -525,6 +531,11 @@ class CVMSilverProcessor(SilverProcessor):
         for col_name in string_cols:
             df_clean = df_clean.withColumn(col_name, trim(col(col_name)))
 
+        # DFP e FRE - Limpar CNPJ
+        if "CNPJ_CIA" in df_clean.columns:
+            df_clean = df_clean.withColumn("CNPJ", clean_cnpj(col("CNPJ_CIA")))
+        if "CNPJ_Companhia" in df_clean.columns:
+            df_clean = df_clean.withColumn("CNPJ", clean_cnpj(col("CNPJ_Companhia")))
 
         # DFP - Converter VL_CONTA com escala
         if "VL_CONTA" in df_clean.columns:

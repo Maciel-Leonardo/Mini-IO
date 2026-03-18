@@ -22,11 +22,11 @@ from pyspark.sql.functions import (
     col, lit, coalesce, when, concat, 
     lower, trim, regexp_replace,
     year, quarter, month, dayofmonth,
-    to_date, last_day, dense_rank
+    to_date, last_day, dense_rank, split, size
 )
 from pyspark.sql.window import Window
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -94,12 +94,12 @@ class GoldDimensionalProcessor:
         """
         logger.info("📊 Criando DIM_EMPRESA...")
         
-        # Ler BPP (tem todas as empresas)
-        bpp = self.processor.read_silver_table("BPP_con", ano)
+        # Ler composição de capital (tem todas as empresas)
+        composicao_capital = self.processor.read_silver_table("composicao_capital", ano)
         
         # Selecionar colunas únicas de empresa
-        dim_empresa = bpp.select(
-            col("CNPJ_CIA").alias("cnpj_cia"),
+        dim_empresa = composicao_capital.select(
+            col("CNPJ").alias("cnpj"),
             col("DENOM_CIA").alias("nome_empresa")
         ).distinct()
         
@@ -110,7 +110,8 @@ class GoldDimensionalProcessor:
         )
         
         # Adicionar metadados
-        dim_empresa = dim_empresa.withColumn("data_atualizacao", lit(datetime.now()))
+        dim_empresa = dim_empresa.withColumn("data_atualizacao", lit(datetime.now())) \
+            .withColumn("tipo_demonstracao", lit("composicao_capital"))
         
         return dim_empresa
     
@@ -127,6 +128,7 @@ class GoldDimensionalProcessor:
         bpp = self.processor.read_silver_table("BPP_con", ano)
         bpa = self.processor.read_silver_table("BPA_con", ano)
         dre = self.processor.read_silver_table("DRE_con", ano)
+        dmpl = self.processor.read_silver_table("DFC_DMPL_con", ano)
         
         # Selecionar contas de cada demonstração
         contas_bpp = bpp.select(
@@ -147,27 +149,21 @@ class GoldDimensionalProcessor:
             lit("DRE").alias("tipo_demonstracao")
         ).distinct()
         
+        contas_dmpl = dmpl.select(
+            col("CD_CONTA").alias("cd_conta"),
+            col("DS_CONTA").alias("ds_conta"),
+            lit("DMPL").alias("tipo_demonstracao")
+        ).distinct()
+        
+
         # Unir todas as contas
-        dim_conta = contas_bpp.union(contas_bpa).union(contas_dre).distinct()
+        dim_conta = contas_bpp.union(contas_bpa).union(contas_dre).union(contas_dmpl).distinct()
         
         # Calcular nível hierárquico (quantidade de pontos + 1)
         # Ex: "2.07" = 2, "2.07.01" = 3
         dim_conta = dim_conta.withColumn(
             "nivel",
-            when(col("cd_conta").rlike(r"^\d+\.\d+\.\d+\.\d+"), 4)
-            .when(col("cd_conta").rlike(r"^\d+\.\d+\.\d+"), 3)
-            .when(col("cd_conta").rlike(r"^\d+\.\d+"), 2)
-            .otherwise(1)
-        )
-        
-        # Determinar grupo principal (baseado no primeiro dígito)
-        dim_conta = dim_conta.withColumn(
-            "grupo_principal",
-            when(col("cd_conta").startswith("1"), "Ativo")
-            .when(col("cd_conta").startswith("2.0"), "Passivo")
-            .when(col("cd_conta").startswith("2.07"), "Patrimônio Líquido")
-            .when(col("cd_conta").startswith("3"), "Resultado")
-            .otherwise("Outros")
+            size(split(col("cd_conta"), r"\."))
         )
         
         return dim_conta
@@ -181,8 +177,7 @@ class GoldDimensionalProcessor:
         """
         logger.info("📊 Criando DIM_TEMPO...")
         
-        # Gerar range de datas (2020-2030)
-        from datetime import date
+        # Gerar range de datas (2020-hoje)
         start_date = date(2020, 1, 1)
         end_date = date(2030, 12, 31)
         
@@ -222,7 +217,7 @@ class GoldDimensionalProcessor:
         Granularidade: 1 linha por espécie
         """
         logger.info("📊 Criando DIM_ESPECIE_ACAO...")
-        
+
         # Dados conhecidos de espécies de ações
         especies = [
             ("ON", "Ordinária Nominativa", "Direito a voto", 3),
@@ -260,7 +255,7 @@ class GoldDimensionalProcessor:
         
         # Padronizar colunas BPA
         fato_bpa = bpa.select(
-            col("CNPJ_CIA").alias("cnpj_cia"),
+            col("CNPJ").alias("cnpj"),
             col("CD_CONTA").alias("cd_conta"),
             col("DT_REFER").alias("data_referencia"),
             col("VL_CONTA").alias("valor"),
@@ -270,7 +265,7 @@ class GoldDimensionalProcessor:
         
         # Padronizar colunas BPP
         fato_bpp = bpp.select(
-            col("CNPJ_CIA").alias("cnpj_cia"),
+            col("CNPJ").alias("cnpj"),
             col("CD_CONTA").alias("cd_conta"),
             col("DT_REFER").alias("data_referencia"),
             col("VL_CONTA").alias("valor"),
@@ -298,9 +293,11 @@ class GoldDimensionalProcessor:
         dre = self.processor.read_silver_table("DRE_con", ano)
         
         fato_dre = dre.select(
-            col("CNPJ_CIA").alias("cnpj_cia"),
+            col("CNPJ").alias("cnpj"),
             col("CD_CONTA").alias("cd_conta"),
             col("DT_REFER").alias("data_referencia"),
+            col("DT_INI_EXERC").alias("data_inicio_exercicio"),
+            col("DT_FIM_EXERC").alias("data_fim_exercicio"),
             col("VL_CONTA").alias("valor"),
             lit(ano).alias("ano_referencia")
         )
@@ -327,12 +324,12 @@ class GoldDimensionalProcessor:
         
         fato_cotacao = precos.join(
             dim_empresa,
-            lower(trim(precos.Nome_Companhia)) == dim_empresa.nome_normalizado,
+            precos.CNPJ == dim_empresa.cnpj,
             "inner"
         )
         
         fato_cotacao = fato_cotacao.select(
-            dim_empresa.cnpj_cia,
+            dim_empresa.cnpj,
             col("Especie_Acao").alias("especie_acao"),
             col("Data_Fim_Trimestre").alias("data_referencia"),
             col("Valor_Cotacao_Media").alias("valor_cotacao_media"),
@@ -363,12 +360,12 @@ class GoldDimensionalProcessor:
         
         fato_dividendos = dividendos.join(
             dim_empresa,
-            lower(trim(dividendos.Nome_Companhia)) == dim_empresa.nome_normalizado,
+            dividendos.CNPJ == dim_empresa.cnpj,
             "inner"
         )
         
         fato_dividendos = fato_dividendos.select(
-            dim_empresa.cnpj_cia,
+            dim_empresa.cnpj,
             col("Data_Fim_Exercicio_Social").alias("data_exercicio_social"),
             col("Dividendo_Distribuido_Total").alias("dividendo_total"),
             col("Lucro_Liquido_Ajustado").alias("lucro_liquido_ajustado"),
@@ -390,7 +387,7 @@ class GoldDimensionalProcessor:
         acoes = self.processor.read_silver_table("composicao_capital", ano)
         
         fato_acoes = acoes.select(
-            col("CNPJ_CIA").alias("cnpj_cia"),
+            col("CNPJ").alias("cnpj"),
             col("DT_REFER").alias("data_referencia"),
             col("QT_ACAO_TOTAL_CAP_INTEGR").alias("qt_acao_capital_integralizado"),
             coalesce(col("QT_ACAO_TOTAL_TESOURO"), lit(0)).alias("qt_acao_tesouraria"),
