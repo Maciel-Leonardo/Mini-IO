@@ -516,7 +516,7 @@ if __name__ == "__main__":
     # Criar processador
     processor = GoldDimensionalProcessor()
     
-    # Anos a processar
+    """ # Anos a processar
     anos = [2020, 2021, 2022, 2023, 2024]
     
     # Processar cada ano
@@ -534,4 +534,18 @@ if __name__ == "__main__":
     logger.info("   1. Conectar Power BI ao MinIO/Delta Lake")
     logger.info("   2. Criar relacionamentos no modelo")
     logger.info("   3. Construir medidas DAX (indicadores Graham)")
-    logger.info("   4. Desenvolver dashboards")
+    logger.info("   4. Desenvolver dashboards") """
+    # Script de exportação (export_to_parquet.py)
+
+    processor = GoldDimensionalProcessor()
+    spark = processor.spark
+
+    # Dimensões
+    for dim in ["DIM_EMPRESA", "DIM_CONTA", "DIM_TEMPO", "DIM_ESPECIE_ACAO"]:
+        df = spark.read.format("delta").load(f"s3a://gold/dimensoes/{dim}")
+        df.coalesce(1).write.mode("overwrite").parquet(f"/data/{dim}.parquet")
+
+    # Fatos (todas as partições de uma vez)
+    for fato in ["FATO_BALANCO", "FATO_DRE", "FATO_COTACAO", "FATO_DIVIDENDOS", "FATO_COMPOSICAO_CAPITAL"]:
+        df = spark.read.format("delta").load(f"s3a://gold/fatos/{fato}")
+        df.coalesce(1).write.mode("overwrite").parquet(f"/data/{fato}.parquet")

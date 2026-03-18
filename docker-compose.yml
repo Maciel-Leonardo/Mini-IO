@@ -29,6 +29,7 @@ services:
       - "8000:8000"  # Porta onde o Prometheus coleta as métricas Silver
     volumes:
       - ./:/app
+      - C:/mini-io-export:/data
     working_dir: /app
     environment:
       - PYTHONUNBUFFERED=1
