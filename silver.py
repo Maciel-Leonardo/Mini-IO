@@ -336,7 +336,7 @@ class CVMSilverProcessor(SilverProcessor):
                 # Ler o CSV com pandas (mais fácil para encoding)
                 with zf.open(csv_name) as csv_file:
                     # Detectar encoding
-                    raw_data = csv_file.read(100000)  # Ler os primeiros 100 KB para detecção
+                    raw_data = csv_file.read()  # Ler os primeiros 100 KB para detecção
                     detected = chardet.detect(raw_data)
                     confianca=detected['confidence']
                     encoding = detected['encoding'] if confianca > 0.7 else 'windows-1252'
@@ -467,6 +467,21 @@ class CVMSilverProcessor(SilverProcessor):
                 # - Outras classes (PNA, PNB, etc.)
                 #
                 # Filtros de qualidade básicos:
+                if "Descricao_Outro_Valor_Mobiliario" in df_clean.columns:
+                    # tranforma o tipo de coluna para string
+                    df_clean = df_clean.withColumn("Descricao_Outro_Valor_Mobiliario", 
+                        col("Descricao_Outro_Valor_Mobiliario").cast(StringType()))
+                    
+                if "Valor_Mobiliario" in df_clean.columns:
+                    # Manter apenas registros com valor mobiliário informado
+                    df_clean = df_clean.filter(
+                        lower(col("Valor_Mobiliario")).ilike("Ações")
+                    )
+                if "Mercado_Valor_Mobiliario" in df_clean.columns:
+                    # Manter apenas registros do mercado à vista
+                    df_clean = df_clean.filter(
+                        lower(col("Mercado_Valor_Mobiliario")).ilike("Bolsa")
+                    )
                 if "Valor_Cotacao_Media" in df_clean.columns:
                     # Remove registros sem cotação (dados inválidos)
                     df_clean = df_clean.filter(
@@ -514,18 +529,19 @@ class CVMSilverProcessor(SilverProcessor):
         # DFP - Converter VL_CONTA com escala
         if "VL_CONTA" in df_clean.columns:
             df_clean = df_clean.withColumn(
+                "ESCALA_MOEDA",
+                col("ESCALA_MOEDA").cast(StringType())
+            ).withColumn(
+                "VL_CONTA",
+                col("VL_CONTA").cast(DoubleType())
+            )
+            df_clean = df_clean.withColumn(
                 "VL_CONTA",
                 when(
-                    lower(col("DS_CONTA")).like("%por ação%"),   
-                    col("VL_CONTA").cast(DoubleType())        
-                )
-                .when(
-                    col("ESCALA_MOEDA") == "MIL",
-                    col("VL_CONTA").cast(DoubleType()) * 1000
-                )
-                .otherwise(col("VL_CONTA").cast(DoubleType()))
+                    col("ESCALA_MOEDA").contains("MIL"),
+                    col("VL_CONTA") * 1000
+                ).otherwise(col("VL_CONTA"))
             )
-        
         # FRE - Converter valores FRE - DIVIDENDOS
 
         if "Dividendo_Distribuido_Total" in df_clean.columns:
@@ -641,3 +657,15 @@ if __name__ == "__main__":
         for csv_key, success in results.items():
             status = "✅" if success else "❌"
             print(f"  {status} {csv_key}")
+            
+    output_base = "/tmp/silver_csv/teste17.03v03"
+    os.makedirs(output_base, exist_ok=True)
+
+    all_tables = list(processor.DFP_TARGETS.keys()) + list(processor.FRE_TARGETS.keys())
+    
+    """ #Baixar arquivos com dados da Silver para validação local
+    for table_name in all_tables:
+        df = processor.read_silver_table(table_name)  # todos os anos
+        out_path = os.path.join(output_base, table_name)
+        df.coalesce(1).write.mode("overwrite").option("header", True).csv(out_path)
+        logger.info(f"Salvo {table_name} em {out_path}") """
