@@ -16,6 +16,7 @@ import time
 import tempfile
 import os
 import chardet
+from delta.tables import DeltaTable
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -164,7 +165,9 @@ class CVMSilverProcessor(SilverProcessor):
     # DEFINIÇÃO DOS CSVs A SEREM PROCESSADOS
     # ========================================================================
     # Separados por tipo de documento (DFP e FRE) para melhor organização
-    
+    CAD_TARGETS = {
+        "cad_cia_aberta": "cad_cia_aberta"  # Cadastro de Companhias Abertas
+    }
     # ────────────────────────────────────────────────────────────────────────
     # DFP - Demonstrações Financeiras Padronizadas (anual)
     # ────────────────────────────────────────────────────────────────────────
@@ -186,7 +189,9 @@ class CVMSilverProcessor(SilverProcessor):
         "distribuicao_dividendos": "fre_cia_aberta_distribuicao_dividendos",
     }
     # ────────────────────────────────────────────────────────────────────────
-    
+    # FCA - Formulário Cadastral de Companhias Abertas
+    # ────────────────────────────────────────────────────────────────────────
+    FCA_TARGETS = {"cad_valor_mobiliario": "fca_cia_aberta_valor_mobiliario"}  # Cadastro de Valores Mobiliários
 
     
     def process_year(self, ano: str, document_type: str = "DFP") -> Dict[str, bool]:
@@ -206,12 +211,58 @@ class CVMSilverProcessor(SilverProcessor):
             logger.info(f"🔄 Iniciando processamento Silver para {document_type} {ano}")
             
             # Selecionar targets apropriados baseado no tipo de documento
+            if document_type == "CAD":
+                CSV_TARGETS = self.CAD_TARGETS
+                bronze_path_prefix = "gov_br_cvm/"
+                objects = self.minio_client.list_objects(
+                    self.minio_config.bucket_bronze,
+                    prefix=bronze_path_prefix,
+                    recursive=True
+                )
+                csv_file = [obj.object_name for obj in objects if obj.object_name.endswith('.csv')]
+                object_path = sorted(csv_file)[-1]
+                response = self.minio_client.get_object(  # trocou open() pelo get_object do minio
+                    self.minio_config.bucket_bronze,
+                    object_path  # era csv_files.object_name, mas object_path já é a string do caminho
+                )
+                raw_data = response.read()
+                response.close()
+                response.release_conn()
+                detected = chardet.detect(raw_data)
+                confianca = detected['confidence']
+                encoding = detected['encoding'] if confianca > 0.7 else 'windows-1252'
+                # Ler CSV com pandas
+                pdf = pd.read_csv(
+                    BytesIO(raw_data),
+                    encoding=encoding,
+                    sep=';',
+                    dtype=str,  # Ler tudo como string primeiro
+                )
+                    
+                logger.info(f"  📊 Linhas lidas: {len(pdf):,}")
+                    
+                # Converter para Spark DataFrame
+                df = self.spark.createDataFrame(pdf)
+                df_clean = df
+                # Limpar CNPJ 
+                df_clean = df_clean.withColumn("CNPJ", clean_cnpj(col("CNPJ_CIA")))
+                # Remover duplicatas (caso haja múltiplos registros para um mesmo CNPJ)
+                df_clean = df_clean.dropDuplicates()
+                # Salvar em Delta Lake
+                df_clean.write \
+                    .format("delta") \
+                    .mode("overwrite") \
+                    .save(f"s3a://{self.minio_config.bucket_silver}/cvm/cad_cia_aberta")
+                return "Empresas Cadastradas"
             if document_type == "DFP":
                 CSV_TARGETS = self.DFP_TARGETS
                 bronze_path_prefix = "gov_br_cvm/demonstracoes_financeiras_padronizadas"
             elif document_type == "FRE":
                 CSV_TARGETS = self.FRE_TARGETS
                 bronze_path_prefix = "gov_br_cvm/formulario_de_referencia"
+            elif document_type == "FCA":
+                CSV_TARGETS = self.FCA_TARGETS
+                bronze_path_prefix = "gov_br_cvm/formularios_cadastrais_de_cias_abertas"
             else:
                 raise ValueError(f"Tipo de documento inválido: {document_type}")
             
@@ -376,7 +427,7 @@ class CVMSilverProcessor(SilverProcessor):
     
     # Verificar se tabela existe e se está particionada
         try:
-            from delta.tables import DeltaTable
+            
             dt = DeltaTable.forPath(self.spark, delta_path)
             details = dt.detail().select("partitionColumns").collect()[0]
             is_partitioned = len(details["partitionColumns"]) > 0
@@ -411,6 +462,7 @@ class CVMSilverProcessor(SilverProcessor):
         Returns: 
             DataFrame limpo e padronizado
         """
+        
         df_clean = df
 
         # ====================================================================
@@ -493,7 +545,9 @@ class CVMSilverProcessor(SilverProcessor):
                     df_clean = df_clean.filter(
                         col("Valor_Cotacao_Media").isNotNull()
                     )
-                
+                #remove linhas duplicadas
+                df_clean = df_clean.dropDuplicates()
+
                 # ⚠️ IMPORTANTE (do documento):
                 # "Sempre filtre por Especie_Acao para garantir que está pegando a ação correta"
                 # Mas aqui na Silver, mantemos TODAS as espécies disponíveis.
@@ -520,7 +574,26 @@ class CVMSilverProcessor(SilverProcessor):
                     )
                 
                 logger.info(f"  ℹ️  Mantendo todos os registros de dividendos (incluindo zeros)")
-
+                #remove linhas duplicadas
+                df_clean = df_clean.dropDuplicates()
+        # ────────────────────────────────────────────────────────────────────
+        # FILTROS FCA (Formulário Cadastral de Companhias Abertas)
+        # ────────────────────────────────────────────────────────────────────
+        elif document_type == "FCA":
+            
+            if csv_key == "cad_valor_mobiliario":
+                # Valor_Mobiliario apenas de ações
+                if "Valor_Mobiliario" in df_clean.columns:
+                    df_clean = df_clean.filter(
+                        col("Valor_Mobiliario").ilike("%Ações%")
+                    )
+                #normaliza cnpj
+                if "CNPJ_Companhia" in df_clean.columns:
+                    df_clean = df_clean.withColumn("CNPJ", clean_cnpj(col("CNPJ_Companhia")))
+                #remove linhas duplicadas
+                df_clean = df_clean.dropDuplicates()
+                
+                logger.info(f"  ℹ️  Mantendo todos os registros de cadastro de valores mobiliários")
         # ====================================================================
         # LIMPEZA GERAL (APLICADA A TODOS OS DATAFRAMES)
         # ====================================================================
@@ -643,10 +716,18 @@ class CVMSilverProcessor(SilverProcessor):
 
 processor = CVMSilverProcessor()
 
+# Processar cadastro empresas abertas
+
+logger.info("\n" + "="*60)
+logger.info("📊 PROCESSANDO CADASTRO COMPANHIAS ABERTAS")
+logger.info("="*60)
+results = processor.process_year(ano=datetime.today().year,document_type="CAD")
+
 # Processar múltiplos anos para DFP e FRE
 if __name__ == "__main__":
     anos = ["2020", "2021", "2022", "2023", "2024"]
     
+
     # Processar DFP (anual)
     logger.info("\n" + "="*60)
     logger.info("📊 PROCESSANDO DFP (DEMONSTRAÇÕES FINANCEIRAS)")
@@ -657,8 +738,8 @@ if __name__ == "__main__":
         for csv_key, success in results.items():
             status = "✅" if success else "❌"
             print(f"  {status} {csv_key}")
-    
-    # Processar FRE (trimestral/anual)
+     
+    # Processar FRE 
     logger.info("\n" + "="*60)
     logger.info("📋 PROCESSANDO FRE (FORMULÁRIO DE REFERÊNCIA)")
     logger.info("="*60)
@@ -669,12 +750,23 @@ if __name__ == "__main__":
             status = "✅" if success else "❌"
             print(f"  {status} {csv_key}")
             
-    output_base = "/tmp/silver_csv/teste17.03v03"
+    # Processar FCA 
+    logger.info("\n" + "="*60)
+    logger.info("📋 PROCESSANDO FCA (FORMULÁRIO DE REFERÊNCIA)")
+    logger.info("="*60)
+    for ano in anos:
+        results = processor.process_year(ano, document_type="FCA")
+        print(f"\n📋 Resultados FCA para {ano}:")
+        for csv_key, success in results.items():
+            status = "✅" if success else "❌"
+            print(f"  {status} {csv_key}")
+    """ #BAIXA ARQUIVOS NO LINUX
+    output_base = "/tmp/silver_csv/teste19.03v03"
     os.makedirs(output_base, exist_ok=True)
 
-    all_tables = list(processor.DFP_TARGETS.keys()) + list(processor.FRE_TARGETS.keys())
+    all_tables = list(processor.DFP_TARGETS.keys()) + list(processor.FRE_TARGETS.keys()) + list(processor.FCA_TARGETS.keys()) + list(processor.CAD_TARGETS.keys())
     
-    """ #Baixar arquivos com dados da Silver para validação local
+    #Baixar arquivos com dados da Silver para validação local
     for table_name in all_tables:
         df = processor.read_silver_table(table_name)  # todos os anos
         out_path = os.path.join(output_base, table_name)

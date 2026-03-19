@@ -1,6 +1,7 @@
 # ingest.py
 from datetime import datetime
 import json
+from urllib import response
 import requests
 from minio import Minio
 from io import BytesIO
@@ -263,5 +264,21 @@ if __name__ == "__main__":
     
     # Fonte 1: CVM
     cvm = CVMIngestion()
+
+    #Cadastro de companhias abertas (cad_cia_aberta)
+    url = "https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv"
+
+    response = requests.get(url)
+    response.raise_for_status()
+
+    cad_cia_aberta=response.content
+    cad_path = f"gov_br_cvm/cad_cia_aberta.csv"
+
+    cvm._save_to_minio(
+        data=cad_cia_aberta,
+        path=cad_path,
+        content_type="csv"
+    )
+    #------------------------------------------------------------------------------
     for ano in anos:
         result1 = cvm.ingest(ano)

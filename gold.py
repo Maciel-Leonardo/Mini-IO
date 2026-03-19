@@ -17,7 +17,7 @@ REDUÇÃO vs versão anterior:
 - Apenas ETL simples
 """
 
-from silver import CVMSilverProcessor
+from silver import CVMSilverProcessor, clean_cnpj
 from pyspark.sql.functions import (
     col, lit, coalesce, when, concat, 
     lower, trim, regexp_replace,
@@ -87,21 +87,21 @@ class GoldDimensionalProcessor:
     
     def create_dim_empresa(self, ano: int):
         """
-        DIM_EMPRESA: Cadastro de empresas
+        DIM_EMPRESA: Cadastro de empresas com respectivos setores
         
-        Fonte: Qualquer tabela DFP (usamos BPP por ter todas as empresas)
+        Fonte: cad_cia_aberta.csv (CVM) - tabela de cadastro de companhias abertas
         Granularidade: 1 linha por CNPJ
         """
         logger.info("📊 Criando DIM_EMPRESA...")
+        cad_cia_aberta = self.processor.read_silver_table("cad_cia_aberta")
         
-        # Ler composição de capital (tem todas as empresas)
-        composicao_capital = self.processor.read_silver_table("composicao_capital", ano)
         
         # Selecionar colunas únicas de empresa
-        dim_empresa = composicao_capital.select(
+        dim_empresa = cad_cia_aberta.select(
             col("CNPJ").alias("cnpj"),
-            col("DENOM_CIA").alias("nome_empresa")
-        ).distinct()
+            col("SETOR_ATIV").alias("setor"),
+            col("SIT").alias("situacao")
+        )
         
         # Adicionar nome normalizado (para joins futuros)
         dim_empresa = dim_empresa.withColumn(
@@ -128,7 +128,7 @@ class GoldDimensionalProcessor:
         bpp = self.processor.read_silver_table("BPP_con", ano)
         bpa = self.processor.read_silver_table("BPA_con", ano)
         dre = self.processor.read_silver_table("DRE_con", ano)
-        dmpl = self.processor.read_silver_table("DFC_DMPL_con", ano)
+        
         
         # Selecionar contas de cada demonstração
         contas_bpp = bpp.select(
@@ -149,15 +149,10 @@ class GoldDimensionalProcessor:
             lit("DRE").alias("tipo_demonstracao")
         ).distinct()
         
-        contas_dmpl = dmpl.select(
-            col("CD_CONTA").alias("cd_conta"),
-            col("DS_CONTA").alias("ds_conta"),
-            lit("DMPL").alias("tipo_demonstracao")
-        ).distinct()
         
 
         # Unir todas as contas
-        dim_conta = contas_bpp.union(contas_bpa).union(contas_dre).union(contas_dmpl).distinct()
+        dim_conta = contas_bpp.union(contas_bpa).union(contas_dre).distinct()
         
         # Calcular nível hierárquico (quantidade de pontos + 1)
         # Ex: "2.07" = 2, "2.07.01" = 3
@@ -178,7 +173,7 @@ class GoldDimensionalProcessor:
         logger.info("📊 Criando DIM_TEMPO...")
         
         # Gerar range de datas (2020-hoje)
-        start_date = date(2020, 1, 1)
+        start_date = date(2019, 1, 1)
         end_date = date(2030, 12, 31)
         
         # Criar lista de datas
@@ -209,7 +204,7 @@ class GoldDimensionalProcessor:
         
         return dim_tempo
     
-    def create_dim_especie_acao(self):
+    def create_dim_especie_acao(self,ano: int):
         """
         DIM_ESPECIE_ACAO: Tipos de ações (ON, PN, PNA, etc)
         
@@ -218,21 +213,18 @@ class GoldDimensionalProcessor:
         """
         logger.info("📊 Criando DIM_ESPECIE_ACAO...")
 
-        # Dados conhecidos de espécies de ações
-        especies = [
-            ("ON", "Ordinária Nominativa", "Direito a voto", 3),
-            ("PN", "Preferencial Nominativa", "Prioridade dividendos", 4),
-            ("PNA", "Preferencial Nominativa Classe A", "Prioridade dividendos A", 5),
-            ("PNB", "Preferencial Nominativa Classe B", "Prioridade dividendos B", 6),
-            ("PNC", "Preferencial Nominativa Classe C", "Prioridade dividendos C", 7),
-            ("PND", "Preferencial Nominativa Classe D", "Prioridade dividendos D", 8),
-            ("UNT", "Unit", "Pacote de ações", 11)
-        ]
-        
-        dim_especie = self.spark.createDataFrame(
-            especies,
-            ["especie_acao", "descricao", "tipo_direito", "sufixo_ticker"]
-        )
+        # Ler FCA para pegar espécies de ações cadastradas (simplificação)
+        fca = self.processor.read_silver_table("cad_valor_mobiliario",ano)
+        dim_especie = fca.select(
+            col("CNPJ").alias("cnpj"),
+            col("Valor_Mobiliario").alias("especie_acao"),
+            col("Sigla_Classe_Acao_Preferencial").alias("sigla_classe_acao"),
+            col("Classe_Acao_Preferencial").alias("classe_acao"),
+            col("Sigla_Classe_Acao_Preferencial").alias("sigla_classe_acao"),
+            col("Classe_Acao_Preferencial").alias("classe_acao"),
+            col("Codigo_Negociacao").alias("codigo_negociacao"),
+            lit(ano).alias("ano_referencia")
+        ).distinct()
         
         return dim_especie
     
@@ -242,7 +234,7 @@ class GoldDimensionalProcessor:
     
     def create_fato_balanco(self, ano: int):
         """
-        FATO_BALANCO: Valores de Balanço Patrimonial (BPA + BPP)
+        FATO_BALANCO: Valores de Ativos e Passivos
         
         Fonte: Silver BPA_con + BPP_con
         Granularidade: empresa × conta × data
@@ -280,7 +272,28 @@ class GoldDimensionalProcessor:
         fato_balanco = fato_balanco.filter(col("valor").isNotNull())
         
         return fato_balanco
-    
+    def create_fato_dmpl(self, ano: int):
+        """
+        FATO_DMPL: Demonstração das Mutações do Patrimônio Líquido
+        
+        Fonte: Silver DMPL_con
+        Granularidade: empresa × conta × data
+        """
+        logger.info("📊 Criando FATO_DMPL...")
+        
+        dmpl = self.processor.read_silver_table("DFC_DMPL_con", ano)
+        
+        fato_dmpl = dmpl.select(
+            col("CNPJ").alias("cnpj"),
+            col("COLUNA_DF").alias("coluna_df"),
+            col("CD_CONTA").alias("cd_conta"),
+            col("DS_CONTA").alias("ds_conta"),
+            col("DT_REFER").alias("data_referencia"),
+            col("VL_CONTA").alias("valor"),
+        )
+        
+        return fato_dmpl
+
     def create_fato_dre(self, ano: int):
         """
         FATO_DRE: Demonstração do Resultado do Exercício
@@ -441,7 +454,7 @@ class GoldDimensionalProcessor:
             dim_tempo = self.create_dim_tempo()
             self.save_dimension(dim_tempo, "DIM_TEMPO")
             
-            dim_especie = self.create_dim_especie_acao()
+            dim_especie = self.create_dim_especie_acao(ano)
             self.save_dimension(dim_especie, "DIM_ESPECIE_ACAO")
             
             logger.info("✅ Todas as dimensões criadas!")
@@ -451,6 +464,9 @@ class GoldDimensionalProcessor:
             # ════════════════════════════════════════════════════════════════
             logger.info("\n📊 [2/2] Criando fatos...")
             
+            fato_dmpl = self.create_fato_dmpl(ano)
+            self.save_fact(fato_dmpl, "FATO_DMPL", ano)
+
             fato_balanco = self.create_fato_balanco(ano)
             self.save_fact(fato_balanco, "FATO_BALANCO", ano)
             
@@ -516,7 +532,7 @@ if __name__ == "__main__":
     # Criar processador
     processor = GoldDimensionalProcessor()
     
-    """ # Anos a processar
+    # Anos a processar
     anos = [2020, 2021, 2022, 2023, 2024]
     
     # Processar cada ano
@@ -534,7 +550,7 @@ if __name__ == "__main__":
     logger.info("   1. Conectar Power BI ao MinIO/Delta Lake")
     logger.info("   2. Criar relacionamentos no modelo")
     logger.info("   3. Construir medidas DAX (indicadores Graham)")
-    logger.info("   4. Desenvolver dashboards") """
+    logger.info("   4. Desenvolver dashboards")
     # Script de exportação (export_to_parquet.py)
 
     processor = GoldDimensionalProcessor()

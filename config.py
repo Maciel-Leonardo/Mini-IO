@@ -65,7 +65,8 @@ CVM_CONFIG = DataSourceConfig(
     source_name="gov_br_cvm",
     asset_type={
         "DFP": "demonstracoes_financeiras_padronizadas",
-        "FRE": "formulario_de_referencia"
+        "FRE": "formulario_de_referencia",
+        "FCA": "formularios_cadastrais_de_cias_abertas"
     },
     identifier_type="ano",
     data_format="zip"
