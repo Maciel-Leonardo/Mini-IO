@@ -1,0 +1,30 @@
+{
+  "fonte": "CVM",
+  "tipo_ativo": "formularios_cadastrais_de_cias_abertas",
+  "identificador": {
+    "tipo": "ano",
+    "valor": "2024"
+  },
+  "extracao": {
+    "data": "2026-03-19",
+    "hora": "04-24-30",
+    "timestamp_utc": "2026-03-19T04:24:30.646506"
+  },
+  "requisicao": {
+    "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/FCA/DADOS/fca_cia_aberta_2024.zip",
+    "status_code": 200,
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    },
+    "tempo_resposta_ms": 242.76
+  },
+  "dados": {
+    "formato": "CSV",
+    "separador": ";",
+    "compactacao": "ZIP",
+    "tamanho_bytes": 391995,
+    "ano_referencia": 2024,
+    "moeda": "BRL"
+  },
+  "versao_ingestor": "3.0.0"
+}

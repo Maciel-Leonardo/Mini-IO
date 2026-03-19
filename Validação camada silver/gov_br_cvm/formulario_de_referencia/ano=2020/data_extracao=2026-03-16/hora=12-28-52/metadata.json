@@ -1,0 +1,30 @@
+{
+  "fonte": "CVM",
+  "tipo_ativo": "formulario_de_referencia",
+  "identificador": {
+    "tipo": "ano",
+    "valor": "2020"
+  },
+  "extracao": {
+    "data": "2026-03-16",
+    "hora": "12-28-52",
+    "timestamp_utc": "2026-03-16T12:28:52.945454"
+  },
+  "requisicao": {
+    "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/FRE/DADOS/fre_cia_aberta_2020.zip",
+    "status_code": 200,
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    },
+    "tempo_resposta_ms": 269.274
+  },
+  "dados": {
+    "formato": "CSV",
+    "separador": ";",
+    "compactacao": "ZIP",
+    "tamanho_bytes": 9233986,
+    "ano_referencia": 2020,
+    "moeda": "BRL"
+  },
+  "versao_ingestor": "3.0.0"
+}

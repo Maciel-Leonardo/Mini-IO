@@ -1,0 +1,30 @@
+{
+  "fonte": "CVM",
+  "tipo_ativo": "demonstracoes_financeiras_padronizadas",
+  "identificador": {
+    "tipo": "ano",
+    "valor": "2023"
+  },
+  "extracao": {
+    "data": "2026-03-16",
+    "hora": "12-29-17",
+    "timestamp_utc": "2026-03-16T12:29:17.316934"
+  },
+  "requisicao": {
+    "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2023.zip",
+    "status_code": 200,
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    },
+    "tempo_resposta_ms": 315.604
+  },
+  "dados": {
+    "formato": "CSV",
+    "separador": ";",
+    "compactacao": "ZIP",
+    "tamanho_bytes": 13560724,
+    "ano_referencia": 2023,
+    "moeda": "BRL"
+  },
+  "versao_ingestor": "3.0.0"
+}

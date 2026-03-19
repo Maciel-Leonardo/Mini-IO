@@ -1,0 +1,797 @@
+CNPJ_Companhia;Data_Referencia;Versao;ID_Documento;Data_Inicio_Exercicio_Social;Data_Fim_Exercicio_Social;Passivo;Indice_Endividamento;Tipo_Indice;Descricao_Outro_Indice
+00.000.000/0001-91;2020-01-01;28;104726;2019-01-01;2019-12-31;1342295000000.00;12.50000000;Índice de Endividamento;
+00.000.208/0001-00;2020-01-01;14;103809;2019-01-01;2019-12-31;15120799594.35;8.70000000;Índice de Endividamento;
+00.001.180/0001-26;2020-01-01;22;104768;2019-01-01;2019-12-31;114382881000.00;1.60213249;Índice de Endividamento;
+00.070.698/0001-11;2020-01-01;7;103845;2019-01-01;2019-12-31;2744266000.00;0.76171467;Índice de Endividamento;
+00.192.769/0001-59;2020-01-01;1;94800;2019-01-01;2019-12-31;68440000.00;3.37860600;Índice de Endividamento;
+00.336.701/0001-04;2020-01-01;12;103080;2019-01-01;2019-12-31;2651253.00;1.60996870;Índice de Endividamento;
+00.383.281/0001-09;2020-01-01;8;100769;2019-01-01;2019-12-31;15972180000.00;0.14924284;Índice de Endividamento;
+00.389.481/0001-79;2020-01-01;2;99896;2019-01-01;2019-12-31;1367067742.66;11.12540685;Índice de Endividamento;
+00.416.968/0001-01;2020-01-01;19;103618;2019-01-01;2019-12-31;7893624000.00;3.65510000;Índice de Endividamento;
+00.416.968/0001-01;2020-01-01;19;103618;2020-01-01;2020-12-31;10234566000.00;4.75110000;Índice de Endividamento;
+00.545.378/0001-70;2020-01-01;1;95407;2019-01-01;2019-12-31;0.00;0.23714420;Índice de Endividamento;
+00.622.416/0001-41;2020-01-01;7;103465;2019-01-01;2019-12-31;925659000.00;0.72438840;Índice de Endividamento;
+00.644.907/0001-93;2020-01-01;3;96239;2019-01-01;2019-12-31;223046000.00;0.24254000;Índice de Endividamento;
+00.743.065/0001-27;2020-01-01;6;103464;2019-01-01;2019-12-31;500423912.74;18.35000000;Índice de Endividamento;
+00.776.574/0001-56;2020-01-01;14;103796;2019-01-01;2019-12-31;10322138180.70;1.80002807;Índice de Endividamento;
+00.861.626/0001-92;2020-01-01;2;97442;2019-01-01;2019-12-31;341440000.00;0.36000000;Índice de Endividamento;
+00.864.214/0001-06;2020-01-01;8;103422;2019-01-01;2019-12-31;34465037000.00;4.89777245;Índice de Endividamento;
+00.897.864/0001-58;2020-01-01;1;95675;2019-01-01;2019-12-31;7189234355.43;3518.20040486;Índice de Endividamento;
+00.924.429/0001-75;2020-01-01;5;102526;2019-01-01;2019-12-31;4045636000.00;83.71270000;Índice de Endividamento;
+00.938.574/0001-05;2020-01-01;7;103474;2019-01-01;2019-12-31;54794186.70;0.40000000;Índice de Endividamento;
+00.974.211/0001-25;2020-01-01;11;103518;2019-01-01;2019-12-31;372994000.00;2.51000000;Índice de Endividamento;
+00.979.969/0001-56;2020-01-01;2;100081;2019-01-01;2019-12-31;341000.00;0.00153918;Índice de Endividamento;
+01.027.058/0001-91;2020-01-01;21;104759;2019-01-01;2019-12-31;78357365000.00;5.20130500;Índice de Endividamento;
+01.083.200/0001-18;2020-01-01;12;104319;2019-12-01;2019-12-31;34956044000.00;1.81507458;Índice de Endividamento;
+01.104.937/0001-70;2020-01-01;4;103315;2019-01-01;2019-12-31;56018000.00;0.24100000;Índice de Endividamento;
+01.107.327/0001-20;2020-01-01;8;103436;2019-01-01;2019-12-31;543365000.00;4.49987990;Índice de Endividamento;
+01.258.944/0001-26;2020-01-01;1;95596;2019-01-01;2019-12-31;2446772.00;1.40385427;Índice de Endividamento;
+01.319.044/0001-41;2020-01-01;1;95401;2019-01-01;2019-12-31;814334865.79;4.13271840;Índice de Endividamento;
+01.417.222/0001-77;2020-01-01;9;103383;2019-01-01;2019-12-31;6621672000.00;1.61404715;Índice de Endividamento;
+01.543.032/0001-04;2020-01-01;6;103084;2019-01-01;2019-12-31;6526308000.00;1.22848035;Índice de Endividamento;
+01.545.826/0001-07;2020-01-01;9;103853;2019-01-01;2019-12-31;0.00;48.93000000;Outros índices;48,93% - Índice de endividamento líquido. Para mais informações vide item 3.2.
+01.545.826/0001-07;2020-01-01;9;103853;2019-01-01;2019-12-31;1656744000.00;1.85008100;Índice de Endividamento;
+01.548.981/0001-79;2020-01-01;5;103780;2019-01-01;2019-12-31;588000.00;0.00260000;Índice de Endividamento;
+01.599.101/0001-93;2020-01-01;7;99476;2019-01-01;2019-12-31;0.00;2.71386062;Outros índices;Dívida Líquida dividida pelo EBITDA na mesma data (vide reconciliação no item 3.2 deste Formulário de Referência). A Companhia utiliza o índice Dívida Líquida sobre o EBITDA como indicador para medir o grau de alavancagem e observância de covenants em contratos financeiros.
+01.599.101/0001-93;2020-01-01;7;99476;2019-01-01;2019-12-31;526650000.00;6.09943945;Índice de Endividamento;
+01.616.929/0001-02;2020-01-01;11;103558;2019-01-01;2019-12-31;2671004000.00;0.95347700;Índice de Endividamento;
+01.838.723/0001-27;2020-01-01;11;104527;2019-01-01;2019-12-31;33552282000.00;4.11770000;Índice de Endividamento;
+01.851.771/0001-55;2020-01-01;3;103345;2019-01-01;2019-12-31;10.27;0.01900000;Índice de Endividamento;
+01.896.779/0001-38;2020-01-01;5;102857;2019-01-01;2019-12-31;238440.00;0.48100000;Índice de Endividamento;
+01.917.818/0001-36;2020-01-01;11;103700;2019-01-01;2019-12-31;0.00;2.98000000;Outros índices;- A Companhia entende que o índice Dívida Líquida/EBITDA Ajustado melhor reflete seu nível de endividamento, pois é o indicador financeiro utilizado pela Companhia para cálculo de covenants financeiros no âmbito de determinadas dívidas da Companhia.- A Dívida Líquida equivale ao total da Dívida Bruta deduzida de caixa e equivalentes e de títulos e valores mobiliários.- A Dívida Bruta equivale ao total da soma do curto prazo e longo prazo dos empréstimos, financiamentos, debêntures, juros devidos, pós-emprego e o saldo de ativos e passivos de swap. - O EBITDA para covenants é calculado a partir do EBITDA Ajustado, adicionado as Provisões (englobam as provisões para riscos e as provisões esperada para créditos de liquidação duvidosa (PECLD) e o Valor justo do ativo indenizável da concessão.- Para mais informações sobre a reconciliação da Dívida Líquida e EBITDA Ajustado, vide item 3.2 deste Formulário de Referência. - Para mais informações sobre as cláusulas restritivas em relação a limites de endividamento da Companhia atualmente vigentes, vide item 10.1. (f) (iv) deste Formulário de Referência.
+01.938.783/0001-11;2020-01-01;6;104796;2019-01-01;2019-12-31;159996000.00;0.38666000;Índice de Endividamento;
+01.957.772/0001-89;2020-01-01;1;94527;2019-01-01;2019-12-31;29000.00;0.34650000;Índice de Endividamento;
+01.971.614/0001-83;2020-01-01;3;103430;2019-01-01;2019-12-31;115014.00;0.61293726;Índice de Endividamento;
+01.989.044/0001-59;2020-01-01;1;95341;2019-01-01;2019-12-31;5984920.15;100.00000000;Índice de Endividamento;
+02.016.440/0001-62;2020-01-01;6;104683;2019-01-01;2019-12-31;5877206000.00;1.48766675;Índice de Endividamento;
+02.062.747/0001-08;2020-01-01;3;103348;2019-01-01;2019-12-31;39.00;0.01900000;Índice de Endividamento;
+02.084.220/0001-76;2020-01-01;2;93819;2019-01-01;2019-12-31;622.00;0.00300490;Índice de Endividamento;
+02.105.040/0001-23;2020-01-01;4;97590;2019-01-01;2019-12-31;5165000.00;0.17260970;Índice de Endividamento;
+02.149.205/0001-69;2020-01-01;7;102827;2019-01-01;2019-12-31;0.00;0.23733040;Outros índices;Parte substancial dos passivos da Companhia são compostos por provisões técnicas das operações de seguros e previdência complementar 45% do passivo total em 2019), para os quais são oferecidos ativos garantidores conforme regras da Superintendência de Seguros Privados (SUSEP). Outra significativa parcela de seus passivos são as operações com cartão de crédito (13% do passivo total em 2019), para os quais existem títulos e créditos a receber atrelados as essas operações. Por esses motivos, tais passivos não representam endividamento da Companhia. O item 10.1 (c) deste formulário apresenta esses passivos e os respectivos ativos atrelados ou dados em garantias. Desta forma, a Administração entende que seu endividamento é representado por seus passivos financeiros, excluídos os passivos de operações de cartão de crédito e de capitalização, de curto e longo prazo no montante de R$ 1.962.671 mil. O item 10.1 (f) deste formulário detalha a composição deste montante.
+02.162.616/0001-94;2020-01-01;3;103473;2019-01-01;2019-12-31;3871042.56;4.02725759;Índice de Endividamento;
+02.193.750/0001-52;2020-01-01;10;103382;2019-01-01;2019-12-31;613510000.00;0.75348581;Índice de Endividamento;
+02.201.787/0001-85;2020-01-01;1;95220;2019-01-01;2019-12-31;27268397.00;229.00000000;Índice de Endividamento;
+02.217.319/0001-07;2020-01-01;3;102928;2019-01-01;2019-12-31;14.00;0.02000000;Índice de Endividamento;
+02.221.531/0001-30;2020-01-01;4;103056;2019-01-01;2019-12-31;1653155.00;5.23000000;Índice de Endividamento;
+02.222.736/0001-30;2020-01-01;1;95167;2019-01-01;2019-12-31;180527000.00;3.09350000;Índice de Endividamento;
+02.258.422/0001-97;2020-01-01;5;106336;2019-01-01;2019-12-31;176953120.87;75.00000000;Índice de Endividamento;
+02.281.836/0001-37;2020-01-01;2;94223;2019-01-01;2019-12-31;6792319000.00;2.69970000;Índice de Endividamento;
+02.286.479/0001-08;2020-01-01;2;99493;2019-01-01;2019-12-31;3241202000.00;4.74050532;Índice de Endividamento;
+02.286.479/0001-08;2020-01-01;2;99493;2019-01-01;2019-12-31;0.00;0.67187182;Outros índices;Dívida Líquida / valor da frota (Consolidado) - A Companhia entende que esse índice é apropriado pois demonstra que 67,19% da frota da Companhia seria suficiente para liquidar todo o seu endividamento.
+02.286.479/0001-08;2020-01-01;2;99493;2019-01-01;2019-12-31;0.00;2.83727668;Outros índices;Dívida Líquida / patrimônio líquido (Consolidado) - Esse índice representa a relação entre o capital de terceiros e o capital próprio dos acionistas. A Companhia entende que esse índice é apropriado para demonstrar a participação do capital de terceiros frente ao capital próprio no financiamento das suas atividades.
+02.286.479/0001-08;2020-01-01;2;99493;2019-01-01;2019-12-31;0.00;2.69149189;Outros índices;Dívida Líquida / EBITDA (Consolidado) - A Companhia entende que esse índice é apropriado para demonstrar o endividamento da Companhia.
+02.291.077/0001-93;2020-01-01;3;97734;2019-01-01;2019-12-31;18090148.35;20.06779503;Índice de Endividamento;
+02.302.100/0001-06;2020-01-01;6;102899;2019-01-01;2019-12-31;42701650.00;3.43402000;Índice de Endividamento;
+02.302.101/0001-42;2020-01-01;7;103467;2019-01-01;2019-12-31;510110000.00;0.51514550;Índice de Endividamento;
+02.318.346/0001-68;2020-01-01;2;95818;2019-01-01;2019-12-31;370998042.59;586.91000000;Índice de Endividamento;
+02.328.280/0001-97;2020-01-01;7;102922;2019-01-01;2019-12-31;5214758000.00;1.95547241;Índice de Endividamento;
+02.351.144/0001-18;2020-01-01;12;103493;2019-01-01;2019-12-31;0.00;0.30000000;Outros índices;Em conjunto com outros indicadores, a Companhia utiliza o endividamento líquido e a relação entre dívida líquida e o EBITDA Ajustado para analisar o seu nível de endividamento. O endividamento líquido é caracterizado como o montante total da dívida subtraído dos recursos disponíveis em caixa e equivalentes, enquanto a relação dívida líquida / EBITDA Ajustado é definida como a dívida líquida dividida pelo EBITDA Ajustado do exercício. Acreditamos que tais indicadores contribuem para a análise do nosso nível de endividamento, ao levar em consideração os recursos disponíveis pela Companhia, bem como a geração de resultado operacional.
+02.351.144/0001-18;2020-01-01;12;103493;2019-01-01;2019-12-31;410342000.00;71.40000000;Índice de Endividamento;
+02.351.877/0001-52;2020-01-01;19;103756;2019-01-01;2019-12-31;425680000.00;4.81903705;Índice de Endividamento;
+02.351.877/0001-52;2020-01-01;19;103756;2020-01-01;2020-12-31;560879000.00;0.85361785;Índice de Endividamento;
+02.357.251/0001-53;2020-01-01;1;94115;2019-01-01;2019-12-31;117017000.00;0.38227510;Índice de Endividamento;
+02.357.251/0001-53;2020-01-01;1;94115;2019-01-01;2019-12-31;117017000.00;0.54336040;Índice de Endividamento;
+02.382.073/0001-10;2020-01-01;6;100810;2019-01-01;2019-12-31;620751.00;1.68368450;Índice de Endividamento;
+02.387.241/0001-60;2020-01-01;22;105130;2019-01-01;2019-12-31;24218377000.00;2.81141980;Índice de Endividamento;
+02.397.080/0001-96;2020-01-01;2;102902;2019-01-01;2019-12-31;313374.00;0.98709488;Índice de Endividamento;
+02.415.408/0001-50;2020-01-01;2;102861;2019-01-01;2019-12-31;767533.00;3.10915815;Índice de Endividamento;
+02.421.421/0001-11;2020-01-01;8;104308;2019-01-01;2019-12-31;17798374748.95;0.80686025;Índice de Endividamento;
+02.429.144/0001-93;2020-01-01;9;104791;2019-01-01;2019-12-31;30795055000.00;2.31833950;Índice de Endividamento;
+02.451.848/0001-62;2020-01-01;2;102860;2019-01-01;2019-12-31;3063086.00;6.13248846;Índice de Endividamento;
+02.474.103/0001-19;2020-01-01;12;103563;2019-01-01;2019-12-31;23136758000.00;3.30580891;Índice de Endividamento;
+02.502.844/0001-66;2020-01-01;5;103840;2019-01-01;2019-12-31;6247984.00;23.55312283;Índice de Endividamento;
+02.509.186/0001-34;2020-01-01;1;95233;2019-01-01;2019-12-31;675736.00;1.74000000;Índice de Endividamento;
+02.509.491/0001-26;2020-01-01;6;104663;2019-01-01;2019-12-31;1376137313.74;2.45541600;Índice de Endividamento;
+02.558.115/0001-21;2020-01-01;1;94499;2019-01-01;2019-12-31;17917105583.11;60.00000000;Índice de Endividamento;
+02.558.157/0001-62;2020-01-01;5;102984;2019-01-01;2019-12-31;37834144250.07;0.53699288;Índice de Endividamento;
+02.643.896/0001-52;2020-01-01;2;97214;2019-01-01;2019-12-31;195437599.52;97.91000000;Índice de Endividamento;
+02.664.042/0001-52;2020-01-01;3;103998;2019-01-01;2019-12-31;3713408.00;3.15910000;Índice de Endividamento;
+02.682.287/0001-02;2020-01-01;1;93837;2019-01-01;2019-12-31;136804508.51;0.66561100;Índice de Endividamento;
+02.724.983/0001-34;2020-01-01;5;102639;2019-01-01;2019-12-31;59060572.60;0.99914835;Índice de Endividamento;
+02.736.470/0001-43;2020-01-01;1;93707;2019-01-01;2019-12-31;26006102.00;99.90000000;Índice de Endividamento;
+02.762.113/0001-50;2020-01-01;1;93855;2019-01-01;2019-12-31;11116091.36;0.06210338;Índice de Endividamento;
+02.762.121/0001-04;2020-01-01;10;103170;2019-01-01;2019-12-31;1843737424.31;1.36332306;Índice de Endividamento;
+02.762.124/0001-30;2020-01-01;1;94926;2019-01-01;2019-12-31;4919.76;0.54400000;Índice de Endividamento;
+02.773.542/0001-22;2020-01-01;7;102904;2020-01-01;2020-12-31;7240000.00;0.75890985;Índice de Endividamento;
+02.796.775/0001-40;2020-01-01;2;95819;2019-01-01;2019-12-31;115424.05;9.21000000;Índice de Endividamento;
+02.800.026/0001-40;2020-01-01;9;103517;2019-01-01;2019-12-31;18283177.00;0.54000000;Índice de Endividamento;
+02.846.056/0001-97;2020-01-01;16;102916;2019-01-01;2019-12-31;24822393000.00;2.44000000;Índice de Endividamento;
+02.860.694/0001-62;2020-01-01;7;103752;2019-01-01;2019-12-31;346648600.37;1.25313377;Índice de Endividamento;
+02.916.265/0001-60;2020-01-01;15;104723;2019-01-01;2019-12-31;93857338000.00;2.89000000;Índice de Endividamento;
+02.919.555/0001-67;2020-01-01;7;103337;2019-01-01;2019-12-31;7515204000.00;1.17038433;Índice de Endividamento;
+02.932.074/0001-91;2020-01-01;13;104052;2019-01-01;2019-12-31;0.00;0.16192776;Outros índices;O índice corresponde à divisão do endividamento financeiro no valor de R$1.410,4 milhões (composto por empréstimos, financiamentos e títulos a pagar), constantes nos passivos circulante e não circulante, conforme reportados nas Demonstrações Financeiras Consolidadas da Companhia relativas ao exercício social de 2019, posteriormente divididos pelo Patrimônio Líquido reportado ao final do exercício.Tais passivos correspondem aos passivos corrigidos por taxas de juros e refletem melhor o endividamento bruto da Companhia do que o total dos passivos circulante e não circulante, que inclui, por exemplo, valores recebidos correspondentes a adiantamentos por desinvestimentos de ativos.
+02.992.449/0001-09;2020-01-01;3;103350;2019-01-01;2019-12-31;38.00;0.00180000;Índice de Endividamento;
+02.998.301/0001-81;2020-01-01;4;103528;2019-01-01;2019-12-31;2860987000.00;1.84484946;Índice de Endividamento;
+02.998.611/0001-04;2020-01-01;11;104350;2019-01-01;2019-12-31;7837487000.00;0.56951830;Índice de Endividamento;
+03.014.553/0001-91;2020-01-01;7;104605;2019-01-01;2019-12-31;2995668000.00;3.98777452;Índice de Endividamento;
+03.025.305/0001-46;2020-01-01;1;95235;2019-01-01;2019-12-31;2087433.00;3.35000000;Índice de Endividamento;
+03.207.703/0001-83;2020-01-01;3;103521;2019-01-01;2019-12-31;1283172.00;5.53286938;Índice de Endividamento;
+03.220.438/0001-73;2020-01-01;15;104607;2019-01-01;2019-12-31;27756723000.00;2.84000000;Índice de Endividamento;
+03.303.999/0001-36;2020-01-01;4;100333;2019-01-01;2019-12-31;27202728.27;0.84000000;Índice de Endividamento;
+03.378.521/0001-75;2020-01-01;19;103698;2019-01-01;2019-12-31;0.00;2.99000000;Outros índices;A Companhia entende que o índice Dívida Líquida e EBITDA Ajustado para Covenants contratuais melhor reflete seu nível de endividamento, pois é o indicador financeiro utilizado pela Companhia para cálculo de covenants financeiros no âmbito de determinadas dívidas da Companhia.  - A Dívida Líquida equivale ao total da Dívida Bruta deduzida de caixa e equivalentes de caixa e de títulos e valores mobiliários.- A Dívida Bruta equivale ao total da soma do circulante e não circulante dos empréstimos, financiamentos, debêntures, juros devidos, benefícios pós-emprego (referente a dívida com Fundos de Pensão) e rendas a receber e a pagar de operações de swap. - EBITDA Ajustado para Covenants contratuais é calculado por meio do "EBITDA" dos 12 meses, ajustado pelo resultado de equivalência patrimonial e pelas outras receitas e despesas operacionais (antigo resultado não-operacional), adicionado de provisões de contingência, provisões para créditos de liquidação duvidosa (PECLD), o valor justo do ativo financeiro da concessão e recuperação de Créditos de PIS e COFINS sobre ICMS considerando que tais itens não têm efeito no caixa.- Para mais informações sobre a reconciliação da Dívida Líquida e EBITDA Ajustado para Covenants contratuais, vide itens 3.2 e 3.9 deste Formulário de Referência, respectivamente. - Para mais informações sobre as cláusulas restritivas em relação a limites de endividamento da Companhia atualmente vigentes, vide item 10.1. (f) (iv) deste Formulário de Referência. Total da Dívida Líquida: R$6.750.233.000,00 reais em 31/12/2019.
+03.378.521/0001-75;2020-01-01;19;103698;2019-01-01;2019-12-31;17613224000.00;2.83000000;Índice de Endividamento;
+03.378.521/0001-75;2020-01-01;19;103698;2020-01-01;2020-12-31;0.00;2.40000000;Outros índices;Idem à descrição de "Outros Índices" em 31/12/2019.
+03.378.521/0001-75;2020-01-01;19;103698;2020-01-01;2020-12-31;18767263000.00;2.76000000;Índice de Endividamento;
+03.467.321/0001-99;2020-01-01;2;97021;2019-01-01;2019-12-31;5520268000.00;2.48820885;Índice de Endividamento;
+03.538.833/0001-07;2020-01-01;2;95821;2019-01-01;2019-12-31;760925.45;2.60000000;Índice de Endividamento;
+03.758.318/0001-24;2020-01-01;20;103632;2019-01-01;2019-12-31;24101257000.00;86.00000000;Índice de Endividamento;
+03.767.538/0001-14;2020-01-01;1;93835;2019-01-01;2019-12-31;10634044.86;0.04774900;Índice de Endividamento;
+03.795.050/0001-09;2020-01-01;1;94965;2019-01-01;2019-12-31;1391668.00;1.60263946;Índice de Endividamento;
+03.818.379/0001-30;2020-01-01;2;95852;2019-01-01;2019-12-31;3457808.00;0.45000000;Índice de Endividamento;
+03.847.461/0001-92;2020-01-01;10;104581;2019-01-01;2019-12-31;545247866.67;0.05395200;Índice de Endividamento;
+03.853.896/0001-40;2020-01-01;5;104572;2019-01-01;2019-12-31;27795680.00;6.39000000;Índice de Endividamento;
+03.953.509/0001-47;2020-01-01;5;104776;2019-01-01;2019-12-31;10031730000.00;1.85688874;Índice de Endividamento;
+03.983.431/0001-03;2020-01-01;7;102941;2019-01-01;2019-12-31;17157472000.00;1.66067956;Índice de Endividamento;
+04.065.791/0001-99;2020-01-01;3;103790;2019-01-01;2019-12-31;188389000.00;0.44000000;Índice de Endividamento;
+04.089.570/0001-50;2020-01-01;4;103506;2019-01-01;2019-12-31;1183625.00;7.12464862;Índice de Endividamento;
+04.128.563/0001-10;2020-01-01;9;102815;2019-01-01;2019-12-31;6347742000.00;4.37422356;Índice de Endividamento;
+04.149.454/0001-80;2020-01-01;13;101038;2019-01-01;2019-12-31;11087102157.13;24.34847700;Índice de Endividamento;
+04.172.213/0001-51;2020-01-01;6;104662;2019-01-01;2019-12-31;3509017000.00;6.22139661;Índice de Endividamento;
+04.200.649/0001-07;2020-01-01;19;100698;2019-01-01;2019-12-31;274062.61;0.47000000;Índice de Endividamento;
+04.233.319/0001-18;2020-01-01;4;103673;2019-01-01;2019-12-31;6048487034.01;0.41852500;Índice de Endividamento;
+04.370.282/0001-70;2020-01-01;3;103556;2019-01-01;2019-12-31;9289735.00;0.94090807;Índice de Endividamento;
+04.423.567/0001-21;2020-01-01;16;104873;2019-01-01;2019-12-31;6963063000.00;1.00912772;Índice de Endividamento;
+04.423.567/0001-21;2020-01-01;16;104873;2020-01-01;2020-07-31;7950613000.00;1.10043376;Índice de Endividamento;
+04.437.534/0001-30;2020-01-01;6;100700;2019-01-01;2019-12-31;4254596000.00;0.75387600;Índice de Endividamento;
+04.437.534/0001-30;2020-01-01;6;100700;2019-01-01;2019-12-31;0.00;2.91446100;Outros índices;Dívida bruta (Empréstimos - líquido de instrumentos financeiros swap + Debêntures + Notas Promissórias +Arrendamento mercantil financeiro) - caixa e equivalentes + aplicações financeiras / EBITDA.Índice com utilização disseminada no mercado e que reflete, de forma adequada, o nível de alavancagem financeira da Companhia.
+04.739.720/0001-24;2020-01-01;9;98867;2019-01-01;2019-12-31;1181076906.71;0.56098966;Índice de Endividamento;
+04.739.720/0001-24;2020-01-01;9;98867;2020-01-01;2020-12-31;1132401251.04;0.53343910;Índice de Endividamento;
+04.752.991/0001-10;2020-01-01;5;102374;2019-01-01;2019-12-31;235212062.34;0.60500000;Índice de Endividamento;
+04.821.041/0001-08;2020-01-01;4;104712;2019-01-01;2019-12-31;1500051.00;1178.00000000;Índice de Endividamento;
+04.895.728/0001-80;2020-01-01;6;103543;2019-01-01;2019-12-31;6653126000.00;2.02000000;Índice de Endividamento;
+04.902.979/0001-44;2020-01-01;9;103988;2019-01-31;2019-12-31;18279635269.47;8.31192486;Índice de Endividamento;
+04.912.242/0001-02;2020-01-01;1;95103;2019-01-01;2019-12-31;1726000.00;81.00000000;Índice de Endividamento;
+04.913.711/0001-08;2020-01-01;10;102907;2019-01-01;2019-12-31;7427573094.21;5.43955700;Índice de Endividamento;
+04.972.092/0001-22;2020-01-01;1;97733;2019-01-01;2019-12-31;582985.00;3.92330210;Índice de Endividamento;
+04.972.092/0001-22;2020-01-01;1;97733;2019-01-01;2019-12-31;0.00;0.74197952;Outros índices;Este índice de endividamento representa a dívida líquida da Companhia sobre o EBITDA Ajustado. Para maiores informações, vide item 3.2 deste Formulário de Referência.
+04.972.092/0001-22;2020-01-01;1;97733;2020-01-01;2020-12-31;677159.00;2.95786577;Índice de Endividamento;
+04.972.092/0001-22;2020-01-01;1;97733;2020-01-01;2020-12-31;0.00;0.68206931;Outros índices;Este índice de endividamento representa a dívida líquida da Companhia sobre o EBITDA Ajustado dos últimos 12 meses. Para maiores informações, vide item 3.2 deste Formulário de Referência.  A Companhia utiliza esse índice para aferir quanto tempo sua geração operacional de caixa levaria para realizar o pagamento de sua dívida líquida. Apesar de ser uma medida não contábil, este índice é comumente utilizado pelo mercado financeiro e de capitais, permitindo a comparação com negócios semelhantes ao da Companhia.
+04.986.320/0001-13;2020-01-01;7;104783;2019-01-01;2019-12-31;1250668000.00;0.48870331;Índice de Endividamento;
+04.992.714/0001-84;2020-01-01;4;103720;2019-01-01;2019-12-31;0.00;2.81000000;Outros índices;Passivo Circulante mais o Não Circulante, dividido pelo Patrimônio Líquido.
+05.197.443/0001-38;2020-01-01;9;100175;2019-01-01;2019-12-31;5191801000.00;0.71000000;Índice de Endividamento;
+05.336.882/0001-84;2020-01-01;2;102134;2019-01-01;2019-12-31;133042982.00;0.48000000;Índice de Endividamento;
+05.495.546/0001-84;2020-01-01;6;103470;2019-01-01;2019-12-31;877411673.59;2.88000000;Índice de Endividamento;
+05.721.735/0001-28;2020-01-01;13;102896;2019-01-01;2019-12-31;2634347000.00;1.28723200;Índice de Endividamento;
+05.730.375/0001-20;2020-01-01;13;103679;2019-01-01;2019-12-31;1679248000.00;1.39317949;Índice de Endividamento;
+05.799.312/0001-20;2020-01-01;4;102716;2019-01-01;2019-12-31;1545558000.00;0.62106100;Índice de Endividamento;
+05.878.397/0001-32;2020-01-01;8;103608;2019-01-01;2019-12-31;3390464000.00;0.45109454;Índice de Endividamento;
+05.889.284/0001-32;2020-01-01;1;93658;2019-01-01;2019-12-31;19478225.00;1.37366753;Índice de Endividamento;
+06.016.348/0001-53;2020-01-01;2;95239;2019-01-01;2019-12-31;369952967.75;62.89143700;Índice de Endividamento;
+06.047.087/0001-39;2020-01-01;11;103739;2019-01-01;2019-12-31;21157665.00;3.88784728;Índice de Endividamento;
+06.057.223/0001-71;2020-01-01;11;103627;2019-01-01;2019-12-31;26204000000.00;2.70000000;Índice de Endividamento;
+06.137.677/0001-52;2020-01-01;1;94082;2019-01-01;2019-12-31;68436959.38;6.55058952;Índice de Endividamento;
+06.164.253/0001-87;2020-01-01;12;103583;2019-01-01;2019-12-31;22403863000.00;2.35432935;Índice de Endividamento;
+06.164.253/0001-87;2020-01-01;12;103583;2019-01-01;2019-12-31;0.00;9089409.00000000;Outros índices;Dívida líquida (empréstimos e financiamentos + arrendamentos, ex-bônus perpétuos e exchangeable senior notes (-) caixa e equivalentes de caixa, aplicações financeiras e caixa restrito).Informação comumente utilizada pelas empresas do setor aéreo.R$9.089.409.000,00.
+06.272.793/0001-84;2020-01-01;8;103542;2019-01-01;2019-12-31;4340761000.00;1.55000000;Índice de Endividamento;
+06.347.409/0001-65;2020-01-01;5;104838;2019-01-01;2019-12-31;4249285000.00;4.37131012;Índice de Endividamento;
+06.626.253/0001-51;2020-01-01;12;103466;2019-01-01;2019-12-31;3783166000.00;3.69000000;Índice de Endividamento;
+06.948.969/0001-75;2020-01-01;23;104881;2019-01-01;2019-12-31;774100216.24;0.43249557;Índice de Endividamento;
+06.977.745/0001-91;2020-01-01;10;104485;2019-01-01;2019-12-31;7093037517.69;0.61218960;Índice de Endividamento;
+06.977.751/0001-49;2020-01-01;10;103548;2019-01-01;2019-12-31;0.00;0.05918350;Outros índices;Índice financeiro decorrente do quociente da divisão do valor da (i) Dívida Líquida (correspondente ao somatório dos saldos de empréstimos e financiamentos - circulante e não circulante, instrumentos financeiros derivativos registrados no passivo - circulante, e todas obrigações por aquisições de imóveis - circulante e não circulante, reduzido dos saldos de caixa e equivalentes de caixa, títulos e valores mobiliários e instrumentos financeiros registrados no ativo) pelo (ii) saldo de Propriedades para Investimento. O acompanhamento deste índice financeiro é requerido pelas escrituras de emissão de nossas debêntures em circulação, vide item 10.1.(iv) deste Formulário de Referência.
+06.977.751/0001-49;2020-01-01;10;103548;2019-01-01;2019-12-31;0.00;0.09102451;Outros índices;Índice financeiro decorrente do quociente da divisão do valor da (i) Dívida Líquida (correspondente ao somatório dos saldos de empréstimos e financiamentos - circulante e não circulante, instrumentos financeiros derivativos registrados no passivo - circulante, e todas obrigações por aquisições de imóveis - circulante e não circulante, reduzido dos saldos de caixa e equivalentes de caixa e instrumentos financeiros registrados no ativo) pelo (ii) saldo de Propriedades para Investimento. O acompanhamento deste índice financeiro é requerido pelas escrituras de emissão de nossas debêntures em circulação, vide item 10.1.(iv) deste Formulário de Referência.
+06.977.751/0001-49;2020-01-01;10;103548;2019-01-01;2019-12-31;2742210000.00;0.38064717;Índice de Endividamento;
+06.981.176/0001-58;2020-01-01;10;104645;2019-01-01;2019-12-31;0.00;5.41000000;Outros índices;Índice => Dívida líquida / LAJIDAJustificativa: Esse índice é uma medição não contábil elaborada pela Companhia e amplamente utilizado e divulgado ao mercado, que mede o endividamento consolidado da Companhia em relação ao seu LAJIDA (Lucro antes de Juros, Impostos, Depreciação e Amortização).Em 31 de dezembro de 2019, a dívida líquida da Companhia era de R$7.302.497 milhões e o LAJIDA da Companhia era de R$1.420.024 milhões 
+06.981.176/0001-58;2020-01-01;10;104645;2019-01-01;2019-12-31;12526851.00;2.52000000;Índice de Endividamento;
+06.981.176/0001-58;2020-01-01;10;104645;2019-01-01;2019-12-31;0.00;0.59000000;Outros índices;Índice => Dívida líquida / (dívida líquida + patrimônio líquido)Justificativa: Esse índice reflete um indicador amplamente utilizado e divulgado ao mercado, que mede a relação consolidada de endividamento medida por Dívida líquida/ (dívida líquida + patrimônio líquido).Em 31 de dezembro de 2019, a dívida líquida da Companhia era de R$7.302.497 milhões 
+06.981.180/0001-16;2020-01-01;10;104646;2019-01-01;2019-12-31;0.00;0.54000000;Outros índices;Índice => Dívida líquida/ (dívida líquida + patrimônio líquido) Justificativa: Esse índice reflete um indicador amplamente utilizado e divulgado ao mercado, que mede a relação consolidada de endividamento medida por Dívida líquida/ (dívida líquida + patrimônio líquido).Em 31 de dezembro de 2019, a dívida líquida da Companhia era de R$5.451 milhões
+06.981.180/0001-16;2020-01-01;10;104646;2019-01-01;2019-12-31;0.00;2.48000000;Outros índices;Índice => Dívida líquida/ LajidaJustificativa: Esse índice é uma medição não contábil elaborada pela Companhia e amplamente utilizado e divulgado ao mercado, que mede o endividamento consolidado da Companhia em relação ao seu LAJIDA (Lucro antes de Juros, Impostos, Depreciação e Amortização).Em 31 de dezembro de 2019, a dívida líquida da Companhia era de R$5.451 milhões e o LAJIDA da Companhia era de R$2.200 milhões.
+06.981.180/0001-16;2020-01-01;10;104646;2019-01-01;2019-12-31;19649855.00;4.17000000;Índice de Endividamento;
+06.981.381/0001-13;2020-03-31;7;94239;2018-04-01;2019-03-31;198952858.90;0.25550000;Índice de Endividamento;
+07.040.108/0001-57;2020-01-01;10;103215;2019-01-01;2019-12-31;1285435.00;0.55000000;Índice de Endividamento;
+07.043.628/0001-13;2020-01-01;1;93980;2019-01-01;2019-12-31;58658731636.31;3.38591445;Índice de Endividamento;
+07.047.251/0001-70;2020-01-01;10;103365;2019-01-01;2019-12-31;5550655000.00;1.78245475;Índice de Endividamento;
+07.119.838/0001-48;2020-01-01;1;95042;2019-01-01;2019-12-31;513024.00;5365.79855700;Índice de Endividamento;
+07.206.816/0001-15;2020-01-01;7;105726;2019-01-01;2019-12-31;0.00;10.02577274;Outros índices;Dívida Líquida: R$ 605.050.582,41 (A Companhia analisa a sua situação financeira e endividamento pelo indicador da Dívida Líquida, que é composta pela soma dos empréstimos e financiamentos de instituições financeiras, financiamentos de impostos, financiamentos diretos, de curto e longo prazo, deduzida dos saldos de caixa e equivalentes de caixa e de aplicações financeiras de longo prazo)/ Patrimônio Líquido: R$ 6.034.952.097,99.
+07.206.816/0001-15;2020-01-01;7;105726;2019-01-01;2019-12-31;0.00;0.78368866;Outros índices;Divida Líquida: R$ 605.050.582,41 / EBITDA dos últimos 12 meses: R$ 772.054.785,35 = 0,783688663.A Companhia analisa a sua situação financeira e endividamento pelo indicador da Dívida Líquida, que é composta pela soma dos empréstimos e financiamentos de instituições financeiras, financiamentos de impostos,financiamentos diretos, de curto e longo prazo, deduzida dos saldos de caixa e equivalentes de caixa e de aplicações financeiras de longo prazo.A Companhia entende que o índice Dívida Líquida/EBITDA dos últimos 12 meses pode contribuir para a correta compreensão da situação financeira e do nível de endividamento da Companhia, pois reflete de forma apropriada o nível de endividamento da Companhia e da capacidade de pagamento.Em virtude do EBITDA ser um indicador financeiro utilizado para avaliar o resultado de empresas sem a influência de sua estrutura de capital, de efeitos tributários e outros impactos contábeis sem reflexo direto no seu fluxo de caixa, como é o caso de depreciação, a Companhia acredita que o EBITDA é uma medição importante para a compreensão da sua solidez financeira e capacidade de geração de caixa, além de contribuir para a compreensão de seu desempenho operacional. Para maiores detalhes,consultar o item 3.2 deste Formulário de Referência.Neste contexto, a capacidade do índice Dívida Líquida/EBITDA dos últimos 12 meses de representar apropriadamente a capacidade de pagamento da Companhia advém da crença da administração de que o EBITDA reflete o resultado operacional contábil sem o efeito de itens não caixa relevantes ( como a depreciação).
+07.206.816/0001-15;2020-01-01;7;105726;2019-01-01;2019-12-31;2066078784.59;34.23521432;Índice de Endividamento;
+07.237.373/0001-20;2020-01-01;16;104548;2019-01-01;2019-12-31;53203366000.00;9.80000000;Índice de Endividamento;
+07.253.321/0001-47;2020-01-01;1;94834;2019-01-01;2019-12-31;116809661.22;1.85640000;Índice de Endividamento;
+07.275.159/0001-68;2020-01-01;1;94675;2019-01-01;2019-12-31;4063317.24;28.96000000;Índice de Endividamento;
+07.282.377/0001-20;2020-01-01;3;96895;2019-01-01;2019-12-31;1477698000.00;2.67352614;Índice de Endividamento;
+07.334.600/0001-35;2020-01-01;1;94958;2019-01-01;2019-12-31;74492991.56;84.53052887;Índice de Endividamento;
+07.401.436/0001-31;2020-01-01;4;104677;2019-01-01;2019-12-31;6812484214.63;2.93000000;Índice de Endividamento;
+07.415.333/0001-20;2020-01-01;16;105089;2019-01-01;2019-12-31;18623895000.00;7.30353406;Índice de Endividamento;
+07.437.016/0001-05;2020-01-01;2;97718;2019-01-01;2019-12-31;0.00;226.86000000;Outros índices;Dedução de subvenção governamental dos empréstimos na modalidade de FSA Investimento e Financiamento.
+07.437.016/0001-05;2020-01-01;2;97718;2019-01-01;2019-12-31;124737778.68;305.08000000;Índice de Endividamento;
+07.526.557/0001-00;2020-01-01;10;104468;2019-01-01;2019-12-31;39186939000.00;0.62640000;Índice de Endividamento;
+07.587.384/0001-30;2020-01-01;1;95316;2019-01-01;2019-12-31;2062000.00;1.49420289;Índice de Endividamento;
+07.594.978/0001-78;2020-01-01;2;99415;2019-01-01;2019-12-31;5146566000.00;2.26975800;Índice de Endividamento;
+07.594.978/0001-78;2020-01-01;2;99415;2019-01-01;2019-12-31;0.00;1.65733600;Outros índices;Dívida Líquida / EBITDA: Método: endividamento líquido em 31 de dezembro de 2019, dividido pelo EBITDA do exercício de 2019. A Companhia acredita que o índice de dívida líquida sobre EBITDA seja apropriado para a correta compreensão da situação financeira da companhia, pois mensura sua capacidade de pagar a dívida através de sua geração operacional de caixa. Adicionalmente, a Companhia utiliza tal índice como índice financeiro em obrigações (covenants) relacionadas com alguns de seus contratos de financiamento e debêntures.
+07.628.528/0001-59;2020-06-30;8;98252;2018-07-01;2019-06-30;477081000.00;0.54180934;Índice de Endividamento;
+07.659.538/0001-51;2020-01-01;3;97243;2019-01-01;2019-12-31;644852.09;0.05164800;Índice de Endividamento;
+07.689.002/0001-89;2020-01-01;3;103399;2019-01-01;2019-12-31;0.00;2468286.58600000;Outros índices;Divida Liquida - R$ 2.468.286.586,00 . Método utilizado para calcular: Total dos Empréstimos e Financiamentos deduzindo-se o Caixa e equivalentes em caixa, Investimentos Financeiros e Títulos e Valores Mobiliários.A Companhia entende que este item permite uma   melhor avaliação de sua capacidade de liquidez.
+07.689.002/0001-89;2020-01-01;3;103399;2019-01-01;2019-12-31;28045104130.72;1.92500000;Índice de Endividamento;
+07.689.002/0001-89;2020-01-01;3;103399;2019-01-01;2019-12-31;0.00;5.70000000;Outros índices;Nível de alavancagem Financeira (Dívida líquida/EBITDA). Método utilizado para calcular : Dívida Líquida (Total dos Empréstimos e Financiamentos deduzindo-se o Caixa e equivalentes em caixa, Investimentos Financeiros e Títulos e Valores Mobiliários) dividido pelo EBITDA : calculado utilizando-se o lucro operacional antes das receitas (despesas) financeiras consolidadas, desconsiderando o efeito da depreciação e amortização.A Companhia entende que este índice possibilita o entendimento do nível de alavancagem, ou seja, quantos anos levaria para pagar a dívida, se a dívida líquida e o EBITDA forem mantidos constantes.
+07.689.002/0001-89;2020-01-01;3;103399;2019-01-01;2019-12-31;0.00;4.80000000;Outros índices;Prazo médio do endividamento. Método utilizado para calcular o índice: prazo médio ponderado das amortizações do principal das dividas com vencimento no curto e longo prazo. A Companhia entende que este índice possibilita a gestão do fluxo de vencimento de dívidas devido às disponibilidades e projeções futuras de geração de caixa.
+07.718.269/0001-57;2020-01-01;5;104763;2019-01-01;2019-12-31;1908239000.00;1.37617425;Índice de Endividamento;
+07.816.890/0001-53;2020-01-01;3;103091;2019-01-01;2019-12-31;3985748000.00;32.83000000;Índice de Endividamento;
+07.820.907/0001-46;2020-01-01;8;103234;2019-01-01;2019-12-31;15812000.00;0.10028095;Índice de Endividamento;
+07.857.093/0001-14;2020-01-01;11;99732;2019-01-01;2019-12-31;624311000.00;0.79000000;Índice de Endividamento;
+07.857.093/0001-14;2020-01-01;11;99732;2020-01-01;2020-12-31;1037861000.00;1.05000000;Índice de Endividamento;
+07.857.850/0001-50;2020-01-01;9;103802;2019-01-01;2019-12-31;599425000.00;21.98502484;Índice de Endividamento;
+07.859.510/0001-68;2020-01-01;3;103890;2019-01-01;2019-12-31;1567518000.00;1.03825229;Índice de Endividamento;
+07.859.971/0001-30;2020-01-01;10;104614;2019-01-01;2019-12-31;6303181000.00;1.27936700;Índice de Endividamento;
+07.859.971/0001-30;2020-01-01;10;104614;2019-01-01;2019-12-31;0.00;2.02792420;Outros índices;Dívida Líquida/EBITDA: Dívida Líquida/EBITDA significa a razão entre a Dívida Líquida e o EBITDA, conforme descrito no item 3.2 deste Formulário de Referência. Por Dívida Líquida entende-se os empréstimos e financiamentos, debêntures, financiamento por arrendamento e instrumentos financeiros derivativos passivos, circulante e não circulante, menos o caixa e equivalentes de caixa e os títulos e valores mobiliários, circulante e não circulante. A Companhia entende que o índice Dívida Líquida/EBITDA representa, de forma mais apropriada, o seu nível de endividamento e alavancagem, pois reflete a Dívida Bruta descontada do caixa e equivalentes de caixa e títulos e valores mobiliários (circulante e não circulante). O índice Dívida líquida/EBITDA considera o EBITDA para o período de 12 meses (Last twelve months - LTM) encerrados em 31 de dezembro de 2019. Em 1º de janeiro de 2019, entrou em vigor a nova norma que regula o tratamento contábil das Operações de Arrendamento Mercantil (IFRS 16//CPC 06(R2) emitida pelo IASB e CPC, respectivamente. Para a implementação de tal norma, a Companhia adotou o método retrospectivo modificado simplificado. Consequentemente, as informações financeiras de 31 de dezembro de 2018 não foram ajustadas para refletir a adoção do IFRS 16/CPC 06(R2). Para o exercício social encerrado em 31 de dezembro de 2019, o EBITDA e o EBITDA ajustado, bem como os saldos em 31 de dezembro de 2019 da Dívida Bruta e Dívida Líquida foram impactados pela adoção do IFRS16/CPC 06(R2).
+07.859.971/0001-30;2020-01-01;10;104614;2019-01-01;2019-12-31;0.00;2.58665640;Outros índices;Dívida Líquida/EBITDA Ajustado: Dívida Líquida/EBITDA Ajustado significa a razão entre a Dívida Líquida e o EBITDA Ajustado, conforme descrito no item 3.2 deste Formulário de Referência. Por Dívida Líquida entende-se os empréstimos e financiamentos, debêntures, financiamento por arrendamento e instrumentos financeiros derivativos passivos, circulante e não circulante, menos o caixa e equivalentes de caixa e os títulos e valores mobiliários, circulante e não circulante. A Companhia entende que o índice Dívida Líquida/EBITDA Ajustado representa, de forma mais apropriada, o seu nível de endividamento e alavancagem, pois reflete a Dívida Bruta descontada do caixa e equivalentes de caixa e títulos e valores mobiliários (circulante e não circulante) e o EBITDA ajustado pelo resultado de equivalência patrimonial. Para a reconciliação da Dívida líquida e do EBITDA Ajustado com as Demonstrações financeiras da Companhia vide o item 3.2 deste Formulário de Referência. O índice Dívida líquida/EBITDA Ajustado, considera o EBITDA Ajustado para o período de 12 meses (Last twelve months - LTM). Em 1º de janeiro de 2019, entrou em vigor a nova norma que regula o tratamento contábil das Operações de Arrendamento Mercantil (IFRS 16//CPC 06(R2) emitida pelo IASB e CPC, respectivamente. Para a implementação de tal norma, a Companhia adotou o método retrospectivo modificado simplificado. Consequentemente, as informações financeiras de 31 de dezembro de 2018 não foram ajustadas para refletir a adoção do IFRS 16/CPC 06(R2). Para o exercício social encerrado em 31 de dezembro de 2019, o EBITDA e o EBITDA ajustado, bem como os saldos em 31 de dezembro de 2019 da Dívida Bruta e Dívida Líquida foram impactados pela adoção do IFRS16/CPC 06(R2).
+07.950.674/0001-04;2020-01-01;1;95898;2019-01-01;2019-12-31;0.00;0.00636928;Outros índices;Índice de Endividamento Geral = (Passivo Circulante + Passivo Não Circulante) / Ativo Total. A Companhia entende que este índice é mais adequado para refletir o endividamento da Companhia, uma vez que a Companhia possui patrimônio líquido negativo.
+08.065.557/0001-12;2020-01-01;17;104836;2019-01-01;2019-12-31;771883000.00;0.81537941;Índice de Endividamento;
+08.065.557/0001-12;2020-01-01;17;104836;2019-01-01;2019-12-31;0.00;0.03300252;Outros índices;Devido ao [i] ciclo longo do setor de atuação da Companhia e [ii] às características específicas de alguma dívidas (tal como a dívida atrelada ao Sistema Financeiro de Habitação - SFH, cuja amortização é realizada através do repasse de recebíveis de clientes que optam por financiar o saldo devedor, após a conclusão do empreendimento, junto a instituições financeiras), a Companhia utiliza os seguintes índices para verificação de seu índice de endividamento:a) razão entre: (A) a diferença entre a Dívida Líquida e o Financiamento à Produção e (B) Patrimônio Líquido, que deverá ser sempre igual ou inferior a 0,80 (oitenta centésimos)Onde: "Dívida Líquida" corresponde à somatória, apurada com base nas demonstrações financeiras consolidadas auditadas da Emissora: (a) do valor de principal, juros e, quando devidos, demais encargos, inclusive moratórios, das dívidas de curto e de longo prazo decorrentes de: (i) qualquer mútuo, financiamento ou empréstimo contraído com instituições financeiras ou não, exceto aqueles realizados entre a Emissora e coligadas ou controladas, (ii) títulos de renda fixa, conversíveis ou não, em circulação no mercado de capitais local e/ou internacional, e (iii) instrumentos derivativos, menos (b) o somatório dos valores em caixa, bancos e aplicações financeiras"Financiamento à Produção" corresponde a qualquer financiamento contratado junto a uma instituição financeira ou no mercado de capitais, cujos recursos sejam direcionados à construção e desenvolvimento de empreendimentos residenciais, mas não a aquisição de terrenos para os mesmos, que estejam constantes nas rubricas "Financiamentos à Produção - SFH", "Financiamento à Produção - Capital de Giro" e "Financiamento à Produção - Dívida de Projetos" das notas explicativas das demonstrações financeiras da Emissora e"Patrimônio Líquido" é o patrimônio da Emissora, excluídos os valores da conta de reservas de reavaliação, se houver.
+08.065.557/0001-12;2020-01-01;17;104836;2019-01-01;2019-12-31;0.00;22.47043622;Outros índices;Devido ao [i] ciclo longo do setor de atuação da Companhia e [ii] às características específicas de alguma dívidas (tal como a dívida atrelada ao Sistema Financeiro de Habitação - SFH, cuja amortização é realizada através do repasse de recebíveis de clientes que optam por financiar o saldo devedor, após a conclusão do empreendimento, junto a instituições financeiras), a Companhia utiliza os seguintes índices para verificação de seu índice de endividamento:a) a razão entre (A) a soma do Total de Recebíveis e Imóveis a Comercializar e (B) a soma da diferença entre a Dívida Líquida e Financiamento à Produção, Imóveis a Pagar e Custos e Despesas a Apropriar deverá ser sempre igual ou maior a 1,50 (um inteiro e cinquenta centésimos) ou menos que 0 (zero) Onde: "Dívida Líquida" corresponde à somatória, apurada com base nas demonstrações financeiras consolidadas auditadas da Emissora: (a) do valor de principal, juros e, quando devidos, demais encargos, inclusive moratórios, das dívidas de curto e de longo prazo decorrentes de: (i) qualquer mútuo, financiamento ou empréstimo contraído com instituições financeiras ou não, exceto aqueles realizados entre a Emissora e coligadas ou controladas, (ii) títulos de renda fixa, conversíveis ou não, em circulação no mercado de capitais local e/ou internacional, e (iii) instrumentos derivativos, menos (b) o somatório dos valores em caixa, bancos e aplicações financeiras"Financiamento à Produção" corresponde a qualquer financiamento contratado junto a uma instituição financeira ou no mercado de capitais, cujos recursos sejam direcionados à construção e desenvolvimento de empreendimentos residenciais, mas não a aquisição de terrenos para os mesmos, que estejam constantes nas rubricas "Financiamentos à Produção - SFH", "Financiamento à Produção - Capital de Giro" e "Financiamento à Produção - Dívida de Projetos" das notas explicativas das demonstrações financeiras da Emissora"Imóveis a Pagar" corresponde aos valores constantes na rubrica "Contas a pagar por aquisição de imóveis""Custos e Despesas a Apropriar" corresponde aos valores consolidados constantes nas rubricas "Receita de imóveis vendidos a apropriar" e "Custos orçados dos imóveis vendidos a apropriar", respectivamente, nas notas explicativas da Emissora"Total de Recebíveis" corresponde à soma dos valores constantes nas rubricas "Contas a Receber" e "Receita de imóveis vendidos a apropriar", no balanço patrimonial e nas notas explicativas da Emissora, respectivamente e"Imóveis a Comercializar" é o valor apresentado na rubrica "Imóveis a comercializar" do balanço patrimonial da Emissora. 
+08.065.557/0001-12;2020-01-01;17;104836;2019-01-01;2019-12-31;0.00;0.03300252;Outros índices;Devido ao [i] ciclo longo do setor de atuação da Companhia e [ii] às características específicas de alguma dívidas (tal como a dívida atrelada ao Sistema Financeiro de Habitação - SFH, cuja amortização é realizada através do repasse de recebíveis de clientes que optam por financiar o saldo devedor, após a conclusão do empreendimento, junto a instituições financeiras), a Companhia utiliza os seguintes índices para verificação de seu índice de endividamento:a) razão entre: (A) a diferença entre a Dívida Líquida e o Financiamento à Produção e (B) Patrimônio Líquido, que deverá ser sempre igual ou inferior a 1,20 (um inteiro e vinte centésimos)Onde: "Dívida Líquida" corresponde à somatória, apurada com base nas demonstrações financeiras consolidadas auditadas da Emissora: (a) do valor de principal, juros e, quando devidos, demais encargos, inclusive moratórios, das dívidas de curto e de longo prazo decorrentes de: (i) qualquer mútuo, financiamento ou empréstimo contraído com instituições financeiras ou não, exceto aqueles realizados entre a Emissora e coligadas ou controladas, (ii) títulos de renda fixa, conversíveis ou não, em circulação no mercado de capitais local e/ou internacional, e (iii) instrumentos derivativos, menos (b) o somatório dos valores em caixa, bancos e aplicações financeiras"Financiamento à Produção" corresponde a qualquer financiamento contratado junto a uma instituição financeira ou no mercado de capitais, cujos recursos sejam direcionados à construção e desenvolvimento de empreendimentos residenciais, mas não a aquisição de terrenos para os mesmos, que estejam constantes nas rubricas "Financiamentos à Produção - SFH", "Financiamento à Produção - Capital de Giro" e "Financiamento à Produção - Dívida de Projetos" das notas explicativas das demonstrações financeiras da Emissora e"Patrimônio Líquido" é o patrimônio da Emissora, excluídos os valores da conta de reservas de reavaliação, se houver.
+08.070.508/0001-78;2020-03-31;9;97571;2018-04-01;2019-03-31;20293559.00;0.00000071;Índice de Endividamento;
+08.078.847/0001-09;2020-01-01;6;104556;2019-01-01;2019-12-31;227771000.00;1.28320967;Índice de Endividamento;
+08.159.965/0001-33;2020-01-01;8;103625;2019-01-01;2019-12-31;1685617000.00;2.01349203;Índice de Endividamento;
+08.159.965/0001-33;2020-01-01;8;103625;2020-01-01;2020-12-31;2117925000.00;2.54826903;Índice de Endividamento;
+08.294.224/0001-65;2020-01-01;18;103864;2019-01-01;2019-12-31;2781146000.00;0.90982626;Índice de Endividamento;
+08.294.224/0001-65;2020-01-01;18;103864;2020-01-01;2020-12-31;2829891000.00;0.93201619;Índice de Endividamento;
+08.312.229/0001-73;2020-01-01;5;103711;2019-01-01;2019-12-31;466372000.00;12.24000000;Índice de Endividamento;
+08.324.196/0001-81;2020-01-01;8;102919;2019-01-01;2019-12-31;3010197000.00;2.86079485;Índice de Endividamento;
+08.343.492/0001-20;2020-01-01;9;103102;2019-01-01;2019-12-31;9577536146.00;1.87471771;Índice de Endividamento;
+08.343.492/0001-20;2020-01-01;9;103102;2019-01-01;2019-12-31;0.00;0.21000000;Outros índices;O Índice de endividamento utilizado é o resultado da divisão da Dívida Líquida da Companhia por seu Patrimônio Líquido. A Dívida Líquida é composta por saldos de Empréstimos e Financiamentos (Dívida Bruta) deduzidos dos saldos de Caixa e Equivalentes de Caixa, de Títulos e Valores Mobiliários e de Instrumentos Financeiros Derivativos. O Patrimônio Líquido demonstra a estrutura de capital da Companhia. A Companhia entende que o referido índice demonstra de forma adequada o seu grau de alavancagem em relação ao próprio patrimônio.
+08.364.948/0001-38;2020-01-01;6;100969;2019-01-01;2019-12-31;11829667000.00;1.57000000;Índice de Endividamento;
+08.402.943/0001-52;2020-01-01;6;104340;2019-01-01;2019-12-31;7377933085.88;1.41215523;Índice de Endividamento;
+08.424.178/0001-71;2020-01-01;1;95172;2019-01-01;2019-12-31;89201955.09;100.00000000;Índice de Endividamento;
+08.439.659/0001-50;2020-01-01;10;104781;2019-01-01;2019-12-31;7162302224.23;1.54146600;Índice de Endividamento;
+08.467.115/0001-00;2020-01-01;15;104597;2019-01-01;2019-12-31;7838692247.73;1.88956516;Índice de Endividamento;
+08.493.364/0001-62;2020-03-31;1;87080;2018-04-01;2019-03-31;932190000.00;0.00087605;Índice de Endividamento;
+08.560.444/0001-93;2020-01-01;5;103763;2019-01-01;2019-12-31;3090812000.00;1.95917870;Índice de Endividamento;
+08.574.411/0001-00;2020-01-01;5;103989;2019-01-01;2019-12-31;78576000.00;1.59900000;Índice de Endividamento;
+08.613.550/0001-98;2020-01-01;14;103723;2019-01-01;2019-12-31;143925000.00;0.35717299;Índice de Endividamento;
+08.764.621/0001-53;2020-01-01;3;103889;2019-01-01;2019-12-31;1695050000.00;387.79455502;Índice de Endividamento;
+08.769.451/0001-08;2020-01-01;5;99126;2019-01-01;2019-12-31;37154000.00;9.21478175;Índice de Endividamento;
+08.769.451/0001-08;2020-01-01;5;99126;2020-01-01;2020-12-31;41393000.00;10.96503311;Índice de Endividamento;
+08.773.135/0001-00;2020-01-01;5;102932;2019-01-01;2019-12-31;311025000.00;2.74500026;Índice de Endividamento;
+08.773.191/0001-36;2020-01-01;1;95240;2019-01-01;2019-12-31;101773.00;1.51664600;Índice de Endividamento;
+08.795.211/0001-70;2020-01-01;4;104038;2019-01-01;2019-12-31;198951000.00;3.05995005;Índice de Endividamento;
+08.797.760/0001-83;2020-01-01;6;103656;2019-01-01;2019-12-31;924201125.05;2.54042780;Índice de Endividamento;
+08.801.621/0001-86;2020-01-01;6;103850;2019-01-01;2019-12-31;2148811000.00;0.67940212;Índice de Endividamento;
+08.801.621/0001-86;2020-01-01;6;103850;2019-01-01;2019-12-31;0.00;3.50131749;Outros índices;Dívida Líquida / EBITDA dos últimos doze meses findos em 31 de dezembro de 2019. A Companhia monitora esse índice para fins de acompanhamento dos covenants constantes das emissões de debêntures da Companhia.
+08.807.432/0001-10;2020-01-01;8;104577;2019-01-01;2019-12-31;2410140750.14;0.44000000;Índice de Endividamento;
+08.810.422/0001-34;2020-01-01;1;99231;2019-01-01;2019-12-31;286597317.42;0.86640000;Índice de Endividamento;
+08.810.422/0001-34;2020-01-01;1;99231;2020-01-01;2020-12-31;642177416.69;0.48170000;Índice de Endividamento;
+08.811.643/0001-27;2020-01-01;5;103554;2019-01-01;2019-12-31;1798507000.00;0.16718109;Índice de Endividamento;
+08.822.767/0001-08;2020-01-01;1;95236;2019-01-01;2019-12-31;766101.00;3.24000000;Índice de Endividamento;
+08.827.501/0001-58;2020-01-01;8;103494;2019-01-01;2019-12-31;6097316.00;3.36876905;Índice de Endividamento;
+08.873.873/0001-10;2020-01-01;10;104566;2019-01-01;2019-12-31;9204438315.84;9.45412200;Índice de Endividamento;
+08.902.291/0001-15;2020-01-01;5;103856;2019-01-01;2019-12-31;6520409063.42;0.70000000;Índice de Endividamento;
+08.902.291/0001-15;2020-01-01;5;103856;2020-01-01;2020-12-31;8709183863.68;0.82000000;Índice de Endividamento;
+08.926.302/0001-05;2020-01-01;9;104014;2019-01-01;2019-12-31;1822214000.00;3.77680000;Índice de Endividamento;
+08.937.002/0001-13;2020-01-01;1;95168;2019-01-01;2019-12-31;449809091.00;1.00000000;Índice de Endividamento;
+09.041.168/0001-10;2020-01-01;4;97132;2019-01-01;2019-12-31;10345030.00;0.35017769;Índice de Endividamento;
+09.042.817/0001-05;2020-01-01;7;104839;2019-01-01;2019-12-31;20594.00;0.05522700;Índice de Endividamento;
+09.042.817/0001-05;2020-01-01;7;104839;2020-01-01;2020-12-31;300203.00;0.65899700;Índice de Endividamento;
+09.053.134/0001-45;2020-01-01;6;104584;2019-01-01;2019-12-31;811649000.00;0.63715714;Índice de Endividamento;
+09.054.385/0001-44;2020-01-01;5;103235;2019-01-01;2019-12-31;896098000.00;2.26033400;Índice de Endividamento;
+09.074.183/0001-64;2020-01-01;1;94994;2019-01-01;2019-12-31;265282.00;1.18000000;Índice de Endividamento;
+09.083.175/0001-84;2020-01-01;6;103760;2019-01-01;2019-12-31;134538000.00;2.26293038;Índice de Endividamento;
+09.095.183/0001-40;2020-01-01;4;104549;2019-01-01;2019-12-31;1911238000.00;2.05385127;Índice de Endividamento;
+09.095.183/0001-40;2020-01-01;4;104549;2019-01-01;2019-12-31;0.00;0.00000000;Índice de Endividamento;
+09.114.805/0001-30;2020-01-01;5;103577;2019-01-01;2019-12-31;0.00;3.61000000;Outros índices;A Companhia utiliza os índices Dívida Líquida/EBITDA como medidas adicionais de performance para efeito gerencial e para comparação com empresas similares.
+09.114.805/0001-30;2020-01-01;5;103577;2019-01-01;2019-12-31;544628000.00;3.62000000;Índice de Endividamento;
+09.116.278/0001-01;2020-01-01;1;95175;2019-01-01;2019-12-31;287550.00;1.39000000;Índice de Endividamento;
+09.146.451/0001-06;2020-01-01;1;95706;2019-01-01;2019-12-31;629627000.00;1.57000000;Índice de Endividamento;
+09.146.451/0001-06;2020-01-01;1;95706;2020-01-01;2020-12-31;400192000.00;0.68000000;Índice de Endividamento;
+09.149.503/0001-06;2020-01-01;21;104840;2019-01-01;2019-12-31;0.00;4.59820000;Outros índices;Na visão da Companhia o melhor indicador para monitorar a capacidade financeira da Companhia de servir e amortizar seus financiamentos é o índice de cobertura do serviço da dívida, dado que a métrica leva em consideração o perfil longo e de baixo custo do seu endividamento. EBITDA (R$ em milhões): 573,2. Método utilizado para calcular o índice: O caixa é composto por caixa, equivalentes de caixa e caixa restrito. Serviço da dívida é composto por pagamento de principal e juros de empréstimos.
+09.149.503/0001-06;2020-01-01;21;104840;2019-01-01;2019-12-31;4400808.00;1.53784984;Índice de Endividamento;
+09.257.877/0001-37;2020-01-01;2;97970;2019-01-01;2019-12-31;833671000.00;35.71206430;Índice de Endividamento;
+09.288.252/0001-32;2020-01-01;13;104575;2019-01-01;2019-12-31;1709588000.00;0.71232151;Índice de Endividamento;
+09.288.252/0001-32;2020-01-01;13;104575;2020-01-01;2020-12-31;2040068000.00;0.55098210;Índice de Endividamento;
+09.295.063/0001-97;2020-01-01;7;103753;2019-01-01;2019-12-31;331606000.00;1.17030000;Índice de Endividamento;
+09.304.427/0001-58;2020-01-01;1;95326;2019-01-01;2019-12-31;622995.10;0.12647808;Índice de Endividamento;
+09.305.994/0001-29;2020-01-01;23;104561;2019-01-01;2019-12-31;22716664000.00;6.45511248;Índice de Endividamento;
+09.313.969/0001-97;2020-01-01;3;102713;2019-01-01;2019-12-31;2015748.00;1.74493420;Índice de Endividamento;
+09.324.949/0001-11;2020-01-01;4;102942;2019-01-01;2019-12-31;1345861908.57;1.69302755;Índice de Endividamento;
+09.325.109/0001-73;2020-01-01;2;102714;2019-01-01;2019-12-31;566298699.00;0.69767805;Índice de Endividamento;
+09.326.342/0001-70;2020-01-01;2;102790;2019-01-01;2019-12-31;861804.00;0.73987597;Índice de Endividamento;
+09.336.431/0001-06;2020-01-01;3;102686;2019-01-01;2019-12-31;1841377000.00;1.68000000;Índice de Endividamento;
+09.346.601/0001-25;2020-01-01;11;103927;2019-01-01;2019-12-31;14626082000.00;57.60000000;Índice de Endividamento;
+09.347.516/0001-81;2020-01-01;7;102771;2019-01-01;2019-12-31;219700000.00;3.10179303;Índice de Endividamento;
+09.347.516/0001-81;2020-01-01;7;102771;2020-01-01;2020-12-31;888417000.00;6.95450382;Índice de Endividamento;
+09.391.823/0001-60;2020-01-01;10;103379;2019-01-01;2019-12-31;18492225.00;5.67000000;Índice de Endividamento;
+09.414.761/0001-64;2020-01-01;2;96544;2019-01-01;2019-12-31;99700000.00;0.22000000;Índice de Endividamento;
+09.439.783/0001-89;2020-01-01;1;93576;2019-01-01;2019-12-31;292635.00;1.75800000;Índice de Endividamento;
+09.611.768/0001-76;2020-01-01;7;110997;2019-01-01;2019-12-31;623629513.89;0.92330000;Índice de Endividamento;
+09.625.321/0001-56;2020-01-01;4;97550;2019-01-01;2019-12-31;1600974000.00;0.87839500;Índice de Endividamento;
+09.813.204/0001-16;2020-01-01;1;96834;2019-01-01;2019-12-31;129800000.00;1.70247370;Índice de Endividamento;
+09.813.204/0001-16;2020-01-01;1;96834;2019-01-01;2019-12-31;0.00;10.52406791;Outros índices;O endividamento geral, em 31 de dezembro de 2019, é calculado pela divisão da dívida bruta pelo ativo total, multiplicado por 100. A dívida bruta total consiste na consolidação dos empréstimos e financiamentos circulantes e não circulantes. A companhia entende que utilização deste índice permite mensurar a proporção total do seu endividamento em relação ao eu ativo total que está sendo financiado.
+09.813.204/0001-16;2020-01-01;1;96834;2020-01-01;2020-12-31;0.00;13.74397599;Outros índices;O endividamento geral, em 30 de junho de 2020, é calculado pela divisão da dívida bruta pelo ativo total, multiplicado por 100. A dívida bruta total consiste na consolidação dos empréstimos e financiamentos circulantes e não circulantes. A companhia entende que utilização deste índice permite mensurar a proporção total do seu endividamento em relação ao eu ativo total que está sendo financiado.
+09.813.204/0001-16;2020-01-01;1;96834;2020-01-01;2020-12-31;153676000.00;1.94686768;Índice de Endividamento;
+10.139.870/0001-08;2020-01-01;5;103758;2019-01-01;2019-12-31;196493.00;143.10000000;Índice de Endividamento;
+10.139.870/0001-08;2020-01-01;5;103758;2020-01-01;2020-12-31;198309.00;144.60000000;Índice de Endividamento;
+10.215.988/0001-60;2020-01-01;8;103602;2019-01-01;2019-12-31;0.00;3.54000000;Outros índices;EBITDA/despesas financeiras líquidas - Utilizamos este índice para cumprimento de "covenants" previstos em escritura de debentures de nossa emissão. O EBITDA para fins de cálculo deste covenant é calculado conforme demonstrado no item 10.1.f "iv" deste Formulário de Referência.
+10.215.988/0001-60;2020-01-01;8;103602;2019-01-01;2019-12-31;0.00;0.74000000;Outros índices;Dívida Líquida/Patrimônio Líquido.Utilizamos este índice para cumprimento de "covenants" previstos em escritura de debentures de nossa emissão. Entendemos que este índice é apropriado para monitoramento de nossa estrutura de capital, por representar a relação entre o capital de terceiros e o capital de nossos acionistas. Para maiores informações sobre a formula de cálculo deste índice, vide item 10.1.f "iv" deste Formulário de Referência.
+10.215.988/0001-60;2020-01-01;8;103602;2019-01-01;2019-12-31;0.00;0.39800000;Outros índices;Dívida Líquida / Valor contábil da frota.Por "Valor contábil da frota" entende-se como o valor de aquisição do veículo, menos o valor de depreciação acumulada e de "impairment". Para definição de "Dívida líquida", veja item 3.2 deste Formulário de Referência.Utilizamos este índice para cumprimento de "covenants" previstos em escritura de debentures de nossa emissão. Entendemos que este índice é apropriado para monitoramento de nossa estrutura de capital, por representar a relação entre o capital de terceiros e o capital de nossos acionistas. Para maiores informações sobre a formula de cálculo deste índice, vide item 10.1.f "iv" deste Formulário de Referência.
+10.215.988/0001-60;2020-01-01;8;103602;2019-01-01;2019-12-31;7143583000.00;0.65000000;Índice de Endividamento;
+10.234.027/0001-00;2020-01-01;1;94045;2019-01-01;2019-12-31;1046889000.00;0.54000000;Índice de Endividamento;
+10.240.186/0001-00;2020-01-01;4;102707;2019-01-01;2019-12-31;1210951000.00;0.11000000;Índice de Endividamento;
+10.285.590/0001-08;2020-01-01;14;104694;2019-01-01;2019-12-31;912798000.00;2.66078425;Índice de Endividamento;
+10.324.624/0001-18;2020-01-01;13;103496;2019-01-01;2019-12-31;1304720.00;0.97000000;Índice de Endividamento;
+10.338.320/0001-00;2020-01-01;7;102917;2019-01-01;2019-12-31;11309000.00;0.05276049;Índice de Endividamento;
+10.488.244/0001-19;2020-01-01;1;95400;2019-01-01;2019-12-31;2480487.00;153.27609680;Índice de Endividamento;
+10.531.501/0001-58;2020-01-01;2;98543;2019-01-01;2019-12-31;1687704.00;0.68000000;Índice de Endividamento;
+10.571.175/0001-02;2020-01-01;4;102616;2019-01-01;2019-12-31;123842000.00;0.89210000;Índice de Endividamento;
+10.571.175/0001-02;2020-01-01;4;102616;2020-01-01;2020-12-31;163746000.00;1.09430000;Índice de Endividamento;
+10.608.405/0001-60;2020-01-01;12;99738;2019-01-01;2019-12-31;604000.00;0.26572800;Índice de Endividamento;
+10.629.105/0001-68;2020-01-01;22;103769;2019-01-01;2019-12-31;3324650000.00;1.53556300;Índice de Endividamento;
+10.629.105/0001-68;2020-01-01;22;103769;2019-01-01;2019-12-31;0.00;1.12958100;Outros índices;A Companhia utiliza os índices Dívida Líquida sobre EBITDA Ajustado Ex-IFRS 12 meses, indicador de alavancagem utilizado no mercado que desconsidera resultados que não fazem parte da operação usual e efeitos da implementação do IFRS16, como medidas adicionais de performance para efeito gerencial e para comparação com empresas similares.
+10.635.691/0001-53;2020-01-01;1;95391;2019-01-01;2019-12-31;724229.00;0.00039492;Índice de Endividamento;
+10.647.979/0001-48;2020-01-01;6;104639;2019-01-01;2019-12-31;2460557.00;2.84000000;Índice de Endividamento;
+10.670.314/0001-55;2020-01-01;1;94624;2019-01-01;2019-12-31;1470448556.00;0.70000000;Índice de Endividamento;
+10.753.164/0001-43;2020-01-01;5;99082;2020-01-01;2020-12-31;2827000.00;1.45000000;Índice de Endividamento;
+10.760.260/0001-19;2020-01-01;15;103508;2019-01-01;2019-12-31;6099033.00;0.88000000;Índice de Endividamento;
+10.760.260/0001-19;2020-01-01;15;103508;2019-01-01;2019-12-31;0.00;3.20000000;Outros índices;Dívida Líquida - Em 31 de dezembro de 2019, nosso endividamento líquido era de R$ 1.744,9 milhões divididos pelo nosso EBITDA ajustado que era R$546,1 milhões para o período de doze meses encerrados em 31 de dezembro de 2019, representando um índice de endividamento líquido de 3,20. Por endividamento líquido (dívida líquida) deve-se entender o somatório dos empréstimos, financiamentos e debêntures circulantes e não circulantes, deduzidos ou acrescidos dos instrumentos derivativos enquadrados como "hedge accounting" para protegê-los, somado às contas a pagar de recentes aquisições de participações societárias (circulante e não circulante) e subtraído do saldo de caixa e equivalentes de caixa. Entendemos que o índice endividamento líquido / EBITDA Ajustado representa, de forma mais apropriada, o índice de endividamento da Companhia, pois reflete o endividamento consolidado líquido das suas disponibilidades imediatas para pagamentos, considerada a sua geração de caixa operacional.
+10.807.374/0001-77;2020-01-01;1;97783;2019-01-01;2019-12-31;16263300.00;3.96617486;Índice de Endividamento;
+10.807.374/0001-77;2020-01-01;1;97783;2020-01-01;2020-12-31;366478000.00;5.05326586;Índice de Endividamento;
+10.835.932/0001-08;2020-01-01;10;103116;2019-01-01;2019-12-31;6169955000.00;3.87202458;Índice de Endividamento;
+10.841.050/0001-55;2020-01-01;10;104565;2019-01-01;2019-12-31;1041699080.67;1.76556518;Índice de Endividamento;
+10.851.805/0001-00;2020-01-01;4;103604;2019-01-01;2019-12-31;0.00;3.96000000;Outros índices;O índice descrito refere-se a Dívida liquida/EBITDA.Descrição (a) Dívida Líquida significa, em bases consolidadas, o somatório dos saldos das dívidas da Companhia, tais como empréstimos e financiamentos com terceiros, leasing financeiro, debêntures e contas a pagar decorrente de aquisição de empresas menos as disponibilidades em caixa e aplicações financeiras (b) "EBITDA" significa, em bases consolidadas, lucro líquido, adicionando o resultado financeiro, as despesas com IR e CS e as depreciações e amortizações do período.
+11.257.352/0001-43;2020-01-01;1;93955;2019-01-01;2019-12-31;965502.08;0.68000000;Índice de Endividamento;
+11.274.829/0001-07;2020-01-01;4;103821;2019-01-01;2019-12-31;401682114.00;0.95395204;Índice de Endividamento;
+11.284.204/0001-18;2020-01-01;16;103553;2019-01-01;2019-12-31;576544000.00;65.47722611;Índice de Endividamento;
+11.284.204/0001-18;2020-01-01;16;103553;2020-01-01;2020-12-31;576053000.00;67.26729408;Índice de Endividamento;
+11.421.994/0001-36;2020-01-01;6;103012;2019-01-01;2019-12-31;751537000.00;7.63578600;Índice de Endividamento;
+11.421.994/0001-36;2020-01-01;6;103012;2019-01-01;2019-12-31;0.00;4.28813800;Outros índices;Alavancagem Ajustada.A administração da Companhia entende que este índice é importante para acompanhar o seu nível de endividamento (Dívida Líquida / EBITDA Ajustado).
+11.421.994/0001-36;2020-01-01;6;103012;2020-01-01;2020-12-31;600215000.00;7.95872200;Índice de Endividamento;
+11.421.994/0001-36;2020-01-01;6;103012;2020-01-01;2020-12-31;0.00;2.91584500;Outros índices;Alavancagem Ajustada.A administração da Companhia entende que este índice é importante para acompanhar o seu nível de endividamento (Dívida Líquida / EBITDA Ajustado).
+11.669.021/0001-10;2020-01-01;7;103825;2019-01-01;2019-12-31;1653633495.84;0.57110000;Índice de Endividamento;
+11.716.471/0001-17;2020-01-01;1;95183;2019-01-01;2019-12-31;121691.00;0.50815955;Índice de Endividamento;
+11.721.921/0001-60;2020-01-01;8;103968;2019-01-01;2019-12-31;85121402.29;0.48363893;Índice de Endividamento;
+11.725.176/0001-27;2020-01-01;9;103323;2019-01-01;2019-12-31;427471000.00;1.21806043;Índice de Endividamento;
+11.725.176/0001-27;2020-01-01;9;103323;2020-01-01;2020-12-31;499353000.00;1.33469738;Índice de Endividamento;
+11.992.680/0001-93;2020-01-01;15;104749;2019-01-01;2019-12-31;1953226000.00;1.36892000;Índice de Endividamento;
+12.049.631/0001-84;2020-01-01;4;99669;2019-01-01;2019-12-31;0.00;14.02643386;Outros índices;Trata-se de índice de endividamento desconsiderando as dívidas do SFH, pois elas são autoliquidáveis em cada projeto (estoques e recebíveis são garantias para liquidação).
+12.049.631/0001-84;2020-01-01;4;99669;2019-01-01;2019-12-31;2152138000.00;23.84296999;Índice de Endividamento;
+12.091.809/0001-55;2020-01-01;8;100714;2019-01-01;2019-12-31;159651000.00;0.67422179;Índice de Endividamento;
+12.108.897/0001-50;2020-01-01;9;104779;2019-01-01;2019-12-31;629594000.00;1.35091804;Índice de Endividamento;
+12.108.897/0001-50;2020-01-01;9;104779;2020-01-01;2020-12-31;738222000.00;1.60568564;Índice de Endividamento;
+12.130.744/0001-00;2020-01-01;5;100899;2019-01-01;2019-12-31;2677000.00;1.14401709;Índice de Endividamento;
+12.139.922/0001-63;2020-01-01;1;93612;2019-01-01;2019-12-31;368202.62;0.74998533;Índice de Endividamento;
+12.181.987/0001-77;2020-01-01;8;104089;2019-01-01;2019-12-31;724059000.00;59.13000000;Índice de Endividamento;
+12.181.987/0001-77;2020-01-01;8;104089;2020-01-01;2020-12-31;836705000.00;57.45000000;Índice de Endividamento;
+12.261.588/0001-16;2020-01-01;1;95214;2019-01-01;2019-12-31;134000.00;14.13502110;Índice de Endividamento;
+12.300.288/0001-07;2020-01-01;9;104815;2019-01-01;2019-12-31;0.00;1.26000000;Outros índices;Utilizamos o ICSD como um outro tipo de índice de endividamento para fins de cálculo da obrigação estabelecida na Cláusula 14º, item XVI do Contrato de Financiamento firmando junto ao Banco Nacional de Desenvolvimento Econômico e Social. A forma de cálculo para os últimos 12 meses é ICSD = (A)/(B)Sendo:(A) Geração de caixa(+) EBITDA( - ) Imposto de renda( - ) Contribuição social(B) Serviço da dívida(+) Amortização de principal(+) Pagamento de juros
+12.300.288/0001-07;2020-01-01;9;104815;2019-01-01;2019-12-31;0.00;0.31000000;Outros índices;Índice da relação entre o capital próprio (Patrimônio Líquido) e o Ativo Total. Utilizamos o IC como índice de endividamento para fins de cálculo da obrigação estabelecida na Cláusula 14º, item XVII do Contrato de Financiamento firmando junto ao Banco Nacional de Desenvolvimento Econômico e Social.
+12.300.288/0001-07;2020-01-01;9;104815;2019-01-01;2019-12-31;31008179.00;2.20988490;Índice de Endividamento;
+12.320.349/0001-90;2020-01-01;1;94933;2019-01-01;2019-12-31;4354272.00;0.59250000;Índice de Endividamento;
+12.489.315/0001-23;2020-01-01;2;99293;2019-01-01;2019-12-31;665490000.00;0.75000000;Índice de Endividamento;
+12.528.708/0001-07;2020-01-01;10;103623;2019-01-01;2019-12-31;627918000.00;3.60000000;Índice de Endividamento;
+12.528.708/0001-07;2020-01-01;10;103623;2019-01-01;2019-12-31;0.00;1.77000000;Outros índices;Dívida Líquida/ EBITDA antes do Incentivo Fiscal (últimos 12 meses). A Companhia entende que este índice representa a medida mais apropriada para a correta compreensão de sua condição financeira e do resultado de suas operações, pois mostra as atividades ligadas ao seu objeto social, sendo utilizado internamente para avaliar o desempenho econômico-financeiro da Companhia.
+12.648.266/0001-24;2020-01-01;9;96882;2019-01-01;2019-12-31;413625000.00;1.98000000;Índice de Endividamento;
+12.648.266/0001-24;2020-01-01;9;96882;2019-01-01;2019-12-31;0.00;1.84000000;Outros índices;Alavancagem. Esse índice é representado pelo EBITDA dividido pela dívida líquida (capital de terceiros (-) caixa e equivalentes de caixa). A Companhia mantém cláusulas restritivas relacionada a este índice.
+12.648.266/0001-24;2020-01-01;9;96882;2020-01-01;2020-12-31;0.00;2.07000000;Outros índices;Alavancagem. Esse índice é representado pelo EBITDA (anualizado, considerando últimos 12 meses) dividido pela dívida líquida (capital de terceiros (-) caixa e equivalentes de caixa). A Companhia mantém cláusulas restritivas relacionada a este índice.
+12.648.266/0001-24;2020-01-01;9;96882;2020-01-01;2020-12-31;477399000.00;2.05000000;Índice de Endividamento;
+12.648.327/0001-53;2020-01-01;18;104716;2019-01-01;2019-12-31;3174093594.00;2.06000000;Índice de Endividamento;
+12.648.327/0001-53;2020-01-01;18;104716;2020-01-01;2020-12-31;4320067673.00;3.13000000;Índice de Endividamento;
+12.827.269/0001-25;2020-01-01;1;95591;2019-01-01;2019-12-31;280000.00;50.86000000;Índice de Endividamento;
+12.919.786/0001-24;2020-01-01;3;103806;2019-01-01;2019-12-31;0.00;0.29004000;Outros índices;Dívida Bruta / Passivo Total - A dívida bruta consiste no somatório dos empréstimos e financiamentos (circulante e não circulante). O passivo total é a soma dos passivos circulantes e não circulantes, incluindo o Patrimônio Líquido.O índice de endividamento Dívida Bruta / Passivo Total indica a representatividade do saldo de empréstimos e financiamentos (circulante e não circulante) em relação ao total do passivo e do patrimônio líquido da Companhia.Entendemos que o índice de endividamento Dívida Bruta / Passivo Total representa, de forma mais apropriada, nosso índice de endividamento, pois reflete a representatividade do saldo de empréstimos e financiamentos (circulante e não circulante) em relação ao passivo total da Companhia, conforme definido acima.
+12.919.786/0001-24;2020-01-01;3;103806;2019-01-01;2019-12-31;3123531000.00;15.00716000;Índice de Endividamento;
+12.979.898/0001-70;2020-01-01;4;104816;2019-01-01;2019-12-31;2152081.08;126.92000000;Índice de Endividamento;
+13.009.717/0001-46;2020-01-01;22;103017;2019-01-01;2019-12-31;5490782702.29;11.60000000;Índice de Endividamento;
+13.017.462/0001-63;2020-01-01;2;97252;2019-01-01;2019-12-31;1619945000.00;4.55844861;Índice de Endividamento;
+13.217.485/0001-11;2020-01-01;10;104632;2019-01-01;2019-12-31;0.00;0.22940798;Outros índices;Utilizamos o índice "Dívida Líquida/EBITDA Ajustado" como forma de calcular o nosso potencial de honrar nossas obrigações financeiras.Acreditamos que o índice representa a capacidade de gerar resultado operacional suficiente para fazer frente aos compromissos financeiros.
+13.217.485/0001-11;2020-01-01;10;104632;2019-01-01;2019-12-31;2765063000.00;2.36600340;Índice de Endividamento;
+13.349.677/0001-81;2020-01-01;1;95427;2019-01-01;2019-12-31;22649578.99;0.92969646;Índice de Endividamento;
+13.444.994/0001-87;2020-01-01;4;102121;2019-01-31;2019-12-31;0.00;0.15000000;Outros índices;Como medida alternativa utilizamos o índice de endividamento ajustado. Neste indicador, foi desconsiderado o valor registrado no passivo referente ao AFRMM (Subvenções governamentais a apropriar - AFRMM, no valor de R$208.789 por não significar um passivo efetivo da Companhia, conforme Nota Explicativa 5 das DFs.
+13.444.994/0001-87;2020-01-01;4;102121;2019-01-31;2019-12-31;385808000.00;0.32000000;Índice de Endividamento;
+13.457.942/0001-45;2020-01-01;2;95226;2019-01-01;2019-12-31;0.00;0.03863147;Outros índices;Dívida Líquida em 31 de dezembro de 2019 no montante de R$6.278 mil dividida pelo Patrimônio Líquido de R$162.510 mil na mesma data (vide reconciliação no item 3.2 deste Formulário de Referência). A Companhia utiliza o índice Dívida Líquida sobre o Patrimônio Líquido para medir o grau de alavancagem em relação ao Patrimônio Líquido (capital próprio).
+13.457.942/0001-45;2020-01-01;2;95226;2019-01-01;2019-12-31;35362000.00;0.21759892;Índice de Endividamento;
+13.457.942/0001-45;2020-01-01;2;95226;2020-01-01;2020-12-31;0.00;0.03293858;Outros índices;Dívida Líquida em 31 de março de 2020 no montante de R$5.343 mil dividida pelo Patrimônio Líquido de R$162.211 mil na mesma data (vide reconciliação no item 3.2 deste Formulário de Referência). A Companhia utiliza o índice Dívida Líquida sobre o Patrimônio Líquido como indicador para medir o grau de alavancagem em relação ao Patrimônio Líquido (capital próprio).
+13.457.942/0001-45;2020-01-01;2;95226;2020-01-01;2020-12-31;31746000.00;0.19570806;Índice de Endividamento;
+13.483.537/0001-00;2020-01-01;2;99279;2019-01-01;2019-12-31;8748544.00;0.22723312;Índice de Endividamento;
+13.574.594/0001-96;2020-01-01;22;103639;2019-01-01;2019-12-31;1741431000.00;0.97470208;Índice de Endividamento;
+13.574.594/0001-96;2020-01-01;22;103639;2020-01-01;2020-12-31;2041971000.00;1.41012890;Índice de Endividamento;
+13.584.310/0001-42;2020-01-01;2;95720;2019-01-01;2019-12-31;355573000.00;7.25925850;Índice de Endividamento;
+14.110.585/0001-07;2020-01-01;7;103579;2019-01-01;2019-12-31;14918000.00;0.65161178;Índice de Endividamento;
+14.110.585/0001-07;2020-01-01;7;103579;2020-01-01;2020-12-31;16329000.00;0.45886023;Índice de Endividamento;
+14.191.427/0001-29;2020-01-01;9;108785;2019-01-01;2019-12-31;971903000.00;0.58290000;Índice de Endividamento;
+14.308.514/0001-13;2020-01-01;1;94471;2019-01-01;2019-12-31;954865443.54;0.45978382;Índice de Endividamento;
+14.333.683/0001-03;2020-01-01;1;95003;2019-01-01;2019-12-31;7790313.00;1.00000000;Índice de Endividamento;
+14.388.334/0001-99;2020-01-01;5;102621;2019-01-01;2019-12-31;4575769001.01;2.99429100;Índice de Endividamento;
+14.776.142/0001-50;2020-01-01;7;103041;2019-01-01;2019-12-31;39225000.00;4.59040374;Índice de Endividamento;
+14.776.142/0001-50;2020-01-01;7;103041;2020-01-01;2020-12-31;98781000.00;11.07658668;Índice de Endividamento;
+14.785.152/0001-51;2020-01-01;8;100575;2019-01-01;2019-12-31;969752000.00;0.41188500;Índice de Endividamento;
+14.785.152/0001-51;2020-01-01;8;100575;2020-01-01;2020-12-31;995044000.00;0.41511200;Índice de Endividamento;
+14.876.090/0001-93;2020-01-01;3;133636;2019-01-01;2019-12-31;409000.00;0.61782477;Índice de Endividamento;
+14.876.090/0001-93;2020-01-01;3;133636;2020-01-01;2020-12-31;171000.00;0.84236453;Índice de Endividamento;
+14.882.295/0001-81;2020-01-01;2;95781;2019-01-01;2019-12-31;0.00;5.26416300;Outros índices;Índice utilizado: Dívida Líquida/EBITDA em Real (R$)Justificativa: Esse índice é utilizado pela Companhia fins de acompanhamento (i) do endividamento em relação à performance operacional e (ii) da avaliação de covenants em contratos financeiros.A Dívida Líquida (R$ 3.368.006 mil em 31.12.2019) equivale ao total da Dívida Bruta deduzida do saldo de caixa e equivalentes de caixa e aplicações financeiras restritas, sendo que a Dívida Bruta equivale ao total da soma dos empréstimos e financiamentos (circulante e não circulante). Vide item 3.2 deste Formulário de Referência para mais informações.O EBITDA (R$ 639.799 mil em 31.12.2019) equivale ao lucro líquido adicionado pela despesa de imposto de renda e contribuição social corrente e diferido, pelo resultado financeiro líquido e pelas despesas com depreciação e amortização. Vide item 3.2 deste Formulário de Referência para mais informações.
+14.882.295/0001-81;2020-01-01;2;95781;2019-01-01;2019-12-31;3774068794.33;4.51356600;Índice de Endividamento;
+14.882.295/0001-81;2020-01-01;2;95781;2019-01-01;2019-12-31;0.00;4.38410800;Outros índices;Índice utilizado: Dívida Líquida/EBITDA Ajustado em Dólar (US$)Justificativa: Esse índice é utilizado pela Companhia fins de acompanhamento (i) do endividamento em relação à performance operacional e (ii) da avaliação de covenants em contratos financeiros, e é informado em dólar dado que a moeda funcional da Companhia é em dólar.A Dívida Líquida (US$ 835.589 mil em 31.12.2019) equivale ao total da Dívida Bruta deduzida do saldo de caixa e equivalentes de caixa e aplicações financeiras restritas, sendo que a Dívida Bruta equivale ao total da soma dos empréstimos e financiamentos (circulante e não circulante). Vide item 3.2 deste Formulário de Referência para mais informações.O EBITDA Ajustado (US$ 190.595 mil em 31.12.2019) O EBITDA Ajustado é calculado por meio do EBITDA excluindo (i) o efeito da Provisão para redução ao valor recuperável de ativos e (ii) despesas que a administração julga a ser não recorrentes. Adicionalmente, informamos que os valores em dólares foram convertidos pela taxa histórica da transação para os aos períodos de 2017, 2018, 2019 e 2020, sendo que em 2017 e 2018 a moeda funcional era o Real e em 2019 e 2020 a moeda funcional passou a seu o Dólar. Vide item 3.2 deste Formulário de Referência para mais informações.
+14.882.295/0001-81;2020-01-01;2;95781;2019-01-01;2019-12-31;0.00;4.44359600;Outros índices;Índice utilizado: Dívida Líquida/EBITDA Ajustado em Real (R$)Justificativa: Esse índice é utilizado pela Companhia fins de acompanhamento (i) do endividamento em relação à performance operacional e (ii) da avaliação de covenants em contratos financeiros.A Dívida Líquida (R$ 3.368.006 mil em 31.12.2019) equivale ao total da Dívida Bruta deduzida do saldo de caixa e equivalentes de caixa e aplicações financeiras restritas, sendo que a Dívida Bruta equivale ao total da soma dos empréstimos e financiamentos (circulante e não circulante). Vide item 3.2 deste Formulário de Referência para mais informações.O EBITDA Ajustado (R$ 757.946 mil em 31.12.2019) ) O EBITDA Ajustado é calculado por meio do EBITDA excluindo (i) o efeito da Provisão para redução ao valor recuperável de ativos e (ii) despesas que a administração julga a ser não recorrentes. Vide item 3.2 deste Formulário de Referência para mais informações.
+14.882.295/0001-81;2020-01-01;2;95781;2019-01-01;2019-12-31;0.00;5.19738600;Outros índices;Índice utilizado: Dívida Líquida/EBITDA em Dólar (US$)Justificativa: Esse índice é utilizado pela Companhia fins de acompanhamento (i) do endividamento em relação à performance operacional e (ii) da avaliação de covenants em contratos financeiros, e é informado em dólar dado que a moeda funcional da Companhia é em dólar.A Dívida Líquida (US$ 835.589 mil em 31.12.2019) equivale ao total da Dívida Bruta deduzida do saldo de caixa e equivalentes de caixa e aplicações financeiras restritas, sendo que a Dívida Bruta equivale ao total da soma dos empréstimos e financiamentos (circulante e não circulante). Vide item 3.2 deste Formulário de Referência para mais informações.O EBITDA (US$ 160.771 mil em 31.12.2019) equivale ao lucro líquido adicionado pela despesa de imposto de renda e contribuição social corrente e diferido, pelo resultado financeiro líquido e pelas despesas com depreciação e amortização. Adicionalmente, informamos que os valores em dólares foram convertidos pela taxa histórica da transação para os aos períodos de 2017, 2018, 2019 e 2020, sendo que em 2017 e 2018 a moeda funcional era o Real e em 2019 e 2020 a moeda funcional passou a seu o Dólar. Vide item 3.2 deste Formulário de Referência para mais informações.
+14.998.371/0001-19;2020-01-01;6;102981;2019-01-01;2019-12-31;1234303000.00;2.58785975;Índice de Endividamento;
+15.115.504/0001-24;2020-01-01;3;100130;2019-01-01;2019-12-31;211875484.00;0.26840000;Índice de Endividamento;
+15.139.629/0001-94;2020-01-01;8;102913;2019-01-01;2019-12-31;12726207.00;2.62990734;Índice de Endividamento;
+15.141.799/0001-03;2020-01-01;6;104757;2019-01-01;2019-12-31;494397000.00;26.89610000;Índice de Endividamento;
+15.144.017/0001-90;2020-01-01;3;104813;2019-01-01;2019-12-31;291400589.57;1.59708390;Índice de Endividamento;
+15.229.110/0001-05;2020-01-01;1;93834;2019-01-01;2019-12-31;13125178.00;136.30000000;Índice de Endividamento;
+15.377.572/0001-61;2020-01-01;2;109323;2019-01-01;2019-12-31;46761435.00;338.31000000;Índice de Endividamento;
+15.413.826/0001-50;2020-01-01;3;99328;2019-01-01;2019-12-31;2523167000.00;2.84067492;Índice de Endividamento;
+15.484.093/0001-44;2020-01-01;12;104764;2019-01-01;2019-12-31;505737363.99;0.92022020;Índice de Endividamento;
+15.494.541/0001-90;2020-01-01;4;104048;2019-01-01;2019-12-31;322331643.83;83.68432549;Índice de Endividamento;
+15.527.906/0001-36;2020-03-31;6;97198;2018-04-01;2019-03-31;8309323000.00;15.59422985;Índice de Endividamento;
+15.578.569/0001-06;2020-01-01;12;104693;2019-01-01;2019-12-31;17616951393.32;105.50233130;Índice de Endividamento;
+15.675.715/0001-11;2020-01-01;2;98292;2019-01-01;2019-12-31;2759000.00;0.14889000;Índice de Endividamento;
+15.675.715/0001-11;2020-01-01;2;98292;2020-01-01;2020-12-31;4889000.00;0.15765000;Índice de Endividamento;
+15.688.041/0001-90;2020-01-01;1;95198;2019-01-01;2019-12-31;66053.00;0.19032710;Índice de Endividamento;
+16.233.389/0001-55;2020-01-01;4;102842;2019-01-01;2019-12-31;932529000.00;3.16942398;Índice de Endividamento;
+16.233.389/0001-55;2020-01-01;4;102842;2020-01-01;2020-12-31;866451000.00;2.98183138;Índice de Endividamento;
+16.234.171/0001-15;2020-01-01;4;99468;2019-01-01;2019-12-31;12401000.00;0.45803730;Índice de Endividamento;
+16.404.287/0001-55;2020-01-01;12;104701;2019-01-01;2019-12-31;79820256000.00;4.40000000;Índice de Endividamento;
+16.404.287/0001-55;2020-01-01;12;104701;2020-01-01;2020-12-31;105882297000.00;40.50000000;Índice de Endividamento;
+16.590.234/0001-76;2020-01-01;13;104601;2019-01-01;2019-12-31;667178.00;0.89425537;Índice de Endividamento;
+16.614.075/0001-00;2020-01-01;8;104609;2019-01-01;2019-12-31;3285372000.00;0.70581577;Índice de Endividamento;
+16.670.085/0001-55;2020-01-01;6;99490;2019-01-01;2019-12-31;13945428000.00;2.55995339;Índice de Endividamento;
+16.670.085/0001-55;2020-01-01;6;99490;2019-01-01;2019-12-31;0.00;0.48975157;Outros índices;Dívida Líquida / valor da frota (Consolidado) - A Companhia entende que esse índice é apropriado pois demonstra que 48,98% da frota da Companhia seria suficiente para liquidar todo o seu endividamento.
+16.670.085/0001-55;2020-01-01;6;99490;2019-01-01;2019-12-31;0.00;2.99148212;Outros índices;Dívida Líquida / EBITDA (Consolidado) - A Companhia entende que esse índice é apropriado para demonstrar o endividamento da Companhia.
+16.670.085/0001-55;2020-01-01;6;99490;2019-01-01;2019-12-31;0.00;1.21512274;Outros índices;Dívida Líquida / patrimônio líquido (Consolidado) - Esse índice representa a relação entre o capital de terceiros e o capital próprio dos acionistas. A Companhia entende que esse índice é apropriado para demonstrar a participação do capital de terceiros frente ao capital próprio no financiamento das suas atividades.
+16.811.931/0001-00;2020-01-01;10;104628;2019-01-01;2019-12-31;1688350000.00;3.14003590;Índice de Endividamento;
+16.922.038/0001-51;2020-01-01;16;104942;2019-01-01;2019-12-31;22009000.00;1.47266644;Índice de Endividamento;
+16.922.038/0001-51;2020-01-01;16;104942;2020-01-01;2020-12-31;40710000.00;3.76143398;Índice de Endividamento;
+17.155.730/0001-64;2020-01-01;15;104644;2019-01-01;2019-12-31;0.00;3.18000000;Outros índices;Índice: Dívida líquida/ LajidaJustificativa: Esse índice é uma medição não contábil elaborada pela Companhia e amplamente utilizado e divulgado ao mercado, que mede o endividamento consolidado da Companhia em relação ao seu LAJIDA (Lucro antes de Juros, Impostos, Depreciação e Amortização). Em 31 de dezembro de 2019, a dívida líquida da Companhia era de R$13.499.935 milhões e o LAJIDA da Companhia era de R$4.376.087 milhões
+17.155.730/0001-64;2020-01-01;15;104644;2019-01-01;2019-12-31;0.00;0.46000000;Outros índices;Índice: Dívida líquida/ (dívida líquida + patrimônio líquido)Justificativa: Esse índice reflete um indicador amplamente utilizado e divulgado ao mercado, que mede a relação consolidada de endividamento medida por Dívida líquida/ (dívida líquida + patrimônio líquido). Em 31 de dezembro de 2019, a dívida líquida da Companhia era de R$13.499.935 milhões 
+17.155.730/0001-64;2020-01-01;15;104644;2019-01-01;2019-12-31;34036187000.00;2.14000000;Índice de Endividamento;
+17.161.241/0001-15;2020-01-01;1;92788;2019-01-01;2019-12-31;84581681.00;0.34510000;Índice de Endividamento;
+17.162.082/0001-73;2020-01-01;1;95343;2019-01-01;2019-12-31;12191797760.78;12.67464225;Índice de Endividamento;
+17.167.396/0001-69;2020-01-01;3;102666;2019-01-01;2019-12-31;9298000.00;0.00935599;Índice de Endividamento;
+17.167.412/0001-13;2020-01-01;7;102648;2019-01-01;2019-12-31;5160275.00;5.42676200;Índice de Endividamento;
+17.184.037/0001-10;2020-01-01;24;104795;2019-01-01;2019-12-31;9040927878.77;10.19000000;Índice de Endividamento;
+17.193.806/0001-46;2020-01-01;3;102656;2019-01-01;2019-12-31;1561713000.00;1.31093286;Índice de Endividamento;
+17.234.244/0001-31;2020-01-01;3;102407;2019-01-01;2019-12-31;263508634.65;0.96100000;Índice de Endividamento;
+17.245.234/0001-00;2020-01-01;5;103469;2019-01-01;2019-12-31;537696000.00;2.76060069;Índice de Endividamento;
+17.281.106/0001-03;2020-01-01;10;103787;2019-01-01;2019-12-31;0.00;1.60144581;Outros índices;Dívida Líquida = 3,0x EBITDA. O endividamento líquido consolidado da Companhia deve ser igual ou inferior a 3 vezes o LAJIDA (lucro antes de juros, impostos, depreciação e amortização). O referido limite poderá atingir 4,0x, mediante justificativa e específica aprovação do Conselho de Administração, em caráter excepcional. (Obs.: Dívida Líquida: somatório do saldo devedor de curto e longo prazos de Empréstmos, Financiamentos, Debêntures e Outros compromissos onerosos (Fundação Libertas) menos Caixa e Equivalentes de Caixa). A Companhia entende que este índice é apropriado para a compreensão de sua situação financeira, pois permite estabelecer uma noção de proporção entre o grau de endividamento da Companhia e sua capacidade anual de geração de caixa operacional. Tais índices são utilizados como referência para covenants em diversos financiamentos contraídos pela Companhia.
+17.281.106/0001-03;2020-01-01;10;103787;2019-01-01;2019-12-31;0.00;2.10695248;Outros índices;EBITDA = 1,2x Serviço da Dívida. O EBITDA da Companhia deve ser superior a 1,2 vezes o Serviço da Dívida. A Companhia entende que este índice é apropriado para a compreensão de sua situação financeira, pois permite estabelecer uma noção de proporção entre sua capacidade anual de geração de caixa operacional e seus compromissos financeiros. Tais índices são utilizados como referência para covenants em diversos financiamentos contraídos pela Companhia. O Serviço da Dívida é apurado somando-se os juros, a amortização e as taxas. Nesse sentido, o valor aproximado do Serviço da Dívida pode ser apurado somando-se essas rubricas no "Fluxo de caixa das atividades operacionais", constantes nas Demonstrações Financeiras. Trata-se de valor aproximado, visto que as taxas relacionadas aos financiamentos que compõem o Serviço da Dívida foram lançadas na rubrica "Impostos, taxas, contribuições e obrigações sociais" no referido fluxo de caixa.
+17.281.106/0001-03;2020-01-01;10;103787;2019-01-01;2019-12-31;4785102000.00;0.70956489;Índice de Endividamento;
+17.314.329/0001-20;2020-01-01;29;104652;2019-01-01;2019-12-31;1540544000.00;1.34532873;Índice de Endividamento;
+17.314.329/0001-20;2020-01-01;29;104652;2020-01-01;2020-12-31;1552137000.00;1.26165895;Índice de Endividamento;
+17.344.597/0001-94;2020-01-01;14;103351;2019-01-01;2019-12-31;9677793.00;1.84382674;Índice de Endividamento;
+17.346.997/0001-39;2020-01-01;4;99537;2019-01-01;2019-12-31;18839513.00;2.27129226;Índice de Endividamento;
+18.328.118/0001-09;2020-01-01;11;100781;2019-01-01;2019-12-31;0.00;1.99107003;Outros índices;Este índice de endividamento representa o EBITDA Ajustado sobre a dívida líquida da Companhia. Para maiores informações, vide item 3.2 deste Formulário de Referência.
+18.328.118/0001-09;2020-01-01;11;100781;2019-01-01;2019-12-31;1066370.00;6.04936521;Índice de Endividamento;
+18.328.118/0001-09;2020-01-01;11;100781;2020-01-01;2020-12-31;0.00;1.95815873;Outros índices;Este índice de endividamento representa o EBITDA Ajustado sobre a dívida líquida da Companhia. Para maiores informações, vide item 3.2 deste Formulário de Referência.
+18.328.118/0001-09;2020-01-01;11;100781;2020-01-01;2020-12-31;1308402.00;7.20200141;Índice de Endividamento;
+18.494.485/0001-82;2020-01-01;5;103122;2019-01-01;2019-12-31;36531878.00;99.64000000;Índice de Endividamento;
+18.572.225/0001-88;2020-01-01;1;95219;2019-01-01;2019-12-31;1555674000.00;7.43000000;Índice de Endividamento;
+18.593.815/0001-97;2020-01-01;11;103747;2019-01-01;2019-12-31;164932000.00;2.21000000;Índice de Endividamento;
+18.593.815/0001-97;2020-01-01;11;103747;2019-01-01;2019-12-31;0.00;1.84000000;Outros índices;Relação dívida líquida/EBITDA (acumulado em doze meses)A Companhia também acompanha, mensalmente, a relação dívida líquida/EBITDA (acumulado em doze meses). A Companhia entende que o referido índice é uma boa medição de seu nível de endividamento por combinar a dívida líquida com a capacidade de geração de caixa operacional dos últimos doze meses. Adicionalmente, o referido índice é bastante utilizado pelo mercado financeiro em momentos de decisão a respeito da concessão de crédito.
+19.133.012/0001-12;2020-01-01;1;95318;2019-01-01;2019-12-31;11609900.00;99.99138700;Índice de Endividamento;
+19.208.022/0001-70;2020-01-01;9;104867;2019-01-01;2019-12-31;896904702.50;2.15556997;Índice de Endividamento;
+19.276.528/0001-16;2020-01-01;2;98991;2019-01-01;2019-12-31;6452408000.00;1.04421143;Índice de Endividamento;
+19.296.342/0001-29;2020-01-01;4;103462;2019-01-01;2019-12-31;1957243000.00;441.00000000;Índice de Endividamento;
+19.378.769/0001-76;2020-01-01;9;104594;2019-01-01;2019-12-31;929335000.00;1.33000000;Índice de Endividamento;
+19.378.769/0001-76;2020-01-01;9;104594;2019-01-01;2019-12-31;0.00;0.76000000;Outros índices;Dívida Líquida / EBITDA. A Companhia entende que este índice de endividamento representa, de forma mais apropriada, o nível relativo de endividamento da Companhia, pois reflete o endividamento consolidado líquido de acordo com sua capacidade imediata de pagamento. A Dívida Líquida é composta pela Dívida Bruta menos o saldo de Caixa e Equivalentes de Caixa. A Dívida Bruta é composta pelos saldos da seguinte fórmula: Empréstimos e Financiamentos de Curto e Longo Prazo + Parcelamentos de Curto e Longo Prazo + Obrigações por Compra de Investimentos de Curto e Longo Prazo - Aplicações Financeiras Vinculadas
+19.521.322/0001-04;2020-01-01;3;104183;2019-01-01;2019-12-31;1686855571.86;5.52938755;Índice de Endividamento;
+19.526.748/0001-50;2020-01-01;5;102858;2019-01-01;2019-12-31;93539000.00;68.22000000;Índice de Endividamento;
+19.527.586/0001-75;2020-01-01;1;95489;2019-01-01;2019-12-31;1481083038.41;50.20000000;Índice de Endividamento;
+19.527.639/0001-58;2020-01-01;3;99030;2019-01-01;2019-12-31;663210000.00;2.58695542;Índice de Endividamento;
+19.642.306/0001-70;2020-01-01;2;102879;2019-01-01;2019-12-31;1101193000.00;1.21980028;Índice de Endividamento;
+19.688.956/0001-56;2020-01-01;1;94294;2019-01-01;2019-12-31;506385371.00;0.68378312;Índice de Endividamento;
+19.726.048/0001-00;2020-01-01;11;103270;2019-01-01;2019-12-31;1083889000.00;5.49000000;Índice de Endividamento;
+19.853.511/0001-84;2020-01-01;13;103447;2019-01-01;2019-12-31;6777644000.00;1.06392821;Índice de Endividamento;
+19.853.511/0001-84;2020-01-01;13;103447;2020-01-01;2020-12-31;8755388000.00;1.23219386;Índice de Endividamento;
+20.247.322/0001-47;2020-01-01;6;100615;2019-01-01;2019-12-31;2208793.00;2.27681748;Índice de Endividamento;
+20.258.278/0001-70;2020-01-01;5;97620;2019-01-01;2019-12-31;377055524.92;0.77000000;Índice de Endividamento;
+20.258.278/0001-70;2020-01-01;5;97620;2019-01-01;2019-12-31;0.00;0.48000000;Outros índices;Dívida Líquida / Patrimônio líquido: Em 31 de dezembro de 2019, a Dívida Líquida da Companhia era de R$238.325 mil e o patrimônio líquido era de R$492.481 mil, representando um índice de Dívida Líquida / Patrimônio líquido de 0,48 vezes. Por Dívida Líquida entende-se o saldo de empréstimos e financiamentos, circulantes e não circulantes, líquidos do saldo de caixa e equivalentes de caixa e de instrumentos financeiros derivativos. A Companhia entende que o índice de Dívida Líquida / Patrimônio líquido representa de forma mais adequada o seu nível de endividamento. Para mais informações, ver item 3.2 deste Formulário de Referência.
+20.451.953/0001-83;2020-01-01;2;93806;2019-01-01;2019-12-31;212993.50;40.84890700;Índice de Endividamento;
+21.240.146/0001-84;2020-01-01;3;102829;2019-01-01;2019-12-31;1151231000.00;4.37778976;Índice de Endividamento;
+21.240.146/0001-84;2020-01-01;3;102829;2020-01-01;2020-12-31;2774822000.00;2.96131685;Índice de Endividamento;
+21.254.073/0001-80;2020-01-01;1;95231;2019-01-01;2019-12-31;94531.00;0.00000001;Índice de Endividamento;
+21.255.567/0001-89;2020-01-01;3;103475;2019-01-01;2019-12-31;309384000.00;1.07334809;Índice de Endividamento;
+21.262.638/0001-70;2020-01-01;1;95195;2019-01-01;2019-12-31;117824429.69;0.41820000;Índice de Endividamento;
+21.314.559/0001-66;2020-01-01;12;105018;2019-01-01;2019-12-31;4941818000.00;2.14768368;Índice de Endividamento;
+21.389.501/0001-81;2020-01-01;5;100259;2019-01-01;2019-12-31;2616000.00;2.61077844;Índice de Endividamento;
+21.414.457/0001-12;2020-01-01;2;97858;2019-01-01;2019-12-31;180435.00;0.34510000;Índice de Endividamento;
+21.610.416/0001-00;2020-01-01;1;93767;2019-01-01;2019-12-31;12207512.00;23.94000000;Índice de Endividamento;
+21.948.105/0001-47;2020-01-01;1;94581;2019-01-01;2019-12-31;50063.00;4.16510000;Índice de Endividamento;
+21.976.484/0001-89;2020-01-01;1;95378;2019-01-01;2019-12-31;341003.00;0.59595959;Índice de Endividamento;
+21.976.510/0001-79;2020-01-01;1;94582;2019-01-01;2019-12-31;47129.00;5.71860000;Índice de Endividamento;
+22.163.297/0001-49;2020-01-01;8;104769;2019-01-01;2019-12-31;478751684.00;0.70459208;Índice de Endividamento;
+22.261.473/0001-85;2020-01-01;3;105122;2019-01-01;2019-12-31;1450064000.00;1.45675341;Índice de Endividamento;
+22.495.265/0001-40;2020-01-01;2;98023;2019-01-01;2019-12-31;13862636.00;1155.22000000;Índice de Endividamento;
+22.543.331/0001-00;2020-01-01;10;99830;2019-01-01;2019-12-31;275925119.04;0.05367367;Índice de Endividamento;
+22.677.520/0001-76;2020-01-01;3;103428;2019-01-01;2019-12-31;2520426000.00;1.40862516;Índice de Endividamento;
+22.983.283/0001-71;2020-01-01;1;95340;2019-01-01;2019-12-31;243317.54;1.33000000;Índice de Endividamento;
+23.096.269/0001-19;2020-01-01;2;100622;2019-01-01;2019-12-31;10645382165.28;1.35840000;Índice de Endividamento;
+23.236.821/0001-27;2020-01-01;4;100515;2019-01-01;2019-12-31;282508000.00;0.90441920;Índice de Endividamento;
+23.236.821/0001-27;2020-01-01;4;100515;2020-01-01;2020-06-30;310440000.00;0.91230751;Índice de Endividamento;
+23.373.000/0001-32;2020-01-01;15;104879;2019-01-01;2019-12-31;2563095000.00;5.22000000;Índice de Endividamento;
+23.373.000/0001-32;2020-01-01;15;104879;2020-01-01;2020-12-31;2983907000.00;5.82453300;Índice de Endividamento;
+23.438.929/0001-00;2020-01-01;4;99719;2019-01-01;2019-12-31;408049000.00;1.36140221;Índice de Endividamento;
+23.438.929/0001-00;2020-01-01;4;99719;2020-01-01;2020-12-31;463537000.00;1.50651144;Índice de Endividamento;
+24.230.275/0001-80;2020-01-01;4;99214;2019-01-01;2019-12-31;597612000.00;0.84920000;Índice de Endividamento;
+24.230.275/0001-80;2020-01-01;4;99214;2020-01-01;2020-12-31;750756000.00;0.78650000;Índice de Endividamento;
+24.241.659/0001-06;2020-01-01;2;107940;2019-01-01;2019-12-31;158520000.00;50.46000000;Índice de Endividamento;
+24.396.489/0001-20;2020-01-01;7;103617;2019-01-01;2019-12-31;5881730000.00;2.43000000;Índice de Endividamento;
+24.624.490/0001-65;2020-01-01;5;103596;2019-01-01;2019-12-31;2797819000.00;2.35615929;Índice de Endividamento;
+24.624.551/0001-94;2020-01-01;5;103584;2019-01-01;2019-12-31;3510731000.00;2.90774350;Índice de Endividamento;
+24.962.466/0001-36;2020-01-01;2;99637;2019-01-01;2019-12-31;8999094.00;2.38095835;Índice de Endividamento;
+24.990.777/0001-09;2020-01-01;5;103822;2019-01-01;2019-12-31;2172051180.00;0.52702595;Índice de Endividamento;
+25.005.683/0001-09;2020-01-01;4;100758;2019-01-01;2019-12-31;624000.00;0.40890000;Índice de Endividamento;
+25.005.683/0001-09;2020-01-01;4;100758;2020-01-01;2020-12-31;1294000.00;0.90430000;Índice de Endividamento;
+25.089.509/0001-83;2020-01-01;8;103668;2019-01-01;2019-12-31;0.00;4.57000000;Outros índices;Dívida Líquida / EBITDA Ajustado. Nossa administração utiliza esse índice para acompanhar o nosso endividamento. Mais detalhes, vide item 10.1.c deste Formulário de Referência.
+25.089.509/0001-83;2020-01-01;8;103668;2019-01-01;2019-12-31;1467518028.00;31.04000000;Índice de Endividamento;
+26.462.693/0001-28;2020-01-01;7;102247;2019-01-01;2019-12-31;250350000.00;2.16711968;Índice de Endividamento;
+26.462.693/0001-28;2020-01-01;7;102247;2020-01-01;2020-12-31;335848000.00;1.26137251;Índice de Endividamento;
+26.609.050/0001-64;2020-01-01;2;97406;2019-01-01;2019-12-31;24708.00;0.10414330;Índice de Endividamento;
+26.659.061/0001-59;2020-01-01;8;104780;2019-01-01;2019-12-31;902074000.00;4.04194858;Índice de Endividamento;
+26.659.061/0001-59;2020-01-01;8;104780;2020-01-01;2020-12-31;1161886000.00;5.17940694;Índice de Endividamento;
+26.664.057/0001-89;2020-01-01;1;94974;2019-01-01;2019-12-31;1952379625.00;3.48000000;Índice de Endividamento;
+26.735.020/0001-02;2020-01-01;9;103551;2019-01-01;2019-12-31;644104530.00;2.98934810;Índice de Endividamento;
+26.735.020/0001-02;2020-01-01;9;103551;2020-01-01;2020-12-31;553424217.15;2.65091110;Índice de Endividamento;
+26.845.702/0001-60;2020-01-01;5;103650;2019-01-01;2019-12-31;592183.00;0.70430899;Índice de Endividamento;
+27.093.558/0001-15;2020-01-01;14;104869;2019-01-01;2019-12-31;268522000.00;0.24251269;Índice de Endividamento;
+27.137.879/0001-74;2020-01-01;1;95360;2019-01-01;2019-12-31;333000.00;1.15915915;Índice de Endividamento;
+27.157.474/0001-06;2020-01-01;4;102965;2019-01-01;2019-12-31;407234000.00;6.28728906;Índice de Endividamento;
+27.967.244/0001-02;2020-01-01;5;103653;2019-01-01;2019-12-31;1209176000.00;4.14000000;Índice de Endividamento;
+28.019.100/0001-89;2020-01-01;3;102623;2019-01-01;2019-12-31;1009007872.64;0.72493790;Índice de Endividamento;
+28.127.603/0001-78;2020-01-01;16;104754;2019-01-01;2019-12-31;22199149643.04;13.96000000;Índice de Endividamento;
+28.152.650/0001-71;2020-01-01;5;100980;2019-01-01;2019-12-31;4044012000.00;3.83613565;Índice de Endividamento;
+28.195.667/0001-06;2020-01-01;17;104596;2019-01-01;2019-12-31;32193770204.15;7.97000000;Índice de Endividamento;
+28.201.130/0001-01;2020-01-01;3;103028;2019-01-01;2019-12-31;682545000.00;1.98070500;Índice de Endividamento;
+28.442.718/0001-57;2020-01-01;2;102982;2019-01-01;2019-12-31;762970000.00;762970.00000000;Índice de Endividamento;
+28.925.264/0001-75;2020-01-01;2;98823;2019-01-01;2019-12-31;1345852000.00;1.33487002;Índice de Endividamento;
+28.942.127/0001-49;2020-01-01;3;98825;2019-01-01;2019-12-31;814169000.00;1.21353119;Índice de Endividamento;
+29.088.092/0001-95;2020-01-01;2;93989;2019-01-01;2019-12-31;23028933.77;43.04000000;Índice de Endividamento;
+29.780.061/0001-09;2020-01-01;6;103681;2019-01-01;2019-12-31;1476525.00;0.99770000;Índice de Endividamento;
+29.894.663/0001-89;2020-01-01;1;95420;2019-01-01;2019-12-31;10160000.00;1907.62298160;Índice de Endividamento;
+29.950.060/0001-57;2020-01-01;2;104563;2019-01-01;2019-12-31;60768565.48;0.31161876;Índice de Endividamento;
+29.978.814/0001-87;2020-01-01;9;104574;2019-01-01;2019-12-31;0.00;0.24490000;Outros índices;Montante total da dívida: R$ 1.750.352 mil / Índice deEndividamento: 24,5%.A SulAmérica considera que seu índice de endividamento deve refletir sua exposição a obrigações financeiras e outras de caráter similar, descritas a seguir: (a) empréstimos, mútuos, financiamentos e outras dívidas financeiras onerosas, incluindo, sem limitação, debêntures,letras de câmbio, notas promissórias ou instrumentos similares no Brasil ou no exterior (b) aquisições a pagar (c) saldo líquido das operações ativas e passivas com derivativos em que a Companhia e/ou qualquer Controlada, ainda que na condição de garantidora, seja parte (sendo que o referido saldo será líquido do que já estiver classificado no passivo circulante e exigível de longo prazo da Companhia e/ou de qualquer Controlada ("Obrigação Financeira") (d) cartas de crédito, avais, fianças, coobrigações e demais garantias prestadas em benefício de empresas não consolidadas nas Demonstrações Financeiras Consolidadas da Companhia e (e) obrigações decorrentes de resgate de ações e pagamento de dividendos fixos, se aplicável. A adoção dessa metodologia de cálculo do índice de endividamento objetiva permitir que o investidor tenha a correta compreensão da situação financeira da SulAmérica.
+29.978.814/0001-87;2020-01-01;9;104574;2019-01-01;2019-12-31;21264746.00;2.97500000;Índice de Endividamento;
+30.306.294/0001-45;2020-01-01;17;103140;2019-01-01;2019-12-31;142995998000.00;87.00000000;Índice de Endividamento;
+30.306.294/0001-45;2020-01-01;17;103140;2020-01-01;2020-12-31;226741563000.00;90.00000000;Índice de Endividamento;
+30.418.658/0001-89;2020-01-01;1;95530;2019-01-01;2019-12-31;44420.00;0.71386762;Índice de Endividamento;
+30.540.991/0001-66;2020-01-01;3;94650;2019-01-01;2019-12-31;135726097.00;30.10000000;Índice de Endividamento;
+30.788.149/0001-48;2020-01-01;1;93276;2019-01-01;2019-12-31;112305.00;509.87469354;Índice de Endividamento;
+31.001.230/0001-07;2020-01-01;1;95287;2019-01-01;2019-12-31;734039656.00;0.72890000;Índice de Endividamento;
+31.468.139/0001-98;2020-01-01;1;95084;2019-01-01;2019-12-31;231623.13;359.72000000;Índice de Endividamento;
+31.553.627/0001-01;2020-01-01;6;103536;2019-01-01;2019-12-31;219491000.00;37.79115000;Índice de Endividamento;
+31.553.627/0001-01;2020-01-01;6;103536;2020-01-01;2020-09-30;256283000.00;51.40052100;Índice de Endividamento;
+32.161.500/0001-00;2020-01-01;3;102908;2019-01-01;2019-12-31;75573000.00;0.06246750;Índice de Endividamento;
+32.372.085/0001-25;2020-01-01;2;98512;2019-01-01;2019-12-31;69896860.00;209.53000000;Índice de Endividamento;
+32.681.371/0001-72;2020-01-01;6;103460;2019-01-01;2019-12-31;1931254511.09;2.98434918;Índice de Endividamento;
+32.681.371/0001-72;2020-01-01;6;103460;2019-01-01;2019-12-31;0.00;3.43417071;Outros índices;Dívida líquida/EBITDA - Utilizamos este índice para cumprimento de "covenants" previstos na escritura de debêntures de nossa emissão. Para maiores informações sobre a fórmula de cálculo deste índice, vide item 10.1.f.(iv) deste Formulário de Referência.
+32.681.371/0001-72;2020-01-01;6;103460;2019-01-01;2019-12-31;0.00;4.18138846;Outros índices;EBITDA/Despesas financeiras líquidas - Nosso EBITDA é calculado da seguinte forma: lucro líquido, adicionado às despesas financeiras líquidas, despesas de imposto de renda (IR) e contribuição social (CSLL) e aos custos e despesas de depreciação e amortização. Para maiores informações, vide item 3.2 deste Formulário de Referência. Despesas financeiras líquidas correspondem à diferença entre nossas receitas financeiras e nossas despesas financeiras. Este índice demonstra nossa capacidade de geração de caixa em comparação aos efeitos líquidos do serviço de nossa dívida.
+32.770.457/0001-71;2020-01-01;2;95301;2019-02-14;2019-12-31;11017000.00;100.00000000;Índice de Endividamento;
+32.785.497/0001-97;2020-01-01;11;121233;2019-01-01;2019-12-31;17822167000.00;5.30000000;Índice de Endividamento;
+32.785.497/0001-97;2020-01-01;11;121233;2020-01-01;2020-12-31;37819459000.00;1.63000000;Índice de Endividamento;
+33.000.167/0001-01;2020-01-01;19;104904;2019-01-01;2019-12-31;626874000000.00;2.10000000;Índice de Endividamento;
+33.014.556/0001-96;2020-01-01;18;103797;2019-01-01;2019-12-31;25889168000.00;3.51000000;Índice de Endividamento;
+33.014.556/0001-96;2020-01-01;18;103797;2019-01-01;2019-12-31;0.00;0.60000000;Outros índices;Dívida Líquida Ajustada/EBITDA Ajustado
+33.014.556/0001-96;2020-01-01;18;103797;2020-01-01;2020-12-31;0.00;1.00000000;Outros índices;Dívida Líquida Ajustada/EBITDA Ajustado
+33.014.556/0001-96;2020-01-01;18;103797;2020-01-01;2020-12-31;25356732000.00;3.48000000;Índice de Endividamento;
+33.035.536/0001-00;2020-01-01;2;104191;2019-01-01;2019-12-31;1642145000.00;0.34627697;Índice de Endividamento;
+33.040.601/0001-87;2020-01-01;6;103371;2019-01-01;2019-12-31;167696546.40;0.69000000;Índice de Endividamento;
+33.041.260/0652-90;2020-01-01;14;104429;2019-01-01;2019-12-31;23846000000.00;41.25605536;Índice de Endividamento;
+33.041.260/0652-90;2020-01-01;14;104429;2020-01-01;2020-12-31;23298000000.00;36.34633385;Índice de Endividamento;
+33.042.730/0001-04;2020-01-01;16;104635;2019-01-01;2019-12-31;39507343051.87;3.48000000;Índice de Endividamento;
+33.050.071/0001-58;2020-01-01;9;103010;2019-01-01;2019-12-31;6906786000.00;1.88659691;Índice de Endividamento;
+33.050.196/0001-88;2020-01-01;5;103983;2019-01-01;2019-12-31;9394650000.00;6.17086039;Índice de Endividamento;
+33.102.476/0001-92;2020-01-01;5;103734;2019-01-01;2019-12-31;637402232.00;0.59687200;Índice de Endividamento;
+33.113.309/0001-47;2020-01-01;12;104615;2019-01-01;2019-12-31;945250000.00;0.84615887;Índice de Endividamento;
+33.200.049/0001-47;2020-01-01;1;95038;2019-01-01;2019-12-31;861494000.00;0.12188361;Índice de Endividamento;
+33.228.024/0001-51;2020-01-01;3;103599;2019-01-01;2019-12-31;94949793.56;18.42000000;Índice de Endividamento;
+33.256.439/0001-39;2020-01-01;8;103055;2019-01-01;2019-12-31;21360295000.00;2.17182634;Índice de Endividamento;
+33.256.439/0001-39;2020-01-01;8;103055;2019-01-01;2019-12-31;0.00;2.86537033;Outros índices;Método: (caixa) endividamento líquido em 31 de dezembro de 2019, dividido pelo LAJIDA Ajustado do ano de 2019 (desconsiderando o impairment da Extrafarma e os efeitos do IFRS 16). Acreditamos que o índice de endividamento financeiro líquido sobre LAJIDA Ajustado, em adição ao índice de endividamento financeiro, seja apropriado para a correta compreensão da situação financeira da Companhia, uma vez que proporciona uma medida dinâmica da alavancagem financeira da Companhia e de sua capacidade de pagar a dívida através de sua geração operacional de caixa. Adicionalmente, tal índice é utilizado como medida em obrigações (covenants) relacionadas com alguns contratos de financiamento. Veja "Item 3.2.c. Motivo pelo qual entende que tal medição é mais apropriada para a correta compreensão da sua condição financeira e do resultado de suas operações" e "Item 10.1.f.iv. Eventuais restrições impostas ao emissor, em especial, em relação a limites de endividamento e contratação de novas dívidas, à distribuição de dividendos, à alienação de ativos, à emissão de novos valores mobiliários e à alienação de controle societário, bem como se o emissor vem cumprindo essas restrições" para maiores informações.
+33.352.394/0001-04;2020-01-01;14;103300;2019-01-01;2019-12-31;7370897019.21;1.01281300;Índice de Endividamento;
+33.376.989/0001-91;2020-01-01;15;103842;2019-01-01;2019-12-31;13556101.00;3.43614000;Índice de Endividamento;
+33.376.989/0001-91;2020-01-01;15;103842;2019-01-01;2019-12-31;0.00;0.89070000;Outros índices;Descrição: Índice de Liquidez Corrente = Ativo circulante/Passivo circulanteMotivo: Índices de liquidez avaliam a capacidade de pagamento da Companhia frente a suas obrigações, sendo as variações destes índices motivos de estudos dos administradores.
+33.376.989/0001-91;2020-01-01;15;103842;2019-01-01;2019-12-31;0.00;1.24130000;Outros índices;Descrição: Índice de Liquidez Geral = (Ativo circulante+Realizável a longo prazo)/(Passivo circulante+Exigível a longo prazo)Motivo: Os índices de liquidez avaliam a capacidade de pagamento da Companhia frente a suas obrigações, sendo as variações deste índices motivos de estudos dos administradores.
+33.386.210/0001-19;2020-01-01;4;105703;2019-01-01;2019-12-31;21910220.61;0.29752754;Índice de Endividamento;
+33.467.572/0001-34;2020-01-01;4;103540;2019-01-01;2019-12-31;46951075.74;20.51813722;Índice de Endividamento;
+33.541.368/0001-16;2020-01-01;4;102698;2019-01-01;2019-12-31;11276719000.00;0.38905834;Índice de Endividamento;
+33.592.510/0001-54;2020-01-01;26;104585;2019-01-01;2019-12-31;212522000000.00;0.46000000;Índice de Endividamento;
+33.592.510/0001-54;2020-01-01;26;104585;2019-01-01;2019-12-31;0.00;1.24000000;Outros índices;Dívida bruta/EBITDA Ajustado. O referido índice tem como base o dólar norte-americano. A dívida bruta consiste no somatório de "Empréstimos e financiamentos de curto prazo", "Parcela do circulante de empréstimos de longo prazo" e "Empréstimos e financiamentos de longo prazo". O EBITDA Ajustado é calculado da forma descrita no item 3.2.b deste Formulário de Referência anualizado pelos últimos doze meses - EBITDA AJUSTADO. O índice de endividamento Dívida bruta/EBITDA Ajustado indica o tempo aproximado que seria necessário para uma empresa pagar todas as dívidas valendo-se exclusivamente de sua geração de caixa.A Companhia adota o índice de endividamento Dívida bruta/EBITDA Ajustado e o índice de cobertura de juros EBITDA Ajustado/Despesas de juros. Estes índices são amplamente utilizados pelo mercado (agências de rating e instituições financeiras) e servem como referência para avaliar a situação financeira da Companhia.
+33.592.510/0001-54;2020-01-01;26;104585;2019-01-01;2019-12-31;0.00;10.86000000;Outros índices;EBITDA Ajustado/Despesas de juros - O referido índice tem como base o dólar norte-americano. O EBITDA Ajustado é calculado da forma descrita no item 3.2.b deste Formulário de Referência excluindo itens não recorrentes. As despesas de juros compreendem a soma de todos os juros apropriados ou capitalizados, pagos ou não, em determinado período, que sejam decorrentes da dívida da Companhia.O índice de cobertura de juros (EBITDA Ajustado/Despesas de juros) é usado para determinar a capacidade de uma empresa em gerar fluxo de caixa suficiente para cobrir suas despesas com pagamento de juros.A Companhia adota o índice de endividamento Dívida bruta/EBITDA Ajustado e o índice de cobertura de juros EBITDA Ajustado/Despesas de juros. Estes índices são amplamente utilizados pelo mercado (agências de rating e instituições financeiras) e servem como referência para avaliar a situação financeira da Companhia.
+33.611.500/0001-19;2020-01-01;11;104022;2019-01-01;2019-12-31;26929843.00;99.00000000;Índice de Endividamento;
+33.611.500/0001-19;2020-01-01;11;104022;2019-01-01;2019-12-31;0.00;1.67000000;Índice de Endividamento;
+33.679.797/0001-54;2020-01-01;1;93947;2019-01-01;2019-12-31;89187.02;1.07930000;Índice de Endividamento;
+33.839.910/0001-11;2020-01-01;11;104784;2019-01-01;2019-12-31;817177740.43;0.76926388;Índice de Endividamento;
+33.938.119/0001-69;2020-01-01;6;104823;2019-01-01;2019-12-31;0.00;44.57890006;Outros índices;Método usado para cálculo do índice: Divida Financeira / (Dividida Financeira + Patrimonio Liquido)*100.Motivo de utilização: mostra a participação do capital de terceiro no financiamento total (capital de terceiro +capital próprio)
+33.958.695/0001-78;2020-01-01;24;104656;2019-01-01;2019-12-31;2235598000.00;60.11577325;Índice de Endividamento;
+33.958.695/0001-78;2020-01-01;24;104656;2019-01-01;2019-12-31;0.00;0.28000000;Outros índices;Dívida Líquida/EBITDA 12 meses: Em 31 de dezembro de 2019, a Dívida Líquida Consolidada da Companhia era de R$ 162,8 milhões e o EBITDA era R$580,6 milhões, representando um índice Dívida Líquida/EBITDA de 0,28 vezes. Por Dívida Líquida entende-se o cálculo entre os empréstimos (circulante e não circulante), menos o caixa e equivalentes de caixa e as aplicações financeiras (circulante e não circulante). A Companhia entende que o índice Dívida Líquida/EBITDA 12 meses representa, de forma mais apropriada, o seu nível de endividamento, pois reflete quantos exercícios seriam necessários para pagar a dívida desconsiderando outros fatores, notadamente, os impostos.
+34.169.557/0001-72;2020-01-01;16;104697;2019-01-01;2019-12-31;53861247.86;0.43762605;Índice de Endividamento;
+34.274.233/0001-02;2020-01-01;7;103075;2019-01-01;2019-12-31;17100000000.00;1.95071900;Índice de Endividamento;
+35.082.277/0001-95;2020-01-01;2;93398;2019-01-01;2019-12-31;37278.00;1.02756492;Índice de Endividamento;
+35.502.310/0001-99;2020-01-01;3;104728;2019-01-01;2019-12-31;1588163.00;4.24882220;Índice de Endividamento;
+35.727.157/0001-06;2020-01-01;2;99209;2019-01-01;2019-12-31;9411000.00;0.02324100;Índice de Endividamento;
+35.727.157/0001-06;2020-01-01;2;99209;2020-01-01;2020-12-31;11956000.00;0.01669290;Índice de Endividamento;
+35.791.391/0001-94;2020-01-01;3;102186;2019-01-01;2019-12-31;65065134.53;1.50622500;Índice de Endividamento;
+36.542.025/0001-64;2020-01-01;5;102856;2019-01-01;2019-12-31;101909178.91;95.32000000;Índice de Endividamento;
+37.368.315/0001-04;2020-09-16;2;100281;2020-05-15;2020-09-15;600.00;0.13630000;Índice de Endividamento;
+39.115.514/0001-28;2020-01-01;2;103846;2019-01-01;2019-12-31;1842915.00;1.26956620;Índice de Endividamento;
+39.393.829/0001-37;2020-10-09;8;103206;2020-09-23;2020-10-08;39566.00;0.19000000;Índice de Endividamento;
+42.150.391/0001-70;2020-01-01;11;103022;2019-01-01;2019-12-31;64184331000.00;13.10000000;Índice de Endividamento;
+42.278.291/0001-24;2020-01-01;14;104792;2019-01-01;2019-12-31;1595030000.00;5.03089400;Índice de Endividamento;
+42.278.473/0001-03;2020-01-01;10;104361;2019-01-01;2019-12-31;389418000.00;1.97795600;Índice de Endividamento;
+42.331.462/0001-31;2020-01-01;3;103559;2019-01-01;2019-12-31;20871.00;2.07000000;Índice de Endividamento;
+42.771.949/0001-35;2020-01-01;17;104756;2019-01-01;2019-12-31;1081119.00;0.81902000;Índice de Endividamento;
+43.185.362/0001-07;2020-01-01;6;102733;2019-01-01;2019-12-31;1152726000.00;4.62977496;Índice de Endividamento;
+43.283.811/0001-50;2020-01-01;2;100870;2019-01-01;2019-12-31;2305949000.00;12.78518638;Índice de Endividamento;
+43.283.811/0001-50;2020-01-01;2;100870;2020-01-01;2020-12-31;2102656000.00;13.03956540;Índice de Endividamento;
+43.470.988/0001-65;2020-01-01;4;104753;2019-01-01;2019-12-31;31044110.00;1.65353230;Índice de Endividamento;
+43.776.517/0001-80;2020-01-01;11;104540;2019-01-01;2019-12-31;24822017000.00;1.14726687;Índice de Endividamento;
+43.776.517/0001-80;2020-01-01;11;104540;2019-01-01;2019-12-31;0.00;0.51000000;Outros índices;Dívida Líquida / Patrimônio Líquido - A Companhia entende que esse índice é apropriado para demonstrar o endividamento da Companhia.
+43.776.517/0001-80;2020-01-01;11;104540;2019-01-01;2019-12-31;0.00;0.34000000;Outros índices;Índice de Alavancagem - A Companhia entende que esse índice é apropriado para demonstrar o endividamento da Companhia.
+43.776.517/0001-80;2020-01-01;11;104540;2019-01-01;2019-12-31;0.00;1.50000000;Outros índices;Dívida Líquida / EBITDA Ajustado - A Companhia entende que esse índice é apropriado para demonstrar o endividamento da Companhia.
+43.776.517/0001-80;2020-01-01;11;104540;2019-01-01;2019-12-31;0.00;1.80000000;Outros índices;Dívida Bruta / EBITDA Ajustado - A Companhia entende que esse índice é apropriado para demonstrar o endividamento da Companhia.
+45.242.914/0001-05;2020-01-01;16;104576;2019-01-01;2019-12-31;3297522000.00;1.20366408;Índice de Endividamento;
+45.242.914/0001-05;2020-01-01;16;104576;2019-01-01;2019-12-31;0.00;0.41633815;Outros índices;Índice de alavancagem financeiraUtilizamos o índice de alavancagem financeira, que compreende a Dívida Líquida em 31 de dezembro de 2019 no montante de R$1.140,6 milhões dividida pelo Patrimônio Líquido, na mesma data, no montante de R$2.739,6 milhões. Acreditamos que este indicador representa o nosso potencial de honrar nossas obrigações financeiras.
+45.365.558/0001-09;2020-01-01;1;98746;2019-01-01;2019-12-31;241687236.00;1.10863447;Índice de Endividamento;
+45.365.558/0001-09;2020-01-01;1;98746;2020-01-01;2020-12-31;327216130.00;1.22966748;Índice de Endividamento;
+45.453.214/0001-51;2020-01-01;8;103935;2019-01-01;2019-12-31;2178755.68;2.17000000;Índice de Endividamento;
+45.987.245/0001-92;2020-01-01;8;103423;2019-01-01;2019-12-31;66029339.48;0.34553197;Índice de Endividamento;
+46.119.855/0001-37;2020-01-01;8;100774;2019-01-01;2019-12-31;917052216.71;1.65000000;Índice de Endividamento;
+47.193.149/0001-06;2020-01-01;2;96430;2019-01-01;2019-12-31;2400150855.56;0.41649261;Índice de Endividamento;
+47.508.411/0001-56;2020-01-01;14;104129;2019-01-01;2019-12-31;44480000000.00;3.29000000;Índice de Endividamento;
+47.509.120/0001-82;2020-01-01;3;103479;2019-01-01;2019-12-31;7998472930.07;2.35046620;Índice de Endividamento;
+47.960.950/0001-21;2020-01-01;5;103504;2019-01-01;2019-12-31;12226136000.00;1.61615834;Índice de Endividamento;
+49.263.189/0001-02;2020-01-01;7;104562;2019-01-01;2019-12-31;3024502000.00;1.88620889;Índice de Endividamento;
+49.669.856/0001-43;2020-01-01;8;103607;2019-01-01;2019-12-31;0.00;1272762.00000000;Outros índices;Dívida bruta em R$ milhares
+49.669.856/0001-43;2020-01-01;8;103607;2019-01-01;2019-12-31;0.00;2.25000000;Outros índices;Dívida Líquida/EBITDA LTM Ajustado. A Companhia utiliza o indicador financeiro dívida líquida sobre EBITDA LTM Ajustado por entender que é um indicador operacional relevante para suas operações.
+49.669.856/0001-43;2020-01-01;8;103607;2019-01-01;2019-12-31;2001774000.00;0.88000000;Índice de Endividamento;
+50.564.053/0001-03;2020-01-01;4;104124;2019-01-01;2019-12-31;0.00;3.90000000;Outros índices;O índice corresponde ao Endividamento Financeiro Líquido divido pelo EBITDA Pro-Forma dos últimos 12 meses.Conforme reportado nas Demonstrações financeiras Consolidadas da Companhia relativas ao exercício social de 2019, o endividamento financeiro líquido é composto por empréstimos e financiamentos, parcelamentos fiscais e renegociação de fornecedores (-) caixa e equilaventes de caixa.
+50.564.053/0001-03;2020-01-01;4;104124;2019-01-01;2019-12-31;931939.00;1.44079892;Índice de Endividamento;
+50.746.577/0001-15;2020-01-01;10;104695;2019-01-01;2019-12-31;0.00;2.00000000;Outros índices;O cálculo da dívida líquida consolidada consiste em subtrair o caixa e expurgar o valor justo dos derivativos do endividamento bruto (inclui obrigações com acionistas preferencialistas). Este resultado é dividido pelo EBITDA consolidado acumulado do ano de 2017. A Companhia acredita que esse é um indicador suplementar adequado, pois representa a geração de caixa da empresa que pode ser usada para quitar dívidas, além de ser uma métrica amplamente utilizada pelo mercado financeiro para avaliação das empresas.
+50.746.577/0001-15;2020-01-01;10;104695;2019-01-01;2019-12-31;21803923426.00;1.97000000;Índice de Endividamento;
+50.926.955/0001-42;2020-01-01;8;104394;2019-01-01;2019-12-31;267730000.00;0.24620481;Índice de Endividamento;
+51.128.999/0001-90;2020-01-01;3;99183;2019-01-01;2019-12-31;45578000.00;78.03249499;Índice de Endividamento;
+51.218.147/0001-93;2020-01-01;4;103869;2019-01-01;2019-12-31;2628831000.00;0.87625889;Índice de Endividamento;
+51.466.860/0001-56;2020-03-31;4;95823;2018-04-01;2019-03-31;4452600000.00;1.31306012;Índice de Endividamento;
+51.466.860/0001-56;2020-03-31;4;95823;2018-04-01;2019-03-31;0.00;1.46059156;Outros índices;Índice de endividamento utilizado: Dívida Líquida / EBITDA Ajustado dos últimos 12 meses. Sendo: Dívida líquida: a soma da dívida bancária da companhia e obrigações decorrentes de aquisições menos o caixa e disponibilidades da Companhia. EBITDA Ajustado dos últimos 12 meses: a soma do EBITDA Ajustado dos últimos 12 meses no conceito de EBITDA Ajustado descrito no item 3.2. Motivo da utilização do índice: Índice amplamente utilizado pelo mercado.
+51.928.174/0001-50;2020-01-01;2;103386;2019-01-01;2019-12-31;0.00;1.11430000;Outros índices;A Companhia adotou o índice de endividamento geral (EG) em razão do passivo a descoberto (patrimônio líquido negativo) em 2019.
+52.548.435/0001-79;2020-01-01;18;105094;2019-01-01;2019-12-31;17888271000.00;7.52000000;Índice de Endividamento;
+52.548.435/0001-79;2020-01-01;18;105094;2020-01-01;2020-12-31;20222627000.00;8.49000000;Índice de Endividamento;
+53.113.791/0001-22;2020-01-01;19;103190;2019-01-01;2019-12-31;1057518000.00;0.42669229;Índice de Endividamento;
+56.444.250/0001-75;2020-01-01;2;95309;2019-01-01;2019-12-31;827420744.40;44.77000000;Índice de Endividamento;
+56.643.018/0001-66;2020-01-01;6;103527;2019-01-01;2019-12-31;972327157.00;73.30000000;Índice de Endividamento;
+56.720.428/0001-63;2020-01-01;7;102288;2019-01-01;2019-12-31;0.00;0.49203433;Outros índices;O método utilizado para calcular o endividamento financeiro da Companhia será a divisão da soma dos financiamentos com os provedores de capital, deduzidos os valores referentes ao "Financiamento - Finame Fabricante", pelo patrimônio líquido total.
+56.720.428/0001-63;2020-01-01;7;102288;2019-01-01;2019-12-31;608359000.00;0.80165164;Índice de Endividamento;
+56.992.423/0001-90;2020-01-01;2;103757;2019-01-01;2019-12-31;30334777.81;0.15939535;Índice de Endividamento;
+58.430.828/0001-60;2020-01-01;3;99544;2019-01-01;2019-12-31;472688528.56;1.77865410;Índice de Endividamento;
+58.430.828/0001-60;2020-01-01;3;99544;2019-01-01;2019-12-31;0.00;0.38489105;Outros índices;Dívida Líquida/EBITDA: Em 31 de dezembro de 2019, a Dívida Líquida da Companhia era de R$ 119.857.258,28, representando um índice de Dívida Líquida/EBITDA de 0,14 vezes. Por Dívida Líquida entende-se os empréstimos e financiamentos, as debêntures, circulante e não circulante, menos o caixa e equivalentes de caixa. A Companhia entende que o índice Dívida Líquida/EBITDA representa, de forma mais apropriada, o seu nível de endividamento, pois reflete o endividamento descontada do caixa e equivalentes de caixa e aplicações financeiras (circulante).
+59.105.999/0001-86;2020-01-01;4;104705;2019-01-01;2019-12-31;4615307.00;1.52870000;Índice de Endividamento;
+59.285.411/0001-13;2020-01-01;13;99500;2019-01-01;2019-12-31;27871963000.00;5.66000000;Índice de Endividamento;
+59.285.411/0001-13;2020-01-01;13;99500;2020-01-01;2020-12-31;28191084000.00;5.51000000;Índice de Endividamento;
+59.418.806/0001-47;2020-01-01;6;104412;2019-01-01;2019-12-31;261866280.64;20.63160710;Índice de Endividamento;
+59.418.806/0001-47;2020-01-01;6;104412;2020-01-01;2020-12-31;264012000.00;13.13884742;Índice de Endividamento;
+59.789.545/0001-71;2020-01-01;3;104300;2019-01-01;2019-12-31;14022000.00;0.38000000;Índice de Endividamento;
+60.398.369/0004-79;2020-01-01;14;103519;2019-01-01;2019-12-31;0.00;2.56050000;Outros índices;Índice de Endividamento Ajustado considera a Soma do Passivo Circulante e Não Circulante/Patrimônio Líquido Ajustado, sendo este último o PL ajustado pela conta de Ajustes de Avaliação Patrimonial, que representa toda avariação cambial sobre o Endividamento da Companhia que está represado nesta conta até o eventual vencimento destes instrumentos, conforme nossa política de contabilidade de hedge. A Companhia apresenta o Patrimônio Líquido Ajustado exclusivamente para fins de cálculo de determinados covenants financeiros previstos em alguns contratos de empréstimo da Companhia.
+60.398.369/0004-79;2020-01-01;14;103519;2019-01-01;2019-12-31;4020996.78;6.33890000;Índice de Endividamento;
+60.444.437/0001-46;2020-01-01;11;100013;2019-01-01;2019-12-31;15024913000.00;2.91000000;Índice de Endividamento;
+60.476.884/0001-87;2020-01-01;6;103257;2019-01-01;2019-12-31;1030697000.00;0.79000000;Índice de Endividamento;
+60.476.884/0001-87;2020-01-01;6;103257;2019-01-01;2019-12-31;0.00;0.43000000;Outros índices;Esse índice mostra-se apropriado para medir a capacidade da Companhia para fazer face ao seu endividamento líquido.¹ Endividamento líquido consiste em exigibilidades (financiamentos de curto e longo prazo, bem como cambiais descontadas pela Companhia) decrescidas de ativos circulantes de liquidez (caixa, bancos e aplicações financeiras).
+60.500.139/0001-26;2020-01-01;5;99313;2019-01-01;2019-12-31;852189300.96;1.20264204;Índice de Endividamento;
+60.537.263/0001-66;2020-01-01;14;103592;2019-01-01;2019-12-31;1838880000.00;3.16439947;Índice de Endividamento;
+60.543.816/0001-93;2020-01-01;3;103221;2019-01-01;2019-12-31;2724277000.00;90.09540000;Índice de Endividamento;
+60.637.238/0001-54;2020-01-01;2;108426;2019-01-01;2019-12-31;123471.00;1.82000000;Índice de Endividamento;
+60.651.809/0001-05;2020-01-01;4;104299;2019-01-01;2019-12-31;79866645000.00;4.40000000;Índice de Endividamento;
+60.730.348/0001-66;2020-01-01;4;104595;2019-01-01;2019-12-31;547274100.22;0.61950000;Índice de Endividamento;
+60.746.948/0001-12;2020-01-01;21;104409;2019-01-01;2019-12-31;1242984111000.00;9.17036550;Índice de Endividamento;
+60.770.336/0001-65;2020-01-01;5;102649;2019-01-01;2019-12-31;10528174.00;7.07387400;Índice de Endividamento;
+60.840.055/0001-31;2020-01-01;10;103580;2019-01-01;2019-12-31;0.00;0.62000000;Outros índices;Dívida líquida dividido por EBITDA
+60.840.055/0001-31;2020-01-01;10;103580;2019-01-01;2019-12-31;3337676.00;1.90000000;Índice de Endividamento;
+60.851.615/0001-53;2020-01-01;5;103654;2019-01-01;2019-12-31;825911000.00;1.13000000;Índice de Endividamento;
+60.872.504/0001-23;2020-01-01;21;104273;2019-01-01;2019-12-31;1488016044000.00;9.96000000;Índice de Endividamento;
+60.884.319/0001-59;2020-01-01;1;95592;2019-01-01;2019-12-31;156065446.80;9.30662807;Índice de Endividamento;
+60.894.730/0001-05;2020-01-01;13;104238;2019-01-01;2019-12-31;10771348000.00;69.00000000;Índice de Endividamento;
+60.933.603/0001-78;2020-01-01;17;104592;2019-12-01;2019-12-31;0.00;1.40000000;Outros índices;Dívida Líquida/EBITDA Ajustado: Em 31 de dezembro de 2019, a Dívida Líquida da Companhia era de R$1.061,1 milhões e no exercício social encerrado naquela data o EBITDA Ajustado era R$751,8 milhões, representando um índice de Dívida Líquida/EBITDA Ajustado de 1,4 vezes. Por Dívida Líquida entende-se os empréstimos e financiamentos e as debêntures, e arrendamento mercantil, circulante e não circulante, menos o caixa e equivalentes de caixa e instrumentos financeiros derivativos, circulante e não circulante. A Companhia entende que o índice Dívida Líquida/EBITDA Ajustado representa, de forma mais apropriada, o seu nível de endividamento, pois reflete o endividamento bruto descontada do caixa e equivalentes de caixa (circulante).
+60.933.603/0001-78;2020-01-01;17;104592;2019-12-01;2019-12-31;5784783000.00;0.80963750;Índice de Endividamento;
+61.024.352/0001-71;2020-01-01;7;99906;2019-01-01;2019-12-31;2572937047.54;506.43175846;Índice de Endividamento;
+61.065.298/0001-02;2020-01-01;2;99373;2019-01-01;2019-12-31;0.00;16.89000000;Outros índices;Dívida líquida / EBITDA. A Companhia utiliza o indicador financeiro Dívida líquida sobre EBITDA, por entender que é um indicador mais adequado para suas operações.
+61.079.117/0001-05;2020-01-01;11;103133;2019-01-01;2019-12-31;1787448.00;0.65364340;Índice de Endividamento;
+61.082.004/0001-50;2020-01-01;2;103657;2019-01-01;2019-12-31;0.00;3.32340000;Outros índices;Índice utilizado:Participação de capital de terceiros sobre os recursos totais = (passivo circulante+passivo não circulante)/ativo totalFoi utilizado este índice pois o mesmo representa a situação financeira da companhia mais próxima da realidade, demonstrando todos os passivos.
+61.088.894/0001-08;2020-01-01;6;102741;2019-01-01;2019-12-31;169261298.80;0.69587638;Índice de Endividamento;
+61.101.895/0001-45;2020-01-01;2;100590;2019-01-01;2019-12-31;1159377045.03;31.83421853;Índice de Endividamento;
+61.156.113/0001-75;2020-01-01;8;104578;2019-01-01;2019-12-31;0.00;2.20000000;Outros índices;Dívida Líquida/EBITDA
+61.156.113/0001-75;2020-01-01;8;104578;2019-01-01;2019-12-31;5878435000.00;1.68100525;Índice de Endividamento;
+61.156.931/0001-78;2020-01-01;1;94915;2019-01-01;2019-12-31;92191709.62;0.51297892;Índice de Endividamento;
+61.186.680/0001-74;2020-01-01;19;104291;2019-01-01;2019-12-31;15504132000.00;3.80997939;Índice de Endividamento;
+61.189.288/0001-89;2020-01-01;13;103807;2019-01-01;2019-12-31;2600062000.00;1.83102180;Índice de Endividamento;
+61.351.532/0001-68;2020-01-01;7;103990;2019-01-01;2019-12-31;301675000.00;5.45400000;Índice de Endividamento;
+61.351.532/0001-68;2020-01-01;7;103990;2019-01-01;2019-12-31;0.00;0.00000001;Outros índices;O valor de R$ 301.675.000,00 trata-se de divida do consolidado.Quanto a controladora, a soma do passivo circulante e não circulante é de R$ 287.675.00 e o indice de endividamento é de 6,964.
+61.374.161/0001-30;2020-01-01;1;95588;2019-01-01;2019-12-31;108127275.12;0.76000000;Índice de Endividamento;
+61.486.650/0001-83;2020-01-01;9;100193;2019-01-01;2019-12-31;5575799011.15;1.70397651;Índice de Endividamento;
+61.532.644/0001-15;2020-01-01;6;104621;2019-01-01;2019-12-31;9120556206.61;15.63000000;Índice de Endividamento;
+61.532.644/0001-15;2020-01-01;6;104621;2019-01-01;2019-12-31;0.00;6.04000000;Outros índices;Índice de endividamento considerando as Demonstrações Contábeis Individuais da Emissora. Mais explicações no Item 3.9 deste Formulário de Referência.  Soma do Passivo Circulante e Não Circulante: R$ 3.338.322.291,29.
+61.584.140/0001-49;2020-01-01;2;97043;2019-01-01;2019-12-31;14009755000.00;2.98037661;Índice de Endividamento;
+61.585.865/0001-51;2020-01-01;6;103803;2019-01-01;2019-12-31;8171836729.93;2.00466081;Índice de Endividamento;
+61.695.227/0001-93;2020-01-01;7;102782;2019-01-01;2019-12-31;22500328000.00;5.66870838;Índice de Endividamento;
+61.856.571/0001-17;2020-01-01;6;104613;2019-01-01;2019-12-31;7932214000.00;15.26870423;Índice de Endividamento;
+62.002.886/0001-60;2020-01-01;9;103628;2019-01-01;2019-12-31;235425020.55;89.63722574;Índice de Endividamento;
+62.144.175/0001-20;2020-01-01;8;104793;2019-01-01;2019-12-31;9265369087.01;11.01635206;Índice de Endividamento;
+62.232.889/0001-90;2020-01-01;4;92843;2019-01-01;2019-12-31;29453115000.00;7.69167681;Índice de Endividamento;
+62.307.848/0001-15;2020-01-01;3;99601;2019-01-01;2019-12-31;10781922529.46;8.48912225;Índice de Endividamento;
+62.984.091/0001-02;2020-01-01;6;103076;2019-01-01;2019-12-31;1688412000.00;3.30548502;Índice de Endividamento;
+62.984.091/0001-02;2020-01-01;6;103076;2020-01-01;2020-12-31;3284168000.00;8.04105527;Índice de Endividamento;
+64.904.295/0001-03;2020-02-28;9;94700;2018-03-01;2019-02-28;2267545000.00;1.05000000;Índice de Endividamento;
+65.654.303/0001-73;2020-01-01;12;103782;2019-01-01;2019-12-31;7467315.00;1.48000000;Índice de Endividamento;
+67.010.660/0001-24;2020-01-01;7;103249;2019-01-01;2019-12-31;405013000.00;0.47300000;Índice de Endividamento;
+67.010.660/0001-24;2020-01-01;7;103249;2019-01-01;2019-12-31;0.00;0.10000000;Outros índices;A Companhia utiliza o indicador abaixo por melhor refletir a alavancagem financeira da Companhia, desconsiderando do seu total de dívida os valores relacionados ao financiamento à produção. Dívida Líquida (ex-dívida de produção )/Patrimônio Líquido. Dívida Total sem Dívida de Produção = R$ 357.455.000,00 Caixa = R$ 109.886.000,00 e Patrimônio Líquido = R$ 623.589.000,00
+67.620.377/0001-14;2020-01-01;16;104710;2019-01-01;2019-12-31;13515399000.00;47.98446010;Índice de Endividamento;
+67.620.377/0001-14;2020-01-01;16;104710;2019-01-01;2019-12-31;0.00;2.86103877;Outros índices;Dívida Líquida /EBITDA. A Companhia entende que este índice representa mais adequadamente seu endividamento, pois representa quantas vezes o endividamento líquido é maior do que a geração operacional da Companhia nos últimos 12 meses, além de ser um índice amplamente utilizado pelo mercado.
+69.720.910/0001-45;2020-12-31;1;105499;2020-01-01;2020-12-30;60276321.18;22.89943341;Índice de Endividamento;
+71.208.516/0001-74;2020-01-01;1;95425;2019-01-01;2019-12-31;3455528000.00;2.61000000;Índice de Endividamento;
+71.476.527/0001-35;2020-01-01;10;104883;2019-01-01;2019-12-31;2126776.52;1.57339800;Índice de Endividamento;
+71.476.527/0001-35;2020-01-01;10;104883;2019-01-01;2019-12-31;0.00;14.80000000;Outros índices;Índice de endividamento líquido negativo de 14,80% (quatorze e oitenta centésimos negativos). Para mais informações ver item 3.2.
+71.673.990/0001-77;2020-01-01;5;121236;2019-01-01;2019-12-31;7902990829.00;2.49000000;Índice de Endividamento;
+73.178.600/0001-18;2020-01-01;8;103179;2019-01-01;2019-12-31;0.00;16.44717711;Outros índices;O índice de endividamento utilizado é o resultado da divisão da dívida líquida da Companhia por seu patrimônio líquido. A dívida líquida é composta por saldos de empréstimos deduzidos dos saldos de caixa e equivalentes de caixa e de títulos e valores mobiliários e dos juros e gastos relativos a financiamento SFH e divida corporativa no valor de R$ 2,5 milhões. O Patrimônio Líquido demonstra a estrutura de capital da Companhia. A Companhia entende que referido índice demonstra de forma adequada a estrutura de capital da Companhia após a quitação das dívidas, mostrando a solidez da estrutura de capital da Companhia.
+73.178.600/0001-18;2020-01-01;8;103179;2019-01-01;2019-12-31;2514381488.08;92.98396204;Índice de Endividamento;
+73.903.718/0001-61;2020-01-01;1;94805;2019-01-01;2019-12-31;6595000.00;0.66470290;Índice de Endividamento;
+75.315.333/0001-09;2020-01-01;9;103416;2019-01-01;2019-12-31;30207000000.00;1.67258200;Índice de Endividamento;
+75.609.123/0001-23;2020-01-01;1;95471;2019-01-01;2019-12-31;1460709000.00;3.76484006;Índice de Endividamento;
+76.483.817/0001-20;2020-01-01;11;103292;2019-01-01;2019-12-31;20714338000.00;1.17707067;Índice de Endividamento;
+76.484.013/0001-45;2020-01-01;17;103087;2019-01-01;2019-12-31;5765689544.00;0.93387912;Índice de Endividamento;
+76.535.764/0001-43;2020-01-01;11;103854;2019-01-01;2019-12-31;54095316000.00;3.04000000;Índice de Endividamento;
+76.627.504/0001-06;2020-01-01;19;106575;2019-01-01;2019-12-31;3424177708.48;2.43163394;Índice de Endividamento;
+78.876.950/0001-71;2020-01-01;6;103363;2019-01-01;2019-12-31;385375709.79;0.27000000;Índice de Endividamento;
+79.430.682/0001-22;2020-01-01;3;99600;2019-01-01;2019-12-31;896025000.00;12.71787265;Índice de Endividamento;
+79.430.682/0001-22;2020-01-01;3;99600;2020-01-01;2020-12-31;933893000.00;34.55663275;Índice de Endividamento;
+80.227.184/0001-66;2020-01-01;2;93777;2019-01-01;2019-12-31;89270468.93;69.99291017;Índice de Endividamento;
+81.243.735/0001-48;2020-01-01;10;104660;2019-01-01;2019-12-31;1410511000.00;2.63700148;Índice de Endividamento;
+82.508.433/0001-17;2020-01-01;12;103176;2019-01-01;2019-12-31;2301979757.00;0.64139035;Índice de Endividamento;
+82.640.558/0001-04;2020-01-01;3;96138;2019-01-01;2019-12-31;653408634.88;2.40000000;Índice de Endividamento;
+82.643.537/0001-34;2020-01-01;8;100656;2019-01-01;2019-12-31;20570000.00;1.26000000;Índice de Endividamento;
+82.643.537/0001-34;2020-01-01;8;100656;2019-01-01;2019-12-31;0.00;0.63000000;Outros índices;b.índice Outro de endividamentoi.Método utilizado para calcular o índiceR$ milDescrição31/12/2019Obrigações com instituições financeiras - circulante60.622( + ) Obrigações com instituições financeiras e outros - não circulante27.026( + ) PERT - circulante1.996( + ) PERT - não circulante18.235( = ) Total do endividamento107.879( - ) Caixa e equivalentes de caixa4.985( = ) Endividamento líquido102.894( / ) EBITDA do ano de 201937.200( = ) Nível de Alavancagem2,77
+82.901.000/0001-27;2020-01-01;5;103052;2019-01-01;2019-12-31;876666.00;0.54739451;Índice de Endividamento;
+82.901.000/0001-27;2020-01-01;5;103052;2020-01-01;2020-12-31;1226111.00;0.59654708;Índice de Endividamento;
+82.982.075/0001-80;2020-01-01;2;103299;2019-01-01;2019-12-31;0.00;2.27063300;Outros índices;O PL da Cia é negativo, por isso calculamos PC + PNC / AT
+83.475.913/0001-91;2020-01-01;7;103680;2019-01-01;2019-12-31;0.00;5.55989922;Outros índices;Índice obtido a partir da divisão da dívida líquida (dívida bancária líquida (saldo dos empréstimos e financiamentos (curto e longo prazo) deduzidos dos saldos de caixa e equivalentes de caixa e aplicações financeiras vinculadas somada aos parcelamentos de obrigações tributárias e os saldos de créditos com outras pessoas ligadas) pelo LAJIDA/EBITDA ajustado.
+83.475.913/0001-91;2020-01-01;7;103680;2019-01-01;2019-12-31;0.00;3.64593088;Outros índices;Índice apurado através da divisão da dívida bancária líquida em pelo LAJIDA/EBITDA do exercício. A dívida bancária líquida corresponde ao saldo dos empréstimos e financiamentos (curto e longo prazo) deduzidos dos saldos de caixa e equivalentes de caixa e aplicações financeiras vinculadas.
+83.475.913/0001-91;2020-01-01;7;103680;2019-01-01;2019-12-31;0.00;3.29665167;Outros índices;Índice obtido a partir da divisão da dívida líquida pelo LAJIDA/EBITDA. A dívida líquida é composta pela dívida bancária líquida (saldo dos empréstimos e financiamentos (curto e longo prazo) deduzidos dos saldos de caixa e equivalentes de caixa e aplicações financeiras vinculadas) somada aos parcelamentos de obrigações tributárias e os saldos de créditos com outras pessoas ligadas.
+83.475.913/0001-91;2020-01-01;7;103680;2019-01-01;2019-12-31;1468655877.71;3.99486281;Índice de Endividamento;
+83.878.892/0001-55;2020-01-01;10;104599;2019-01-01;2019-12-31;8091133000.00;4.75000000;Índice de Endividamento;
+84.429.695/0001-11;2020-01-01;8;103885;2019-01-01;2019-12-31;2305527000.00;0.26000000;Índice de Endividamento;
+84.683.374/0001-49;2020-01-01;9;103026;2019-01-01;2019-12-31;2736764000.00;1.14634000;Índice de Endividamento;
+84.683.408/0001-03;2020-01-01;4;103468;2019-01-01;2019-12-31;68414710.28;0.09218933;Índice de Endividamento;
+84.693.183/0001-68;2020-01-01;6;102937;2019-01-01;2019-12-31;777188419.14;1.25332484;Índice de Endividamento;
+85.041.333/0001-11;2020-01-01;1;94099;2019-01-01;2019-12-31;68251616.65;0.37313844;Índice de Endividamento;
+85.778.074/0001-06;2020-01-01;4;104229;2019-01-01;2019-12-31;192847122.43;1.01376176;Índice de Endividamento;
+86.375.425/0001-09;2020-01-01;3;103392;2019-01-01;2019-12-31;67310939.00;21.17959484;Índice de Endividamento;
+86.550.951/0001-50;2020-01-01;3;103749;2019-01-01;2019-12-31;100604.00;308.00000000;Índice de Endividamento;
+87.456.562/0001-22;2020-01-01;2;103995;2019-01-01;2019-12-31;1131986.00;62.80000000;Índice de Endividamento;
+87.762.563/0001-03;2020-01-01;5;103576;2019-01-01;2019-12-31;964329.00;4.14000000;Índice de Endividamento;
+88.610.126/0001-29;2020-01-01;8;103859;2019-01-01;2019-12-31;840695512.00;0.51894000;Índice de Endividamento;
+88.610.191/0001-54;2020-01-01;2;103570;2019-01-01;2019-12-31;0.00;13.85000000;Outros índices;Índice de endividamento foi calculado através do EBTDA, passivo circulante e não circulante dividido pela EBTDA, resultando um endividamento em 13,85 x o valor da EBTDA.
+88.611.835/0001-29;2020-01-01;6;102636;2019-01-01;2019-12-31;2835266000.00;1.23000000;Índice de Endividamento;
+88.613.658/0001-10;2020-06-30;3;98633;2018-07-01;2019-06-30;273207885.00;52.63905329;Índice de Endividamento;
+89.086.144/0001-16;2020-01-01;9;103303;2019-01-01;2019-12-31;4152152082.40;1.90819182;Índice de Endividamento;
+89.096.457/0001-55;2020-01-01;7;104650;2019-01-01;2019-12-31;0.00;1.22000000;Outros índices;O índice é calculado mediante a divisão do endividamento líquido ajustado (dívida bruta - ganhos e perdas com derivativos vinculados a aplicações e dívidas - caixa) pelo EBITDA Ajustado. O valor do endividamento líquido ajustado no exercício social encerrado em 2019 é de R$ 973.757 (novecentos e setenta e três milhões, setecentos e cinquenta e sete mil reais). O valor do EBITDA Ajustado referente ao exercício social encerrado em 2019 é de R$  795.521 (setecentos e noventa e cinco milhões, quinhentos e vinte e um mil reais).A Companhia utiliza este método, por tratar-se de um indicador comum de mercado, e que permite acompanhar a capacidade da empresa em sanar suas dívidas com base no caixa que é gerado
+89.463.822/0001-12;2020-01-01;12;104916;2019-01-01;2019-12-31;405062485.00;4.06828000;Índice de Endividamento;
+89.637.490/0001-45;2020-01-01;19;103545;2019-01-01;2019-12-31;29201809000.00;0.78000000;Índice de Endividamento;
+89.637.490/0001-45;2020-01-01;19;103545;2019-01-01;2019-12-31;0.00;3.30000000;Outros índices;Dívida Líquida/LAJIDA (EBITDA) Ajustado - Nível de Alavancagem. A Companhia entende que este índice é usual de mercado e é adotado como forma de identificar seu nível de alavancagem, apurado através da dívida líquida dividida pelo LAJIDA (EBITDA) Ajustado. Este último correspondente à geração de caixa operacional da Companhia.
+89.723.993/0001-33;2020-01-01;1;96609;2019-01-01;2019-12-31;1038411596.37;6.47000000;Índice de Endividamento;
+89.850.341/0001-60;2020-01-01;11;103471;2019-01-01;2019-12-31;382011093.96;0.10373868;Índice de Endividamento;
+90.076.886/0001-40;2020-01-01;2;97661;2019-01-01;2019-12-31;592894000.00;2.97000000;Índice de Endividamento;
+90.400.888/0001-42;2020-01-01;10;103768;2019-01-01;2019-12-31;665028291000.00;6.84121006;Índice de Endividamento;
+90.441.460/0001-48;2020-01-01;3;103118;2019-01-01;2019-12-31;68210792.57;42.62000000;Índice de Endividamento;
+91.333.666/0001-17;2020-01-01;3;103406;2019-01-01;2019-12-31;101848337.01;1.61225042;Índice de Endividamento;
+91.495.499/0001-00;2020-01-01;4;103082;2019-01-01;2019-12-31;378826000.00;0.71147313;Índice de Endividamento;
+91.669.747/0001-92;2020-01-01;3;103336;2019-01-01;2019-12-31;835559.47;15.67090581;Índice de Endividamento;
+91.983.056/0001-69;2020-01-01;12;103011;2019-01-01;2019-12-31;208718000.00;43.66000000;Índice de Endividamento;
+92.012.467/0001-70;2020-01-01;4;103338;2019-01-01;2019-12-31;195890605.00;31.27000000;Índice de Endividamento;
+92.660.570/0001-26;2020-01-01;6;103224;2019-01-01;2019-12-31;87486000.00;46.33500000;Índice de Endividamento;
+92.665.611/0001-77;2020-01-01;12;103126;2019-01-01;2019-12-31;0.00;0.54000000;Outros índices;Dívida Líquida / EBITDA: Em 31 de dezembro de 2019, a Dívida Líquida da Companhia, era de R$114,8 milhões e no exercício social encerrado em 31 de dezembro de 2019 o EBITDA era de R$214,6 milhões, representando um índice de Dívida Líquida / EBITDA de 0,54 vezes. Por Dívida Líquida entende-se o saldo de empréstimos, financiamentos e debêntures, deduzidos do saldo de caixa e equivalentes de caixa. A Companhia entende que o índice Dívida Líquida / EBITDA representa, de forma mais adequada, o seu nível de endividamento. Para mais informações sobre a Dívida Líquida e o EBITDA, ver item 3.2 deste Formulário de Referência.
+92.665.611/0001-77;2020-01-01;12;103126;2019-01-01;2019-12-31;936109000.00;1.78586772;Índice de Endividamento;
+92.690.783/0001-09;2020-01-01;9;104259;2019-01-01;2019-12-31;26821483.00;99.00000000;Índice de Endividamento;
+92.690.783/0001-09;2020-01-01;9;104259;2019-01-01;2019-12-31;0.00;1.68000000;Outros índices;C. Outros índices de endividamentoC.1 Dívida Líquida / EBITDA Ajustado em R$ - 1,68xC.2 EBITDA Ajustado / Despesas Financeiras Líquidas em R$ - 6,11x
+92.693.019/0001-89;2020-01-01;2;102938;2019-01-01;2019-12-31;529193149.00;0.55380498;Índice de Endividamento;
+92.702.067/0001-96;2020-01-01;14;104230;2019-01-01;2019-12-31;73755227000.00;9.46000000;Índice de Endividamento;
+92.715.812/0001-31;2020-01-01;16;104598;2019-01-01;2019-12-31;2613647060.18;1.07436332;Índice de Endividamento;
+92.721.232/0001-57;2020-01-01;1;95305;2019-01-01;2019-12-31;14333165.78;0.21000000;Índice de Endividamento;
+92.749.225/0001-63;2020-01-01;2;103575;2019-01-01;2019-12-31;392845702.47;1.02580000;Índice de Endividamento;
+92.754.738/0001-62;2020-01-01;9;102079;2019-01-01;2019-12-31;7087121570.19;1.50642000;Índice de Endividamento;
+92.791.243/0001-03;2020-01-01;14;103613;2019-01-01;2019-12-31;1243054208.15;3.69000000;Índice de Endividamento;
+92.791.243/0001-03;2020-01-01;14;103613;2019-01-01;2019-12-31;0.00;2.16000000;Outros índices;Índice de endividamento líquido. É calculado dividendo a dívida líquida pelo total do patrimônio líquido, conforme item 3.2
+92.791.243/0001-03;2020-01-01;14;103613;2019-01-01;2019-12-31;0.00;3.40000000;Outros índices;É calculado através da razão Dívida Líquida /EBITDA Ajustado Total. A Companhia entende que o índice Dívida Líquida/EBITDA Ajustado Total é mais adequado para a correta compreensão da situação financeira e do nível de endividamento da Companhia, , pois reflete o resultado líquido contábil sem o efeito de depreciação e amortização, exaustão, variação do valor justo dos ativos biológicos e o resultado financeiro. A Dívida Líquida é calculada conforme item  3.2 deste Formulário de Referência. O EBITDA Ajustado Total é calculado conforme item 3.2 c) deste Formulário de Referência.
+92.791.243/0001-03;2020-01-01;14;103613;2020-01-01;2020-12-31;1209356763.02;3.41000000;Índice de Endividamento;
+92.802.784/0001-90;2020-01-01;6;104980;2019-01-01;2019-12-31;3066784735.11;1.27767067;Índice de Endividamento;
+92.929.520/0001-00;2020-01-01;1;95502;2019-01-01;2019-12-31;2984000.00;0.08251527;Índice de Endividamento;
+92.934.215/0001-06;2020-01-01;5;103408;2019-01-01;2019-12-31;1944638000.00;1.75322144;Índice de Endividamento;
+93.828.986/0001-73;2020-01-01;2;104955;2019-01-01;2019-12-31;4514.12;100.00000000;Índice de Endividamento;
+95.426.862/0001-97;2020-01-01;4;100597;2019-01-01;2019-12-31;49356502.00;1.00428004;Índice de Endividamento;
+96.298.013/0001-68;2020-01-01;2;97480;2019-01-01;2019-12-31;144459000.00;0.52598254;Índice de Endividamento;
+96.298.013/0001-68;2020-01-01;2;97480;2020-01-01;2020-12-31;241677000.00;0.80368794;Índice de Endividamento;
+96.418.264/0218-02;2020-01-01;10;103744;2020-01-01;2020-12-31;1499136000.00;10.29159859;Índice de Endividamento;
+96.418.264/0218-02;2020-01-01;10;103744;2020-01-01;2020-12-31;1477699000.00;10.25268511;Índice de Endividamento;
+97.191.902/0001-94;2020-01-01;1;95281;2019-01-01;2019-12-31;231090639.74;1.21000000;Índice de Endividamento;
+97.837.181/0001-47;2020-01-01;13;104593;2019-01-01;2019-12-31;5782521019.18;1.17240978;Índice de Endividamento;
+97.837.181/0001-47;2020-01-01;13;104593;2019-01-01;2019-12-31;0.00;0.34575411;Outros índices;A Companhia entende que a medida de Endividamento geral, dado pela razão entre Endividamento Líquido pelo Patrimônio Líquido, também é adequada para mensurar o grau de endividamento da empresa. O endividamento líquido é dado pela diferenciação da soma do endividamento de curto e longo prazo subtraído pelo caixa e equivalentes de caixa. Em 31/12/2019 o endividamento líquido totalizou R$ 1.705.317 mil e o patrimônio líquido R$ 4.932.168 mil, portanto o Endividamento Geral foi de 34,58%, por este indicador, considerado adequado.

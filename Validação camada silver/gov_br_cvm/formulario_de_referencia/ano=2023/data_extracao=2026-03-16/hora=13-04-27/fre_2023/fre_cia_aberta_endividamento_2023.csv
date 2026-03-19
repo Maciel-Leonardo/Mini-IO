@@ -1,0 +1,16 @@
+CNPJ_Companhia;Data_Referencia;Versao;ID_Documento;Data_Inicio_Exercicio_Social;Data_Fim_Exercicio_Social;Passivo;Indice_Endividamento;Tipo_Indice;Descricao_Outro_Indice
+02.635.522/0001-95;2023-03-31;8;129807;2021-04-01;2022-03-31;2861147892.75;2.06026871;Índice de Endividamento;
+02.635.522/0001-95;2023-03-31;8;129807;2021-04-01;2022-03-31;0.00;0.12942183;Outros índices;Sendo: Dívida líquida: corresponde à dívida bruta, deduzido do caixa, equivalentes de caixa e caixa restrito. EBITDA ajustado de acordo com o descrito no item 3.2. Motivo da utilização do índice: Índice amplamente utilizado pelo mercado.
+06.016.348/0001-53;2023-01-01;1;127379;2022-01-01;2022-12-31;304612267.73;6.93609858;Índice de Endividamento;
+06.981.381/0001-13;2023-03-31;9;129306;2021-04-01;2022-03-31;138388000.00;0.14888263;Índice de Endividamento;
+07.628.528/0001-59;2023-06-30;15;132717;2021-07-01;2022-06-30;3345263000.00;0.50956252;Índice de Endividamento;
+08.070.508/0001-78;2023-03-31;8;128940;2021-04-01;2022-03-31;44979744000.00;3.30834300;Índice de Endividamento;
+08.322.396/0001-03;2023-03-31;4;130511;2021-04-01;2022-03-31;2734570000.00;2.42390320;Índice de Endividamento;
+08.322.396/0001-03;2023-03-31;4;130511;2021-04-01;2022-03-31;0.00;3.55000000;Outros índices;Índice de endividamento utilizado: Ativo Circulante Ajustado/Passivo Circulante Ajustado. Sendo Ativo Circulante ajustado o total de Ativo Circulante, excluindo a linha de 'Arrendamentos a receber' (IFRS 16), e Passivo Circulante Ajustado o total de Passivo Circulante, excluindo a linha de 'Arrendamentos a pagar' e 'Parcerias Agrícolas a pagar' (IFRS 16). 3.2. Motivo da utilização do índice: Índice amplamente utilizado pelo mercado.
+08.322.396/0001-03;2023-03-31;4;130511;2021-04-01;2022-03-31;0.00;0.57000000;Outros índices;Dívida Líquida/EBITDA Ajustado dos últimos 12 meses. Sendo: Dívida líquida: a soma da dívida bancária da companhia e obrigações decorrentes de aquisições menos o caixa e disponibilidades da Companhia. EBITDA Ajustado dos últimos 12 meses: a soma do EBITDA Ajustado dos últimos 12 meses no conceito de EBITDA Ajustado descrito no item 3.2 - Motivo da utilização do índice: Índice amplamente utilizado pelo mercado.
+33.453.598/0001-23;2023-03-31;17;130598;2021-04-01;2022-03-31;78085436000.00;3.50805300;Índice de Endividamento;
+51.466.860/0001-56;2023-03-31;7;129782;2021-04-01;2022-03-31;12040720654.19;2.26396370;Índice de Endividamento;
+51.466.860/0001-56;2023-03-31;7;129782;2021-04-01;2022-03-31;0.00;0.93000000;Outros índices;Índice de endividamento utilizado: Dívida Líquida / EBITDA Ajustado dos últimos 12 meses. Sendo: Dívida líquida: a soma da dívida bancária da companhia e obrigações decorrentes de aquisições menos o caixa e disponibilidades da Companhia. EBITDA Ajustado dos últimos 12 meses: a soma do EBITDA Ajustado dos últimos 12 meses no conceito de EBITDA Ajustado descrito no item 3.2. Motivo da utilização do índice: Índice amplamente utilizado pelo mercado.
+64.904.295/0001-03;2023-02-28;6;128875;2021-03-01;2022-02-28;5051969000.00;1.75000000;Índice de Endividamento;
+68.400.225/0001-79;2023-06-30;4;130053;2021-07-01;2022-06-30;247425000.00;1.33735475;Índice de Endividamento;
+88.613.658/0001-10;2023-06-30;13;132743;2021-07-01;2022-06-30;401674436.00;0.41550343;Índice de Endividamento;

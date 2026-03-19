@@ -1,0 +1,30 @@
+{
+  "fonte": "CVM",
+  "tipo_ativo": "demonstracoes_financeiras_padronizadas",
+  "identificador": {
+    "tipo": "ano",
+    "valor": "2020"
+  },
+  "extracao": {
+    "data": "2026-03-16",
+    "hora": "13-04-03",
+    "timestamp_utc": "2026-03-16T13:04:03.635894"
+  },
+  "requisicao": {
+    "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2020.zip",
+    "status_code": 200,
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    },
+    "tempo_resposta_ms": 286.06199999999995
+  },
+  "dados": {
+    "formato": "CSV",
+    "separador": ";",
+    "compactacao": "ZIP",
+    "tamanho_bytes": 12637854,
+    "ano_referencia": 2020,
+    "moeda": "BRL"
+  },
+  "versao_ingestor": "3.0.0"
+}

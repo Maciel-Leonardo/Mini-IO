@@ -1,0 +1,665 @@
+CNPJ_Companhia;Data_Referencia;Versao;ID_Documento;Nome_Companhia;Data_Constituicao_Emissor;Forma_Constituicao_Emissor;Sigla_Pais_Constituicao_Emissor;Pais_Constituicao_Emissor;Prazo_Duracao_Emissor;Data_Registro_Emissor;Requisicao_Registro_Emissor
+00.000.000/0001-91;2020-01-01;28;104726;BCO BRASIL S.A.;1808-10-12;Sociedade anônima aberta de economia mista.;BR;Brasil;;1977-07-20;N
+00.000.208/0001-00;2020-01-01;14;103809;BRB BANCO DE BRASILIA S.A.;1964-12-10;Autorização contida na Lei Federal nº 4.545, de 10 de dezembro de 1964, regida pela Lei das Sociedades Anônimas, pelo Estatuto e demais disposições legais.;BR;Brasil;;1993-09-24;N
+00.001.180/0001-26;2020-01-01;22;104768;CENTRAIS ELET BRAS S.A. - ELETROBRAS;1962-06-11;Sociedade por ações de economia mista.;BR;Brasil;;1971-01-28;N
+00.070.698/0001-11;2020-01-01;7;103845;COMPANHIA ENERGÉTICA DE BRASÍLIA - CEB;1968-12-16;SOCIEDADE DE ECONOMIA MISTA;BR;Brasil;;1994-07-04;N
+00.192.769/0001-59;2020-01-01;1;94800;NEUMARKT TRADE AND FINANCIAL CENTER S/A;1994-08-23;Sociedade de Capital Aberto;BR;Brasil;;1994-10-27;N
+00.272.185/0001-93;2020-01-01;3;103184;CIMS S.A.;1994-10-18;Sociedade Anonima;BR;Brasil;;1995-03-14;N
+00.336.701/0001-04;2020-01-01;12;103080;TELEC BRASILEIRAS S.A. TELEBRAS;1972-11-09;Constituída sob a forma de sociedade anônima aberta de economia mista.;BR;Brasil;;1981-01-21;N
+00.359.742/0001-08;2020-01-01;5;102800;FICTOR ALIMENTOS S.A.;1994-12-20;Sociedade Anonima.;BR;Brasil;;1996-02-28;N
+00.383.281/0001-09;2020-01-01;8;100769;BNDES PARTICIPACOES S.A. - BNDESPAR;1974-09-04;Sociedade por ações;BR;Brasil;;1998-01-13;N
+00.389.481/0001-79;2020-01-01;2;99896;LM TRANSPORTES INTERESTADUAIS SERVIÇOS E COMÉRCIO S.A.;1995-01-10;Sociedade limitada.;BR;Brasil;;2019-11-29;N
+00.416.968/0001-01;2020-01-01;19;103618;BANCO INTER S.A.;1994-09-16;Sociedade Anônima;BR;Brasil;;2018-04-26;N
+00.545.378/0001-70;2020-01-01;1;95407;SERRA AZUL WATER PARK SA;1995-03-09;Companhia Aberta - Categoria A - Sem Ações em Bolsa;BR;Brasil;;1995-07-26;N
+00.622.416/0001-41;2020-01-01;7;103465;STATKRAFT ENERGIAS RENOVAVEIS S.A.;1995-05-19;Fomos constituídos sob a forma de sociedade empresária limitada e, posteriormente, transformados em sociedade por ações em 20 de novembro de 1995.;BR;Brasil;;2011-09-19;N
+00.644.907/0001-93;2020-01-01;3;96239;INVESTCO S.A.;1995-05-31;Constituída sob a forma de sociedade por ações.;BR;Brasil;;2000-02-04;N
+00.743.065/0001-27;2020-01-01;6;103464;LITEL PARTICIPACOES S.A.;1995-07-21;Sociedade Anônima de capital privado;BR;Brasil;;1995-10-18;N
+00.776.574/0001-56;2020-01-01;14;103796;AMERICANAS S.A. - EM RECUPERAÇÃO JUDICIAL;2006-12-13;Em 23 de novembro de 2006, em São Paulo, Brasil, Americanas.com S/A - Comércio Eletrônico e Submarino celebraram o Acordo de Fusão, resultando na criação da B2W, sociedade que consolidou as operações de Americanas.com e Submarino, sucedendo-as em todos os respectivos direitos e obrigações. A fusão foi aprovada pela Lojas Americanas S.A., única acionista da Americanas.com, e pelos acionistas do Submarino em 13 de dezembro de 2006. Em 31 de março de 2007, foi aprovada a incorporação do acervo líquido da B2W pela TV Sky Shop ("Incorporação"). Após a incorporação, a TV Sky Shop passou a ser denominada "B2W - Companhia Global do Varejo". Na Assembleia Geral Extraordinária realizada em 30/04/2013 foi aprovada por unanimidade a alteração da denominação social para "B2W - Companhia Digital".;BR;Brasil;;2007-07-26;N
+00.861.626/0001-92;2020-01-01;2;97442;CONC RODOVIA PRES. DUTRA S.A.;1995-10-02;A Companhia foi constituída na Cidade de São Paulo, Estado de São Paulo, Brasil, sob a forma de sociedade por ações de capital fechado.;BR;Brasil;2021-02-28;2004-08-16;N
+00.864.214/0001-06;2020-01-01;8;103422;ENERGISA S.A.;1995-08-09;Constituída sob a forma de sociedade por ações.;BR;Brasil;;1995-12-20;N
+00.897.864/0001-58;2020-01-01;1;95675;SANTA CATARINA PART INVEST SA;1995-11-13;sociedade anonima;BR;Brasil;;;S
+00.924.429/0001-75;2020-01-01;5;102526;FERROVIA CENTRO-ATLANTICA S.A.;1995-08-14;Sociedade por ações;BR;Brasil;;1996-02-12;N
+00.938.574/0001-05;2020-01-01;7;103474;CONC RIO-TERESOPOLIS S.A.;1995-11-07;Sociedade por Ações;BR;Brasil;2021-03-21;2001-12-26;N
+00.974.211/0001-25;2020-01-01;11;103518;LINHA AMARELA S.A. - LAMSA;1995-11-21;Sociedade por ações;BR;Brasil;;2020-04-08;N
+00.979.969/0001-56;2020-01-01;2;100081;CAIXA ADM DIV PUB ESTADUAL SA;1995-12-28;Sociedade de Economia Mista sob a forma de Sociedade Anônima;BR;Brasil;;1996-09-04;N
+01.027.058/0001-91;2020-01-01;21;104759;CIELO S.A. -  INSTITUIÇÃO DE PAGAMENTO;1995-11-23;A Companhia foi constituída sob a forma de uma sociedade anônima de capital fechado;BR;Brasil;;2009-06-25;N
+01.083.200/0001-18;2020-01-01;12;104319;NEOENERGIA S.A.;1996-02-14;Constituição por subscrição particular;BR;Brasil;;1996-05-08;N
+01.104.937/0001-70;2020-01-01;4;103315;ELETROBRÁS PARTICIPAÇÕES S.A. - ELETROPAR;1996-01-20;Criada em 15 de dezembro de 1995, através da Lei n° 9.163.;BR;Brasil;;1996-09-30;N
+01.107.327/0001-20;2020-01-01;8;103436;BBM LOGÍSTICA S.A.;1996-03-06;Sociedade Limitada;BR;Brasil;;2019-02-27;N
+01.258.944/0001-26;2020-01-01;1;95596;RUMO MALHA SUL S.A.;1996-04-30;Sociedade Anônima;BR;Brasil;;1996-08-29;N
+01.319.044/0001-41;2020-01-01;1;95401;WTC AMAZONAS SUITE HOTEL S.A.;1996-06-01;A Empresa foi constituida sob a forma de Sociedade Anônima, tendo como objeto propósito especifico.;BR;Brasil;;1996-09-18;N
+01.417.222/0001-77;2020-01-01;9;103383;MRS LOGISTICA S.A.;1996-08-30;Sociedade Anônima;BR;Brasil;;1998-11-13;N
+01.543.032/0001-04;2020-01-01;6;103084;EQUATORIAL GOIÁS DISTRIBUIDORA DE ENERGIA S.A.;1956-02-16;Sociedade por ações;BR;Brasil;;2021-02-12;N
+01.545.826/0001-07;2020-01-01;9;103853;GAFISA S.A.;1996-11-12;Sociedade Anônima;BR;Brasil;;1997-02-21;N
+01.548.981/0001-79;2020-01-01;5;103780;INVESTIMENTOS BEMGE S.A.;1964-03-05;Sociedade Anônima;BR;Brasil;;1977-07-20;N
+01.599.101/0001-93;2020-01-01;7;99476;SEQUOIA LOGÍSTICA E TRANSPORTES S.A.;1996-12-05;Sociedade limitada;BR;Brasil;;2020-10-05;N
+01.616.929/0001-02;2020-01-01;11;103558;SANEAMENTO DE GOIAS SA;1967-09-13;Sociedade por Ações;BR;Brasil;;2001-12-11;N
+01.838.723/0001-27;2020-01-01;11;104527;BRF S.A.;1934-08-18;Companhia Aberta;BR;Brasil;;1997-06-24;N
+01.851.771/0001-55;2020-01-01;3;103345;524 PARTICIPACOES S.A.;1997-04-02;Constituída como uma sociedade anônima de capital aberto;BR;Brasil;;1997-05-30;N
+01.896.779/0001-38;2020-01-01;5;102857;CSU DIGITAL S.A.;1997-04-18;CardSystem Ltda foi criada em 1992 e, posteriormente, foi convertida na CSU CardSystem S.A. - Sociedade por ações;BR;Brasil;;2006-04-25;N
+01.917.818/0001-36;2020-01-01;11;103700;LIGHT ENERGIA S.A.;1997-06-23;Sociedade Anônima;BR;Brasil;;2013-01-11;N
+01.938.783/0001-11;2020-01-01;6;104796;CIA PARTICIPACOES ALIANCA DA BAHIA;1997-05-14;Sociedade Anônima;BR;Brasil;;2000-07-26;N
+01.957.772/0001-89;2020-01-01;1;94527;SUL 116 PARTICIPACOES S.A.;1997-06-05;Sociedade por Ações de Capital Fechado;BR;Brasil;2014-07-20;1997-09-03;N
+01.971.614/0001-83;2020-01-01;3;103430;EMPRESA NAC COM REDITO PART S.A.ENCORPAR;1997-05-30;Sociedade por ações;BR;Brasil;;1997-10-07;N
+01.989.044/0001-59;2020-01-01;1;95341;WTC RIO EMPREEND. E PARTICIPAÇÕES S.A.;1997-06-16;A Empresa foi constituida sob a forma de Sociedade Anônima, tendo como objeto propósito especifico.;BR;Brasil;;1997-10-30;N
+02.016.440/0001-62;2020-01-01;6;104683;RGE SUL DISTRIBUIDORA DE ENERGIA S.A.;1997-07-28;Constituída sob a forma de sociedade por ações;BR;Brasil;;1997-10-13;N
+02.062.747/0001-08;2020-01-01;3;103348;SUDESTE S.A.;1997-07-22;Constituída como uma sociedade anônima de capital aberto;BR;Brasil;;1997-11-10;N
+02.084.220/0001-76;2020-01-01;2;93819;NUMERAL 80 PARTICIPAÇÕES S.A.;1997-09-05;Sociedade Anônima de Capital Aberto;BR;Brasil;;1997-09-16;N
+02.105.040/0001-23;2020-01-01;4;97590;VIRGO II COMPANHIA DE SECURITIZACAO;1997-07-31;Empresa aberta, constituida sob a forma de sociedade anônima de capital fechado;BR;Brasil;;1999-05-31;N
+02.149.205/0001-69;2020-01-01;7;102827;PORTO SEGURO S.A.;1997-09-22;Sociedade Por Ações;BR;Brasil;;1997-11-28;N
+02.162.616/0001-94;2020-01-01;3;103473;UPTICK PARTICIPACOES S.A. - EM LIQUIDAÇÃO;1997-09-08;Sociedade por ações de capital aberto, privado e nacional;BR;Brasil;;1997-11-19;N
+02.193.750/0001-52;2020-01-01;10;103382;DEXXOS PARTICIPAÇÕES S.A.;1997-10-01;A GPC Participações S.A. foi constituída em 1º de outubro de 1997, por cisão da Refinaria de Petróleo de Manguinhos S.A., conforme atos constitutivos.;BR;Brasil;;1997-11-20;N
+02.201.787/0001-85;2020-01-01;1;95220;CEL PARTICIPAÇÕES S.A. - CELPAR;1997-09-10;SPE;BR;Brasil;;1997-12-01;N
+02.217.319/0001-07;2020-01-01;3;102928;YBYRÁ CAPITAL S.A.;1997-10-06;constituida como sociedade anônima de capital aberta;BR;Brasil;;1997-12-08;N
+02.221.531/0001-30;2020-01-01;4;103056;RDN CONCESSÕES E PARTICIPAÇÕES S.A.;1997-11-03;A companhia foi constituída na cidade de Ponta Grossa, Estado do Paraná, Brasil, sob a forma de uma sociedade por ações de capital fechado.;BR;Brasil;;2001-11-12;N
+02.222.736/0001-30;2020-01-01;1;95167;EMPRESA CONC RODOV DO NORTE S.A.ECONORTE;1997-10-08;Sociedade Anônima de Capital Aberto;BR;Brasil;2021-11-25;2001-07-24;N
+02.258.422/0001-97;2020-01-01;5;106336;INEPAR EQUIPAMENTOS E MONTAGENS S/A - EM RECUPERACAO JUDICIA;1997-10-31;S.A. de capital aberto - subsidiária integral da Inepar S.A. Indústria e Construções - Em Recuperação Judicial;BR;Brasil;;1998-10-23;N
+02.281.836/0001-37;2020-01-01;2;94223;TRANSNORDESTINA LOGISTICA SA;1997-11-27;A Companhia foi constituída sob a forma de sociedade anônima de capital fechado em 27 de novembro de 1997, e possui sede na cidade de Fortaleza, Estado do Ceará, tendo iniciado suas atividades em janeiro de 1998, originalmente com o nome de Companhia Ferroviária do Nordeste S.A ("CFN"). Em 12 de maio de 2008, em Assembléia Geral Ordinária e Extraordinária, a Companhia decidiu alterar a razão social da CFN para a atual denominação.;BR;Brasil;;2007-01-11;N
+02.286.479/0001-08;2020-01-01;2;99493;LOCALIZA FLEET S.A.;1997-12-15;Constituída sob a forma de sociedade limitada.;BR;Brasil;;2019-10-10;N
+02.291.077/0001-93;2020-01-01;3;97734;PRODUTORES ENERGET.DE MANSO S.A.- PROMAN;1997-12-10;Sociedade por ações;BR;Brasil;;2002-02-07;N
+02.302.100/0001-06;2020-01-01;6;102899;EDP SÃO PAULO DISTRIBUIÇÃO DE ENERGIA S.A.;1997-12-22;Constituída sob a forma de sociedade por ações.;BR;Brasil;;1998-03-27;N
+02.302.101/0001-42;2020-01-01;7;103467;EMAE - EMPRESA METROP. DE AGUAS E ENERGIA S.A.;1997-12-22;Sociedade por ações;BR;Brasil;;1998-03-27;N
+02.318.346/0001-68;2020-01-01;2;95818;OPPORTUNITY ENERGIA E PARTICIPACOES S.A. - EM LIQUIDAÇÃO;1997-11-06;Constituída sob a forma de Sociedade Anônima;BR;Brasil;;1998-03-06;N
+02.328.280/0001-97;2020-01-01;7;102922;ELEKTRO REDES S.A.;1998-01-06;A Elektro Redes S.A. foi constituída em 06 de janeiro de 1998, como subsidiária integral da CESP, dentro das diretrizes estabelecidas pelo PED - Programa Estadual de Desestatização do Estado de São Paulo, Brasil.;BR;Brasil;;1998-07-08;N
+02.338.534/0001-58;2020-01-01;3;109607;LONGDIS S.A.;1997-11-06;Constituída sob a forma de sociedade anônima, por subscrição particular.;BR;Brasil;;1998-06-30;N
+02.351.144/0001-18;2020-01-01;12;103493;TEGMA GESTAO LOGISTICA S.A.;1998-01-05;Sociedade Limitada;BR;Brasil;;2007-06-28;N
+02.351.877/0001-52;2020-01-01;19;103756;LWSA S/A;1997-12-23;Fomos constituídos sob a forma de sociedade limitada.;BR;Brasil;;2020-02-04;N
+02.357.251/0001-53;2020-01-01;1;94115;LIFEMED INDUSTRIAL DE EQUIP. E ART. MEDICOS E HOSP. S.A;1997-12-22;Sociedade por ações;BR;Brasil;;2019-11-08;N
+02.365.069/0001-44;2020-01-01;5;102777;PADTEC HOLDING S.A.;1998-01-26;A Companhia foi constituída sob a forma de sociedade anônima com a denominação de Kikwitt Participações S.A., depois sua denominação social passou a ser Ideiasnet S.A. e a partir de 10/07/2020, Padtec Holding S.A.;BR;Brasil;;1999-08-02;N
+02.382.073/0001-10;2020-01-01;6;100810;PROLAGOS S/A - CONC.DE SERVICOS PÚBLICOS DE ÁGUA E ESGOTO;1998-02-02;Sociedade por Ações;BR;Brasil;;2014-08-11;N
+02.387.241/0001-60;2020-01-01;22;105130;RUMO S.A.;1997-09-30;Sociedade Anônima;BR;Brasil;;1998-07-02;N
+02.397.080/0001-96;2020-01-01;2;102902;ITAPEBI GERACAO DE ENERGIA S.A.;1998-02-27;Constituição por subscrição particular.;BR;Brasil;;2003-02-05;N
+02.415.408/0001-50;2020-01-01;2;102861;CONC ROD.OESTE SP VIAOESTE S.A;1998-03-04;A Companhia foi constituída na Cidade de São Paulo, Estado de São Paulo, Brasil, sob a forma de uma sociedade por ações de capital fechado.;BR;Brasil;2022-12-31;2007-07-27;N
+02.421.421/0001-11;2020-01-01;8;104308;TIM S.A.;1998-02-11;Limitada;BR;Brasil;;2020-03-17;N
+02.429.144/0001-93;2020-01-01;9;104791;CPFL ENERGIA S.A.;1998-03-20;Sociedade por Ações;BR;Brasil;;2000-05-18;N
+02.451.848/0001-62;2020-01-01;2;102860;CONC SIST ANHANG-BANDEIRANT S.A. AUTOBAN;1998-03-05;Sociedade por ações de capital aberto;BR;Brasil;2027-04-17;2006-07-19;N
+02.474.103/0001-19;2020-01-01;12;103563;ENGIE BRASIL ENERGIA S.A.;1998-01-29;Sociedade por ações;BR;Brasil;;1998-05-28;N
+02.502.844/0001-66;2020-01-01;5;103840;RUMO MALHA PAULISTA S.A.;1998-04-02;Sociedade Anônima;BR;Brasil;;1998-11-12;N
+02.509.186/0001-34;2020-01-01;1;95233;TRIÂNGULO DO SOL AUTO-ESTRADAS S.A.;1998-05-04;Constituída sob a forma de Sociedade Anonima Aberta;BR;Brasil;2021-06-18;2013-02-25;N
+02.509.491/0001-26;2020-01-01;6;104663;CONC ECOVIAS IMIGRANTES S.A.;1998-04-23;A Concessionária Ecovias dos Imigrantes S.A. ("Companhia") foi constituída em 23 de abril de 1998 sob a forma de capital fechado. Em 18 de dezembro de 2006, obteve seu registro da CVM.;BR;Brasil;;2006-12-18;N
+02.558.115/0001-21;2020-01-01;1;94499;TIM PARTICIPACOES S.A.;1998-05-22;A Companhia foi constituída sob a forma de uma sociedade anônima.;BR;Brasil;;1998-08-19;N
+02.558.157/0001-62;2020-01-01;5;102984;TELEFÔNICA BRASIL S.A;1998-05-22;Sob a forma de sociedade anônima.;BR;Brasil;;1998-08-19;N
+02.591.787/0001-39;2020-01-01;4;109015;CAPITALPART PARTICIPACOES S.A.;1998-07-01;Constituída sob a forma de sociedade anônima, por subscrição particular.;BR;Brasil;;1998-07-09;N
+02.643.896/0001-52;2020-01-01;2;97214;REAL AI PIC SEC DE CREDITOS IMOBILIARIO S.A.;1999-06-18;A Companhia foi constituída, sob a forma de sociedade de quotas por responsabilidade limitada, denominada à época de "Empresa Patrimonial Industrial I Ltda.".;BR;Brasil;;1999-09-14;N
+02.664.042/0001-52;2020-01-01;3;103998;TERMINAL GARAGEM MENEZES CORTES S.A.;1998-11-06;Sociedade anonima de capital com ações não negociadas em mercado aberto e em poder de somente dois sócios pessoas juridicas;BR;Brasil;;2000-07-26;N
+02.682.287/0001-02;2020-01-01;1;93837;PAN FINANCEIRA S.A. - CRÉDITO, FINANCIAMENTO E INVESTIMENTO;1998-06-18;Sociedade por ações;BR;Brasil;;2000-01-25;N
+02.724.983/0001-34;2020-01-01;5;102639;SANESALTO SANEAMENTO S.A.;1996-11-06;Companhia S.A.;BR;Brasil;;2004-09-21;N
+02.736.470/0001-43;2020-01-01;1;93707;CONFIANZA SECURITIZADORA SA;1998-05-26;Sociedade Anônima;BR;Brasil;;1999-05-04;N
+02.762.113/0001-50;2020-01-01;1;93855;BRAZILIAN FINANCE E REAL ESTATE S.A.;1998-08-25;Sociedade Anônima;BR;Brasil;;1998-11-10;N
+02.762.115/0001-49;2020-01-01;3;103786;MASSA FALIDA DA MMX MINERACAO E METALICOS S.A.;1998-08-26;A Companhia foi constituída em 26 de agosto de 1998, na Cidade do Rio de Janeiro, Estado do Rio de Janeiro, Brasil, sob a forma de uma sociedade por ações de capital fechado. Em 10 de novembro de 1998, a Companhia obteve registro de companhia aberta perante a CVM, passando a ser uma sociedade por ações de capital aberto.;BR;Brasil;;1998-11-10;N
+02.762.121/0001-04;2020-01-01;10;103170;SANTOS BRASIL PARTICIPACOES S.A.;1998-08-25;Sociedade anônima de capital aberto;BR;Brasil;;1998-11-09;N
+02.762.124/0001-30;2020-01-01;1;94926;BETAPART PARTICIPACOES S.A.;1998-08-27;Constituída como uma sociedade anônima de capital aberto;BR;Brasil;;1998-11-06;N
+02.773.542/0001-22;2020-01-01;7;102904;OPEA SECURITIZADORA S.A.;1998-09-09;Sociedade anônima, por meio de Ata de Assembleia Geral de Constituição;BR;Brasil;;1999-08-02;N
+02.783.423/0001-50;2020-01-01;1;95330;ALTERE SECURITIZADORA S.A.;1998-09-14;sob a forma de sociedade por ações, decorrente da cisão parcial da SAQUAREMA PARTICIPAÇÕES S.A., conforme Assembleia Geral Extraordinária realizada em 14 de setembro de 1998, registrada perante a Junta Comercial do Estado de São Paulo (JUCESP), na data de 30 de setembro de 1998.;BR;Brasil;;1998-12-10;N
+02.796.775/0001-40;2020-01-01;2;95819;GAMA PARTICIPACOES S.A.;1998-08-25;Constituída sob a forma de sociedade anônima de capital aberto;BR;Brasil;;1998-12-01;N
+02.800.026/0001-40;2020-01-01;9;103517;COGNA EDUCAÇÃO S.A.;1998-12-01;Sociedade Anônima de Capital Aberto;BR;Brasil;;1999-12-01;N
+02.846.056/0001-97;2020-01-01;16;102916;MOTIVA INFRAESTRUTURA DE MOBILIDADE S.A.;1998-09-23;A Companhia foi constituída em 23 de setembro de 1998, na Cidade de São Paulo, Estado de São Paulo, Brasil, sob a forma de sociedade por ações de capital fechado. Em 19 de dezembro de 2000, a Companhia abriu seu capital.;BR;Brasil;;2000-12-19;N
+02.860.694/0001-62;2020-01-01;7;103752;T4F ENTRETENIMENTO S.A.;1998-11-18;Constituída na forma de sociedade limitada na capital do Estado de São Paulo, sob a denominação de Operadora de Bens Paulista Ltda., posteriormente denominada SECOCIE Comércio Administração e Serviços Ltda. ("SECOCIE"), tendo sido transformada, em 31 de dezembro de 2000, em uma sociedade por ações de capital fechado, de acordo com a Lei das Sociedades por Ações. Em 11 de Abril de 2011, devido ao processo de abertura de capital via oferta pública de ações, tornou-se uma sociedade por ações de capital aberto.;BR;Brasil;;2011-04-11;N
+02.916.265/0001-60;2020-01-01;15;104723;JBS S.A.;1998-12-16;Sociedade por ações;BR;Brasil;;2007-03-27;N
+02.919.555/0001-67;2020-01-01;7;103337;ARTERIS S.A.;1998-11-24;A Companhia foi constituída sob a forma de sociedade limitada. Em abril de 2005 foi aprovada a transformação da sociedade limitada para sociedade por ações. Em julho de 2005, as ações da Companhia passaram a ser negociadas na B3 (na época, denominada BM&FBOVESPA - S.A. - Bolsa de Valores Mercadorias e Futuros).;BR;Brasil;;2005-07-05;N
+02.932.074/0001-91;2020-01-01;13;104052;HYPERA S.A.;2001-12-01;A Companhia foi constituída sob a forma de sociedade limitada, sendo transformada em sociedade anônima em 26 de março de 2007;BR;Brasil;;2008-04-16;N
+02.950.811/0001-89;2020-01-01;6;102203;PDG REALTY S.A. EMPREEND E PARTICIPACOES;1998-11-17;Sociedade por ações de capital aberto.;BR;Brasil;;2007-01-23;N
+02.992.449/0001-09;2020-01-01;3;103350;PROMPT PARTICIPACOES S.A.;1998-11-20;Constituída sob forma de Sociedade Anônima;BR;Brasil;;1999-06-18;N
+02.998.301/0001-81;2020-01-01;4;103528;RIO PARANAPANEMA ENERGIA S.A.;1999-02-22;Sociedade por ações de capital aberto, em razão da cisão parcial da Companhia Energética de São Paulo ("CESP"), conforme descrito no item 6.3 deste Formulário de Referência.;BR;Brasil;;1999-07-14;N
+02.998.611/0001-04;2020-01-01;11;104350;ISA ENERGIA BRASIL;1999-02-04;Constituída sob a forma de sociedade por ações;BR;Brasil;;1999-07-14;N
+03.014.553/0001-91;2020-01-01;7;104605;TPI - TRIUNFO PARTICIP. E INVEST. S.A.;1999-01-11;Sociedade por Ações;BR;Brasil;;2002-12-05;N
+03.025.305/0001-46;2020-01-01;1;95235;RODOVIAS DAS COLINAS S.A.;1999-02-26;Constituída sob a forma de Sociedade Anonima Aberta;BR;Brasil;2028-07-02;2013-04-25;N
+03.207.703/0001-83;2020-01-01;3;103521;CONCESSIONARIA DE RODOVIAS DO INTERIOR PAULISTA S/A;1999-06-08;Constituída sob a forma de sociedade por ações.;BR;Brasil;2028-04-01;2009-11-27;N
+03.220.438/0001-73;2020-01-01;15;104607;EQUATORIAL S.A.;1999-06-16;Sociedade Anônima;BR;Brasil;;2006-03-30;N
+03.303.999/0001-36;2020-01-01;4;100333;DTCOM - DIRECT TO COMPANY S.A.;1999-01-31;SOCIEDADE EMPRESARIAL LTDA;BR;Brasil;;2000-02-04;N
+03.378.521/0001-75;2020-01-01;19;103698;LIGHT S.A. - EM RECUPERAÇÃO JUDICIAL;1999-07-27;Sociedade Anônima;BR;Brasil;;2005-12-12;N
+03.467.321/0001-99;2020-01-01;2;97021;ENERGISA MATO GROSSO-DISTRIBUIDORA DE ENERGIA S/A;1956-08-04;Sociedade anônima.;BR;Brasil;;1994-10-25;N
+03.538.833/0001-07;2020-01-01;2;95821;XX DE NOVEMBRO INVESTIMENTOS E PARTICIPAÇÕES S.A.;1999-11-23;Constituída sob a forma de Sociedade Anônima.;BR;Brasil;;2006-03-22;N
+03.758.318/0001-24;2020-01-01;20;103632;INVESTIMENTOS E PARTICIP. EM INFRA S.A. - INVEPAR;2000-03-20;Sociedade por ações;BR;Brasil;;2000-09-29;N
+03.767.538/0001-14;2020-01-01;1;93835;BRAZILIAN SECURITIES CIA SECURITIZACAO;2000-04-10;Sociedade Anônima;BR;Brasil;;2000-09-04;N
+03.795.050/0001-09;2020-01-01;1;94965;TERMOPERNAMBUCO S.A.;2000-04-25;Constituição por subscrição particular.;BR;Brasil;;2005-10-31;N
+03.818.379/0001-30;2020-01-01;2;95852;SABER SERVIÇOS EDUCACIONAIS S.A.;2000-05-15;Constituído sob a forma de sociedade por ações.;BR;Brasil;;2018-08-13;N
+03.847.461/0001-92;2020-01-01;10;104581;BRADESPAR S.A.;2000-03-30;Constituída como Empresa de Administração e Participações - Cia. aberta;BR;Brasil;;2000-08-07;N
+03.853.896/0001-40;2020-01-01;5;104572;MARFRIG GLOBAL FOODS S.A.;2000-06-06;Constituída sob a forma de sociedade limitada, sendo que, 26 de março de 2007, por meio de alteração contratual, a Companhia foi transformada em sociedade por ações.;BR;Brasil;;2007-06-18;N
+03.953.509/0001-47;2020-01-01;5;104776;CPFL GERACAO DE ENERGIA S.A.;2000-07-19;Sociedade Por Ações;BR;Brasil;;2001-06-07;N
+03.983.431/0001-03;2020-01-01;7;102941;EDP - ENERGIAS DO BRASIL S.A.;2000-07-24;Constituída sob a forma de sociedade por ações.;BR;Brasil;;2005-07-05;N
+04.030.182/0001-02;2020-01-01;4;102100;CABINDA PARTICIPACOES S.A.;2000-07-31;Sociedade por ações;BR;Brasil;;2001-10-29;N
+04.031.213/0001-31;2020-01-01;6;103597;CACONDE PARTICIPACOES S.A.;2000-07-31;sociedade por ações;BR;Brasil;;2001-10-29;N
+04.032.433/0001-80;2020-01-01;8;103356;CONTAX PARTICIPAÇÕES S.A. - EM RECUPERAÇÃO JUDICIAL;2000-07-31;Constituída sob a forma de sociedade anônima.;BR;Brasil;;2001-10-29;N
+04.038.763/0001-82;2020-01-01;4;102098;CAIANDA PARTICIPACOES S.A.;2000-07-31;Sociedade Anônima;BR;Brasil;;2001-10-29;N
+04.065.791/0001-99;2020-01-01;3;103790;SINQIA S.A.;2000-08-04;Fomos constituídos sob a forma de Sociedade Limitada e, posteriormente, transformados em Sociedade por Ações em 04/04/2002.;BR;Brasil;;2012-04-26;N
+04.089.570/0001-50;2020-01-01;4;103506;ÁGUAS GUARIROBA S.A;2000-09-29;Sociedade por Ações;BR;Brasil;;2014-08-06;N
+04.128.563/0001-10;2020-01-01;9;102815;AES TIETE ENERGIA SA;2000-11-07;Constituída sob a forma de sociedade limitada e transformada em Sociedade por Ações em 30 de dezembro de 2000.;BR;Brasil;;2001-06-29;N
+04.149.454/0001-80;2020-01-01;13;101038;ECORODOVIAS INFRAESTRUTURA E LOGÍSTICA S.A.;2000-11-07;A Companhia foi constituída em 07 de novembro de 2000, na capital do Estado de São Paulo, sob a forma de sociedade por ações de capital fechado. Em 1º de abril de 2010, a Companhia obteve seu registro no Novo Mercado.;BR;Brasil;;2003-09-24;N
+04.172.213/0001-51;2020-01-01;6;104662;CIA PIRATININGA DE FORCA E LUZ;2000-12-01;Sociedade por ações;BR;Brasil;;2002-04-18;N
+04.200.649/0001-07;2020-01-01;19;100698;COMPANHIA PROVINCIA DE SECURITIZACAO;2000-10-18;Sociedade Anônima;BR;Brasil;;2003-08-21;N
+04.233.319/0001-18;2020-01-01;4;103673;NCF PARTICIPAÇÕES S/A;2000-12-26;Sociedade Anônima de Capital Aberto;BR;Brasil;;2016-10-03;N
+04.370.282/0001-70;2020-01-01;3;103556;COPEL GERAÇÃO E TRANSMISSÃO S.A.;2001-03-20;Sociedade Anônima;BR;Brasil;;2019-06-27;N
+04.423.567/0001-21;2020-01-01;16;104873;ENEVA S.A;2001-04-25;Sociedade por ações;BR;Brasil;;2007-12-07;N
+04.437.534/0001-30;2020-01-01;6;100700;LOCAMÉRICA RENT-A-CAR S.A.;2001-03-30;A Uninfra Locações e Comércio Ltda. foi constituída como sociedade limitada. Em 2001, no mesmo ano de sua constituição, alterou seu tipo societário para sociedade por ações e, em dezembro de 2002, incorporou a sociedade SAG do Brasil Ltda., alterando sua denominação para SAG do Brasil S.A. Em 2007 a SAG do Brasil S.A. alterou sua denominação para a atual, Unidas S.A.;BR;Brasil;;2008-07-29;N
+04.739.720/0001-24;2020-01-01;9;98867;USINA TERMELÉTRICA PAMPA SUL S.A.;2001-10-31;Sociedade Anônima;BR;Brasil;;2020-05-04;N
+04.752.991/0001-10;2020-01-01;5;102374;BIOMM S.A.;2001-09-19;Sociedade Anônima;BR;Brasil;;2002-08-19;N
+04.821.041/0001-08;2020-01-01;4;104712;METALFRIO SOLUTIONS S.A.;2001-12-03;Sociedade por quotas de responsabilidade limitada, posteriormente transformada em sociedade por ações.;BR;Brasil;;2007-04-10;N
+04.895.728/0001-80;2020-01-01;6;103543;EQUATORIAL PARÁ DISTRIBUIDORA DE ENERGIA S.A.;1962-11-22;Sociedade Anônima;BR;Brasil;;1999-06-14;N
+04.902.979/0001-44;2020-01-01;9;103988;BCO AMAZONIA S.A.;1942-07-09;SOCIEDADE DE ECONOMIA MISTA;BR;Brasil;;1977-07-20;N
+04.912.242/0001-02;2020-01-01;1;95103;PORTUENSE FERRAGENS S/A;1947-04-10;SOCIEDADE ANÔNIMA;BR;Brasil;;1983-02-15;N
+04.913.711/0001-08;2020-01-01;10;102907;BCO ESTADO DO PARA S.A.;1960-07-01;Sociedade Anônima Aberta de Economia Mista;BR;Brasil;;1977-07-20;N
+04.972.092/0001-22;2020-01-01;1;97733;GRUPO FARTURA DE HORTIFRUT S.A.;2020-03-25;Sociedade Limitada;BR;Brasil;;;S
+04.986.320/0001-13;2020-01-01;7;104783;SER EDUCACIONAL S.A.;2002-03-19;Sociedade civil por quotas de responsabilidade limitada, cuja transformação em Sociedade por Ações foi aprovada em Assembleia Geral realizada em 09.09.2008.;BR;Brasil;;2013-10-18;N
+04.992.714/0001-84;2020-01-01;4;103720;NOVA TRANSPORTADORA DO SUDESTE S.A. - NTS;2002-01-15;Sociedade anônima;BR;Brasil;;2019-04-18;N
+05.197.443/0001-38;2020-01-01;9;100175;HAPVIDA PARTICIPAÇÕES E INVESTIMENTOS S.A.;2001-08-30;Constituída sob a forma de sociedade limitada.;BR;Brasil;;2018-04-20;N
+05.336.882/0001-84;2020-01-01;2;102134;CACHOEIRA PAULISTA TRANSMISSORA ENERGIA S.A.;2002-10-09;Sociedade Anônima;BR;Brasil;;2011-12-19;N
+05.495.546/0001-84;2020-01-01;6;103470;LITELA PARTICIPAÇÕES S.A. - EM LIQUIDAÇÃO;2003-01-30;Sociedade Anônima;BR;Brasil;;2019-09-05;N
+05.721.735/0001-28;2020-01-01;13;102896;WILSON SONS LTD.;1990-12-06;Companhia;BM;Bermudas;;2007-04-25;N
+05.730.375/0001-20;2020-01-01;13;103679;SMILES FIDELIDADE S.A.;2003-01-08;Constituída sob a forma de sociedade limitada.;BR;Brasil;;2017-10-10;N
+05.799.312/0001-20;2020-01-01;4;102716;TERRA SANTA AGRO S.A.;2003-07-18;Sociedade Anônima;BR;Brasil;;2006-11-09;N
+05.878.397/0001-32;2020-01-01;8;103608;ALLOS S.A.;2003-07-08;A Companhia foi constituída sob a forma de uma sociedade limitada, denominada Sonae Sierra Brasil Ltda. Em maio de 2008, a Companhia foi transformada em sociedade anônima. Em 5 de agosto de 2019, a razão social da Companhia foi alterada, após combinação de negócios da Aliansce Shopping Centers S.A. e da Sonae Sierra Brasil S.A.;BR;Brasil;;2011-02-01;N
+05.889.284/0001-32;2020-01-01;1;93658;CSA-COMPANHIA SECURITIZADORA DE ATIVOS;2003-04-23;Sociedade Anônima;BR;Brasil;;2003-12-16;N
+06.016.348/0001-53;2020-01-01;2;95239;VENTOS DO SUL ENERGIA S.A.;2003-09-30;Sociedade Anônima;BR;Brasil;;2019-09-12;N
+06.047.087/0001-39;2020-01-01;11;103739;REDE D'OR SÃO LUIZ S.A.;2003-12-16;Sociedade Anônima;BR;Brasil;;2019-10-21;N
+06.057.223/0001-71;2020-01-01;11;103627;SENDAS DISTRIBUIDORA S.A.;2003-12-18;Sociedade Anônima;BR;Brasil;;2020-12-11;N
+06.137.677/0001-52;2020-01-01;1;94082;BRPR 56 SECURITIZADORA CRED IMOB S.A.;2004-01-20;A Sociedade foi constituída sob a forma de sociedade empresária limitada, sob a denominação de WT IX Investimentos Imobiliários Ltda., cujo objeto social era predominantemente o desenvolvimento e investimento em empreendimentos imobiliários, compra, venda, incorporação e construção de imóveis.;BR;Brasil;;2006-02-22;N
+06.164.253/0001-87;2020-01-01;12;103583;GOL LINHAS AEREAS INTELIGENTES S.A.;2004-03-12;Sociedade por ações;BR;Brasil;;2004-06-09;N
+06.272.793/0001-84;2020-01-01;8;103542;EQUATORIAL MARANHÃO DISTRIBUIDORA DE ENERGIA S.A.;1958-06-14;Sociedade Anônima;BR;Brasil;;1997-11-13;N
+06.347.409/0001-65;2020-01-01;5;104838;SBF COMÉRCIO DE PRODUTOS ESPORTIVOS S.A.;2004-06-23;Sociedade Limitada;BR;Brasil;;2021-01-06;N
+06.626.253/0001-51;2020-01-01;12;103466;EMPREENDIMENTOS PAGUE MENOS S.A.;1981-05-21;Privada, originalmente constituída sob a forma de sociedade limitada e posteriormente transformada em sociedade por ações com capital autorizado.;BR;Brasil;;2011-10-21;N
+06.948.969/0001-75;2020-01-01;23;104881;LINX S.A.;2004-01-09;Sociedade anônima;BR;Brasil;;2013-02-06;N
+06.977.745/0001-91;2020-01-01;10;104485;BR MALLS PARTICIPACOES S.A.;2004-05-26;A Companhia foi constituída em 26 de maio de 2004, na Cidade de São Paulo, Estado de São Paulo, Brasil, sob a denominação de Itatira Participações S.A, na forma de uma sociedade por ações de capital fechado, passando a ser denominada BR Malls Participações S.A. em 24 de outubro de 2006, quando iniciou os procedimentos necessários para adesão ao segmento especial de listagem da BM&FBovespa denominado "Novo Mercado", os quais foram concluídos em 5 de abril de 2007;BR;Brasil;;2006-01-04;N
+06.977.751/0001-49;2020-01-01;10;103548;BR PROPERTIES S.A.;2004-05-26;Sociedade por Ações;BR;Brasil;;2006-01-04;N
+06.981.176/0001-58;2020-01-01;10;104645;CEMIG GERACAO E TRANSMISSAO S.A.;2004-09-08;Constituída sob a forma de sociedade por ações, subsidiária integral da Companhia Energética de Minas Gerais - CEMIG (empresa de economia mista).;BR;Brasil;;2006-10-10;N
+06.981.180/0001-16;2020-01-01;10;104646;CEMIG DISTRIBUICAO S.A.;2004-09-08;Constituída sob a forma de sociedade por ações, por meio da Lei Estadual nº 15.290/2004, como subsidiária integral da Companhia Energética de Minas Gerais - CEMIG;BR;Brasil;;2006-09-25;N
+06.981.381/0001-13;2020-03-31;7;94239;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;2004-08-10;Constituída inicialmente sob a forma de associação e posteriormente alterada para sociedade por ações;BR;Brasil;;2016-08-24;N
+07.040.108/0001-57;2020-01-01;10;103215;CAGECE - CIA DE AGUA E ESGOTO DO CEARA;1971-07-20;Sociedade Anônima, constituída nos termos da Lei Estadual do Ceará nº 9.499, de 20 de julho de 1971;BR;Brasil;;2000-01-19;N
+07.043.628/0001-13;2020-01-01;1;93980;CLARO TELECOM PARTICIPAÇÕES S.A.;2004-09-27;Companhia de Capital Fechado;BR;Brasil;;2014-12-05;N
+07.047.251/0001-70;2020-01-01;10;103365;CIA ENERGETICA DO CEARA - COELCE;1971-07-05;Sociedade Anônima;BR;Brasil;;1995-06-13;N
+07.119.838/0001-48;2020-01-01;1;95042;SECME - COMPANHIA SECURITIZADORA DE CRÉDITOS IMOBILIÁRIOS;2004-09-14;Sociedade por ações;BR;Brasil;;2005-05-02;N
+07.206.816/0001-15;2020-01-01;7;105726;M.DIAS BRANCO S.A. IND COM DE ALIMENTOS;1951-05-21;Sociedade Limitada;BR;Brasil;;2006-10-11;N
+07.237.373/0001-20;2020-01-01;16;104548;BCO NORDESTE DO BRASIL S.A.;1954-05-18;O Banco do Nordeste do Brasil S.A., pessoa jurídica de direito privado, é uma Instituição Financeira Múltipla, organizado sob a forma de sociedade anônima aberta, de economia mista, regendo-se pelo disposto no seu Estatuto Social e pelas disposições legais e normativas que lhe forem aplicáveis e prazo de duração indeterminado.;BR;Brasil;;1977-07-20;N
+07.253.321/0001-47;2020-01-01;1;94834;CARBOMIL SA MINER. E INDUSTRIA;1966-11-14;SOCIEDADE ANONIMA;BR;Brasil;;1982-11-14;N
+07.275.159/0001-68;2020-01-01;1;94675;PETROLEO LUB DO NORDESTE SA;1967-09-13;SOCIEDADE ANONIMA;BR;Brasil;;1968-09-13;N
+07.282.377/0001-20;2020-01-01;3;96895;ENERGISA SUL-SUDESTE - DISTRIBUIDORA DE ENERGIA S/A;2005-03-09;Constituída sob a forma de sociedade por ações;BR;Brasil;;2019-11-05;N
+07.334.600/0001-35;2020-01-01;1;94958;MARINA DE IRACEMA PARK SA;1983-12-21;SOCIEDADE ANONIMA ABERTA;BR;Brasil;;1997-05-14;N
+07.401.436/0001-31;2020-01-01;4;104677;ELDORADO BRASIL CELULOSE S.A.;2005-04-25;Sociedade Empresária Limitada;BR;Brasil;;2012-06-06;N
+07.415.333/0001-20;2020-01-01;16;105089;SIMPAR S.A.;2005-06-03;Sociedade por ações;BR;Brasil;;2020-07-29;N
+07.437.016/0001-05;2020-01-01;2;97718;CINESYSTEM S.A.;2005-05-24;Sociedade ermpresária limitada;BR;Brasil;;2016-07-20;N
+07.526.557/0001-00;2020-01-01;10;104468;AMBEV S.A.;2005-07-08;Sociedade anônima;BR;Brasil;;2013-10-30;N
+07.587.384/0001-30;2020-01-01;1;95316;PLANETA SECURITIZADORA S.A.;2005-07-11;A Gaia Securitizadora S.A., sociedade anônima, é uma companhia securitizadora de créditos imobiliários e do agronegócio, constituída nos termos da Lei nº 9.514/97, com sede na Cidade de São Paulo, Estado de São Paulo, atualmente na Rua Ministro Jesuíno Cardoso, nº 633, 8º andar, Vila Nova Conceição, CEP 04544-000. A Companhia foi constituída em 11 de julho de 2005 e obteve o registro de companhia aberta junto à CVM, de número 02022-2, em 28 de julho de 2006. Em março de 2009, os atuais acionistas adquiriram o controle societário da Companhia, tendo promovido alteração no Conselho de Administração e a Diretoria. Em Abril de 2011 o Controle Societário Indireto da Gaia Securitizadora S.A., foi alterado, bem como seu Conselho de Administração e Diretoria. Em Assembleia Geral Ordinária e Extraordinária realizada em 12 de março de 2018, às 12h, a Companhia alterou seu objeto social para também realizar aquisição, securitização e emissão de direitos creditórios decorrentes do agronegócio.;BR;Brasil;;2006-07-28;N
+07.594.978/0001-78;2020-01-01;2;99415;SMARTFIT ESCOLA DE GINÁSTICA E DANÇA S.A.;2005-07-19;Sociedade Limitada;BR;Brasil;;2017-10-20;N
+07.628.528/0001-59;2020-06-30;8;98252;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;2005-09-23;Foi constituida em 2005, mediante Assembleia Geral de Constituição.;BR;Brasil;;2006-04-25;N
+07.659.538/0001-51;2020-01-01;3;97243;DINAMICA ENERGIA S.A.;2005-10-14;Sociedade Anonima.;BR;Brasil;;2006-05-03;N
+07.689.002/0001-89;2020-01-01;3;103399;EMBRAER S.A.;2005-09-08;Sociedade de economia mista;BR;Brasil;;2006-05-23;N
+07.718.269/0001-57;2020-01-01;5;104763;SPRINGS GLOBAL PARTICIPACOES S.A.;2005-11-24;Sociedade por ações;BR;Brasil;;2007-07-25;N
+07.816.890/0001-53;2020-01-01;3;103091;MULTIPLAN - EMPREEND IMOBILIARIOS S.A.;2005-12-30;Sociedade Limitada;BR;Brasil;;2007-07-25;N
+07.820.907/0001-46;2020-01-01;8;103234;FICA EMPREENDIMENTOS IMOBILIÁRIOS S.A.;2006-01-10;Sociedade por ações;BR;Brasil;;2007-04-16;N
+07.857.093/0001-14;2020-01-01;11;99732;AURA MINERALS INC.;1946-07-12;Corporation (Sociedade estrangeira);CA;Canadá;;2020-06-15;N
+07.857.850/0001-50;2020-01-01;9;103802;GP INVESTMENTS, LTD.;2003-10-16;Sociedade estrangeira;VG;Ilhas Virgens (Britânicas);;2006-05-30;N
+07.859.510/0001-68;2020-01-01;3;103890;JHSF MALLS S.A.;2005-12-08;Sociedade por ações;BR;Brasil;;2018-06-25;N
+07.859.971/0001-30;2020-01-01;10;104614;TRANSMISSORA ALIANÇA DE ENERGIA ELÉTRICA S.A.;2006-01-23;Constituída sob a forma de sociedade por ações.;BR;Brasil;;2006-09-06;N
+07.882.930/0001-65;2020-01-01;8;153053;MITRE REALTY EMPREENDIMENTOS E PARTICIPAÇÕES S.A.;2005-09-09;Sociedade limitada;BR;Brasil;;2020-02-03;N
+07.950.674/0001-04;2020-01-01;1;95898;CCX CARVÃO DA COLÔMBIA S.A. - EM LIQUIDAÇÃO;2006-04-10;A Companhia foi constituída em 10 de abril de 2006, sob a forma de companhia aberta categoria "B" de capital fechado. Em 19 de julho de 2006, a Companhia obteve o registro como companhia aberta categoria "B" e em 10 de maio de 2012, a Companhia obteve o registro de companhia aberta categoria "A" perante a CVM;BR;Brasil;;2006-07-19;N
+08.065.557/0001-12;2020-01-01;17;104836;TECNISA S.A.;2006-05-22;Constituída sob a forma de sociedade por ações.;BR;Brasil;;2007-01-09;N
+08.070.508/0001-78;2020-03-31;9;97571;RAIZEN ENERGIA S.A.;2000-11-16;Constituída inicialmente sob a forma de sociedade limitada e posteriormente alterada para sociedade por ações.;BR;Brasil;;2013-10-21;N
+08.078.847/0001-09;2020-01-01;6;104556;LPS BRASIL - CONSULTORIA DE IMOVEIS S.A.;2006-05-22;Sociedade por ações;BR;Brasil;;2006-12-12;N
+08.159.965/0001-33;2020-01-01;8;103625;IGUA SANEAMENTO S.A.;2006-06-26;Constituída, por meio de subscrição particular de ações, sob a forma de uma sociedade por ações de capital fechado.;BR;Brasil;;2013-05-13;N
+08.294.224/0001-65;2020-01-01;18;103864;JHSF PARTICIPACOES S.A.;2006-06-29;Sociedade Anonima;BR;Brasil;;2007-04-04;N
+08.312.229/0001-73;2020-01-01;5;103711;EZ TEC EMPREEND. E PARTICIPACOES S.A.;2006-07-31;Sociedade por ações de capital fechado.;BR;Brasil;;2007-06-15;N
+08.324.196/0001-81;2020-01-01;8;102919;CIA ENERGETICA DO RIO GDE NORTE - COSERN;1962-12-14;A constituição da Companhia foi realizada na forma de sociedade de economia mista, controlada pelo Estado do Rio Grande do Norte. Em janeiro de 1999 tornou-se companhia aberta.;BR;Brasil;;1999-01-04;N
+08.343.492/0001-20;2020-01-01;9;103102;MRV ENGENHARIA E PARTICIPACOES S.A.;2006-05-31;Constituída sob a forma de sociedade por ações;BR;Brasil;;2007-07-13;N
+08.364.948/0001-38;2020-01-01;6;100969;ALUPAR INVESTIMENTO S/A;2006-09-27;Sociedade por Ações;BR;Brasil;;2008-06-18;N
+08.402.943/0001-52;2020-01-01;6;104340;GUARARAPES CONFECCOES S.A.;1956-10-06;Companhia Aberta;BR;Brasil;;1958-10-16;N
+08.424.178/0001-71;2020-01-01;1;95172;TECBLU TECELAGEM BLUMENAU S.A.;1969-06-02;Sociedade Anônima;BR;Brasil;;1971-04-28;N
+08.439.659/0001-50;2020-01-01;10;104781;CPFL ENERGIAS RENOVÁVEIS S.A.;2006-10-02;Sociedade por ações;BR;Brasil;;2007-03-08;N
+08.467.115/0001-00;2020-01-01;15;104597;CIA ESTADUAL DE DISTRIB ENER ELET-CEEE-D;2006-11-28;A CEEE-D é uma sociedade de economia mista originada no processo dereestruturação societária, em novembro de 2006, da Companhia Estadual deEnergia Elétrica - CEEE.;BR;Brasil;;2007-04-17;N
+08.493.364/0001-62;2020-03-31;1;87080;CIA MINEIRA DE AÇUCAR E ALCOOL PARTICIPAÇÕES;2007-07-12;Sociedade empresária limitada, transformada em sociedade anônima em 12 de julho de 2007.;BR;Brasil;;2009-03-04;N
+08.534.605/0001-74;2020-01-01;11;104233;RENOVA ENERGIA S.A.;2006-12-11;Sociedade por Ações;BR;Brasil;;2008-08-20;N
+08.560.444/0001-93;2020-01-01;5;103763;CIA CELG DE PARTICIPACOES - CELGPAR;2006-12-04;Sociedade Anônima de Economia Mista;BR;Brasil;;2008-03-14;N
+08.574.411/0001-00;2020-01-01;5;103989;PRÁTICA PRODUTOS S.A.;2006-09-25;Sociedade por ações;BR;Brasil;;2018-09-27;N
+08.613.550/0001-98;2020-01-01;14;103723;NEXPE PARTICIPAÇÕES S.A;2007-01-16;Sociedade Anônima;BR;Brasil;;2007-10-26;N
+08.653.753/0001-08;2020-01-01;1;95321;BRC SECURITIZADORA S.A.;2007-01-02;Sociedade Anônima;BR;Brasil;;2007-04-20;N
+08.764.621/0001-53;2020-01-01;3;103889;GENERAL SHOPPING E OUTLETS DO BRASIL BRASIL S.A.;2007-03-06;Sociedade Anônima;BR;Brasil;;2007-07-26;N
+08.769.451/0001-08;2020-01-01;5;99126;VIRGO COMPANHIA DE SECURITIZAÇÃO;2007-03-05;A Imowel Securitizadora, sociedade anonima, constituida em 05/03/2007 tem como objeto social a prática de operações de:a) aquisição e securitização de créditos imobiliários passíveis de securitizaçãob) emissão e colocação, junto ao mercado financeiro e de capitais, de Certificados de Recebíveis Imobiliários, ou de qualquer outro título de crédito ou valor mobiliário compatível com suas atividadesc) realização de negócios e a prestação de serviços relacionados às operações de securitização de créditos imobiliários e emissões de Certificados de Recebíveis Imobiliáriosd) realização de operações de hedge em mercados derivativos visando a cobertura de riscos na carteira de créditos imobiliários.A Companhia obteve a homologação de seu registro em 02 de julho de 2007, junto a Comissão de Valores Mobiliários (CVM), condição básica para o desenvolvimento dos negócios.;BR;Brasil;;2007-07-02;N
+08.773.135/0001-00;2020-01-01;5;102932;2W ECOBANK S.A. - EM RECUPERAÇÃO JUDICIAL;2007-03-23;Sociedade Anônima;BR;Brasil;;2020-10-29;N
+08.773.191/0001-36;2020-01-01;1;95240;BRASILIANA PARTICIPAÇÕES S/A;2007-02-16;Sociedade por ações;BR;Brasil;;2016-06-23;N
+08.795.211/0001-70;2020-01-01;4;104038;MAESTRO LOCADORA DE VEICULOS S.A.;2007-04-05;Sociedade empresária limitada;BR;Brasil;;2015-05-26;N
+08.797.760/0001-83;2020-01-01;6;103656;CURY CONSTRUTORA E INCORPORADORA S.A.;2007-04-20;Sociedade limitada;BR;Brasil;;2020-09-17;N
+08.801.621/0001-86;2020-01-01;6;103850;SYN PROP & TECH S.A.;2007-04-11;Sociedade por ações;BR;Brasil;;2007-08-01;N
+08.807.432/0001-10;2020-01-01;8;104577;YDUQS PARTICIPACOES S.A.;2007-03-31;Sociedade Anônima;BR;Brasil;;2007-07-26;N
+08.810.422/0001-34;2020-01-01;1;99231;GUARARAPES PAINÉIS S.A.;2007-05-02;Sociedade Limitada;BR;Brasil;;;S
+08.811.643/0001-27;2020-01-01;5;103554;TRISUL S.A.;2007-01-29;Sociedade por Ações.;BR;Brasil;;2007-10-10;N
+08.822.767/0001-08;2020-01-01;1;95236;CONCESSIONÁRIA DA RODOVIA MG-050 S.A.;2007-05-16;Constituída sob a forma de Sociedade Anonima Aberta;BR;Brasil;2032-05-12;2017-03-06;N
+08.827.501/0001-58;2020-01-01;8;103494;AEGEA SANEAMENTO E PARTICIPAÇÕES S.A.;2007-03-26;Sociedade por Ações;BR;Brasil;;2014-05-21;N
+08.873.873/0001-10;2020-01-01;10;104566;ECORODOVIAS CONCESSÕES E SERVIÇOS S.A.;2007-05-15;A EcoRodovias Concessões e Serviços S.A. foi inicialmente constituída em 15/05/2007 sob a forma de sociedade limitada e em 22/12/2009 recebeu o registo da CVM.;BR;Brasil;;2009-12-22;N
+08.902.291/0001-15;2020-01-01;5;103856;CSN MINERAÇÃO S.A.;2007-04-12;Sociedade Anônima;BR;Brasil;;2021-02-12;N
+08.926.302/0001-05;2020-01-01;9;104014;DOMMO ENERGIA S.A.;2007-06-27;Constituída sob a forma de companhia limitada.;BR;Brasil;;2014-09-17;N
+08.935.054/0001-50;2020-01-01;8;103229;MULTINER S/A;2007-05-21;Constituída sob a forma de sociedade por ações de capital fechado. Em 10/07/2008, recebeu da CVM registro de companhia aberta, sendo desde então uma sociedade por ações de capital aberto.;BR;Brasil;;2008-07-10;N
+08.937.002/0001-13;2020-01-01;1;95168;VISION SECURITIZADORA S.A.;2007-06-25;A Vision Securitizadora S.A. (Securitizadora) foi constituída em 25 de junho de 2007 e iniciou suas operações em 4 de abril de 2008. Tem como objeto social: a) a aquisição e securitização de créditos imobiliários passíveis de securitização b) a emissão e colocação, junto ao mercado financeiro e de capitais, de Certificados de Recebíveis Imobiliários, ou de qualquer outro título de crédito ou valor mobiliário compatível com as suas atividades c) a realização de negócios e a prestação de serviços relacionados às operações de securitização de créditos imobiliários e emissões de Certificados de Recebíveis Imobiliários e d) a realização de operações de hedge em mercados derivativos visando a cobertura de riscos na sua carteira de créditos imobiliários.Estão ainda incluídas no objeto social da Securitizadora, as seguintes atividades: a) a aquisição de créditos imobiliários b) gestão e administração de créditos imobiliários, próprios ou de terceiros c) aquisição e securitização de dire;BR;Brasil;;2007-08-24;N
+09.041.168/0001-10;2020-01-01;4;97132;LOG COMMERCIAL PROPERTIES E PARTICIPAÇÕES;2007-07-03;A Companhia foi constituída sob a forma de Sociedade Limitada.;BR;Brasil;;2013-11-12;N
+09.042.817/0001-05;2020-01-01;7;104839;BEMOBI MOBILE TECH S.A.;2007-08-28;Constituída sob a forma de sociedade limitada, tendo sido transformada em sociedade por ações em 21/08/2020;BR;Brasil;;2021-02-08;N
+09.053.134/0001-45;2020-01-01;6;104584;ELFA MEDICAMENTOS S.A.;2007-07-26;Constituição sob a forma de sociedade limitada;BR;Brasil;;2020-12-02;N
+09.054.385/0001-44;2020-01-01;5;103235;INBRANDS S.A.;2007-06-30;A Companhia foi constituída sob a forma de sociedade limitada e transformada em sociedade por ações em 30 de agosto de 2008.;BR;Brasil;;2011-08-08;N
+09.074.183/0001-64;2020-01-01;1;94994;TRANSBRASILIANA CONCESSIONÁRIA DE RODOVIA S.A;2007-07-20;Construída sob a forma de sociedade por ações;BR;Brasil;;2010-11-05;N
+09.083.175/0001-84;2020-01-01;6;103760;MOSAICO TECNOLOGIA AO CONSUMIDOR S.A.;2007-08-24;Sociedade anônima;BR;Brasil;;;S
+09.095.183/0001-40;2020-01-01;4;104549;ENERGISA PARAÍBA - DISTRIBUIDORA DE ENERGIA S/A;1964-02-14;Sociedade constituída por ações.;BR;Brasil;;2009-11-19;N
+09.112.685/0001-32;2020-01-01;9;103785;OSX BRASIL S.A. - EM RECUPERAÇÃO JUDICIAL;2007-09-03;A Companhia foi constituída em 3 de setembro de 2007, na Cidade do Rio de Janeiro, Estado do Rio de Janeiro, Brasil, sob a forma de uma sociedade por ações de capital fechado. Em 26 de fevereiro de 2008, a Companhia obteve registro de companhia aberta perante a CVM, passando a ser uma sociedade por ações de capital aberto.;BR;Brasil;;2008-02-26;N
+09.114.805/0001-30;2020-01-01;5;103577;OCEANPACT SERVIÇOS MARITIMOS S.A.;2007-08-01;Sociedade limitada;BR;Brasil;;2021-02-10;N
+09.116.278/0001-01;2020-01-01;1;95175;CONPEL CIA NORDESTINA PAPEL - EM RECUPERAÇÃO JUDICIAL;1971-04-16;Sociedade Anônima;BR;Brasil;;1977-07-20;N
+09.146.451/0001-06;2020-01-01;1;95706;KALLAS INCORPORAÇÕES E CONSTRUÇÕES S.A.;2008-07-15;Sociedade por ações.;BR;Brasil;;;S
+09.149.503/0001-06;2020-01-01;21;104840;SERENA GERAÇÃO S.A.;2007-09-26;Constituída sob a forma de sociedade limitada, tendo sido transformada em sociedade anônima em 24 de janeiro de 2008.;BR;Brasil;;2014-07-07;N
+09.257.877/0001-37;2020-01-01;2;97970;FERROVIA NORTE SUL S/A;2007-12-14;Sociedade Anônima Fechada;BR;Brasil;;2009-11-24;N
+09.288.252/0001-32;2020-01-01;13;104575;ANIMA HOLDING S.A.;2007-10-05;Sociedade por ações;BR;Brasil;;2013-10-24;N
+09.295.063/0001-97;2020-01-01;7;103753;TECHNOS S.A.;2007-11-21;Constituída sob a forma de sociedade anônima;BR;Brasil;;2011-06-28;N
+09.304.427/0001-58;2020-01-01;1;95326;HABITASEC SECURITIZADORA SA;2007-12-19;Sociedade Anônima de Capital Aberto;BR;Brasil;;2008-08-19;N
+09.305.994/0001-29;2020-01-01;23;104561;AZUL S.A.;2008-01-15;Constituída por meio de subscrição particular de ações, sob a forma de sociedade por ações de capital fechado.;BR;Brasil;;2017-04-07;N
+09.313.969/0001-97;2020-01-01;3;102713;AUTOPISTA LITORAL SUL;2007-12-19;Sociedade Anônima.;BR;Brasil;2033-02-14;2010-03-29;N
+09.324.949/0001-11;2020-01-01;4;102942;AUTOPISTA FLUMINENSE SA;2007-12-19;Sociedade anônima;BR;Brasil;2033-02-14;2010-03-29;N
+09.325.109/0001-73;2020-01-01;2;102714;AUTOPISTA PLANALTO SUL SA;2007-12-19;Sociedade anônima.;BR;Brasil;2033-02-14;2010-03-29;N
+09.326.342/0001-70;2020-01-01;2;102790;AUTOPISTA FERNÃO DIAS SA;2007-12-19;Sociedade anônima;BR;Brasil;2033-02-14;2010-03-29;N
+09.336.431/0001-06;2020-01-01;3;102686;AUTOPISTA REGIS BITTENCOURT SA;2007-12-19;Sociedade anônima;BR;Brasil;2033-02-14;2010-03-29;N
+09.346.601/0001-25;2020-01-01;11;103927;B3 S.A. - BRASIL, BOLSA, BALCÃO;2007-12-14;Sociedade por ações. Obs: 14 de dezembro de 2007 foi a data de constituição da T.U.T.S.P.E. Empreendimentos e Participações S.A., veículo que originou a BM&FBOVESPA S.A. - Bolsa de Valores, Mercadorias e Futuros, que combinou suas atividades com a Cetip S.A. - Mercados Organizados. No dia 10 de maio de 2017, os acionistas aprovaram a alteração da denominação social para B3 S.A. - Brasil, Bolsa, Balcão no estatuto social da Companhia, o qual foi aprovado pela CVM em 16 de junho de 2017.;BR;Brasil;;2008-08-12;N
+09.347.516/0001-81;2020-01-01;7;102771;ELETROMIDIA S.A.;2013-08-27;Sociedade anônima;BR;Brasil;;2021-02-11;N
+09.391.823/0001-60;2020-01-01;10;103379;SANTO ANTONIO ENERGIA S.A.;2008-01-17;Sociedade Anônima;BR;Brasil;;2014-04-28;N
+09.414.761/0001-64;2020-01-01;2;96544;K-INFRA RODOVIA DO AÇO S.A.;2008-03-04;Sociedade Anônima;BR;Brasil;2033-03-26;2011-03-29;N
+09.439.783/0001-89;2020-01-01;1;93576;ÁQUILLA SECURITIZADORA S.A.;2008-01-14;Constituída sob a forma de Sociedade por Ações, conforme assembleia Geral de Constituição, registrada na JUCESP.;BR;Brasil;;2008-06-24;N
+09.611.768/0001-76;2020-01-01;7;110997;INC EMPREENDIMENTOS IMOBILIÁRIOS S.A.;2008-06-03;Sociedade Anônima;BR;Brasil;;2017-11-09;N
+09.625.321/0001-56;2020-01-01;4;97550;NORTE BRASIL TRANSMISSORA DE ENERGIA S.A.;2008-05-06;Constituída sob a forma de sociedade por ações;BR;Brasil;;2020-07-03;N
+09.813.204/0001-16;2020-01-01;1;96834;W2W E-COMMERCE DE VINHOS S.A.;2008-07-03;Sociedade Anônima;BR;Brasil;;;S
+10.139.870/0001-08;2020-01-01;5;103758;NEOGRID PARTICIPAÇÕES S.A.;2008-07-01;Sociedade Limitada;BR;Brasil;;2020-12-15;N
+10.215.988/0001-60;2020-01-01;8;103602;COMPANHIA DE LOCAÇÃO DAS AMÉRICAS;2008-07-18;Sociedade por ações;BR;Brasil;;2011-12-30;N
+10.234.027/0001-00;2020-01-01;1;94045;LINHAS DE MACAPÁ TRANSMISSORA DE ENERGIA S/A;2008-07-07;A Companhia foi constituída em 07 de julho de 2008, sob a forma de sociedade limitada com a razão social Linhas de Macapá Transmissora de Energia Ltda., na República Federativa do Brasil, com seus atos constitutivos devidamente registrados na Junta Comercial do Rio de Janeiro sob o NIRE 33.2.0816021-1. Após sua transformação em sociedade por ações, foi atribuído à Companhia o NIRE 33.3.0029092-3.;BR;Brasil;;2015-08-12;N
+10.240.186/0001-00;2020-01-01;4;102707;LINHAS DE XINGU TRANSMISSORA DE ENERGIA S/A;2008-07-07;A Companhia foi constituída em 07 de julho de2008, sob a forma de sociedade limitada com a razão social Linhas de Xingu Transmissora de Energia Ltda, na República Federativa do Brasil, com seus atos constitutivos devidamente registrados na Junta Comercial do Rio de Janeiro sob o NIRE 33.2.0816020-2. Após sua transformação em sociedade por ações, foi atribuído à Companhia o NIRE 33.3.0029093-1.;BR;Brasil;;2015-08-12;N
+10.285.590/0001-08;2020-01-01;14;104694;GRUPO DE MODA SOMA S.A.;2008-08-15;Sociedade por ações;BR;Brasil;;2020-07-29;N
+10.324.624/0001-18;2020-01-01;13;103496;CONCESSÃO METROVIÁRIA DO RIO DE JANEIRO S.A.;2008-08-20;Sociedade Anônima;BR;Brasil;;2010-09-20;N
+10.338.320/0001-00;2020-01-01;7;102917;AFLUENTE TRANSMISSÃO DE ENERGIA ELÉTRICA S/A;2008-08-18;Sociedade anônima constituída por subscrição particular.;BR;Brasil;;2010-09-24;N
+10.488.244/0001-19;2020-01-01;1;95400;INFRASEC SECURITIZADORA S.A.;2008-10-27;Sociedade Anônima;BR;Brasil;;2009-09-22;N
+10.502.676/0001-37;2020-01-01;3;102946;TERMELÉTRICA PERNAMBUCO III S.A.;2008-10-23;Sociedade por Ações;BR;Brasil;;2013-12-10;N
+10.531.501/0001-58;2020-01-01;2;98543;CONC AUTO RAPOSO TAVARES S.A.;2008-11-12;Sociedade Anônima;BR;Brasil;2039-03-16;2010-11-22;N
+10.571.175/0001-02;2020-01-01;4;102616;URBA DESENVOLVIMENTO URBANO S.A.;2009-01-13;Sociedade de Propósito Específico;BR;Brasil;;2021-01-25;N
+10.608.405/0001-60;2020-01-01;12;99738;BARI SECURITIZADORA S.A.;2008-10-28;Sob a forma de sociedade por ações, conforme Ata da Assembleia Geral de Constituição, registrada na JUCESP em 25.10.2008.;BR;Brasil;;2009-12-29;N
+10.629.105/0001-68;2020-01-01;22;103769;PRIO S.A.;2008-10-13;A Companhia originalmente foi constituída sob a forma de uma sociedade limitada, nos termos da legislação brasileira aplicável, tendo sido transformada em sociedade anônima de capital fechado em 17/07/2009.;BR;Brasil;;2010-10-21;N
+10.635.691/0001-53;2020-01-01;1;95391;VIARONDON CONCESSIONÁRIA DE RODOVIA S.A.;2007-12-18;Constituída sob a forma de sociedade por ações.;BR;Brasil;;2011-07-21;N
+10.647.979/0001-48;2020-01-01;6;104639;CONC ROTA DAS BANDEIRAS S.A.;2009-02-09;Constituída sob a forma de sociedade por ações;BR;Brasil;2039-04-02;2010-06-30;N
+10.670.314/0001-55;2020-01-01;1;94624;VIABAHIA CONCESSIONÁRIA DE RODOVIAS SA;2009-05-11;Constituída sob a forma de sociedade por ações e com propósito específico.;BR;Brasil;2034-10-19;2012-08-24;N
+10.753.164/0001-43;2020-01-01;5;99082;ECO SECURITIZADORA DIREITOS CRED AGRONEGÓCIO S.A.;2009-03-02;A Companhia foi constituída em 02 de Março de 2009, sob a forma de sociedade por ações, na República Federativa do Brasil, com seus atos constitutivos devidamente registrados na Junta Comercial de São Paulo em 02 de Abril de 2009 sob o NIRE 35300367308.;BR;Brasil;;2009-07-15;N
+10.760.260/0001-19;2020-01-01;15;103508;CVC BRASIL OPERADORA E AGÊNCIA DE VIAGENS S.A.;2009-03-25;Sociedade por ações;BR;Brasil;;2013-12-05;N
+10.807.374/0001-77;2020-01-01;1;97783;BOA SAFRA SEMENTES S.A.;2009-04-07;Sociedade limitada;BR;Brasil;;;S
+10.835.932/0001-08;2020-01-01;10;103116;CIA ENERGETICA DE PERNAMBUCO - CELPE;1965-02-10;A constituição da Companhia foi realizada através de economia mista e em abril de 1994 tornou-se companhia aberta.;BR;Brasil;;1994-04-29;N
+10.841.050/0001-55;2020-01-01;10;104565;CONC ROD AYRTON SENNA E CARV PINTO S.A.-ECOPISTAS;2009-06-12;A Companhia foi constituída em 12 de junho de 2009, sob a forma de sociedade anônima de capital fechado. Em 22 de fevereiro de 2011 recebeu o registro da CVM.;BR;Brasil;;2011-02-22;N
+10.851.805/0001-00;2020-01-01;4;103604;FLEX GESTÃO DE RELACIONAMENTOS S.A.-EM RECUPERAÇÃO JUDICIAL;2009-05-27;Sociedade limitada;BR;Brasil;;2018-03-01;N
+11.257.352/0001-43;2020-01-01;1;93955;BSI CAPITAL SECURITIZADORA S.A.;2009-09-02;A Companhia foi constítuida em 02 de setembro de 2009, sob a forma de sociedade por ações com seus atos constitutivos devidamente registrados na Junta Comercial do Paraná sob o NIRE 41.3.0007855-6;BR;Brasil;;2013-04-17;N
+11.274.829/0001-07;2020-01-01;4;103821;COMPANHIA PAULISTA DE SECURITIZAÇÃO;2009-10-15;A Companhia é uma sociedade por ações constituída por subscrição privada.;BR;Brasil;;2010-07-20;N
+11.284.204/0001-18;2020-01-01;16;103553;YOU INC INCORPORADORA E PARTICIPAÇÃO S.A;2009-10-08;Sociedade empresária limitada;BR;Brasil;;2015-05-26;N
+11.421.994/0001-36;2020-01-01;6;103012;ORIZON VALORIZAÇÃO DE RESÍDUOS S.A.;2009-11-30;Sociedade Anônima;BR;Brasil;;2021-02-11;N
+11.669.021/0001-10;2020-01-01;7;103825;ENAUTA PARTICIPAÇÕES S.A.;2010-03-09;A Companhia foi constituída como uma sociedade anônima de capital fechado, nos termos da legislação brasileira aplicável.;BR;Brasil;;2011-02-02;N
+11.716.471/0001-17;2020-01-01;1;95183;TRX SECURITIZADORA S.A.;2010-03-11;Sociedade Anônima;BR;Brasil;;2011-03-02;N
+11.721.921/0001-60;2020-01-01;8;103968;ALPER CONSULTORIA E CORRETORA DE SEGUROS S.A.;2010-03-10;Sociedade Anônima;BR;Brasil;;2010-10-28;N
+11.725.176/0001-27;2020-01-01;9;103323;BOA VISTA SERVIÇOS S.A.;2010-03-04;Sociedade por ações;BR;Brasil;;2020-09-28;N
+11.992.680/0001-93;2020-01-01;15;104749;QUALICORP CONSULTORIA E CORRETORA DE SEGUROS S.A.;2010-02-12;Sociedade por Ações;BR;Brasil;;2011-06-17;N
+12.049.631/0001-84;2020-01-01;4;99669;MOURA DUBEUX ENGENHARIA S/A;1987-08-31;Constituída sob a forma de sociedade por cotas de responsabilidade limitada em 31/08/1987, sendo transformada em sociedade anônima em 09/03/2007.;BR;Brasil;;2007-08-23;N
+12.091.809/0001-55;2020-01-01;8;100714;BRAVA ENERGIA S.A.;2010-06-08;Sociedade Anônima;BR;Brasil;;2020-11-09;N
+12.108.897/0001-50;2020-01-01;9;104779;D1000 VAREJO FARMA PARTICIPAÇÕES S.A.;2010-06-21;Sociedade Anônima;BR;Brasil;;2020-08-06;N
+12.130.744/0001-00;2020-01-01;5;100899;TRUE SECURITIZADORA S.A.;2010-05-28;Assembleia Geral de Constituição - Sociedade Anônima;BR;Brasil;;2010-11-25;N
+12.139.922/0001-63;2020-01-01;1;93612;OCTANTE SECURITIZADORA S.A.;2010-05-03;Sociedade Anônima;BR;Brasil;;2011-02-14;N
+12.181.987/0001-77;2020-01-01;8;104089;MELNICK DESENVOLVIMENTO IMOBILIÁRIO S.A.;2010-05-10;Sociedade limitada;BR;Brasil;;2020-09-24;N
+12.261.588/0001-16;2020-01-01;1;95214;POLO CAPITAL SECURITIZADORA S.A;2010-05-31;Assembleia Geral de Constituição de 31 de maio de 2010;BR;Brasil;;2010-09-22;N
+12.300.288/0001-07;2020-01-01;9;104815;NORTE ENERGIA S.A.;2010-07-21;Constituída sob a forma de sociedade por ações.;BR;Brasil;2045-08-26;2020-09-14;N
+12.320.349/0001-90;2020-01-01;1;94933;ORE  SECURITIZADORA SA;2010-06-30;A Companhia foi constituída sob a forma de sociedade empresária limitada, em 30 de junho de 2010 com a denominação de ARP Participações Ltda. ("ARP Participações"), cujos atos constitutivos foram devidamente arquivados na Junta Comercial de São Paulo ("JUCESP"), em sessão de 7.07.2010, sob o NIRE 35.2.2451605-1.Os sócios, por meio de reunião realizada em 5.08.2010, deliberaram pela transformação da sociedade limitada em sociedade anônima, alteração de denominação, objeto social e aprovação de Estatuto Social, tendo sido referida ata registrada perante a JUCESP em sessão de 23.8.2010, sob o NIRE 35.3.0038331-1.Em virtude da mencionada transformação, a ARP Participações alterou a sua denominação para "BRASIL AGROSEC COMPANHIA SECURITIZADORA" atual denominação da Companhia, sendo regida na forma de seu Estatuto Social. Em AGE de 22/01/2016 alterou-se a denominação social para Ourinvest Securitizadora S/A.;BR;Brasil;;2010-11-10;N
+12.489.315/0001-23;2020-01-01;2;99293;FERREIRA GOMES ENERGIA S.A.;2010-08-10;Sociedade por Ações;BR;Brasil;;2012-10-11;N
+12.528.708/0001-07;2020-01-01;10;103623;AERIS IND. E COM. DE EQUIP. PARA GER. DE ENG. S.A.;2010-08-17;Constituída sob a forma de sociedade anônima.;BR;Brasil;;2020-11-09;N
+12.648.266/0001-24;2020-01-01;9;96882;AMBIPAR PARTICIPAÇÕES E EMPREENDIMENTOS S.A.;2010-09-23;Sociedade Anônima Fechada;BR;Brasil;;2020-05-15;N
+12.648.327/0001-53;2020-01-01;18;104716;HIDROVIAS DO BRASIL S.A.;2010-08-18;Sociedade por Ações;BR;Brasil;;2011-12-14;N
+12.827.269/0001-25;2020-01-01;1;95591;HRH ILHA DO SOL EMPREENDIMENTOS IMOBILIÁRIOS SPE S/A;2010-11-04;sociedade limitada;BR;Brasil;;;S
+12.919.786/0001-24;2020-01-01;3;103806;TCP TERMINAL DE CONTEINERES DE PARANAGUA SA;2010-10-27;Sociedade Anônima;BR;Brasil;;2016-10-27;N
+12.979.898/0001-70;2020-01-01;4;104816;FORTE SECURITIZADORA S.A.;2010-11-19;A Companhia foi constituída em 19.11.2010, sob a denominação de CMNPar Seven Participações S.A., na Cidade de São Paulo, Estado de São Paulo, sob a forma de sociedade por ações de capital fechado.;BR;Brasil;;2011-06-15;N
+13.009.717/0001-46;2020-01-01;22;103017;BCO ESTADO DE SERGIPE S.A. - BANESE;1963-06-18;Constituído sob a forma de sociedade anônima de economia mista e sob a forma de Banco Múltiplo.;BR;Brasil;;1977-07-20;N
+13.017.462/0001-63;2020-01-01;2;97252;ENERGISA SERGIPE - DISTRIBUIDORA DE ENERGIA S/A;1960-12-31;Sociedade constituída por ações.;BR;Brasil;;2001-07-17;N
+13.217.485/0001-11;2020-01-01;10;104632;GRUPO SBF S.A.;2011-01-31;Sociedade Anônima;BR;Brasil;;2019-04-15;N
+13.349.677/0001-81;2020-01-01;1;95427;REIT SECURITIZADORA S/A;2011-01-19;Sociedade Anônima Aberta;BR;Brasil;;2012-05-10;N
+13.444.994/0001-87;2020-01-01;4;102121;MLOG S.A.;2011-03-10;Sociedade Anônima.;BR;Brasil;;2011-09-12;N
+13.457.942/0001-45;2020-01-01;2;95226;RIVA INCORPORADORA S.A;2011-01-31;Sociedade limitada;BR;Brasil;;2020-07-28;N
+13.483.537/0001-00;2020-01-01;2;99279;BRASIL SECURITIZADORA S/A;2011-04-06;A Companhia foi constituída em 06 de abril de 2011 sob a forma de sociedadepor ações com seus atos constitutivos devidamente registrados na JuntaComercial do Estado de Santa Catarina sob o NIRE 42.3.0003614-5;BR;Brasil;;2017-12-12;N
+13.574.594/0001-96;2020-01-01;22;103639;ZAMP SA;2011-04-06;Sociedade por ações;BR;Brasil;;2017-12-14;N
+13.584.310/0001-42;2020-01-01;2;95720;SUGOI S.A.;2011-04-04;A Companhia foi constituída no Brasil em 04 de abril de 2011, sob a forma de sociedade empresária limitada, tendo seu tipo jurídico transformado para sociedade por ações de capital fechado em 03 de fevereiro de 2016.;BR;Brasil;;2016-07-19;N
+14.110.585/0001-07;2020-01-01;7;103579;MÉLIUZ S.A.;2011-08-11;Constituída sob a forma de sociedade limitada, sendo que, 06 de agosto de 2015, por meio de alteração contratual, a Companhia foi transformada em sociedade por ações.;BR;Brasil;;2020-11-03;N
+14.191.427/0001-29;2020-01-01;9;108785;GRANBIO INVESTIMENTOS S.A.;2011-06-13;Sociedade por Ações;BR;Brasil;;2020-11-13;N
+14.308.514/0001-13;2020-01-01;1;94471;PARTICIPAÇÕES INDUST. DO NORDESTE S.A.;1976-10-26;Subscrição particular.;BR;Brasil;;1983-12-12;N
+14.333.683/0001-03;2020-01-01;1;95003;FONTAINE VILLE PARTICIPAÇÕES S/A;2011-03-18;Em Sociedade Anônima - S.A.;BR;Brasil;;2013-01-16;N
+14.388.334/0001-99;2020-01-01;5;102621;PARANA BCO S.A.;1977-04-25;Sociedade por ações;BR;Brasil;;2007-06-11;N
+14.776.142/0001-50;2020-01-01;7;103041;WESTWING COMÉRCIO VAREJISTA S.A.;2012-12-12;Sociedade limitada;BR;Brasil;;2021-02-09;N
+14.785.152/0001-51;2020-01-01;8;100575;HBR REALTY EMPREENDIMENTOS IMOBILIÁRIOS S.A.;2011-12-02;Sociedade Limitada;BR;Brasil;;2020-12-18;N
+14.807.945/0001-24;2020-01-01;10;103173;SANSUY S.A. INDUSTRIA DE PLASTICOS;;;;;;;N
+14.876.090/0001-93;2020-01-01;3;133636;GAIA IMPACTO SECURITIZADORA S.A.;2012-01-02;A Companhia foi constituída em 02 de janeiro de 2012, sob a forma de sociedade por ações, na República Federativa do Brasil, com seus atos constitutivos devidamente registrados na Junta Comercial de São Paulo em 09 de janeiro de 2012 sob o NIRE 35300418514.;BR;Brasil;;2012-03-28;N
+14.882.295/0001-81;2020-01-01;2;95781;CBO HOLDING S.A.;2011-07-20;Sociedade por Ações;BR;Brasil;;2015-06-11;N
+14.998.371/0001-19;2020-01-01;6;102981;J. MACEDO S.A.;1986-09-11;Sociedade por ações;BR;Brasil;;2007-10-16;N
+15.073.274/0001-88;2020-01-01;3;103615;PPLA PARTICIPATIONS LTD.;2010-03-26;Limited liability company.;BM;Bermudas;;2012-04-24;N
+15.101.405/0001-93;2020-01-01;2;94136;CORREA RIBEIRO S.A. COMERCIO E INDUSTRIA;1966-08-01;SOCIEDADE ANONIMA;BR;Brasil;;1977-07-20;N
+15.115.504/0001-24;2020-01-01;3;100130;TRONOX PIGMENTOS DO BRASIL S.A.;1966-01-25;SOCIEDADE ANÔNIMA;BR;Brasil;;1970-12-23;N
+15.139.629/0001-94;2020-01-01;8;102913;CIA ELETRICIDADE EST. DA BAHIA - COELBA;1960-03-28;A constituição da Companhia foi realizada na forma de economia mista e em julho de 1994 tornou-se companhia aberta.;BR;Brasil;;1994-07-28;N
+15.141.799/0001-03;2020-01-01;6;104757;CIA FERRO LIGAS DA BAHIA - FERBASA;1961-02-23;Sociedade Anônima, de Capital aberto.;BR;Brasil;;1961-02-28;N
+15.144.017/0001-90;2020-01-01;3;104813;CIA SEGUROS ALIANCA DA BAHIA;1870-05-14;Sociedade Anônima;BR;Brasil;;1977-07-20;N
+15.229.110/0001-05;2020-01-01;1;93834;CAPITALE SECURITIZADORA DE CRÉDITO S/A;2011-12-12;A Companhia foi constítuida em 12 de dezembro de 2011, sob a forma de sociedade por ações com seus atos constitutivos devidamente registrados na Junta comercial do Paraná sob o NIRE 41.3.0008372-0.;BR;Brasil;;2014-03-07;N
+15.377.572/0001-61;2020-01-01;2;109323;NASA SECURITIZADORA S.A.;2012-04-11;A Companhia foi constítuida em 11 de abril de 2012 sob a forma de sociedade por ações com seus atos constitutivos devidamente registrados na Junta comercial do Mato Grosso sob o NIRE 51.3.0001162-0.;BR;Brasil;;2016-03-21;N
+15.413.826/0001-50;2020-01-01;3;99328;ENERGISA MATO GROSSO DO SUL - DIST DE ENERGIA S.A.;1979-01-01;Sociedade Anonima;BR;Brasil;;1981-08-28;N
+15.484.093/0001-44;2020-01-01;12;104764;ECO101 CONCESSIONÁRIA DE RODOVIAS S.A.;2012-03-22;A Companhia foi constituída em 22 de março de 2012 sob a forma de sociedade anônima de capital fechado. Em 10 de abril de 2015 recebeu o registro da CVM.;BR;Brasil;;2015-04-10;N
+15.494.541/0001-90;2020-01-01;4;104048;SALUS INFRAESTRUTURA PORTUARIA SA;2012-03-27;Sociedade empresária limitada, transformada em sociedade anônima com propósito específico em 03 de abril de 2013.;BR;Brasil;;2015-01-05;N
+15.527.906/0001-36;2020-03-31;6;97198;BIOSEV S.A.;1982-09-01;Sociedade Anônima.;BR;Brasil;;2012-07-12;N
+15.578.569/0001-06;2020-01-01;12;104693;CONC DO AEROPORTO INTERNACIONAL DE GUARULHOS S.A.;2012-05-08;Sociedade por ações;BR;Brasil;;2014-10-24;N
+15.675.715/0001-11;2020-01-01;2;98292;HOUSI S.A.;2012-05-28;Sociedade Limitada;BR;Brasil;;2020-11-10;N
+15.688.041/0001-90;2020-01-01;1;95198;MBK SECURITIZADORA SA;2012-04-13;A Companhia foi constituída em 13/04/2012 sob denominação social de MBK Securitizadora S/A, na cidade de Belo Horizonte MG, sob a forma de sociedade por ações;BR;Brasil;;2012-07-23;N
+16.233.389/0001-55;2020-01-01;4;102842;CVLB BRASIL S.A;1968-03-25;Sociedade empresária limitada;BR;Brasil;;2021-02-12;N
+16.234.171/0001-15;2020-01-01;4;99468;METANOR SA METANOL DO NE;1969-05-15;Sociedade Anônima de Capital Aberto - Companhia Aberta;BR;Brasil;;1974-12-26;N
+16.404.287/0001-55;2020-01-01;12;104701;SUZANO S.A.;1987-12-08;Sociedade por Ações;BR;Brasil;;1992-04-15;N
+16.590.234/0001-76;2020-01-01;13;104601;AZZAS 2154 S.A.;1972-09-01;Constituída na forma de sociedade limitada, sendo transformada em sociedade por ações em 30 de agosto de 2007.;BR;Brasil;;2011-01-31;N
+16.614.075/0001-00;2020-01-01;8;104609;DIRECIONAL ENGENHARIA S.A.;1981-02-19;Sociedade por cotas de responsabilidade limitada (Direcional Engenharia Ltda.), posteriormente alterada para sociedade anônima (Direcional Engenharia S/A) em 27/09/2007.;BR;Brasil;;2008-02-29;N
+16.670.085/0001-55;2020-01-01;6;99490;LOCALIZA RENT A CAR S.A.;1973-09-28;Constituída sob a forma de sociedade limitada.;BR;Brasil;;2005-05-06;N
+16.811.931/0001-00;2020-01-01;10;104628;ALPHAVILLE S.A.;2012-05-15;Sociedade por ações;BR;Brasil;;2020-11-05;N
+16.922.038/0001-51;2020-01-01;16;104942;ENJOEI S.A.;2012-09-12;Sociedade limitada;BR;Brasil;;2020-11-05;N
+17.155.730/0001-64;2020-01-01;15;104644;CIA ENERGETICA DE MINAS GERAIS - CEMIG;1952-05-22;Sociedade de economia mista constituída sob a forma de sociedade por ações.;BR;Brasil;;1971-06-30;N
+17.161.241/0001-15;2020-01-01;1;92788;MINASMAQUINAS S.A.;1961-09-08;A Companhia foi constituída em 08 de setembro de 1961 e obteve registro de companhia aberta perante a CVM em 20 de julho de 1977.;BR;Brasil;;1977-07-20;N
+17.162.082/0001-73;2020-01-01;1;95343;MENDES JUNIOR ENGENHARIA S.A.;1953-12-31;Sociedade Anônima;BR;Brasil;;1977-07-20;N
+17.167.396/0001-69;2020-01-01;3;102666;ALFA HOLDINGS S.A.;1959-12-19;Sociedade Anônima de Capital Aberto;BR;Brasil;;1977-07-20;N
+17.167.412/0001-13;2020-01-01;7;102648;FINANCEIRA ALFA S.A.- CRED FINANC E INVS;1954-02-11;Sociedade de investimentos e financiamentos;BR;Brasil;;1977-07-20;N
+17.184.037/0001-10;2020-01-01;24;104795;BCO MERCANTIL DO BRASIL S.A.;1940-05-03;Sociedade por Ações - Companhia Aberta;BR;Brasil;;1977-07-20;N
+17.193.806/0001-46;2020-01-01;3;102656;CONSORCIO ALFA DE ADMINISTRACAO S.A.;1952-08-09;Sociedade Anônima de Capital Aberto.;BR;Brasil;;1977-07-20;N
+17.234.244/0001-31;2020-01-01;3;102407;FTL - FERROVIA TRANSNORDESTINA LOGÍSTICA S.A.;2012-10-29;Sociedade Anônima de capital fechado;BR;Brasil;;2014-04-25;N
+17.245.234/0001-00;2020-01-01;5;103469;CIA FIACAO TECIDOS CEDRO CACHOEIRA;1883-04-02;Sociedade Anônima;BR;Brasil;;1969-08-11;N
+17.281.106/0001-03;2020-01-01;10;103787;CIA SANEAMENTO DE MINAS GERAIS-COPASA MG;1963-07-05;Sociedade de economia mista constituída sob a forma de sociedade por ações.;BR;Brasil;;2003-09-17;N
+17.314.329/0001-20;2020-01-01;29;104652;INTERNATIONAL MEAL COMPANY ALIMENTACAO S.A.;1965-01-02;Sociedade limitada;BR;Brasil;;2015-03-19;N
+17.344.597/0001-94;2020-01-01;14;103351;BB SEGURIDADE PARTICIPAÇÕES S.A.;2012-12-20;A BB Seguridade é uma sociedade por ações, constituída inicialmente como subsidiária integral do Banco do Brasil S.A., na forma prevista no artigo 251, da Lei das Sociedades por Ações. Posteriormente à abertura de seu capital e à negociação de suas ações em bolsa, alterou sua relação com o BB, que passou a figurar como acionista controlador, com 66,25% do capital social da Companhia.;BR;Brasil;;2013-04-25;N
+17.346.997/0001-39;2020-01-01;4;99537;COSAN LOGISTICA S.A.;2012-04-23;Sociedade por Ações;BR;Brasil;;2014-09-11;N
+18.328.118/0001-09;2020-01-01;11;100781;PET CENTER COMÉRCIO E PARTICIPAÇÕES S.A.;2013-06-19;Sociedade anônima.;BR;Brasil;;2020-09-09;N
+18.494.485/0001-82;2020-01-01;5;103122;PORTO SUDESTE V.M. S.A.;2013-07-16;A Companhia foi constituída sob a forma de sociedade anônima de capital fechado.;BR;Brasil;;2014-11-11;N
+18.572.225/0001-88;2020-01-01;1;95219;CONCEBRA - CONCESSIONARIA DAS RODOVIAS CENTRAIS DO BRASIL;2013-01-30;Constituída sob a forma de sociedade por ações.;BR;Brasil;2044-03-05;2016-02-19;N
+18.593.815/0001-97;2020-01-01;11;103747;PRINER SERVIÇOS INDUSTRIAIS S.A.;2013-07-12;Sociedade por ações;BR;Brasil;;2017-10-02;N
+19.133.012/0001-12;2020-01-01;1;95318;RENOVA COMPANHIA SECURITIZADORA DE CRÉDITOS FINANCEIROS S.A.;2013-09-25;A Companhia foi constituída em 25 de setembro de 2013, sob a forma de sociedade por ações, na República Federativa do Brasil, com seus atos constitutivos devidamente registrados na Junta Comercial de São Paulo sob o NIRE 35300458371.;BR;Brasil;;2015-10-22;N
+19.208.022/0001-70;2020-01-01;9;104867;ECO050 CONCESSIONÁRIA DE RODOVIAS S.A.;2013-10-28;Sociedade por Ações;BR;Brasil;;2016-03-02;N
+19.276.528/0001-16;2020-01-01;2;98991;BCBF PARTICIPAÇÕES S.A.;2013-10-21;Sociedade por ações;BR;Brasil;;2019-09-16;N
+19.296.342/0001-29;2020-01-01;4;103462;MGI - MINAS GERAIS PARTICIPAÇÕES S.A.;1976-08-19;Fomos constituídos sob a forma de sociedade anônima;BR;Brasil;;2012-09-04;N
+19.378.769/0001-76;2020-01-01;9;104594;INSTITUTO HERMES PARDINI S.A.;1977-02-02;Constituída sob a forma de sociedade civil por quotas de responsabilidade limitada e transformada em sociedade por ações em 04/11/2011.;BR;Brasil;;2017-02-10;N
+19.521.322/0001-04;2020-01-01;3;104183;CONCESSIONÁRIA ROTA DO OESTE S.A.;2013-12-27;Sociedade por ações;BR;Brasil;2044-03-20;2016-06-07;N
+19.526.748/0001-50;2020-01-01;5;102858;COMPANHIA INDUSTRIAL CATAGUASES;1936-10-17;A Companhia Industrial Cataguases foi constituída sob a forma de sociedade por ações;BR;Brasil;;1973-12-19;N
+19.527.586/0001-75;2020-01-01;1;95489;COMPANHIA ENERGÉTICA SINOP S/A;2013-10-28;Sociedade Anônima;BR;Brasil;;2017-06-22;N
+19.527.639/0001-58;2020-01-01;3;99030;ENERGISA MINAS RIO - DISTRIBUIDORA DE ENERGIA S/A;1905-02-26;Constituída sob a forma de sociedade por ações;BR;Brasil;;1969-12-17;N
+19.642.306/0001-70;2020-01-01;2;102879;CONCESSIONÁRIA DE RODOVIA SUL-MATOGROSSENSE S.A.;2014-01-21;Sociedade por ações de capital aberto;BR;Brasil;2044-04-11;2016-02-03;N
+19.688.956/0001-56;2020-01-01;1;94294;BIOTOSCANA INVESTMENTS S.A.;2011-08-16;Société à responsabilité limitée;LU;Luxemburgo;;2017-07-21;N
+19.726.048/0001-00;2020-01-01;11;103270;CONCESSIONÁRIA BR-040 S.A.;2014-01-31;Sociedade Anônima;BR;Brasil;2044-04-22;2016-03-18;N
+19.851.496/0001-35;2020-01-01;1;95337;LOGOS COMPANHIA SECURITIZADORA S/A;2014-01-28;Constituída inicialmente como uma Sociedade Empresária Limitada, por meio de Contrato Social, registrado na Junta Comercial do Estado do Paraná ("JUCEPAR") sob o NIRE 41207789987. Posteriormente sendo transformada, em uma Sociedade Anonima de Capital Aberto, em 10/07/2014 sob registro na Junta Comercial do Estado do Paraná ("JUCEPAR") sob o NIRE nº. 41300090785.;BR;Brasil;;2014-09-04;N
+19.853.511/0001-84;2020-01-01;13;103447;NOTRE DAME INTERMÉDICA PARTICIPAÇÕES S.A.;2014-02-18;Sociedade por ações;BR;Brasil;;2018-04-19;N
+20.247.322/0001-47;2020-01-01;6;100615;ALLIED TECNOLOGIA S.A.;2014-04-10;Sociedade Anônima;BR;Brasil;;2020-11-25;N
+20.258.278/0001-70;2020-01-01;5;97620;OUROFINO S.A.;2014-04-10;Sociedade por ações;BR;Brasil;;2014-10-17;N
+20.451.953/0001-83;2020-01-01;2;93806;BLUM COMPANHIA DE SECURITIZAÇÃO DE CRÉDITOS S.A;2014-03-27;Sociedade Empresária Limitada;BR;Brasil;;2015-11-11;N
+20.646.442/0001-17;2020-01-01;1;95319;GAIA CRED SECURITIZADORA DE CRÉDITOS FINANCEIROS S/A.;2014-05-15;O Emissor foi constituído sob a forma de uma sociedade anônima de capital fechado.;BR;Brasil;;2016-10-07;N
+21.240.146/0001-84;2020-01-01;3;102829;AGROGALAXY PARTICIPAÇÕES S.A. - EM RECUPERAÇÃO JUDICIAL;2014-10-02;Sociedade Limitada;BR;Brasil;;2021-03-19;N
+21.254.073/0001-80;2020-01-01;1;95231;COMPANHIA ITAUNENSE ENERGIA E PARTICIPAÇÕES;1911-05-01;Sociedade anônima;BR;Brasil;;;S
+21.255.567/0001-89;2020-01-01;3;103475;CIA TECIDOS SANTANENSE EM RECUPERAÇÃO JUDICIAL;1891-10-23;Sociedade por ações;BR;Brasil;;1984-12-20;N
+21.262.638/0001-70;2020-01-01;1;95195;ENCALSO PARTICIPAÇÕES EM CONCESSÕES S/A;2014-10-02;Constituído sob a forma de sociedade anônima.;BR;Brasil;;2015-09-08;N
+21.314.559/0001-66;2020-01-01;12;105018;MOVIDA PARTICIPACOES SA;2014-10-30;Sociedade Anônima;BR;Brasil;;2016-01-29;N
+21.389.501/0001-81;2020-01-01;5;100259;COMPASS GÁS E ENERGIA S.A.;2014-11-12;Constituição sob a forma de sociedade anônima.;BR;Brasil;;2020-09-28;N
+21.414.457/0001-12;2020-01-01;2;97858;LEADS CIA. SECURITIZADORA;2014-10-15;A Companhia foi constítuida em 15 de outubro de 2014 sob a forma desociedade por ações com seus atos constitutivos devidamente registrados naJunta comercial do Paraná sob o NIRE 41.3.0009164-1 e Junta Comercial de São Paulo sob o NIRE: 3530050817-3.;BR;Brasil;;2015-02-03;N
+21.610.416/0001-00;2020-01-01;1;93767;FORTUNATO SECURITIZADORA S/A;2014-10-29;A Companhia foi constítuida em 29 de outubro de 2014 sob a forma desociedade por ações com seus atos constitutivos devidamente registrados naJunta comercial do Estado de São Paulo sob o NIRE 35.300.47421-0.;BR;Brasil;;2015-03-06;N
+21.948.105/0001-47;2020-01-01;1;94581;BTGI QUARTZO PARTICIPAÇÕES S/A;2015-02-02;Sociedade por Ações;BR;Brasil;;2016-02-19;N
+21.976.484/0001-89;2020-01-01;1;95378;RUGE SECURITIZADORA DE CRÉDITOS FINANCEIROS S.A.;2015-02-02;Sociedade por Ações;BR;Brasil;;2018-09-17;N
+21.976.510/0001-79;2020-01-01;1;94582;BTGI SAFIRA PARTICIPAÇÕES S/A;2015-02-02;Sociedade por Ações;BR;Brasil;;2016-02-19;N
+22.163.297/0001-49;2020-01-01;8;104769;CONCESSIONÁRIA PONTE RIO-NITERÓI S.A. - ECOPONTE;2015-03-24;A Companhia foi constituída sob a forma de sociedade anônima de capital fechado. Em 25 de maio de 2017 obteve registro na CVM.;BR;Brasil;;2017-05-25;N
+22.261.473/0001-85;2020-01-01;3;105122;COMPANHIA DE GÁS DE MINAS GERAIS - GASMIG;1986-07-15;Sociedade Anônima;BR;Brasil;;2020-10-06;N
+22.266.175/0001-88;2020-01-01;3;104568;FERTILIZANTES HERINGER S.A.;1968-09-23;Sociedade por Ações;BR;Brasil;;2007-04-10;N
+22.495.265/0001-40;2020-01-01;2;98023;SENECA COMPANHIA SECURITIZADORA;2015-04-15;A Companhia foi constítuida em 15 de abril de 2015 sob a forma de sociedade por ações com seus atos constitutivos devidamente registrados na Junta comercial do Estado do Paraná sob o NIRE 41.3000.9337-7.;BR;Brasil;;2015-08-17;N
+22.543.331/0001-00;2020-01-01;10;99830;CAIXA SEGURIDADE PARTICIPAÇÕES S.A.;2015-05-21;A Caixa Seguridade é uma sociedade por ações, constituída na forma prevista do artigo 251 da Lei das S.A.;BR;Brasil;;2015-12-17;N
+22.677.520/0001-76;2020-01-01;3;103428;CIA TECIDOS NORTE DE MINAS COTEMINAS;1967-12-05;SOCIEDADE POR AÇÕES;BR;Brasil;;1971-02-11;N
+22.983.283/0001-71;2020-01-01;1;95340;COMPANHIA CARIOCA DE SECURITIZAÇÃO S.A. - RIO SECURITIZAÇÃO;2015-06-30;Sociedade por ações;BR;Brasil;;2016-06-27;N
+23.096.269/0001-19;2020-01-01;2;100622;RIO PARANA ENERGIA S.A.;2015-06-26;Sociedade por ações de capital fechado;BR;Brasil;;2021-03-02;N
+23.236.821/0001-27;2020-01-01;4;100515;PATRIMAR ENGENHARIA S.A.;1968-05-14;Sociedade Limitada;BR;Brasil;;2020-11-10;N
+23.373.000/0001-32;2020-01-01;15;104879;VAMOS LOCAÇÃO DE CAMINHÕES, MÁQUINAS E EQUIPAMENTOS S.A.;2015-09-21;Sociedade Limitada;BR;Brasil;;2019-04-30;N
+23.438.929/0001-00;2020-01-01;4;99719;ALARES INTERNET PARTICIPAÇÕES S/A;2015-09-08;Sociedade por ações;BR;Brasil;;2020-10-14;N
+24.230.275/0001-80;2020-01-01;4;99214;PLANO & PLANO DESENVOLVIMENTO IMOBILIÁRIO S.A.;2016-01-13;Sociedade Limitada;BR;Brasil;;2020-09-04;N
+24.241.659/0001-06;2020-01-01;2;107940;VENTURE CAPITAL PARTICIPAÇÕES E INVESTIMENTOS S/A;2016-02-23;Companhia Aberta;BR;Brasil;;2017-12-12;N
+24.396.489/0001-20;2020-01-01;7;103617;BRK AMBIENTAL PARTICIPAÇÕES S.A.;2016-01-29;Sociedade por ações;BR;Brasil;;2019-10-22;N
+24.624.490/0001-65;2020-01-01;5;103596;ARGO TRANSMISSÃO DE ENERGIA S/A;2016-03-23;Sociedade por ações;BR;Brasil;;2017-09-22;N
+24.624.551/0001-94;2020-01-01;5;103584;ARGO ENERGIA EMPREENDIMENTOS E PARTICIPAÇÕES S/A;2016-03-23;Sociedade por ações;BR;Brasil;;2017-04-24;N
+24.962.466/0001-36;2020-01-01;2;99637;RUMO MALHA NORTE S.A.;1988-09-22;Sociedade Anônima;BR;Brasil;;1995-12-27;N
+24.990.777/0001-09;2020-01-01;5;103822;GRUPO MATEUS S.A.;2016-05-02;Sociedade por ações;BR;Brasil;;2020-10-08;N
+25.005.683/0001-09;2020-01-01;4;100758;VERT COMPANHIA SECURITIZADORA;2016-05-24;Sociedade Anônima;BR;Brasil;;2016-08-25;N
+25.089.509/0001-83;2020-01-01;8;103668;COMPANHIA DE SANEAMENTO DO TOCANTINS - SANEATINS;1989-04-25;Sociedade por ações de capital fechado;BR;Brasil;;2015-12-21;N
+26.462.693/0001-28;2020-01-01;7;102247;LAVVI EMPREENDIMENTOS IMOBILIÁRIOS S.A.;2016-09-28;Fomos constituídos sob a forma de sociedade limitada.;BR;Brasil;;2020-08-31;N
+26.609.050/0001-64;2020-01-01;2;97406;TRAVESSIA SECURITIZADORA S.A.;2016-10-27;O Emissor foi constituído sob a forma de uma sociedade anônima de capital fechado. Posteriormente, o capital foi aberto (categoria B).;BR;Brasil;;2017-02-09;N
+26.659.061/0001-59;2020-01-01;8;104780;MPM CORPÓREOS S.A.;2016-12-05;Sociedade por ações;BR;Brasil;;2021-01-28;N
+26.664.057/0001-89;2020-01-01;1;94974;ENTREVIAS CONCESSIONÁRIA DE RODOVIAS S.A.;2016-10-04;Sociedade Anônima;BR;Brasil;;2018-03-01;N
+26.735.020/0001-02;2020-01-01;9;103551;FOCUS ENERGIA HOLDING PARTICIPAÇÕES S.A.;2016-09-22;Sociedade limitada;BR;Brasil;;2021-02-04;N
+26.845.702/0001-60;2020-01-01;5;103650;BELÉM TRANSMISSORA DE ENERGIA S.A;2016-11-17;Sociedade Anônima;BR;Brasil;2047-02-10;2018-06-14;N
+27.093.558/0001-15;2020-01-01;14;104869;MILLS LOCAÇÃO, SERVIÇOS E LOGÍSTICA S.A.;1980-12-01;A Companhia foi constituída em 1º de dezembro de 1980 sob a forma de uma sociedade limitada. Em 29 de janeiro de 2009, os quotistas da Companhia à época aprovaram a transformação do tipo societário da Companhia, que passou a ser uma sociedade anônima de capital fechado. A primeira sociedade do grupo Mills, denominada Aços Firth Brown S.A., foi constituída em 1952 na Cidade do Rio de Janeiro, Estado do Rio de Janeiro, sob a forma de uma sociedade por ações de capital fechado.;BR;Brasil;;2010-04-14;N
+27.137.879/0001-74;2020-01-01;1;95360;CIA SEC DE CRÉDITOS FINANCEIROS CARTÕES CONSIGNADOS I;2017-02-03;Sociedade Anônima;BR;Brasil;;2017-06-14;N
+27.157.474/0001-06;2020-01-01;4;102965;ÁGUAS DE TERESINA SANEAMENTO SPE S.A.;2017-02-21;Sociedade anônima;BR;Brasil;;2021-02-25;N
+27.956.690/0001-03;2020-01-01;1;93923;AUZZA SECURITIZADORA S. A.;2017-04-07;O Emissor foi constituído sob a forma de sociedade anônima de capital aberto.;BR;Brasil;;2018-01-19;N
+27.967.244/0001-02;2020-01-01;5;103653;TAPAJÓS TRANSMISSORA DE ENERGIA S.A.;2017-06-02;Sociedade anônima;BR;Brasil;2047-07-21;2018-06-28;N
+28.019.100/0001-89;2020-01-01;3;102623;VIAPAULISTA S.A.;2017-06-22;Constituída sob a forma de sociedade por ações;BR;Brasil;2047-11-21;2021-02-19;N
+28.127.603/0001-78;2020-01-01;16;104754;BANESTES S.A. - BCO EST ESPIRITO SANTO;1937-10-15;Escritura Pública lavrada no Cartório do 4º Ofício de Notas, Livro nº 38, Folhas 4 a 18.;BR;Brasil;;1977-07-20;N
+28.152.650/0001-71;2020-01-01;5;100980;EDP ESPIRITO SANTO DISTRIBUIÇÃO DE ENERGIA S.A.;1968-07-10;Constituída sob a forma de sociedade por ações.;BR;Brasil;;1996-01-19;N
+28.195.667/0001-06;2020-01-01;17;104596;BCO ABC BRASIL S.A.;1983-12-27;Sociedade Anônima;BR;Brasil;;2007-07-23;N
+28.201.130/0001-01;2020-01-01;3;103028;ENERGISA TRANSMISSÃO DE ENERGIA S/A;2017-05-09;Sociedade Anônima;BR;Brasil;;2018-10-29;N
+28.442.718/0001-57;2020-01-01;2;102982;RIOLOAN 2 COMPANHIA SECURITIZADORA DE CRÉDITOS FINANCEIROS;2017-05-30;Sociedade empresária limitada, transformada em sociedade por ações em 13/11/2017;BR;Brasil;;;S
+28.925.264/0001-75;2020-01-01;2;98823;COMPANHIA ENERGÉTICA JAGUARA;2017-10-09;Sociedade Anônima;BR;Brasil;;2018-04-27;N
+28.942.127/0001-49;2020-01-01;3;98825;COMPANHIA ENERGÉTICA MIRANDA;2017-10-09;Sociedade anônima;BR;Brasil;;2018-04-27;N
+29.088.092/0001-95;2020-01-01;2;93989;ROMAXIS SECURITIZADORA S.A.;2017-09-01;A Companhia foi constituída em 01 de setembro de 2017 soba forma de sociedade por ações com seus atos constituidos devidamente registrados na Junta Comercial do Estado de Santa Catarina sob o NIRE 42300046116.;BR;Brasil;;2019-03-22;N
+29.780.061/0001-09;2020-01-01;6;103681;SAO CARLOS EMPREEND E PARTICIPACOES S.A.;1985-10-10;A Companhia foi constituída na cidade e Estado do Rio de Janeiro, sob o forma de sociedade por ações de capital fechado.;BR;Brasil;;1991-03-25;N
+29.845.329/0001-35;2020-01-01;1;94064;COPISEC SECURITIZADORA DE CRÉDITOS FINANCEIROS S.A.;2018-02-02;COMPANHIA CONSTITUÍDA EM 02/02/2018, SOB A FORMA DE SOCIEDADE POR AÇÕES, COM SEUS ATOS CONSTITUTIVOS REGISTRADOS NA JUNTA COMERCIAL DO ESTADO DO RIO DE JANEIRO EM 05/03/2018, SOB O NIRE 33.3.0032644-8;BR;Brasil;;2018-10-26;N
+29.894.663/0001-89;2020-01-01;1;95420;CONSIGNADOS I COMPANHIA SECURITIZADORA CRÉDITOS FINANCEIROS;2018-01-19;Assembleia Geral de Constituição - Sociedade Anônima;BR;Brasil;;;S
+29.950.060/0001-57;2020-01-01;2;104563;NORTEC QUÍMICA S.A.;1985-12-20;Sociedade por quotas de responsabilidade limitada.;BR;Brasil;;2012-11-23;N
+29.978.814/0001-87;2020-01-01;9;104574;SUL AMERICA S.A.;1978-03-13;Em 13.03.1978 a Sul América S.A. foi constituída sob a forma de sociedade anônima de capital fechado, mediante versão da parcela cindida da Financial e Comercial do Brasil S/A, CNPJ 33.464.280/0001-48.;BR;Brasil;;2007-10-03;N
+30.219.233/0001-40;2020-01-01;1;95504;COMPANHIA SECURITIZADORA DE CRÉDITOS FINANCEIROS VERT-REBEL;2018-04-04;Sociedade anônima;BR;Brasil;;2018-08-28;N
+30.306.294/0001-45;2020-01-01;17;103140;BCO BTG PACTUAL S.A.;1979-01-18;Sociedade Anônima;BR;Brasil;;2011-11-10;N
+30.418.658/0001-89;2020-01-01;1;95530;COMPANHIA SECURITIZADORA DE CRÉD. FINANCEIROS VERT-NEXOOS;2018-04-05;Sociedade anônima;BR;Brasil;;2018-08-28;N
+30.540.991/0001-66;2020-01-01;3;94650;HAGA S.A. INDUSTRIA E COMERCIO;1946-05-10;Sociedade Anonima;BR;Brasil;;1988-07-01;N
+30.545.324/0001-76;2020-01-01;2;97908;COMPANHIA SECURITIZADORA DE CRÉDITOS FINANCEIROS VERT-RECARG;2017-12-05;Sociedade Limitada;BR;Brasil;;2020-10-28;N
+30.702.767/0001-23;2020-01-01;1;93393;RHC SECURITIZADORA DE CRÉDITOS S/A;2018-01-02;A Companhia foi constituída em 02 de janeiro de 2018 sob a forma de sociedade anônima de capital aberto com seus atos constitutivos devidamente registrados na Junta Comercial do Estado do Rio Grande do Sul sob o NIRE 43300062015.;BR;Brasil;;2019-01-29;N
+30.788.149/0001-48;2020-01-01;1;93276;GUARDIAN COMPANHIA SECURITIZADORA;2018-05-25;Sociedade Anônima Aberta;BR;Brasil;;2018-10-10;N
+31.001.230/0001-07;2020-01-01;1;95287;CELEO REDES TRANSMISSÃO DE ENERGIA S.A.;2018-06-26;Sociedade Anônima;BR;Brasil;;2018-12-12;N
+31.468.139/0001-98;2020-01-01;1;95084;CASA DE PEDRA SECURITIZADORA DE CREDITO S/A;2018-08-01;Sociedade anônima;BR;Brasil;;2019-02-13;N
+31.553.627/0001-01;2020-01-01;6;103536;GRUPO TOKY S.A.;2018-08-22;Sociedade limitada;BR;Brasil;;2021-02-03;N
+31.594.055/0001-09;2020-01-01;1;94062;CONTAGEM SECURITIZADORA DE CRÉDITOS S.A.;2018-09-12;COMPANHIA CONSTITUÍDA EM 12/09/2018, SOB A FORMA DE SOCIEDADE POR AÇÕES, COM SEUS ATOS CONSTITUTIVOS REGISTRADOS NA JUNTA COMERCIAL DO ESTADO DO RIO DE JANEIRO EM 25/09/2018, SOB O NIRE 33.3.0032818-1;BR;Brasil;;2019-02-27;N
+31.907.982/0001-23;2020-01-01;1;93840;FILADÉLFIA SECURITIZADORA S/A;2018-08-22;A Companhia foi constítuida em 22 de agosto de 2018 sob a forma de sociedade por ações com seus atos constitutivos devidamente registrados na Junta comercial de São Paulo.;BR;Brasil;;2019-06-03;N
+32.161.500/0001-00;2020-01-01;3;102908;CONCESSIONÁRIA DAS RODOVIAS INTEGRADAS DO SUL S.A.;2018-11-21;Sociedade por ações;BR;Brasil;2049-02-15;2020-12-04;N
+32.372.085/0001-25;2020-01-01;2;98512;COBUCCIO SECURITIZADORA DE CRÉDITOS S.A.;2018-11-14;A Companhia foi constítuida em 14 de novembro de 2018 sob a forma de sociedade anônima de capital aberto com seus atos constitutivos devidamente registrados na Junta comercial do estado de Minas Gerais.;BR;Brasil;;2019-05-23;N
+32.681.371/0001-72;2020-01-01;6;103460;VIX LOGÍSTICA S.A.;1989-07-03;Sociedade Anonima;BR;Brasil;;2012-05-04;N
+32.770.457/0001-71;2020-01-01;2;95301;CIA. SECURITIZADORA DE CREDITOS FINANCEIROS VERT-GYRA;2019-01-29;Sociedade Anônima Fechada;BR;Brasil;;2020-07-30;N
+32.785.497/0001-97;2020-01-01;11;121233;NATURA &CO HOLDING S.A.;2019-01-21;Sociedade anônima.;BR;Brasil;;2019-09-25;N
+33.000.167/0001-01;2020-01-01;19;104904;PETROLEO BRASILEIRO S.A. PETROBRAS;1953-10-03;A Petrobras foi constituída pela União Federal, através da Lei nº 2.004, de 3 de outubro de 1953, sob forma de sociedade por ações.;BR;Brasil;;1977-07-20;N
+33.014.556/0001-96;2020-01-01;18;103797;LOJAS AMERICANAS S.A.;1929-05-02;Sociedade Anônima;BR;Brasil;;1977-07-20;N
+33.035.536/0001-00;2020-01-01;2;104191;JOAO FORTES ENGENHARIA S.A. - EM RECUPERAÇÃO JUDICIAL;1950-10-10;Constituída sob forma de empresária limitada e transformada em sociedade pro ações em 17/09/1973.;BR;Brasil;;1977-07-20;N
+33.040.601/0001-87;2020-01-01;6;103371;MERCANTIL FINANCEIRA S.A. - SOC. CRÉDITO, FINANC E INVESTIME;1972-12-12;Sociedade por Ações - Companhia Aberta;BR;Brasil;;1977-07-20;N
+33.041.260/0652-90;2020-01-01;14;104429;GRUPO CASAS BAHIA S.A.;1946-07-12;Sociedade por ações;BR;Brasil;;1981-11-24;N
+33.042.730/0001-04;2020-01-01;16;104635;CIA SIDERURGICA NACIONAL;1941-04-09;Sociedade Anônima;BR;Brasil;;1943-02-26;N
+33.050.071/0001-58;2020-01-01;9;103010;AMPLA ENERGIA E SERVICOS S.A.;1909-06-03;Sociedade por ações;BR;Brasil;;1969-08-15;N
+33.050.196/0001-88;2020-01-01;5;103983;CIA PAULISTA DE FORCA E LUZ;1912-11-16;Sociedade por Ações;BR;Brasil;;1969-08-19;N
+33.102.476/0001-92;2020-01-01;5;103734;MONTEIRO ARANHA S.A.;1947-12-22;Sociedade Anônima;BR;Brasil;;1980-05-07;N
+33.111.246/0001-90;2020-01-01;1;95312;TECNOSOLO ENGENHARIA S.A. - EMPRESA FALIDA;1957-12-06;A companhia foi constituida em 06/12/1957 , sob forma de sociedade por ações.;BR;Brasil;;1977-07-20;N
+33.113.309/0001-47;2020-01-01;12;104615;VALID SOLUÇÕES S.A.;1957-08-13;Sociedade por ações.;BR;Brasil;;2006-04-12;N
+33.200.049/0001-47;2020-01-01;1;95038;HOTEIS OTHON S.A. - EM RECUPERAÇÃO JUDICIAL;1982-06-08;Sociedade Anônima;BR;Brasil;;1982-06-09;N
+33.228.024/0001-51;2020-01-01;3;103599;WLM PART. E COMÉRCIO DE MÁQUINAS E VEÍCULOS S.A.;1946-10-25;Sociedade Anônima;BR;Brasil;;1971-01-07;N
+33.256.439/0001-39;2020-01-01;8;103055;ULTRAPAR PARTICIPACOES S.A.;1953-12-20;Sociedade Anônima;BR;Brasil;;1999-09-27;N
+33.352.394/0001-04;2020-01-01;14;103300;CIA ESTADUAL DE ÁGUAS E ESGOTOS - CEDAE;1975-08-01;Sociedade anônima, companhia aberta, de capital autorizado, de economia mista estadual, vinculada à Secretaria de Estado da Casa Civil e Governança.;BR;Brasil;;1997-07-28;N
+33.376.989/0001-91;2020-01-01;15;103842;IRB - BRASIL RESSEGUROS S.A.;1939-04-03;Instituto;BR;Brasil;;2017-07-27;N
+33.386.210/0001-19;2020-01-01;4;105703;SONDOTECNICA ENGENHARIA SOLOS S.A.;1953-12-18;Transformação de Ltda para S/A através de subscrição particular.;BR;Brasil;;1980-08-19;N
+33.412.081/0001-96;2020-01-01;2;97070;REFINARIA DE PETROLEOS MANGUINHOS S.A.;1954-12-14;Companhia constituida em forma de sociedade por ações;BR;Brasil;;1970-05-14;N
+33.467.572/0001-34;2020-01-01;4;103540;TEKNO S.A. - INDUSTRIA E COMERCIO;1939-06-21;Sociedade limitada;BR;Brasil;;1977-07-20;N
+33.541.368/0001-16;2020-01-01;4;102698;CIA HIDRO ELÉTRICA DO SÃO FRANCISCO;1948-03-15;Sociedade de economia mista, de capital aberto, criada pelo Decreto-Lei nº 8.031/1945, com operações iniciadas em 15/03/1948.;BR;Brasil;;1969-12-19;N
+33.592.510/0001-54;2020-01-01;26;104585;VALE S.A.;1943-01-11;Sociedade de economia mista;BR;Brasil;;1970-01-02;N
+33.611.500/0001-19;2020-01-01;11;104022;GERDAU S.A.;1961-11-20;A Gerdau S.A. é uma sociedade anônima de capital aberto qualificada como EGEM - Emissor com Grande Exposição ao Mercado, nos termos do artigo 34 da Instrução CVM nº 480/09.;BR;Brasil;;1980-09-03;N
+33.679.797/0001-54;2020-01-01;1;93947;PJBANK SECURITIZADORA S.A.;2019-04-12;A Companhia foi constítuida em 12 de abril de 2019 sob a forma de sociedade anônima de capital aberto com seus atos constitutivos devidamente registrados na Junta comercial do estado de São Paulo.;BR;Brasil;;2019-10-04;N
+33.839.910/0001-11;2020-01-01;11;104784;VIVARA PARTICIPAÇÕES S.A.;2019-05-23;Sociedade limitada;BR;Brasil;;2019-10-09;N
+33.938.119/0001-69;2020-01-01;6;104823;CIA DISTRIB DE GAS DO RIO DE JANEIRO-CEG;1969-06-02;Constituída sob a forma de empresa pública em 1969, a CEG foi privatizada em 1997, quando o Programa Estadual de Desestatização - PED (Decreto nº 21.985/1996 e Lei Estadual de nº 2.470/1995), adotou a modalidade de abertura de capital para oferta das ações ao novo grupo de controle da Companhia.;BR;Brasil;;1977-11-17;N
+33.958.695/0001-78;2020-01-01;24;104656;UNIPAR CARBOCLORO S.A.;1969-05-28;Constituída sob a forma de sociedade empresária limitada e transformada em sociedade por ações em 23 de outubro de 1969.;BR;Brasil;;1971-12-08;N
+34.169.557/0001-72;2020-01-01;16;104697;BCO MERCANTIL DE INVESTIMENTOS S.A.;1973-04-09;Sociedade de Ações - Companhia aberta;BR;Brasil;;1977-07-20;N
+34.274.233/0001-02;2020-01-01;7;103075;VIBRA ENERGIA S/A;1971-11-12;Sociedade anônima;BR;Brasil;;2017-12-12;N
+34.469.625/0001-19;2020-01-01;2;98100;COMPANHIA SECURITIZADORA DE CRÉDITOS FINANCEIROS VERT-PROVI;2019-07-22;Sociedade Anônima;BR;Brasil;;2020-11-05;N
+34.591.574/0001-01;2020-01-01;1;107766;UP ENGENHARIA E URBANISMO S.A.;2019-07-01;Constituída a sociedade por ações UP ENGENHARIA E URBANISMO S.A.;BR;Brasil;;2019-11-04;N
+35.082.277/0001-95;2020-01-01;2;93398;BASE SECURITIZADORA DE CRÉDITOS IMOBILIÁRIOS S.A;2019-08-26;A Companhia foi constituída em 26.08.2019 sob a forma de sociedade anônima com seus atos constitutivos devidamente registrados na Junta Comercial do Estado de São Paulo.;BR;Brasil;;2020-05-21;N
+35.502.310/0001-99;2020-01-01;3;104728;CS BRASIL PARTICIPAÇÕES E LOCAÇÕES S.A.;2019-10-25;Sociedade Limitada;BR;Brasil;;2021-04-26;N
+35.727.157/0001-06;2020-01-01;2;99209;EZ INC INCORPORAÇÕES S.A.;2019-11-06;Sociedade limitada;BR;Brasil;;2020-12-14;N
+35.791.391/0001-94;2020-01-01;3;102186;QUALITY SOFTWARE S.A.;1989-09-06;A empresa foi constituída sob a forma de sociedade limitada e, posteriormente, transformada em sociedade anônima fechada, em 08/05/2006.;BR;Brasil;;2013-12-03;N
+36.243.187/0001-00;2020-01-01;2;96397;TRUE COMPANHIA SECURITIZADORA DE CRÉDITOS FINANCEIROS II;2019-12-13;Assembleia Geral de Constituição - Sociedade Anônima;BR;Brasil;;2020-08-12;N
+36.542.025/0001-64;2020-01-01;5;102856;BRQ SOLUCOES EM INFORMATICA S.A.;1993-02-26;Sociedade anônima de capital aberto.;BR;Brasil;;2016-01-11;N
+37.368.315/0001-04;2020-09-16;2;100281;COMPANHIA SECURITIZADORA DE CRÉDITOS FINANCEIROS - VERT 5;2020-05-15;Sociedade Limitada.;BR;Brasil;;2021-02-18;N
+37.592.100/0001-64;2020-01-01;2;97467;MISSISSIPI SECURITIZADORA S/A;2020-04-13;A companhia foi constituída em 13 de abril de 2020, sob a forma de sociedade por ações, com seus atos constitutivos devidamente registrados na Junta Comercial do Estado de São Paulo em 02 de julho de 2020 sob o nº 35300552342.;BR;Brasil;;2020-10-01;N
+37.663.076/0001-07;2020-10-01;3;102814;AUREN PARTICIPAÇÕES S.A.;2020-03-20;Sociedade por ações;BR;Brasil;;2021-03-18;N
+38.042.694/0001-00;2020-09-16;2;98055;TRAVESSIA SECURITIZADORA DE CRÉDITOS FINANCEIROS S.A.;2020-07-03;Sociedade anônima.;BR;Brasil;;2020-11-04;N
+39.115.514/0001-28;2020-01-01;2;103846;RUMO MALHA OESTE S.A.;1996-03-11;Sociedade Anônima;BR;Brasil;;1998-10-20;N
+39.393.829/0001-37;2020-01-01;1;97653;HLASA PARTICIPAÇÕES S.A.;2020-09-23;Sociedade por ações;BR;Brasil;;;S
+39.393.829/0001-37;2020-10-09;8;103206;HLASA PARTICIPAÇÕES S.A.;2020-09-23;Sociedade por ações;BR;Brasil;;2020-12-10;N
+40.997.635/0001-20;2020-01-22;1;103051;PORTO DE VITORIA COMPANHIA SECURITIZADORA DE CREDITOS FINANC;2021-01-21;Sociedade Anônima;BR;Brasil;;;S
+42.150.391/0001-70;2020-01-01;11;103022;BRASKEM S.A.;1972-01-12;Sociedade limitada;BR;Brasil;;1978-12-18;N
+42.278.291/0001-24;2020-01-01;14;104792;LOG-IN LOGISTICA INTERMODAL S.A.;1973-09-13;Sociedade por Ações.;BR;Brasil;;2007-06-04;N
+42.278.473/0001-03;2020-01-01;10;104361;WIZ CO PARTICIPAÇÕES E CORRETAGEM DE SEGUROS S.A.;1973-07-05;Sociedade por ações;BR;Brasil;;2015-05-11;N
+42.331.462/0001-31;2020-01-01;3;103559;EMBPAR PARTICIPAÇÕES S/A;1974-08-01;Constituído sob a forma de sociedade limitada;BR;Brasil;;1996-03-14;N
+42.771.949/0001-35;2020-01-01;17;104756;ALLIANÇA SAÚDE E PARTICIPAÇÕES S.A.;1992-08-05;Constituída sob a forma de sociedade empresária limitada e transformada em sociedade por ações em 06 de dezembro de 2010;BR;Brasil;;2016-10-26;N
+43.185.362/0001-07;2020-01-01;6;102733;IGB ELETRONICA S.A - EM RECUPERACAO JUDICIAL;1971-08-26;Companhia aberta;BR;Brasil;;1973-12-19;N
+43.283.811/0001-50;2020-01-01;2;100870;KALUNGA S.A;1972-05-16;Sociedade Limitada.;BR;Brasil;;2021-03-08;N
+43.470.988/0001-65;2020-01-01;4;104753;EVEN CONSTRUTORA E INCORPORADORA S.A.;1980-05-05;Constituida sob a forma de sociedade limitada, tendo se transformado em sociedade por ações em 03 de março de 2006.;BR;Brasil;;2007-03-02;N
+43.776.517/0001-80;2020-01-01;11;104540;CIA SANEAMENTO BASICO EST SAO PAULO;1973-09-06;Sociedade de Economia Mista;BR;Brasil;;1994-06-27;N
+45.242.914/0001-05;2020-01-01;16;104576;C&A MODAS S.A.;1981-01-12;Sociedade limitada;BR;Brasil;;2019-10-24;N
+45.365.558/0001-09;2020-01-01;1;98746;VITTIA S.A.;1971-06-16;Sociedade Limitada;BR;Brasil;;;S
+45.453.214/0001-51;2020-01-01;8;103935;PROFARMA DISTRIB PROD FARMACEUTICOS S.A.;1961-05-23;Empresa de sociedade limitada;BR;Brasil;;2006-10-24;N
+45.987.245/0001-92;2020-01-01;8;103423;BIOMA EDUCAÇÃO S.A.;1960-11-19;Sociedade anônima;BR;Brasil;;1974-01-01;N
+46.119.855/0001-37;2020-01-01;8;100774;SOCIEDADE ABASTECIMENTO DE ÁGUA E SANEAMENTO S.A - SANASA;1974-08-28;Constituída com a Lei Municipal nº 4.356, de 28 de dezembro de 1973, que foi regulamentada pelo Decreto nº 4.437, de 14 de março de 1974. A Assembleia Geral de Constituição de Sociedade por Ações ocorreu em 28 de agosto de 1974.A Sociedade de Abastecimento de Água e Saneamento S/A (SANASA) é uma sociedade de economia mista, de capital aberto e sem ações negociáveis, com participação majoritária da Prefeitura Municipal de Campinas (99,99%).;BR;Brasil;;1997-04-29;N
+47.193.149/0001-06;2020-01-01;2;96430;SANTANDER LEASING S.A. ARRENDAMENTO MERCANTIL;1975-10-01;Sociedade Anônima;BR;Brasil;;2007-03-19;N
+47.508.411/0001-56;2020-01-01;14;104129;CIA BRASILEIRA DE DISTRIBUICAO;1981-11-10;Sociedade anônima;BR;Brasil;;1995-04-04;N
+47.509.120/0001-82;2020-01-01;3;103479;BRADESCO LEASING S.A. ARREND MERCANTIL;1981-10-15;Sociedade Anônima de Arrendamento Mercantil.;BR;Brasil;;2004-11-24;N
+47.960.950/0001-21;2020-01-01;5;103504;MAGAZINE LUIZA S.A.;1957-11-16;Constituída sob a forma de sociedade limitada, sendo que, em 16 de junho de 1984, por meio de alteração contratual devidamente arquivada na Junta Comercial de São Paulo - JUCESP, a nossa Companhia transformou-se em sociedade por ações.;BR;Brasil;;2011-04-28;N
+49.263.189/0001-02;2020-01-01;7;104562;HELBOR EMPREENDIMENTOS S.A.;1977-10-20;Sociedade limitada.;BR;Brasil;;2007-07-09;N
+49.669.856/0001-43;2020-01-01;8;103607;VESTE S.A. ESTILO;1982-04-19;Sociedade por quotas de responsabilidade limitada.;BR;Brasil;;2008-04-28;N
+50.564.053/0001-03;2020-01-01;4;104124;BOMBRIL S.A. - EM RECUPERAÇÃO JUDICIAL;1948-01-14;Sociedade anônima de capital aberto;BR;Brasil;;1984-09-26;N
+50.746.577/0001-15;2020-01-01;10;104695;COSAN S.A.;1966-07-08;Sociedade Anônima;BR;Brasil;;2005-10-26;N
+50.926.955/0001-42;2020-01-01;8;104394;VULCABRAS S.A.;1952-06-05;Sociedade Anonima;BR;Brasil;;1977-07-20;N
+51.128.999/0001-90;2020-01-01;3;99183;NUTRIPLANT INDUSTRIA E COMERCIO S.A.;1979-10-16;A constituição da Companhia foi como sociedade anônima de capital fechado, transformando-se em sociedade anônima de capital aberto em 11/02/2008.;BR;Brasil;;2008-02-11;N
+51.218.147/0001-93;2020-01-01;4;103869;IGUATEMI EMPRESA DE SHOPPING CENTERS S.A;1979-05-23;Constituída como Sociedade Limitada e transformada em Sociedade Anônima em 11/08/1983;BR;Brasil;;2007-02-02;N
+51.466.860/0001-56;2020-03-31;4;95823;SAO MARTINHO S.A.;1943-07-13;Sociedade anônima de capital fechado;BR;Brasil;;2007-02-07;N
+51.928.174/0001-50;2020-01-01;2;103386;PLASCAR PARTICIPACOES INDUSTRIAIS S.A.;1983-08-23;Sociedade Anônima;BR;Brasil;;1989-04-19;N
+52.548.435/0001-79;2020-01-01;18;105094;JSL S.A.;1969-08-05;Sociedade limitada;BR;Brasil;;2010-04-15;N
+53.113.791/0001-22;2020-01-01;19;103190;TOTVS S.A.;1983-12-13;Sociedade Anônima de Capital Aberto;BR;Brasil;;2006-03-07;N
+56.444.250/0001-75;2020-01-01;2;95309;HAUSCENTER SA;1986-09-19;A Empresa foi constituida sob a forma de Sociedade Anônima, tendo como objeto propósito especifico.;BR;Brasil;;1995-05-02;N
+56.643.018/0001-66;2020-01-01;6;103527;EUCATEX S.A. INDUSTRIA E COMERCIO;1951-11-23;Sociedade Anônima;BR;Brasil;;1969-08-20;N
+56.720.428/0001-63;2020-01-01;7;102288;ROMI S.A.;1938-04-19;Sociedade por ações, de capital aberto.;BR;Brasil;;1977-07-20;N
+56.992.423/0001-90;2020-01-01;2;103757;BICICLETAS MONARK S.A.;1948-04-26;Sociedade por quotas de responsabilidade ltda.;BR;Brasil;;1971-12-01;N
+58.119.199/0001-51;2020-01-01;7;103376;ODONTOPREV S.A.;1987-08-28;Empresa limitada de 28/08/1987 a 08/1998Sociedade Anônima de capital fechado de 08/1998 a 01/12/2006Sociedade Anônima de capital aberto a partir de 01/12/2006.;BR;Brasil;;2006-06-13;N
+58.430.828/0001-60;2020-01-01;3;99544;BLAU FARMACÊUTICA S.A.;1987-12-16;Sociedade empresária limitada;BR;Brasil;;2019-01-11;N
+59.105.999/0001-86;2020-01-01;4;104705;WHIRLPOOL S.A.;1957-06-12;Sociedade Anônima;BR;Brasil;;1994-04-22;N
+59.285.411/0001-13;2020-01-01;13;99500;BCO PAN S.A.;1966-08-23;Sociedade por ações;BR;Brasil;;2007-11-12;N
+59.418.806/0001-47;2020-01-01;6;104412;TRACK & FIELD CO S.A.;1988-08-19;Constituição sob a forma de sociedade limitada;BR;Brasil;;2020-10-22;N
+59.789.545/0001-71;2020-01-01;3;104300;POLPAR S.A.;1988-11-29;Sociedade Anônima;BR;Brasil;;1989-03-03;N
+60.398.369/0004-79;2020-01-01;14;103519;PARANAPANEMA S.A. - EM RECUPERAÇÃO JUDICIAL;1961-05-15;Sociedade Anônima;BR;Brasil;;1977-07-20;N
+60.444.437/0001-46;2020-01-01;11;100013;LIGHT SERVICOS DE ELETRICIDADE S.A.;1904-06-30;Sociedade Anônima;BR;Brasil;;1968-11-25;N
+60.476.884/0001-87;2020-01-01;6;103257;MAHLE METAL LEVE S.A.;1950-03-03;Sociedade anônima de capital aberto.;BR;Brasil;;1977-07-20;N
+60.500.139/0001-26;2020-01-01;5;99313;SARAIVA LIVREIROS S.A. - EM RECUPERAÇÃO JUDICIAL;1933-01-24;Sociedade em nome coletivo originalmente denominada Saraiva & Cia. (posteriormente transformada em sociedade por ações).;BR;Brasil;;1977-07-20;N
+60.537.263/0001-66;2020-01-01;14;103592;ALLPARK EMPREENDIMENTOS, PARTICIPAÇÕES E SERVIÇOS S.A.;1989-04-03;Constituída sob a forma de sociedade civil limitada;BR;Brasil;;2020-05-13;N
+60.543.816/0001-93;2020-01-01;3;103221;IGUATEMI S.A.;1946-03-12;Sociedade Anônima;BR;Brasil;;1946-03-12;N
+60.637.238/0001-54;2020-01-01;2;108426;BLUE TECH SOLUTIONS EQI S.A.;1936-04-17;SOCIEDDE ANÔNIMA;BR;Brasil;;1985-03-14;N
+60.651.809/0001-05;2020-01-01;4;104299;SUZANO HOLDING S.A.;1954-02-26;Sociedade Anônima;BR;Brasil;;1982-03-11;N
+60.730.348/0001-66;2020-01-01;4;104595;CIA MELHORAMENTOS DE SAO PAULO;1890-09-12;Sociedade por ações.;BR;Brasil;;1977-07-20;N
+60.746.948/0001-12;2020-01-01;21;104409;BCO BRADESCO S.A.;1943-01-05;Sociedade anônima de capital fechado, constituído como Banco Comercial.;BR;Brasil;;1977-07-20;N
+60.770.336/0001-65;2020-01-01;5;102649;BCO ALFA DE INVESTIMENTO S.A.;1966-06-13;Banco privado de investimento;BR;Brasil;;1977-07-20;N
+60.840.055/0001-31;2020-01-01;10;103580;FLEURY S.A.;1964-10-23;Com atividades iniciadas em 1926, foi constituída como sociedade civil, sob a denominação "Médicos Associados - EMEÁ", em 23 de outubro de 1964.;BR;Brasil;;2009-12-14;N
+60.851.615/0001-53;2020-01-01;5;103654;BARDELLA S.A. INDUSTRIAS MECANICAS EM RECUPERAÇÃO JUDICIAL;1911-02-11;Sociedade por ações;BR;Brasil;;1969-11-26;N
+60.872.504/0001-23;2020-01-01;21;104273;ITAU UNIBANCO HOLDING S.A.;1943-09-09;Sociedade Anônima;BR;Brasil;;2002-12-30;N
+60.884.319/0001-59;2020-01-01;1;95592;NORDON INDUSTRIAS METALURGICAS S.A.;1966-07-15;Estatuto Social;BR;Brasil;;1966-07-16;N
+60.894.730/0001-05;2020-01-01;13;104238;USINAS SID DE MINAS GERAIS S.A.-USIMINAS;1956-04-25;Sociedade Anônima;BR;Brasil;;1994-04-11;N
+60.933.603/0001-78;2020-01-01;17;104592;CESP - CIA ENERGETICA DE SAO PAULO;1966-12-05;A Companhia foi constituida como uma empresa de economia mista, tendo sido privatizada em 11/12/2018.;BR;Brasil;;1971-09-27;N
+61.022.042/0001-18;2020-01-01;1;95577;CONSTRUTORA ADOLPHO LINDENBERG S.A.;1966-10-25;SOCIEDADE ANÔNIMA;BR;Brasil;;1977-07-20;N
+61.024.352/0001-71;2020-01-01;7;99906;BCO INDUSVAL S.A.;1967-03-28;Sociedade Anônima;BR;Brasil;;2007-07-10;N
+61.065.298/0001-02;2020-01-01;2;99373;MANGELS INDUSTRIAL S.A.;1959-09-18;Sociedade Anônima;BR;Brasil;;1971-12-28;N
+61.065.751/0001-80;2020-01-01;10;103510;ROSSI RESIDENCIAL S.A. - EM RECUPERAÇÃO JUDICIAL;1985-06-27;Constituído na forma de Sociedade Anônima.;BR;Brasil;;1997-07-01;N
+61.079.117/0001-05;2020-01-01;11;103133;ALPARGATAS S.A.;1907-04-03;Sob a forma de uma sociedade por ações.;BR;Brasil;;1977-07-20;N
+61.080.313/0001-91;2020-01-01;2;93918;COBRASMA S.A.;1944-09-01;Sociedade anonima de capital aberto.;BR;Brasil;;1979-12-12;N
+61.082.004/0001-50;2020-01-01;2;103657;MANUFATURA DE BRINQUEDOS ESTRELA S.A.;1937-07-21;A empresa foi fundada como sociedade por quotas limitadas.;BR;Brasil;;1968-06-29;N
+61.088.894/0001-08;2020-01-01;6;102741;CAMBUCI S.A.;1945-08-29;Companhia Aberta;BR;Brasil;;1985-01-05;N
+61.092.037/0001-81;2020-01-01;7;103461;ETERNIT S.A.;1940-01-30;Companhia de Capital Aberto;BR;Brasil;;1970-11-17;N
+61.101.895/0001-45;2020-01-01;2;100590;SANTHER FAB DE PAPEL STA THEREZINHA S.A.;1938-09-23;Sociedade por Ações;BR;Brasil;;1995-06-29;N
+61.156.113/0001-75;2020-01-01;8;104578;IOCHPE MAXION S.A.;1940-05-28;O emissor foi constituído como uma sociedade por quotas de responsabilidade limitada, tendo sido transformado em sociedade anônima em 30/08/1969.;BR;Brasil;;1984-07-17;N
+61.156.931/0001-78;2020-01-01;1;94915;ALIPERTI S.A.;1924-01-02;A sociedade é sucessora da empresa J. L. Aliperti Irmãos & Cia Ltda, cujos atos constitutivos foram arquivados na Junta Comercial do Estado de São Paulo sob nº 22035 em 26/09/1944;BR;Brasil;;1986-06-06;N
+61.186.680/0001-74;2020-01-01;19;104291;BANCO BMG S/A;1964-12-28;Sociedade anônima;BR;Brasil;;2018-12-17;N
+61.189.288/0001-89;2020-01-01;13;103807;MARISA LOJAS S.A.;1959-04-28;Sociedade empresária limitada;BR;Brasil;;2010-06-14;N
+61.351.532/0001-68;2020-01-01;7;103990;AZEVEDO E TRAVASSOS S.A.;1922-06-25;Sociedade Anônima;BR;Brasil;;1984-07-20;N
+61.374.161/0001-30;2020-01-01;1;95588;BAUMER S.A.;1952-07-05;Sociedade Anônima de Capital Aberta;BR;Brasil;;1970-05-20;N
+61.486.650/0001-83;2020-01-01;9;100193;DIAGNOSTICOS DA AMERICA S.A.;1966-07-17;Sociedade Cívil Limitada;BR;Brasil;;2004-11-05;N
+61.532.644/0001-15;2020-01-01;6;104621;ITAÚSA S.A.;1966-05-06;Sociedade Anônima;BR;Brasil;;1977-07-20;N
+61.584.140/0001-49;2020-01-01;2;97043;REDE ENERGIA PARTICIPAÇÕES S.A.;1929-01-02;Sociedade Anônima;BR;Brasil;;1969-10-16;N
+61.585.865/0001-51;2020-01-01;6;103803;RAIA DROGASIL S.A.;1935-03-28;Sociedade Anônima;BR;Brasil;;1977-07-20;N
+61.695.227/0001-93;2020-01-01;7;102782;ELETROPAULO METROP. ELET. SAO PAULO S.A.;1971-09-08;Sociedade por ações;BR;Brasil;;1993-08-19;N
+61.856.571/0001-17;2020-01-01;6;104613;CIA GAS DE SAO PAULO - COMGAS;1872-08-28;Sociedade empresária limitada;BR;Brasil;;1996-07-03;N
+62.002.886/0001-60;2020-01-01;9;103628;SAO PAULO TURISMO S.A.;1968-02-05;Sociedade anônima de capital autorizado, de economia mista, controlada pela Prefeitura do Município de São Paulo;BR;Brasil;;1977-10-20;N
+62.144.175/0001-20;2020-01-01;8;104793;BCO PINE S.A;1997-05-15;Constituída sob a forma de sociedade por ações.;BR;Brasil;;2007-03-27;N
+62.232.889/0001-90;2020-01-01;4;92843;BCO DAYCOVAL S.A.;1968-08-05;Em 05 de agosto de 1968 foi constituída a Daycoval Distribuidora de Títulos e Valores Mobiliários Ltda., que em 22 de maio de 1989 foi transformada em sociedade anônima e adotou a denominação de Banco Daycoval S.A.;BR;Brasil;;2007-06-27;N
+62.307.848/0001-15;2020-01-01;3;99601;BANCO RCI BRASIL S.A.;1968-09-12;O Banco RCI Brasil S.A. ("Companhia") foi constituído na forma de sociedade limitada. Em 13 de fevereiro de 1970, a Companhia foi transformada em uma sociedade por ações.;BR;Brasil;;2008-04-29;N
+62.984.091/0001-02;2020-01-01;6;103076;CRUZEIRO DO SUL EDUCACIONAL S.A.;1970-07-09;Sociedade anônima;BR;Brasil;;2021-02-09;N
+64.904.295/0001-03;2020-02-28;9;94700;CAMIL ALIMENTOS S.A.;1990-11-09;Sociedade Anônima;BR;Brasil;;2017-09-26;N
+65.654.303/0001-73;2020-01-01;12;103782;DIBENS LEASING S.A. - ARREND.MERCANTIL;1990-09-27;Constituída por meio de subscrição particular de ações, sob a forma de sociedade por ações de capital fechado, por meio da Assembleia Geral de Constituição realizada em 27 de setembro de 1990.;BR;Brasil;;1993-09-28;N
+67.010.660/0001-24;2020-01-01;7;103249;RNI NEGÓCIOS IMOBILIÁRIOS S.A.;1991-10-16;Constituída sob a forma de sociedade limitada, tendo se transformado em sociedade por ações em 25 de setembro de 2006.;BR;Brasil;;2007-01-18;N
+67.571.414/0001-41;2020-01-01;8;103069;VIVER INCORPORADORA E CONSTRUTORA S.A.;1992-02-06;Constituída sob a forma de sociedade empresária limitada e transformada em sociedade por ações em 22 de dezembro de 2006.;BR;Brasil;;2007-05-23;N
+67.620.377/0001-14;2020-01-01;16;104710;MINERVA S.A.;1992-03-09;A sociedade foi constituída sob a forma de sociedade limitada pela família Vilela de Queiroz, e foi transformada em sociedade por ações (Companhia Aberta) em 2007.;BR;Brasil;;2007-07-18;N
+69.720.910/0001-45;2020-01-01;1;94970;CCB BRASIL ARRENDAMENTO MERCANTIL S.A.;1992-11-30;A CCB Brasil Arrendamento Mercantil S/A é uma sociedade por ações e sua constituição ocorreu por subscrição privada de ações.;BR;Brasil;;1995-11-16;N
+69.720.910/0001-45;2020-12-31;1;105499;CCB BRASIL ARRENDAMENTO MERCANTIL S.A.;1992-11-30;A CCB Brasil Arrendamento Mercantil S/A é uma sociedade por ações e sua constituição ocorreu por subscrição privada de ações.;BR;Brasil;;1995-11-16;N
+71.208.516/0001-74;2020-01-01;1;95425;ALGAR TELECOM S/A;1954-02-25;Constituída sob a forma de sociedade por ações.;BR;Brasil;;2007-07-27;N
+71.476.527/0001-35;2020-01-01;10;104883;CONSTRUTORA TENDA S.A.;1993-12-01;A Companhia foi constituída como uma sociedade por quotas de responsabilidade limitada, tendo sido transformada em sociedade anônima em 18/02/1999;BR;Brasil;;2007-10-11;N
+71.673.990/0001-77;2020-01-01;5;121236;NATURA COSMÉTICOS S.A.;1969-08-28;Nossa Companhia foi constituída sob a forma de sociedade empresária limitada e transformada em sociedade por ações em 6 de setembro de 1995.;BR;Brasil;;2004-05-21;N
+73.178.600/0001-18;2020-01-01;8;103179;CYRELA BRAZIL REALTY S.A.EMPREEND E PART;1993-12-01;Sociedade por ações;BR;Brasil;;1994-07-07;N
+73.903.718/0001-61;2020-01-01;1;94805;SNB PARTICIPACOES SA;1993-11-25;Sociedade de Capital Aberto;BR;Brasil;;1994-03-09;N
+75.315.333/0001-09;2020-01-01;9;103416;ATACADÃO S.A.;1980-08-13;Constituída por meio de subscrição particular de ações, sob a forma de sociedade por ações de capital fechado.;BR;Brasil;;2017-07-18;N
+75.609.123/0001-23;2020-01-01;1;95471;UNIDAS LOCAÇÕES E SERVIÇOS S.A.;1973-05-29;Sociedade Limitada;BR;Brasil;;2013-11-14;N
+76.483.817/0001-20;2020-01-01;11;103292;CIA PARANAENSE DE ENERGIA - COPEL;1954-10-26;Sociedade de economia mista constituída sob a forma de sociedade por ações.;BR;Brasil;;1994-04-04;N
+76.484.013/0001-45;2020-01-01;17;103087;CIA SANEAMENTO DO PARANA - SANEPAR;1963-01-23;Sociedade por Ações.;BR;Brasil;;2000-03-10;N
+76.535.764/0001-43;2020-01-01;11;103854;OI S.A. - EM RECUPERAÇÃO JUDICIAL;1963-11-27;Constituída sob a forma de sociedade anônima.;BR;Brasil;;1980-03-27;N
+76.627.504/0001-06;2020-01-01;19;106575;INEPAR S.A. INDUSTRIA E CONSTRUCOES EM RECUPERACAO JUDICIAL;1968-05-01;Sociedade Anônima de capital aberto;BR;Brasil;;1980-01-22;N
+78.876.950/0001-71;2020-01-01;6;103363;CIA HERING;1985-08-19;Sociedade Anônima (S.A.);BR;Brasil;;2007-05-16;N
+79.430.682/0001-22;2020-01-01;3;99600;FARMÁCIA E DROGARIA NISSEI S.A.;1986-07-01;Sociedade Limitada;BR;Brasil;;2021-01-14;N
+80.227.184/0001-66;2020-01-01;2;93777;METALGRAFICA IGUACU S.A.;1951-11-27;Sociedade Anônima - Capital Aberto (30/09/1962);BR;Brasil;;1968-09-02;N
+81.243.735/0001-48;2020-01-01;10;104660;POSITIVO TECNOLOGIA S.A.;1989-05-26;Constituída sob a forma de sociedade limitada e transformada em sociedade por ações em 17 de agosto de 2006.;BR;Brasil;;2006-12-06;N
+82.508.433/0001-17;2020-01-01;12;103176;CIA CATARINENSE DE AGUAS E SANEAM.-CASAN;1971-07-02;Sociedade Anônima de Capital Aberto - A CASAN, foi criada como uma Sociedade de Economia Mista, com o objetivo de coordenar o planejamento e executar, operar e explorar os serviços públicos de esgotos e abastecimento de água potável, bem como realizar obras de saneamento básico, em convênio com municípios do Estado. Sua formação se deu através do antigo Departamento Autônomo de Engenharia Sanitária - DAES, 11(onze) sistema de abastecimento de água e 2 (dois) sistemas de coleta de esgotos existentes nos municípios Catarinenses.;BR;Brasil;;1998-02-06;N
+82.636.986/0001-55;2020-01-01;2;102817;TEKA-TECELAGEM KUEHNRICH S.A. - EM RECUPERAÇÃO JUDICIAL;1935-04-06;1050 - Têxtil e VestuárioFabricação de artigos de Cama, Mesa e Banho;BR;Brasil;;1969-12-04;N
+82.640.558/0001-04;2020-01-01;3;96138;KARSTEN S.A.;1933-12-12;Sociedade Anônima Aberta;BR;Brasil;;1971-12-29;N
+82.643.537/0001-34;2020-01-01;8;100656;ELECTRO ACO ALTONA S.A.;1924-03-08;Em 2018 a Companhia completou 94 anos de atividades, sempre em Blumenau, Santa Catarina. Na década de 50 mediante ata constitutiva, nos tornamos uma Companhia de capital aberto, regido pela CVM.;BR;Brasil;;1950-01-19;N
+82.901.000/0001-27;2020-01-01;5;103052;INTELBRAS S.A. IND. DE TELECOMUNICAÇÃO ELETRÔNICA BRASILEIRA;1974-01-11;Sociedade Anônima;BR;Brasil;;2021-02-02;N
+82.982.075/0001-80;2020-01-01;2;103299;TEXTIL RENAUXVIEW S.A.;1926-04-27;Sociedade Anônima;BR;Brasil;;1969-08-11;N
+83.475.913/0001-91;2020-01-01;7;103680;PBG S/A;1977-12-22;Sociedade Anônima;BR;Brasil;;1991-01-04;N
+83.878.892/0001-55;2020-01-01;10;104599;CENTRAIS ELET DE SANTA CATARINA S.A.;1955-12-09;A Centrais Elétricas de Santa Catarina S.A. - Celesc, foi constituída por Escritura Pública lavrada no 3º Ofício de Notas da Comarca de Florianópolis, fls. 10 - verso a 29, livro 3, em 30 de Janeiro de 1956, em decorrência do Decreto Estadual nº 22, de 09 de dezembro de 1955, sendo autorizada a funcionar como Empresa de Energia Elétrica pelo Decreto Federal nº 39.015, de 11 de abril de 1956.;BR;Brasil;;1973-03-26;N
+84.429.695/0001-11;2020-01-01;8;103885;WEG S.A.;1961-09-16;Constituída sob a forma de sociedade limitada e transformada em sociedade anônima de capital fechado em 7 de junho de 1965. Em 1971 as ações da Companhia foram admitidas à negociação em bolsa de valores.;BR;Brasil;;1982-02-09;N
+84.683.374/0001-49;2020-01-01;9;103026;TUPY S.A.;1938-03-09;Sociedade Anônima;BR;Brasil;;1966-07-01;N
+84.683.408/0001-03;2020-01-01;4;103468;DOHLER S.A.;1966-08-08;S.A. de capital aberto;BR;Brasil;;1973-12-26;N
+84.683.671/0001-94;2020-01-01;6;103573;WETZEL S.A.;;;;;;;N
+84.693.183/0001-68;2020-01-01;6;102937;SCHULZ S.A.;1963-07-04;Inicialmente constituída como Firma Individual, passando para Metalúrgica Schulz S.A. em 1973.;BR;Brasil;;1994-12-19;N
+85.041.333/0001-11;2020-01-01;1;94099;PORTO PONTA DO FELIX S/A;1996-02-27;Estatuto Social;BR;Brasil;;1997-01-01;N
+85.778.074/0001-06;2020-01-01;4;104229;METALURGICA RIOSULENSE S.A.;1946-01-02;Constituída como uma empresa LTDA e a partir do ano de 1988, tonou-se uma sociedade anônima de capital aberto.;BR;Brasil;;1988-11-29;N
+86.375.425/0001-09;2020-01-01;3;103392;METISA METALURGICA TIMBOENSE S.A.;1942-01-08;Sociedade Anônima de Capital Aberto;BR;Brasil;;1971-05-18;N
+86.550.951/0001-50;2020-01-01;3;103749;POMIFRUTAS S/A EM RECUPERACAO JUDICIAL;1962-11-01;Sociedade anônima com registro de Companhia Aberta;BR;Brasil;;2004-12-28;N
+87.043.832/0001-73;2020-01-01;3;104000;SEIVA S.A. - FLORESTAS E INDÚSTRIAS;1971-12-29;A Seiva S.A. - Florestas e Indústrias é uma sociedade anônima de capital aberto.;BR;Brasil;;1981-12-11;N
+87.456.562/0001-22;2020-01-01;2;103995;JOSAPAR-JOAQUIM OLIVEIRA S.A. - PARTICIP;1973-11-13;Sociedade Anônima de Capital Aberto;BR;Brasil;;1988-03-04;N
+87.762.563/0001-03;2020-01-01;5;103576;CIA HABITASUL DE PARTICIPACOES;1981-09-28;Habitasul Administração e Participações sob a forma de Sociedade Limitada, registrada na Junta Comercial do Rio Grande do Sul, sob nº 43200414335 em 08/10/1981, alterando sua denominação e tipo juridico para Companhia Habitasul de Participações, registrada na Junta Comercial do Rio Grande do Sul, sob nº 43300010007 em 10/12/1981.;BR;Brasil;;1982-04-19;N
+88.610.126/0001-29;2020-01-01;8;103859;FRASLE MOBILITY S.A.;1954-02-22;Constituída sob forma de sociedade por ações.;BR;Brasil;;1977-07-20;N
+88.610.191/0001-54;2020-01-01;2;103570;MUNDIAL S.A. - PRODUTOS DE CONSUMO;1896-04-02;Sociedade Anônima;BR;Brasil;;1979-12-12;N
+88.611.835/0001-29;2020-01-01;6;102636;MARCOPOLO S.A.;1949-08-06;Sociedade Limitada.;BR;Brasil;;1977-07-20;N
+88.613.658/0001-10;2020-06-30;3;98633;PETTENATI S.A. INDUSTRIA TEXTIL;1964-06-11;Sociedade Anônima de Capital Aberto.;BR;Brasil;;1981-02-04;N
+89.086.144/0001-16;2020-01-01;9;103303;RANDONCORP S.A.;1992-09-16;Sociedade Anônima de Capital aberto;BR;Brasil;;1993-02-05;N
+89.096.457/0001-55;2020-01-01;7;104650;SLC AGRICOLA S.A.;1977-06-03;Constituída como uma empresa do tipo limitada;BR;Brasil;;2007-06-12;N
+89.463.822/0001-12;2020-01-01;12;104916;LUPATECH S.A;1980-08-08;Sociedade por Ações;BR;Brasil;;2006-05-08;N
+89.637.490/0001-45;2020-01-01;19;103545;KLABIN S.A.;1978-11-08;Constituída sob a forma de sociedade por ações.;BR;Brasil;;1997-08-06;N
+89.723.993/0001-33;2020-01-01;1;96609;CONSTRUTORA SULTEPA S.A. - EM RECUPERAÇÃO JUDICIAL;;;;;;;N
+89.850.341/0001-60;2020-01-01;11;103471;GRENDENE S.A.;1971-02-25;Constituída sob a forma de sociedade empresária limitada e transformada em sociedade por ações em 26/11/1979.;BR;Brasil;;2004-10-26;N
+90.076.886/0001-40;2020-01-01;2;97661;MINUPAR PARTICIPACOES S.A.;1990-07-14;Transformação da Sociedade Mercantil por cotas de responsabilidade limitada, Minuano - Exportação e Administração Ltda., na sociedade por ações Minupar Participações S.A.;BR;Brasil;;1990-12-21;N
+90.400.888/0001-42;2020-01-01;10;103768;BCO SANTANDER (BRASIL) S.A.;1985-08-09;Sociedade por ações.;BR;Brasil;;2007-03-02;N
+90.441.460/0001-48;2020-01-01;3;103118;UNICASA INDÚSTRIA DE MÓVEIS S.A.;1985-09-02;A Companhia foi constituída sob a forma de Sociedade Limitada e posteriormente transformada em Sociedade Anônima em 1º de setembro de 2004.;BR;Brasil;;2012-04-25;N
+91.333.666/0001-17;2020-01-01;3;103406;RECRUSUL S.A.;1954-05-31;Ações;BR;Brasil;;1985-12-20;N
+91.495.499/0001-00;2020-01-01;4;103082;STARA S.A. - INDÚSTRIA DE IMPLEMENTOS AGRÍCOLAS;1960-12-09;A Companhia foi constituída no ano de 1960 sob a forma de empresa limitada, vindo posteriormente a ter sua forma jurídica transformada em sociedade anônima de capital fechado em 1982.;BR;Brasil;;2017-09-18;N
+91.669.747/0001-92;2020-01-01;3;103336;DM FINANCEIRA S.A. - CRÉDITO, FINANCIAMENTO E INVESTIMENTO;1962-09-12;SOCIEDADE DE CRÉDITO, FINANCIAMENTO E INVESTIMENTO;BR;Brasil;;1977-07-20;N
+91.983.056/0001-69;2020-01-01;12;103011;KEPLER WEBER S.A.;1936-04-30;A Companhia foi constituída na cidade de Panambi, no Estado do Rio Grande do Sul, Brasil, sob a forma de sociedade limitada. Em 21 de setembro de 1963, transformou-se em S/A, passando a atuar como Kepler Weber S/A.;BR;Brasil;;1980-12-15;N
+92.012.467/0001-70;2020-01-01;4;103338;GRAZZIOTIN S.A.;1950-05-24;LTDA;BR;Brasil;;1979-01-31;N
+92.660.570/0001-26;2020-01-01;6;103224;TREVISA INVESTIMENTOS S.A.;1930-07-07;Foi constituida sob a forma de Cia Ltda e, em 1963 transformada em sociedade anônima.;BR;Brasil;;1980-12-15;N
+92.665.611/0001-77;2020-01-01;12;103126;DIMED S.A. DISTRIBUIDORA DE MEDICAMENTOS;1920-01-23;Sociedade Anônima;BR;Brasil;;1977-07-20;N
+92.690.783/0001-09;2020-01-01;9;104259;METALURGICA GERDAU S.A.;1901-02-01;Sociedade por ações;BR;Brasil;;1968-05-17;N
+92.693.019/0001-89;2020-01-01;2;102938;PANATLANTICA S.A.;1967-07-20;Sociedade Anonima;BR;Brasil;;1971-12-29;N
+92.702.067/0001-96;2020-01-01;14;104230;BCO ESTADO DO RIO GRANDE DO SUL S.A.;1928-09-12;Sociedade por ações;BR;Brasil;;1977-07-20;N
+92.715.812/0001-31;2020-01-01;16;104598;CPFL TRANSMISSÃO S.A.;1966-09-13;A CEEE - GT é uma empresa de economia mista, responsável pelo serviço público de energia elétrica, integrada pelas áreas de Geração, Transmissão e Comercialização, originada do processo de reestruturação societária da Companhia Estadual de Energia Elétrica do Rio Grande do Sul - CEEE, concluído em novembro de 2006, quando foram criadas as empresas que compõem o Grupo CEEE.;BR;Brasil;;1970-01-07;N
+92.721.232/0001-57;2020-01-01;1;95305;BANRISUL ARMAZENS GERAIS SA;1953-11-12;Ações Ordinárias Nominativas;BR;Brasil;;1996-10-18;N
+92.749.225/0001-63;2020-01-01;2;103575;HERCULES S.A. FABRICA DE TALHERES;1936-10-13;Sociedade Anônima de Capital Aberto;BR;Brasil;;1968-11-01;N
+92.754.738/0001-62;2020-01-01;9;102079;LOJAS RENNER S.A.;1965-06-10;Sociedade anônima fechada. A Companhia abriu seu capital em 1967.;BR;Brasil;;1977-07-20;N
+92.781.335/0001-02;2020-01-01;11;103755;TAURUS ARMAS S.A.;1939-11-17;Sociedade Limitada;BR;Brasil;;1982-03-02;N
+92.791.243/0001-03;2020-01-01;14;103613;IRANI PAPEL E EMBALAGEM S.A.;1941-06-06;Constituída na forma de sociedade por cotas de responsabilidade limitada. Posteriormente, transformou-se em sociedade por ações em 14 de outubro de 1964.;BR;Brasil;;1977-07-20;N
+92.802.784/0001-90;2020-01-01;6;104980;CIA RIOGRANDENSE DE SANEAMENTO;1965-12-21;Empresa de Economia Mista - Sociedade Anônima.;BR;Brasil;;1997-12-19;N
+92.929.520/0001-00;2020-01-01;1;95502;SPRINGER S.A.;1934-05-24;Contituída sob a forma de sociedade por ações;BR;Brasil;;1968-10-24;N
+92.934.215/0001-06;2020-01-01;5;103408;BANRISUL SOLUÇÕES EM PAGAMENTOS S.A. - INSTITUIÇÃO DE PAGAME;1969-07-02;Sociedade por ações;BR;Brasil;;2018-09-27;N
+93.828.986/0001-73;2020-01-01;2;104955;CEMEPE INVESTIMENTOS S.A.;1991-03-01;Sociedade Anônima;BR;Brasil;;1991-06-28;N
+95.426.862/0001-97;2020-01-01;4;100597;EXCELSIOR ALIMENTOS S.A.;1932-11-23;Sociedade por ações, constituída em 23 de novembro de 1932 como sociedade limitada, sob a denominação Baumhardt Irmãos Ltda.;BR;Brasil;;1977-07-20;N
+96.298.013/0001-68;2020-01-01;2;97480;PACAEMBU CONSTRUTORA S.A.;1992-01-04;Constituída sob a forma de sociedade limitada, tendo sido transformada em sociedade anônima de capital fechado em 1º de maio de 2018.;BR;Brasil;;2020-10-01;N
+96.418.264/0218-02;2020-01-01;10;103744;LOJAS QUERO QUERO S.A.;1967-08-15;Sociedade Limitada;BR;Brasil;;2020-08-06;N
+97.191.902/0001-94;2020-01-01;1;95281;CONSERVAS ODERICH S.A.;1908-08-12;A Companhia foi constituída no ano de 1908 sob a forma de sociedade empresária limitada, vindo posteriormente a ter sua forma jurídica transformada em companhia aberta, com ingresso na CVM no ano de 1977.;BR;Brasil;;1977-07-20;N
+97.837.181/0001-47;2020-01-01;13;104593;DEXCO S.A.;1962-01-25;Sociedade Anônima;BR;Brasil;;2007-09-10;N

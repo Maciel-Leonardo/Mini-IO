@@ -1,0 +1,287 @@
+CNPJ_Companhia;Data_Referencia;Versao;ID_Documento;Nome_Companhia;Descricao_Bem_Ativo;Pais;UF;Municipio;Tipo_Propriedade
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Lavoura de Cana-de-Açúcar;Brasil;GO;Barro Alto;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Lavoura de Cana-de-Açúcar;Brasil;GO;Vila Propício;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Lavoura de Cana-de-Açúcar;Brasil;GO;Santa Rita do Novo Destino;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Lavoura de Cana-de-Açúcar;Brasil;GO;São Luiz do Norte;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Lavoura de Cana-de-Açúcar;Brasil;GO;Santa Isabel;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Lavoura de Cana-de-Açúcar;Brasil;GO;Rialma;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Custo de Entressafra;Brasil;GO;Goianésia;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Edificações;Brasil;GO;Goianésia;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Maquinas, Equipamentos e Instalações;Brasil;GO;Goianésia;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Terrenos;Brasil;GO;Goianésia;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Veículos e Semirreboques;Brasil;GO;Goianésia;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Obras em Andamento;Brasil;GO;Goianésia;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Outros Imobilizados;Brasil;GO;Goianésia;Própria
+02.635.522/0001-95;2023-03-31;8;129807;JALLES MACHADO S.A.;Lavoura de Cana-de-Açúcar;Brasil;GO;Goianésia;Própria
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Avanhandava;Brasil;SP;Avanhandava;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Colorado;Brasil;PR;Colorado;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Pedro Afonso;Brasil;TO;Pedro Afonso;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Caarapó;Brasil;MS;Caarapó;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Araras;Brasil;SP;Araras;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Olímpia;Brasil;SP;Olímpia;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Iturama;Brasil;SP;;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Matriz São Paulo;Brasil;SP;São Paulo;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Piracicaba;Brasil;SP;Piracicaba;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Camamu;Brasil;BA;Camamu;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial São Manuel;Brasil;SP;São Manuel;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Valparaíso;Brasil;SP;Valparaíso;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Novo Horizonte;Brasil;SP;Novo Horizonte;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Guaracai;Brasil;SP;;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Chavantes;Brasil;SP;Chavantes;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Cesário Lange;Brasil;SP;Cesário Lange;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Barrinha;Brasil;SP;Barrinha;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial São Joaquim da Barra;Brasil;SP;São Joaquim da Barra;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Coruripe;Brasil;SP;Andaraí;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Serra Azul;Brasil;SP;Serra Azul;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Vila Propício;Brasil;GO;Vila Propício;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Caçu;Brasil;GO;Caçu;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Quirinópolis;Brasil;GO;Quirinópolis;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Mineiros;Brasil;GO;Mineiros;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Barra dos Bugres;Brasil;MT;;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Mandaguaçu;Brasil;PR;Mandaguaçu;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Rancharia;Brasil;SP;Rancharia;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Santa Rita;Brasil;PB;Santa Rita;Arrendada
+06.981.381/0001-13;2023-03-31;9;129306;CTC - CENTRO DE TECNOLOGIA CANAVIEIRA S.A.;Filial Jataí;Brasil;GO;Jataí;Arrendada
+07.628.528/0001-59;2023-06-30;15;132717;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;Desenvolvimento de área;Brasil;PI;Ribeiro Gonçalves;Arrendada
+07.628.528/0001-59;2023-06-30;15;132717;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;Desenvolvimento e implementação de cultura permanente;Brasil;MA;São Raimundo das Mangabeiras;Arrendada
+07.628.528/0001-59;2023-06-30;15;132717;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;Desenvolvimento e implementação de cultura permanente;Brasil;MT;Alto Taquari;Arrendada
+07.628.528/0001-59;2023-06-30;15;132717;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;Desenvolvimento e implementação de cultura permanente;Brasil;MT;Alto Taquari;Própria
+07.628.528/0001-59;2023-06-30;15;132717;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;Desenvolvimento de área / Máquinas e Equipamentos / Benfeitorias;Brasil;BA;Jaborandi;Própria
+07.628.528/0001-59;2023-06-30;15;132717;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;Desenvolvimento e implementação de cultura permanente / Pivô / Desenv. área;Brasil;MA;São Raimundo das Mangabeiras;Própria
+07.628.528/0001-59;2023-06-30;15;132717;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;Desenvolvimento e implementação cultura permanente;Brasil;GO;Mineiros;Própria
+07.628.528/0001-59;2023-06-30;15;132717;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;Desenvolvimento de área;Brasil;PI;Baixa Grande do Ribeiro;Própria
+07.628.528/0001-59;2023-06-30;15;132717;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;Desenvolvimento de área / Pastagem / Benfeitorias;Brasil;BA;Baianópolis;Própria
+07.628.528/0001-59;2023-06-30;15;132717;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;Desenvolvimento de área / Máquinas e Equipamentos / Benfeitorias;Brasil;BA;Correntina;Própria
+07.628.528/0001-59;2023-06-30;15;132717;BRASILAGRO - CIA BRAS DE PROP AGRICOLAS;Desenvolvimento de área / Benfeitorias;Brasil;MT;São Félix do Araguaia;Arrendada
+08.322.396/0001-03;2023-03-31;4;130511;CERRADINHO BIOENERGIA S.A.;Fazenda Âncora - Parque Industrial da Neomille.;Brasil;GO;Chapadão do Céu;Própria
+08.322.396/0001-03;2023-03-31;4;130511;CERRADINHO BIOENERGIA S.A.;Fazenda Âncora - Parque Industrial da Cerradinho Bioenergia S.A.;Brasil;GO;Chapadão do Céu;Própria
+08.322.396/0001-03;2023-03-31;4;130511;CERRADINHO BIOENERGIA S.A.;Fazenda Neomille 1 - Futuro Parque Industrial da Neomille;Brasil;MS;Maracaju;Própria
+08.322.396/0001-03;2023-03-31;4;130511;CERRADINHO BIOENERGIA S.A.;Fazenda Neomille 2 - Área para futuro plantio de milho;Brasil;MS;Maracaju;Própria
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Base Operacional Paulínia: Av. Sidney Cardon de Oliveira, 2365, Bairro Cascata;Brasil;SP;Paulínia;Própria
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Base Operacional São Paulo: Av. Presidente Wilson, 6352, Vila Independência;Brasil;SP;São Paulo;Própria
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Aeroporto de Guarulhos: Av. Jamil João Zarif, s/nº, CEP 07141-970;Brasil;SP;Guarulhos;
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Base Operacional Barueri: Av. Marginal Projetada, 2, Bairro Tamboré;Brasil;SP;Barueri;Própria
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Base Operacional Betim: Rodovia Fernão Dias, Km 427,5 , Bairro Citrolândia;Brasil;MG;Betim;Própria
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Base Operacional Araucária: Rod. do Xisto - BR 476, Km 15.08 , Jardim Alvorada;Brasil;PR;Araucária;
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Base Operacional São Francisco do Conde: Rod Estação Candeias Madre de Deus S/N,;Brasil;BA;São Francisco do Conde;Própria
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Base Operacional Porto Nacional: Ferrovia Norte Sul - EF 151, Lote 14;Brasil;TO;Porto Nacional;
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Base Operacional Esteio: Av Presidente Vargas, 4016, Centro;Brasil;RS;Esteio;Própria
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Base Operacional Rondonópolis: Rodovia BR 163, KM 95, S/N;Brasil;MT;Rondonópolis;Própria
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Escritório Administrativo: R. Cezira Giovanoni Moretti 900, Santa Rosa;Brasil;SP;Piracicaba;Alugada
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Escritório Comercial: Edf Office Reserva Jequitibá, R. Cezira Giovanoni Moretti;Brasil;SP;Piracicaba;Alugada
+33.453.598/0001-23;2023-03-31;17;130598;RAÍZEN S.A.;Escritório Administrativo: Avenida Brigadeiro Faria Lima, 4.100 - 11º andar;Brasil;SP;São Paulo;Alugada
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Máquinas e Implementos Agricolas;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Equipamentos e instalações industriais;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Moveis e Utensilios;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Moveis e Utensilios;Brasil;SP;Américo Brasiliense;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Edificações e Depedências;Brasil;SP;Iracemápolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Máquinas e Implementos Agrícolas;Brasil;SP;Iracemápolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Máquinas e Implementos Agrícolas;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Terras;Brasil;SP;Américo Brasiliense;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Máquinas e implementos agrícolas;Brasil;SP;Américo Brasiliense;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Terras;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Edificações e dependências;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Edificações e dependências;Brasil;SP;Américo Brasiliense;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Terras;Brasil;SP;Motuca;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Moveis Utensilios;Brasil;SP;Iracemápolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Moveis Utensilios;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Terras;Brasil;SP;Iracemápolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Terras;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Benfeitorias em Poder de 3ºs;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Veículos e acessórios;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Edificações e Dependências;Brasil;SP;Motuca;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Edificicações e Dependências;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Lavoura de Cana;Brasil;SP;;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Lavoura de Cana;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Benfeitorias em Poder de 3ºs;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Veículos e acessórios;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Veículos e acessórios;Brasil;SP;Iracemápolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Veículos e acessórios;Brasil;SP;Américo Brasiliense;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Aeronaves;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Terras;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Edificações e Dependências;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Terras;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Equipamentos e instalações industriais;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Imobilizado em Andamento;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Edificações e Depedências;Brasil;SP;Américo Brasiliense;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Equipamentos e instalações industriais;Brasil;SP;Américo Brasiliense;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Equipamentos e instalações industriais;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Moveis Utensilios;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Equipamentos e instalações industriais;Brasil;SP;Pradópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Equipamentos e instalações industriais;Brasil;SP;Iracemápolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Equipamentos e instalações industriais;Brasil;SP;Américo Brasiliense;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Equipamentos e instalações industriais;Brasil;SP;Motuca;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Equipamentos e processamento de dados;Brasil;SP;;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Equipamentos e processamento de dados;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Florestamento e reflorestamento;Brasil;SP;Nazaré do Piauí;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Imobilizado em Andamento;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Florestamento e reflorestamento;Brasil;GO;Quirinópolis;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Imobilizado em Andamento;Brasil;SP;;Própria
+51.466.860/0001-56;2023-03-31;7;129782;SAO MARTINHO S.A.;Máquinas e Implementos Agricolas;Brasil;SP;Motuca;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Uruguai;;Buritinópolis;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Uruguai;;;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Uruguai;;;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Uruguai;;;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Uruguai;;Munhoz de Melo;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Uruguai;;Munhoz de Melo;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Uruguai;;Munhoz de Melo;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Uruguai;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;SP;São Paulo;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;RS;Camaquã;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;RS;Itaqui;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;RS;Dom Pedrito;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;RS;Rio Grande;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;MA;Itapecuru Mirim;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;SC;Navegantes;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;RJ;São Gonçalo;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;RJ;Rio de Janeiro;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;SP;São Paulo;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;RS;Camaquã;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;RS;Itaqui;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;BA;Salvador;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;RS;Rio Grande;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;MA;Itapecuru Mirim;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;MG;Uberlândia;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;RJ;São Gonçalo;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;RJ;Rio de Janeiro;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;MG;Montes Claros;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Brasil;SP;São Paulo;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Brasil;RS;Camaquã;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Brasil;RS;Itaqui;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;RS;Maçambará;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Brasil;RS;Rio Grande;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Brasil;MA;Itapecuru Mirim;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Brasil;SC;Navegantes;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Brasil;RJ;São Gonçalo;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Brasil;RJ;Rio de Janeiro;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;MG;Montes Claros;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terrenos;Chile;;Bom Jesus de Goiás;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Chile;;Bom Jesus de Goiás;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Chile;;São Benedito;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Chile;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terrenos;Chile;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Chile;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terrenos;Chile;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Chile;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terrenos;Peru;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Peru;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Peru;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;MG;Betim;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Uruguai;;Buritinópolis;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Uruguai;;Buritinópolis;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Uruguai;;Buritinópolis;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;RS;Capão do Leão;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;GO;Aparecida de Goiânia;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;TO;Paraíso do Tocantins;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;PE;Cabo de Santo Agostinho;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;RS;Capão do Leão;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;TO;Paraíso do Tocantins;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;GO;Aparecida de Goiânia;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Brasil;PE;Cabo de Santo Agostinho;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Brasil;RS;Capão do Leão;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Brasil;TO;Paraíso do Tocantins;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Brasil;GO;Aparecida de Goiânia;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;CE;Fortaleza;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Peru;;Caconde;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Peru;;Caconde;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terrenos;Peru;;;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Peru;;Buriti Alegre;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Peru;;Buriti Alegre;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Uruguai;;Parauapebas;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Uruguai;;Parauapebas;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Maquinas e Equipamentos;Uruguai;;Parauapebas;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;SP;Barra Bonita;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Brasil;SP;Barra Bonita;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;DF;Brasília;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;MG;Belo Horizonte;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;ES;Serra;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;PE;Cabo de Santo Agostinho;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;ES;Serra;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;RS;Cachoeirinha;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;MA;São Luís;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/instalações;Brasil;PR;Castro;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Brasil;PR;Castro;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;MG;Belo Horizonte;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;BA;Salvador;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;DF;Brasília;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;MG;Machado;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;MG;Betim;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;RS;Dom Pedrito;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Brasil;RS;Dom Pedrito;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;CE;Fortaleza;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;SC;Itajaí;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;SC;Navegantes;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;SP;Barra Bonita;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Brasil;SC;Itajaí;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;SC;Itajaí;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Brasil;RS;Maçambará;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;RS;Cachoeirinha;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;RS;Maçambará;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;PR;Castro;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Brasil;MG;Betim;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;MG;Machado;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Brasil;MG;Machado;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;MG;Uberlândia;Alugada
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Brasil;MG;Varginha;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;MG;Varginha;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Brasil;MG;Varginha;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Brasil;MA;São Luís;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Brasil;MA;São Luís;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terreno;Uruguai;;Buritinópolis;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Uruguai;;Buritinópolis;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Uruguai;;Buritinópolis;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terrenos;Peru;;Buriti Alegre;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Terrenos;Peru;;Buriti Alegre;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Prédios/Instalações;Peru;;Buriti Alegre;Própria
+64.904.295/0001-03;2023-02-28;6;128875;CAMIL ALIMENTOS S.A.;Máquinas e Equipamentos;Peru;;Buriti Alegre;Própria
+68.400.225/0001-79;2023-06-30;4;130053;CLARANET TECHNOLOGY S.A.;Instalações;Brasil;SP;Barueri;Própria
+68.400.225/0001-79;2023-06-30;4;130053;CLARANET TECHNOLOGY S.A.;Veículos;Brasil;SP;Barueri;Própria
+68.400.225/0001-79;2023-06-30;4;130053;CLARANET TECHNOLOGY S.A.;Software;Brasil;SP;Barueri;Própria
+68.400.225/0001-79;2023-06-30;4;130053;CLARANET TECHNOLOGY S.A.;Sede - Conjunto de Escritório 171B, 17º A;Brasil;SP;Barueri;Alugada
+68.400.225/0001-79;2023-06-30;4;130053;CLARANET TECHNOLOGY S.A.;Data Center SP2: Alameda Araguaia, 3641, Alphaville;Brasil;SP;Barueri;Alugada
+68.400.225/0001-79;2023-06-30;4;130053;CLARANET TECHNOLOGY S.A.;Data Center SP4: Avenida Ceci, 1900;Brasil;SP;Barueri;Alugada
+68.400.225/0001-79;2023-06-30;4;130053;CLARANET TECHNOLOGY S.A.;Máquinas e Equipamentos;Brasil;SP;Barueri;Própria
+68.400.225/0001-79;2023-06-30;4;130053;CLARANET TECHNOLOGY S.A.;Móveis e Utensílios;Brasil;SP;Barueri;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio Administrativo;El Salvador;;Cabeceiras;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio Adminstrativo;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Pavilhão Industrial (Acabamento/expedição);Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Pavilhão Industrial (cozinha da estamparia/tinturaria/cozinha de corantes);Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Pavilhão Industrial (aquecedores de óleo térmico);Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Pavilhão Industrial (Tecelagem);Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Pavilhão Industrial (Almox de fios/Almox de peças/Almox de químicos e corantes);Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio da Manuteção/Laboratório;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio das Caldeiras;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio dos Compressores;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Estação de Tratamento de Efluentes;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio Geradores/Transformadores;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Substação;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Depósito de Líquidos Inflamáveis;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Estação de Tratamento de Afluentes;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio Administrativo;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Pavillhão Industrial;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio da Tinturaria;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio das Caldeiras;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio da Creche;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio do Refeitório;Brasil;RS;Rio Branco;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Estação de tratamento de Afluentes;El Salvador;RS;Anápolis;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Pavilhão Industrial C;El Salvador;;Cabeceiras;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Substação;El Salvador;;Cabeceiras;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Prédio do Refeitórios;El Salvador;;Cabeceiras;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Pavilhão Industrial B;El Salvador;;Cabeceiras;Própria
+88.613.658/0001-10;2023-06-30;13;132743;PETTENATI S.A. INDUSTRIA TEXTIL;Pavilhão Industrial A;El Salvador;;Cabeceiras;Própria
