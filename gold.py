@@ -17,7 +17,7 @@ REDUÇÃO vs versão anterior:
 - Apenas ETL simples
 """
 
-from silver import CVMSilverProcessor, clean_cnpj
+from silver import CVMSilverProcessor
 from pyspark.sql.functions import (
     col, lit, coalesce, when, concat, 
     lower, trim, regexp_replace,
@@ -100,68 +100,16 @@ class GoldDimensionalProcessor:
         dim_empresa = cad_cia_aberta.select(
             col("CNPJ").alias("cnpj"),
             col("SETOR_ATIV").alias("setor"),
+            col("DENOM_SOCIAL").alias("denom_social"),
+            col("DENOM_COMERC").alias("denom_comercial"),
             col("SIT").alias("situacao")
-        )
-        
-        # Adicionar nome normalizado (para joins futuros)
-        dim_empresa = dim_empresa.withColumn(
-            "nome_normalizado",
-            lower(trim(regexp_replace(col("nome_empresa"), r"\s+", " ")))
-        )
+        ).distinct()
         
         # Adicionar metadados
         dim_empresa = dim_empresa.withColumn("data_atualizacao", lit(datetime.now())) \
-            .withColumn("tipo_demonstracao", lit("composicao_capital"))
+            .withColumn("tipo_demonstracao", lit("cad_cia_aberta"))
         
         return dim_empresa
-    
-    def create_dim_conta(self, ano: int):
-        """
-        DIM_CONTA: Plano de contas CVM
-        
-        Fonte: Todas as tabelas DFP (união de contas de BP, DRE, DFC)
-        Granularidade: 1 linha por CD_CONTA
-        """
-        logger.info("📊 Criando DIM_CONTA...")
-        
-        # Ler todas as demonstrações
-        bpp = self.processor.read_silver_table("BPP_con", ano)
-        bpa = self.processor.read_silver_table("BPA_con", ano)
-        dre = self.processor.read_silver_table("DRE_con", ano)
-        
-        
-        # Selecionar contas de cada demonstração
-        contas_bpp = bpp.select(
-            col("CD_CONTA").alias("cd_conta"),
-            col("DS_CONTA").alias("ds_conta"),
-            lit("BPP").alias("tipo_demonstracao")
-        ).distinct()
-        
-        contas_bpa = bpa.select(
-            col("CD_CONTA").alias("cd_conta"),
-            col("DS_CONTA").alias("ds_conta"),
-            lit("BPA").alias("tipo_demonstracao")
-        ).distinct()
-        
-        contas_dre = dre.select(
-            col("CD_CONTA").alias("cd_conta"),
-            col("DS_CONTA").alias("ds_conta"),
-            lit("DRE").alias("tipo_demonstracao")
-        ).distinct()
-        
-        
-
-        # Unir todas as contas
-        dim_conta = contas_bpp.union(contas_bpa).union(contas_dre).distinct()
-        
-        # Calcular nível hierárquico (quantidade de pontos + 1)
-        # Ex: "2.07" = 2, "2.07.01" = 3
-        dim_conta = dim_conta.withColumn(
-            "nivel",
-            size(split(col("cd_conta"), r"\."))
-        )
-        
-        return dim_conta
     
     def create_dim_tempo(self):
         """
@@ -204,29 +152,27 @@ class GoldDimensionalProcessor:
         
         return dim_tempo
     
-    def create_dim_especie_acao(self,ano: int):
+    def create_dim_tipo_acao(self,ano: int):
         """
-        DIM_ESPECIE_ACAO: Tipos de ações (ON, PN, PNA, etc)
+        DIM_TIPO_ACAO: Tipos de ações (ON, PN, PNA, etc)
         
         Fonte: Hardcoded (dados estáticos conhecidos)
-        Granularidade: 1 linha por espécie
+        Granularidade: 1 linha por tipo de ação
         """
-        logger.info("📊 Criando DIM_ESPECIE_ACAO...")
+        logger.info("📊 Criando DIM_TIPO_ACAO...")
 
         # Ler FCA para pegar espécies de ações cadastradas (simplificação)
         fca = self.processor.read_silver_table("cad_valor_mobiliario",ano)
-        dim_especie = fca.select(
+        dim_tipo_acao = fca.select(
             col("CNPJ").alias("cnpj"),
             col("Valor_Mobiliario").alias("especie_acao"),
-            col("Sigla_Classe_Acao_Preferencial").alias("sigla_classe_acao"),
-            col("Classe_Acao_Preferencial").alias("classe_acao"),
             col("Sigla_Classe_Acao_Preferencial").alias("sigla_classe_acao"),
             col("Classe_Acao_Preferencial").alias("classe_acao"),
             col("Codigo_Negociacao").alias("codigo_negociacao"),
             lit(ano).alias("ano_referencia")
         ).distinct()
         
-        return dim_especie
+        return dim_tipo_acao
     
     # ========================================================================
     # FATOS
@@ -249,6 +195,7 @@ class GoldDimensionalProcessor:
         fato_bpa = bpa.select(
             col("CNPJ").alias("cnpj"),
             col("CD_CONTA").alias("cd_conta"),
+            col("DS_CONTA").alias("ds_conta"),
             col("DT_REFER").alias("data_referencia"),
             col("VL_CONTA").alias("valor"),
             lit("BPA").alias("tipo_balanco"),
@@ -259,6 +206,7 @@ class GoldDimensionalProcessor:
         fato_bpp = bpp.select(
             col("CNPJ").alias("cnpj"),
             col("CD_CONTA").alias("cd_conta"),
+            col("DS_CONTA").alias("ds_conta"),
             col("DT_REFER").alias("data_referencia"),
             col("VL_CONTA").alias("valor"),
             lit("BPP").alias("tipo_balanco"),
@@ -270,6 +218,10 @@ class GoldDimensionalProcessor:
         
         # Filtrar valores nulos/zerados (opcional - reduz tamanho)
         fato_balanco = fato_balanco.filter(col("valor").isNotNull())
+        fato_balanco = fato_balanco.withColumn(
+            "nivel",
+            size(split(col("cd_conta"), r"\."))
+        )
         
         return fato_balanco
     def create_fato_dmpl(self, ano: int):
@@ -289,6 +241,7 @@ class GoldDimensionalProcessor:
             col("CD_CONTA").alias("cd_conta"),
             col("DS_CONTA").alias("ds_conta"),
             col("DT_REFER").alias("data_referencia"),
+            col("ano_referencia").alias("ano_referencia"),
             col("VL_CONTA").alias("valor"),
         )
         
@@ -309,6 +262,7 @@ class GoldDimensionalProcessor:
             col("CNPJ").alias("cnpj"),
             col("CD_CONTA").alias("cd_conta"),
             col("DT_REFER").alias("data_referencia"),
+            col("DS_CONTA").alias("ds_conta"),
             col("DT_INI_EXERC").alias("data_inicio_exercicio"),
             col("DT_FIM_EXERC").alias("data_fim_exercicio"),
             col("VL_CONTA").alias("valor"),
@@ -317,7 +271,14 @@ class GoldDimensionalProcessor:
         
         # Filtrar valores nulos
         fato_dre = fato_dre.filter(col("valor").isNotNull())
+
+        # Calcular nível hierárquico (quantidade de pontos + 1)
+        fato_dre = fato_dre.withColumn(
+            "nivel",
+            size(split(col("cd_conta"), r"\."))
+        )
         
+
         return fato_dre
     
     def create_fato_cotacao(self, ano: int):
@@ -448,14 +409,11 @@ class GoldDimensionalProcessor:
             dim_empresa = self.create_dim_empresa(ano)
             self.save_dimension(dim_empresa, "DIM_EMPRESA")
             
-            dim_conta = self.create_dim_conta(ano)
-            self.save_dimension(dim_conta, "DIM_CONTA")
-            
             dim_tempo = self.create_dim_tempo()
             self.save_dimension(dim_tempo, "DIM_TEMPO")
             
-            dim_especie = self.create_dim_especie_acao(ano)
-            self.save_dimension(dim_especie, "DIM_ESPECIE_ACAO")
+            dim_tipo_acao = self.create_dim_tipo_acao(ano)
+            self.save_dimension(dim_tipo_acao, "DIM_TIPO_ACAO")
             
             logger.info("✅ Todas as dimensões criadas!")
             
@@ -495,7 +453,7 @@ class GoldDimensionalProcessor:
             logger.info("   - DIM_EMPRESA")
             logger.info("   - DIM_CONTA")
             logger.info("   - DIM_TEMPO")
-            logger.info("   - DIM_ESPECIE_ACAO")
+            logger.info("   - DIM_TIPO_ACAO")
             logger.info(f"\n   Fatos (ano={ano}):")
             logger.info("   - FATO_BALANCO")
             logger.info("   - FATO_DRE")
@@ -546,18 +504,12 @@ if __name__ == "__main__":
     logger.info("\n" + "="*70)
     logger.info("🎉 PROCESSAMENTO GOLD FINALIZADO!")
     logger.info("="*70)
-    logger.info("\n📊 Próximo passo:")
-    logger.info("   1. Conectar Power BI ao MinIO/Delta Lake")
-    logger.info("   2. Criar relacionamentos no modelo")
-    logger.info("   3. Construir medidas DAX (indicadores Graham)")
-    logger.info("   4. Desenvolver dashboards")
-    # Script de exportação (export_to_parquet.py)
 
     processor = GoldDimensionalProcessor()
     spark = processor.spark
 
     # Dimensões
-    for dim in ["DIM_EMPRESA", "DIM_CONTA", "DIM_TEMPO", "DIM_ESPECIE_ACAO"]:
+    for dim in ["DIM_EMPRESA", "DIM_TEMPO", "DIM_TIPO_ACAO"]:
         df = spark.read.format("delta").load(f"s3a://gold/dimensoes/{dim}")
         df.coalesce(1).write.mode("overwrite").parquet(f"/data/{dim}.parquet")
 
