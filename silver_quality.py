@@ -137,7 +137,6 @@ class SilverQualityValidator:
             # ================================================================
             # TABELAS DFP (Demonstrações Financeiras Padronizadas)
             # ================================================================
-            "composicao_capital": ["CNPJ_CIA", "DENOM_CIA", "QT_ACAO_TOTAL_CAP_INTEGR", "DT_REFER", "QT_ACAO_TOTAL_TESOURO"],
             "DRE_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "DT_REFER", "DS_CONTA"],
             "BPA_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "CD_CONTA", "DS_CONTA"],
             "BPP_con":      ["CNPJ_CIA", "DENOM_CIA", "VL_CONTA", "CD_CONTA", "DS_CONTA"],
@@ -182,6 +181,12 @@ class SilverQualityValidator:
                 "Dividendo_Distribuido_Total",
                 "Lucro_Liquido_Ajustado"
             ],
+            "capital_social": [
+                "CNPJ_Companhia", 
+                "Nome_Companhia", 
+                "Quantidade_Acoes_Ordinarias", 
+                "Quantidade_Acoes_Preferenciais", 
+                "Quantidade_Total_Acoes"]
         }
         
         # Verifica se a tabela passada em argumento está em required_cols

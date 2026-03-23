@@ -162,9 +162,9 @@ class CVMSilverProcessor(SilverProcessor):
     """Processa dados da CVM da camada Bronze para Silver usando Delta Lake"""
     
     # ========================================================================
-    # DEFINIÇÃO DOS CSVs A SEREM PROCESSADOS
+    # DEFINIÇÃO DOS CSVs A SEREM PROCESSADOS BASEANDO NA RESOLUÇÃO CVM Nº 80, DE 29 DE MARÇO DE 2022
     # ========================================================================
-    # Separados por tipo de documento (DFP e FRE) para melhor organização
+    # Dados cadastrais de companhias abertas, como CNPJ, data de registro e situação do registro.
     CAD_TARGETS = {
         "cad_cia_aberta": "cad_cia_aberta"  # Cadastro de Companhias Abertas
     }
@@ -172,9 +172,9 @@ class CVMSilverProcessor(SilverProcessor):
     # DFP - Demonstrações Financeiras Padronizadas (anual)
     # ────────────────────────────────────────────────────────────────────────
     DFP_TARGETS = {
-        "composicao_capital": "dfp_cia_aberta_composicao_capital",  # Composição do Capital Social
+        #"composicao_capital": "dfp_cia_aberta_composicao_capital",  # Composição do Capital Social
         "DRE_con": "dfp_cia_aberta_DRE_con",           # DRE Consolidado
-        "DFC_DMPL_con": "dfp_cia_aberta_DMPL_con",     # Fluxo de Caixa Método Direto
+        "DFC_DMPL_con": "dfp_cia_aberta_DMPL_con",     # Demonstração das Mutações do Patrimônio Líquido Consolidado
         "BPA_con": "dfp_cia_aberta_BPA_con",           # Balanço Patrimonial Ativo Consolidado
         "BPP_con": "dfp_cia_aberta_BPP_con"            # Balanço Patrimonial Passivo Consolidado
     }
@@ -187,6 +187,7 @@ class CVMSilverProcessor(SilverProcessor):
 
         "volume_valor_mobiliario": "fre_cia_aberta_volume_valor_mobiliario",  # Volume e Valor Mobiliário (Preço da Ação)
         "distribuicao_dividendos": "fre_cia_aberta_distribuicao_dividendos",
+        "capital_social": "fre_cia_aberta_capital_social"
     }
     # ────────────────────────────────────────────────────────────────────────
     # FCA - Formulário Cadastral de Companhias Abertas
@@ -572,8 +573,30 @@ class CVMSilverProcessor(SilverProcessor):
                     df_clean = df_clean.filter(
                         col("Dividendo_Distribuido_Total").isNotNull()
                     )
-                
+              
                 logger.info(f"  ℹ️  Mantendo todos os registros de dividendos (incluindo zeros)")
+                #remove linhas duplicadas
+                df_clean = df_clean.dropDuplicates()
+            elif csv_key == "capital_social":
+                # Segundo o documento, campos-chave são:
+                # - Capital_Social_Realizado
+                # - Data_Fim_Trimestre
+                #
+                # Filtros de qualidade:
+                required_cols = ["Quantidade_Acoes_Ordinarias","Quantidade_Acoes_Preferenciais","Quantidade_Total_Acoes"]
+                if "Tipo_Capital" in df_clean.columns:
+                    df_clean = df_clean.filter(
+                        lower(col("Tipo_Capital")).ilike("Capital Integralizado")
+                    )
+                if all(col_name in df_clean.columns for col_name in required_cols):
+                    df_clean = (
+                        df_clean
+                        .withColumn("Quantidade_Acoes_Ordinarias", col("Quantidade_Acoes_Ordinarias").cast(IntegerType()))
+                        .withColumn("Quantidade_Acoes_Preferenciais", col("Quantidade_Acoes_Preferenciais").cast(IntegerType()))
+                        .withColumn("Quantidade_Total_Acoes", col("Quantidade_Total_Acoes").cast(IntegerType()))
+                    )
+                    
+                logger.info(f"  ℹ️  Mantendo apenas o Tipo_Capital 'Capital Integralizado'")
                 #remove linhas duplicadas
                 df_clean = df_clean.dropDuplicates()
         # ────────────────────────────────────────────────────────────────────
@@ -669,7 +692,9 @@ class CVMSilverProcessor(SilverProcessor):
 
         date_cols_fre = [
             'Data_Fim_Trimestre',       # volume_valor_mobiliario
-            'Data_Fim_Exercicio_Social'  # distribuicao_dividendos
+            'Data_Fim_Exercicio_Social',  # distribuicao_dividendos
+            'Data_Referencia',         # capital_social
+            'Data_Autorizacao_Aprovacao', #capital social
         ]
         for col_name in date_cols_fre:
             if col_name in df_clean.columns:
@@ -760,8 +785,8 @@ if __name__ == "__main__":
         for csv_key, success in results.items():
             status = "✅" if success else "❌"
             print(f"  {status} {csv_key}")
-    """ #BAIXA ARQUIVOS NO LINUX
-    output_base = "/tmp/silver_csv/teste19.03v03"
+    #BAIXA ARQUIVOS NO LINUX
+    output_base = "/tmp/silver_csv/teste23.03v03"
     os.makedirs(output_base, exist_ok=True)
 
     all_tables = list(processor.DFP_TARGETS.keys()) + list(processor.FRE_TARGETS.keys()) + list(processor.FCA_TARGETS.keys()) + list(processor.CAD_TARGETS.keys())
@@ -771,4 +796,4 @@ if __name__ == "__main__":
         df = processor.read_silver_table(table_name)  # todos os anos
         out_path = os.path.join(output_base, table_name)
         df.coalesce(1).write.mode("overwrite").option("header", True).csv(out_path)
-        logger.info(f"Salvo {table_name} em {out_path}") """
+        logger.info(f"Salvo {table_name} em {out_path}")

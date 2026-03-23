@@ -9,7 +9,7 @@
 minio==7.2.12               # Cliente MinIO/S3
 requests==2.32.3            # HTTP requests (scraping Fundamentus)
 python-dateutil==2.9.0      # Manipulação de datas
-beautifulsoup4==4.12.3      # Parse HTML (caso precise extrair dados)
+#beautifulsoup4==4.12.3      # Parse HTML (caso precise extrair dados)
 lxml==5.3.0                 # Parser XML/HTML rápido
 
 # ───────────────────────────────────────────────────────────────────────────
@@ -22,7 +22,7 @@ pandas==2.2.3               # Manipulação de dados (útil para testes locais)
 # ───────────────────────────────────────────────────────────────────────────
 # ORQUESTRAÇÃO - Prefect
 # ───────────────────────────────────────────────────────────────────────────
-prefect==3.1.9              # Workflow orchestration
+#prefect==3.1.9              # Workflow orchestration
 
 # ───────────────────────────────────────────────────────────────────────────
 # OBSERVABILIDADE - Prometheus

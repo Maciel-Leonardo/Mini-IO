@@ -349,30 +349,27 @@ class GoldDimensionalProcessor:
         
         return fato_dividendos
     
-    def create_fato_composicao_capital(self, ano: int):
+    def create_fato_capital_social(self, ano: int):
         """
-        FATO_COMPOSICAO_CAPITAL: Quantidade de ações
+        FATO_CAPITAL_SOCIAL: Quantidade de ações
         
-        Fonte: Silver composicao_capital (DFP)
+        Fonte: Silver capital_social (FRE)
         Granularidade: empresa × data
         """
-        logger.info("📊 Criando FATO_COMPOSICAO_CAPITAL...")
+        logger.info("📊 Criando FATO_CAPITAL_SOCIAL...")
         
-        acoes = self.processor.read_silver_table("composicao_capital", ano)
+        acoes = self.processor.read_silver_table("capital_social", ano)
         
         fato_acoes = acoes.select(
             col("CNPJ").alias("cnpj"),
-            col("DT_REFER").alias("data_referencia"),
-            col("QT_ACAO_TOTAL_CAP_INTEGR").alias("qt_acao_capital_integralizado"),
-            coalesce(col("QT_ACAO_TOTAL_TESOURO"), lit(0)).alias("qt_acao_tesouraria"),
+            col("Data_Referencia").alias("data_referencia"),
+            col("Data_Autorizacao_Aprovacao").alias("data_autorizacao_aprovacao"),
+            col("Quantidade_Acoes_Preferenciais").alias("qt_acao_preferencial"),
+            col("Quantidade_Acoes_Ordinarias").alias("qt_acao_ordinaria"),
+            col("Quantidade_Total_Acoes").alias("qt_acao_total"),
             lit(ano).alias("ano_referencia")
         )
         
-        # Calcular ações em circulação
-        fato_acoes = fato_acoes.withColumn(
-            "qt_acao_circulacao",
-            col("qt_acao_capital_integralizado") - col("qt_acao_tesouraria")
-        )
         
         return fato_acoes
     
@@ -437,8 +434,8 @@ class GoldDimensionalProcessor:
             fato_dividendos = self.create_fato_dividendos(ano)
             self.save_fact(fato_dividendos, "FATO_DIVIDENDOS", ano)
             
-            fato_acoes = self.create_fato_composicao_capital(ano)
-            self.save_fact(fato_acoes, "FATO_COMPOSICAO_CAPITAL", ano)
+            fato_acoes = self.create_fato_capital_social(ano)
+            self.save_fact(fato_acoes, "FATO_CAPITAL_SOCIAL", ano)
             
             logger.info("✅ Todos os fatos criados!")
             
@@ -459,7 +456,7 @@ class GoldDimensionalProcessor:
             logger.info("   - FATO_DRE")
             logger.info("   - FATO_COTACAO")
             logger.info("   - FATO_DIVIDENDOS")
-            logger.info("   - FATO_COMPOSICAO_CAPITAL")
+            logger.info("   - FATO_CAPITAL_SOCIAL")
             logger.info(f"\n💾 Bucket: s3a://{self.minio_config.bucket_gold}/")
             logger.info("="*70)
             
@@ -505,6 +502,8 @@ if __name__ == "__main__":
     logger.info("🎉 PROCESSAMENTO GOLD FINALIZADO!")
     logger.info("="*70)
 
+    """ 
+    #Exportar para o Power BI
     processor = GoldDimensionalProcessor()
     spark = processor.spark
 
@@ -514,6 +513,6 @@ if __name__ == "__main__":
         df.coalesce(1).write.mode("overwrite").parquet(f"/data/{dim}.parquet")
 
     # Fatos (todas as partições de uma vez)
-    for fato in ["FATO_BALANCO", "FATO_DRE", "FATO_COTACAO", "FATO_DIVIDENDOS", "FATO_COMPOSICAO_CAPITAL"]:
+    for fato in ["FATO_BALANCO", "FATO_DRE", "FATO_COTACAO", "FATO_DIVIDENDOS", "FATO_CAPITAL_SOCIAL"]:
         df = spark.read.format("delta").load(f"s3a://gold/fatos/{fato}")
-        df.coalesce(1).write.mode("overwrite").parquet(f"/data/{fato}.parquet")
+        df.coalesce(1).write.mode("overwrite").parquet(f"/data/{fato}.parquet") """
